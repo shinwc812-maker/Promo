@@ -8,6 +8,27 @@
 const fmt = (n) => n.toLocaleString('ko-KR');
 const truncate = (str, n = 20) => (str && str.length > n) ? str.substr(0, n-1) + '...' : str;
 
+// 이벤트명에서 '영화 제목'이 든 []·<> 괄호를 통째로 제거한다.
+// 상세 모달은 이미 영화별로 묶여 있어 제목 반복이 길어 이벤트 구분을 방해함.
+// [CGV회원시사]·[신한카드] 같은 비(非)제목 태그는 그대로 둔다.
+const _normKey = (s) => (s || '').replace(/[^0-9a-z가-힣]/gi, '').toLowerCase();
+function cleanEventName(name, movieTitle) {
+  if (!name) return name;
+  const nt = _normKey(movieTitle);
+  if (!nt) return name;
+  const out = name.replace(/[\[<]([^\[\]<>]*)[\]>]/g, (m, inner) => {
+    const nb = _normKey(inner);
+    // 괄호 내용이 '제목 자체'(같음·잘린 앞부분·구두점 차이·제목+꼬리)일 때만 제거.
+    // 제목을 단순 '포함'만 하는 더 긴 프로그램명(예: '인사이드 더 플레이 : 군체')은 유지.
+    if (nb && Math.min(nb.length, nt.length) >= 2 &&
+        (nt.startsWith(nb) || nb.startsWith(nt) || nt.includes(nb))) {
+      return '';                 // 영화 제목 괄호 → 제거
+    }
+    return m;                     // 그 외 태그 → 유지
+  });
+  return out.replace(/\s+/g, ' ').trim();
+}
+
 const pad2 = (n) => String(n).padStart(2, '0');
 const now = new Date();
 const ts = `${now.getFullYear()}.${pad2(now.getMonth()+1)}.${pad2(now.getDate())} ` +
@@ -74,7 +95,7 @@ function resolveMovie(title) {
 }
 
 // 4사 프로모션 상세 테이블 HTML 생성
-function buildPromoDetail(movieCd) {
+function buildPromoDetail(movieCd, movieTitle) {
   const chains = [
     { key: 'cgv',     label: 'CGV',   data: DATA.cgv },
     { key: 'lotte',   label: '롯데',  data: DATA.lotte },
@@ -116,11 +137,11 @@ function buildPromoDetail(movieCd) {
         : '';
       rows += `<tr class="${i === 0 ? 'chain-start' : ''}">
         ${i === 0 ? `<td class="chain-label" rowspan="${n}"><span class="chip chip-${ch.key} on">${ch.label}</span></td>` : ''}
-        <td class="evt">${s ? truncate(s.name, 24) : ''}</td>
+        <td class="evt">${s ? truncate(cleanEventName(s.name, movieTitle), 24) : ''}</td>
         <td class="num">${seatVal}</td>
-        <td class="evt">${c ? truncate(c.name, 24) : ''}</td>
+        <td class="evt">${c ? truncate(cleanEventName(c.name, movieTitle), 24) : ''}</td>
         <td class="num">${issuedVal}</td>
-        <td class="evt">${g ? truncate(g.name, 24) : ''}</td>
+        <td class="evt">${g ? truncate(cleanEventName(g.name, movieTitle), 24) : ''}</td>
         <td class="num">${theaterVal}</td>
       </tr>`;
     }
@@ -160,7 +181,7 @@ function openDetail(movieTitle) {
 
   const table = document.getElementById('promo-detail-table');
   if (mv) {
-    table.innerHTML = buildPromoDetail(mv.movieCd);
+    table.innerHTML = buildPromoDetail(mv.movieCd, mv.title || movieTitle);
   } else {
     table.innerHTML = `<tbody><tr><td class="promo-empty">
       매칭되는 영화 데이터를 찾을 수 없습니다.</td></tr></tbody>`;
