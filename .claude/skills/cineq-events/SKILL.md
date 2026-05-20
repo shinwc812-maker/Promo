@@ -10,7 +10,7 @@ description: 씨네큐 /Event/MoreList API 로 진행중 이벤트 수집 + /Eve
 `fetch_promotions_cineq.py` 상단 4종 dict:
 - `SCREENINGS` = 무대인사 evntNo → [{branch, hall, sessions}]
 - `GOODS_THEATERS` = 굿즈 evntNo → 진행관수
-- `COUPON_COUNTS` = 쿠폰 evntNo → 발행수 (총 N장·선착순 N명 명시된 경우만)
+- `COUPON_COUNTS` = 쿠폰 evntNo → 발행수 (상세 '이미지' 안 텍스트를 LLM 이 판독해 등록)
 - `SALE_EVENTS` = 판매 단품 evntNo set (제외)
 
 ## 두 엔드포인트
@@ -126,9 +126,15 @@ GOODS_THEATERS = {
 ### 5단계: 판매 단품 제외 → SALE_EVENTS
 가격(원) 붙은 단품 판매는 `SALE_EVENTS` 에 추가. 현재 씨네큐 매칭 굿즈엔 판매 단품 없음(`set()`).
 
-### 5.5단계: 쿠폰 발행수 → COUPON_COUNTS
-쿠폰 `_2.jpg` 본문에 "총 N장"·"선착순 N명" 명시되면 `COUPON_COUNTS = {eid: 정수}`
-(선착순 N명=N장). 수량 없는 "선착순"은 미공개.
+### 5.5단계: 쿠폰 발행수 → COUPON_COUNTS (이미지 판독)
+씨네큐는 발행수가 **상세 이미지 안 텍스트**에 있어 자동 텍스트 추출이 안 된다
+(다른 체인과 다름). 크롤러가 쿠폰 이벤트의 상세 이미지(`{eid}_*.jpg`)를 받아두니,
+그 `_2.jpg`(본문)를 `Read` 로 열어 발행수를 판독한다.
+- 표기 예: **"선착순 200명!"**, **"한정 15,000건"**, "총 N장", "선착순 N명"
+- 판독값을 `COUPON_COUNTS = {eid: 정수}` 에 등록 (선착순 N명 = N장)
+- 수량 없는 "선착순"(숫자 없음)은 미공개 → 등록 안 함
+- ⚠ 씨네큐 쿠폰은 예매율 TOP 10 매칭이 거의 없어 대시보드 영향은 드물지만,
+  매칭되는 경우 꼭 판독해 등록한다.
 
 ### 6단계: 재실행 → 좌석·진행관수 합산
 ```bash

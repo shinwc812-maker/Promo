@@ -1,7 +1,7 @@
 {
   "chain": "CINEQ",
   "source": "씨네큐 공식 이벤트 API",
-  "fetchedAt": "2026-05-20T11:23:54+09:00",
+  "fetchedAt": "2026-05-20T15:10:20+09:00",
   "movies": [
     {
       "movieCd": "20258236",
@@ -104,7 +104,7 @@
           "duration": "2026.05.30~2026.05.30",
           "fetchedAt": "2026-05-20",
           "posterUrls": [
-            "https://file.cineq.co.kr/j.aspx?guid=a5c50a7e5ad846cd9cff2f4805afb7ea",
+            "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
             "https://file.cineq.co.kr/j.aspx?guid=5c94e37dd0264234a627b5e5fb7aa6c3",
             "https://file.cineq.co.kr/j.aspx?guid=1898d605556a4e41a0e9d697caabad9b"
           ],
@@ -152,7 +152,7 @@
           "duration": "2026.05.12~2026.05.12",
           "fetchedAt": "2026-05-20",
           "posterUrls": [
-            "https://file.cineq.co.kr/j.aspx?guid=a5c50a7e5ad846cd9cff2f4805afb7ea",
+            "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
             "https://file.cineq.co.kr/j.aspx?guid=078f2aa34bd2488eb37cae9f918348f6",
             "https://file.cineq.co.kr/j.aspx?guid=9b54111299a24b81b61fac1a367d2857"
           ],
@@ -276,7 +276,7 @@
       "duration": "2026.06.02~2026.06.02",
       "fetchedAt": "2026-05-20",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=a5c50a7e5ad846cd9cff2f4805afb7ea",
+        "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
         "https://file.cineq.co.kr/j.aspx?guid=a65a1148bbd0456bb0f50f2967b5dc71",
         "https://file.cineq.co.kr/j.aspx?guid=22e53c63e2af4595a4926897180259a0"
       ],
@@ -298,7 +298,17 @@
       "name": "씨네Q 정부지원 국민 영화관람 할인권",
       "type": "coupon",
       "duration": "2026.05.13~2026.07.07",
-      "fetchedAt": "2026-05-20"
+      "fetchedAt": "2026-05-20",
+      "posterUrls": [
+        "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
+        "https://file.cineq.co.kr/j.aspx?guid=fc87cb6583bd49a79d7aa50fcfd785de",
+        "https://file.cineq.co.kr/j.aspx?guid=7859303d90784e1d91205eeeb46f97c3"
+      ],
+      "imagePaths": [
+        "assets/data/cineq_images/7077_1.jpg",
+        "assets/data/cineq_images/7077_2.jpg",
+        "assets/data/cineq_images/7077_3.jpg"
+      ]
     },
     {
       "eventId": "7076",
@@ -501,7 +511,17 @@
       "name": "[청라점] 5월 조조 할인!",
       "type": "coupon",
       "duration": "2026.05.01~2026.05.31",
-      "fetchedAt": "2026-05-20"
+      "fetchedAt": "2026-05-20",
+      "posterUrls": [
+        "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
+        "https://file.cineq.co.kr/j.aspx?guid=8952e0c24ef94d22b3f517ac3a9a4529",
+        "https://file.cineq.co.kr/j.aspx?guid=5cf2fce1f50e41a9a5a9cd8264ca7ec7"
+      ],
+      "imagePaths": [
+        "assets/data/cineq_images/6991_1.jpg",
+        "assets/data/cineq_images/6991_2.jpg",
+        "assets/data/cineq_images/6991_3.jpg"
+      ]
     },
     {
       "eventId": "6989",
@@ -914,7 +934,17 @@
       "name": "[씨네QX대한적십자사] 헌혈 인증 할인!",
       "type": "coupon",
       "duration": "2023.04.06~2026.06.30",
-      "fetchedAt": "2026-05-20"
+      "fetchedAt": "2026-05-20",
+      "posterUrls": [
+        "https://file.cineq.co.kr/j.aspx?guid=2ff447d7bf8640ac95eb123f92aac963",
+        "https://file.cineq.co.kr/j.aspx?guid=8efbf0c070944efe84d0dd90080f61f9",
+        "https://file.cineq.co.kr/j.aspx?guid=dcd244756efc4cb896ffc70f6f4ce65c"
+      ],
+      "imagePaths": [
+        "assets/data/cineq_images/2029_1.jpg",
+        "assets/data/cineq_images/2029_2.jpg",
+        "assets/data/cineq_images/2029_3.jpg"
+      ]
     },
     {
       "eventId": "1934",

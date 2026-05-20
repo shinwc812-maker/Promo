@@ -38,7 +38,9 @@ DEFAULT_HALL_SEATS = 100  # 관 매칭 실패 시 fallback
 # 판매 단품(유료) — 증정 아니므로 대시보드·집계 제외 (현재 씨네큐 매칭 굿즈엔 없음)
 SALE_EVENTS = set()
 
-# 쿠폰 발행수 (이미지에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
+# 쿠폰 발행수 — 씨네큐는 발행수가 상세 '이미지' 안 텍스트에 있어(예: '선착순 200명!',
+# '한정 15,000건') 자동 텍스트 추출이 불가. 크롤러가 쿠폰 상세 이미지를 받아두면
+# LLM 이 판독해 여기 eventId → 발행수(매)로 등록한다. (cineq-events SKILL 참조)
 COUPON_COUNTS = {}
 
 # 굿즈·특전 진행관수 (이미지 '진행 극장' 목록 판독). 미등록은 '미공개'.
@@ -241,8 +243,9 @@ def main():
         if ptype == "coupon" and eid in COUPON_COUNTS:
             event_rec["issued"] = COUPON_COUNTS[eid]
 
-        # stage: 상세 이미지 다운로드 + SCREENINGS 기반 좌석 합산
-        if ptype == "stage" and eid:
+        # stage·coupon: 상세 이미지 다운로드 (stage=좌석 판독용, coupon=발행수 판독용).
+        # 씨네큐는 발행수가 이미지 안 텍스트라 LLM 이 이 이미지를 읽어 COUPON_COUNTS 등록.
+        if ptype in ("stage", "coupon") and eid:
             guids = fetch_detail_image_guids(eid)
             saved = []
             for idx, g in enumerate(guids, 1):
@@ -254,7 +257,7 @@ def main():
             if guids:
                 event_rec["posterUrls"] = [FILE_URL + g for g in guids]
                 event_rec["imagePaths"] = saved
-            if eid in SCREENINGS:
+            if ptype == "stage" and eid in SCREENINGS:
                 screenings = []
                 total = 0
                 for s in SCREENINGS[eid]:

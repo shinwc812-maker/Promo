@@ -10,7 +10,7 @@ description: 메가박스 eventMngDiv.do 로 진행중 이벤트 목록 + event/
 `fetch_promotions_megabox.py` 상단 4종 dict:
 - `SCREENINGS` = 무대인사 evntNo → [{branch, hall, sessions}]
 - `GOODS_THEATERS` = 굿즈 evntNo → 진행관수
-- `COUPON_COUNTS` = 쿠폰 evntNo → 발행수 (총 N장·선착순 N명 명시된 경우만)
+- `COUPON_COUNTS` = 쿠폰 발행수 수동 오버라이드 (평소 비움 · 빵원티켓 등은 상세 본문 '선착순 N명' 자동 추출)
 - `SALE_EVENTS` = 판매 단품 evntNo set (제외)
 
 ## 두 API/엔드포인트
@@ -119,9 +119,14 @@ SALE_EVENTS = {
 }
 ```
 
-### 5.5단계: 쿠폰 발행수 → COUPON_COUNTS
-쿠폰 이미지에 "총 N장"·"선착순 N명" 명시되면 `COUPON_COUNTS = {eid: 정수}` (선착순
-N명=N장). 수량 없는 "선착순"은 미공개. 대부분 미공개지만 있으면 수집.
+### 5.5단계: 쿠폰 발행수 (자동 추출)
+**빵원티켓 등 선착순 쿠폰의 발행수는 크롤러가 자동 등록한다.** 발행수는 이벤트
+상세페이지 본문 텍스트의 "선착순 N명까지"에 있어, `fetch_coupon_issued()` 가
+상세 HTML 을 받아 파싱해 coupon 이벤트의 `issued` 로 넣는다. 검증: 와일드 씽 3,000.
+- "빵원티켓"이 COUPON_KW 에 포함돼 coupon 으로 분류되고, 영화명 매칭은 `<꺾쇠>`·
+  `[대괄호]` 둘 다 인식(빵원티켓 제목은 `[와일드 씽]` 형태).
+- 멤버십·제휴 할인쿠폰은 수량 문구가 없어 자동 미공개(None).
+- 수동 오버라이드(`COUPON_COUNTS`): 자동값이 틀릴 때만 eventNo→발행수 지정.
 
 ### 6단계: 재실행 → 좌석·진행관수 합산
 ```bash
