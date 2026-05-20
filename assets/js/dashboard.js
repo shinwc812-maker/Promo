@@ -313,8 +313,8 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
           <td>${cellVal(p.audience)}</td>
           <td>${cellVal(p.promoSeats)}</td>
           <td class="seat-ratio"><span class="val">${seatRatio.toFixed(1)}%</span></td>
-          <td>${cellVal(p.coupons)}${chainBadges(p.movieCd, 'coupon')}</td>
           <td>${cellVal(p.stage)}${chainBadges(p.movieCd, 'stage')}</td>
+          <td>${cellVal(p.coupons)}${chainBadges(p.movieCd, 'coupon')}</td>
           <td>${cellVal(p.goods)}${chainBadges(p.movieCd, 'goods')}</td>
         </tr>`;
     }).join('');
