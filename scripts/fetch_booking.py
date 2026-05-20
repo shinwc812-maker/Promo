@@ -19,12 +19,14 @@ movieCd 기준으로 비교해 계산한다. → 15~60분 주기로 돌리면
 의존성: 파이썬 표준 라이브러리만 사용 (pip install · API 키 불필요)
 """
 import json
+import os
 import re
 import sys
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 # Windows 콘솔(cp949)에서 한글 메시지가 깨지지 않도록 출력 인코딩 고정
@@ -36,14 +38,45 @@ for _stream in (sys.stdout, sys.stderr):
 
 KST = timezone(timedelta(hours=9))
 ROOT = Path(__file__).resolve().parent.parent
+ENV_FILE = ROOT / ".env"
 OUT_FILE = ROOT / "assets" / "data" / "booking.json"
 PAGE_URL = (
     "https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do"
     "?loadEnd=0&repNationCd=&areaCd=&dmlMode=search&allMovieYn=Y"
 )
+MOVIE_INFO_URL = ("https://www.kobis.or.kr/kobisopenapi/webservice/rest"
+                  "/movie/searchMovieInfo.json")
 TOP_N = 10
 # 페이지 인코딩 — 응답 헤더(charset=UTF-8) 및 바이트 검증 결과 모두 UTF-8
 PAGE_ENCODING = "utf-8"
+
+
+def load_api_key():
+    """KOFIC API 키 — 환경변수 → .env 순. (장르 조회용, 없으면 장르 생략)"""
+    key = os.environ.get("KOFIC_API_KEY")
+    if key:
+        return key.strip()
+    if ENV_FILE.exists():
+        for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.startswith("KOFIC_API_KEY") and "=" in line:
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return None
+
+
+def fetch_genre(key, movie_cd):
+    """KOFIC searchMovieInfo 로 장르 문자열 반환 (예: '액션, 스릴러'). 실패 시 ''."""
+    if not key or not movie_cd:
+        return ""
+    url = f"{MOVIE_INFO_URL}?{urlencode({'key': key, 'movieCd': movie_cd})}"
+    try:
+        with urlopen(url, timeout=15) as resp:
+            doc = json.loads(resp.read().decode("utf-8"))
+        info = doc.get("movieInfoResult", {}).get("movieInfo", {})
+        genres = [g.get("genreNm") for g in info.get("genres", []) if g.get("genreNm")]
+        return ", ".join(genres)
+    except (HTTPError, URLError, json.JSONDecodeError, KeyError):
+        return ""
 
 
 class RealTicketParser(HTMLParser):
@@ -129,6 +162,8 @@ def main():
                  "(페이지 구조 변경 또는 일시적 빈 응답 가능성)")
 
     prev_rates = load_prev_rates()
+    api_key = load_api_key()
+    genre_cache = {}   # movieCd → 장르 (중복 호출 방지)
 
     booking = []
     for cells, movie_cd in parser.rows[:TOP_N]:
@@ -139,6 +174,8 @@ def main():
             delta = f"{diff:+.1f}"
         else:
             delta = "NEW" if prev_rates else "—"
+        if movie_cd and movie_cd not in genre_cache:
+            genre_cache[movie_cd] = fetch_genre(api_key, movie_cd)
         booking.append({
             "rank": to_int(cells[0]),
             "movieCd": movie_cd or "",
@@ -147,6 +184,7 @@ def main():
             "rate": rate,
             "audience": to_int(cells[6]),   # 예매관객수
             "delta": delta,
+            "genre": genre_cache.get(movie_cd, ""),
         })
 
     out = {

@@ -64,12 +64,12 @@ function ddayText(openDt) {
   return `개봉 D-${Math.abs(diff)}`;
 }
 
-// 영화명 → {movieCd, title, openDt} (booking 우선, boxoffice 보조)
+// 영화명 → {movieCd, title, openDt, genre} (booking 우선, boxoffice 보조)
 function resolveMovie(title) {
   const bk = (DATA.booking?.bookingRate || []).find(m => m.title === title);
-  if (bk) return { movieCd: bk.movieCd, title: bk.title, openDt: bk.openDt };
+  if (bk) return { movieCd: bk.movieCd, title: bk.title, openDt: bk.openDt, genre: bk.genre };
   const bo = (DATA.boxoffice?.boxOffice || []).find(m => m.title === title);
-  if (bo) return { movieCd: bo.movieCd, title: bo.title, openDt: null };
+  if (bo) return { movieCd: bo.movieCd, title: bo.title, openDt: null, genre: bo.genre };
   return null;
 }
 
@@ -155,7 +155,8 @@ function openDetail(movieTitle) {
   document.getElementById('modal-title').textContent = movieTitle;
   document.getElementById('modal-dday').textContent =
     mv && mv.openDt ? ddayText(mv.openDt) : '개봉일 미상';
-  document.getElementById('modal-genre').textContent = '장르 미공개';
+  document.getElementById('modal-genre').textContent =
+    (mv && mv.genre) ? mv.genre : '장르 미공개';
 
   const table = document.getElementById('promo-detail-table');
   if (mv) {

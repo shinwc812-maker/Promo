@@ -1,87 +1,96 @@
 {
   "source": "KOBIS 실시간 예매율 · findRealTicketList.do",
-  "fetchedAt": "2026-05-20T09:12:16+09:00",
+  "fetchedAt": "2026-05-20T12:58:41+09:00",
   "bookingRate": [
     {
       "rank": 1,
       "movieCd": "20252402",
       "title": "군체",
       "openDt": "2026-05-21",
-      "rate": 53.2,
-      "audience": 206221,
-      "delta": "+3.9"
+      "rate": 49.9,
+      "audience": 216686,
+      "delta": "-3.3",
+      "genre": "액션, 스릴러"
     },
     {
       "rank": 2,
       "movieCd": "20259626",
       "title": "마이클",
       "openDt": "2026-05-13",
-      "rate": 11.8,
-      "audience": 45560,
-      "delta": "-1.2"
+      "rate": 10.7,
+      "audience": 46466,
+      "delta": "-1.1",
+      "genre": "드라마"
     },
     {
       "rank": 3,
-      "movieCd": "20248252",
-      "title": "와일드 씽",
+      "movieCd": "20263761",
+      "title": "플레이브 아시아 투어 [대쉬: 퀀텀 리프] 앙코르 인 시네마",
       "openDt": "2026-06-03",
-      "rate": 5.9,
-      "audience": 22866,
-      "delta": "-0.1"
+      "rate": 7.4,
+      "audience": 32302,
+      "delta": "NEW",
+      "genre": "공연"
     },
     {
       "rank": 4,
-      "movieCd": "20262975",
-      "title": "신극장판 은혼: 요시와라 대염상",
-      "openDt": "2026-05-20",
-      "rate": 4.1,
-      "audience": 15992,
-      "delta": "-0.6"
+      "movieCd": "20248252",
+      "title": "와일드 씽",
+      "openDt": "2026-06-03",
+      "rate": 6.3,
+      "audience": 27267,
+      "delta": "+0.4",
+      "genre": "코미디"
     },
     {
       "rank": 5,
-      "movieCd": "20263344",
-      "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
       "openDt": "2026-05-20",
-      "rate": 2.2,
-      "audience": 8664,
-      "delta": "+0.0"
+      "rate": 3.1,
+      "audience": 13391,
+      "delta": "-1.0",
+      "genre": "애니메이션"
     },
     {
       "rank": 6,
-      "movieCd": "20259791",
-      "title": "악마는 프라다를 입는다 2",
-      "openDt": "2026-04-29",
-      "rate": 2.1,
-      "audience": 8073,
-      "delta": "-0.6"
+      "movieCd": "20263344",
+      "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
+      "openDt": "2026-05-20",
+      "rate": 2.0,
+      "audience": 8537,
+      "delta": "-0.2",
+      "genre": "코미디, 어드벤처, SF"
     },
     {
       "rank": 7,
-      "movieCd": "20263253",
-      "title": "극장판 내 마음의 위험한 녀석",
-      "openDt": "2026-05-21",
-      "rate": 1.6,
-      "audience": 6356,
-      "delta": "NEW"
+      "movieCd": "20259791",
+      "title": "악마는 프라다를 입는다 2",
+      "openDt": "2026-04-29",
+      "rate": 1.8,
+      "audience": 7843,
+      "delta": "-0.3",
+      "genre": "드라마"
     },
     {
       "rank": 8,
-      "movieCd": "20263222",
-      "title": "극장판 호빵맨: 세균맨과 그림책의 루룬",
-      "openDt": "2026-05-23",
-      "rate": 1.6,
-      "audience": 6155,
-      "delta": "-0.3"
+      "movieCd": "20263253",
+      "title": "극장판 내 마음의 위험한 녀석",
+      "openDt": "2026-05-21",
+      "rate": 1.5,
+      "audience": 6556,
+      "delta": "-0.1",
+      "genre": "애니메이션"
     },
     {
       "rank": 9,
-      "movieCd": "20263030",
-      "title": "백룸",
-      "openDt": "2026-05-27",
-      "rate": 1.4,
-      "audience": 5532,
-      "delta": "-0.1"
+      "movieCd": "20263222",
+      "title": "극장판 호빵맨: 세균맨과 그림책의 루룬",
+      "openDt": "2026-05-23",
+      "rate": 1.5,
+      "audience": 6304,
+      "delta": "-0.1",
+      "genre": "애니메이션"
     },
     {
       "rank": 10,
@@ -89,8 +98,9 @@
       "title": "만달로리안과 그로구",
       "openDt": "2026-05-27",
       "rate": 1.4,
-      "audience": 5351,
-      "delta": "NEW"
+      "audience": 5921,
+      "delta": "+0.0",
+      "genre": "액션, 어드벤처"
     }
   ]
 }
