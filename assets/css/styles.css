@@ -639,9 +639,8 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 24px;
-  margin-bottom: 32px;
+  padding-bottom: 0;
+  margin-bottom: 18px;
 }
 .modal-eyebrow {
   font-family: var(--font-mono);
