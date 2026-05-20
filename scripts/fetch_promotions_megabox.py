@@ -191,34 +191,38 @@ def build_title_map():
 
 
 def build_seat_map():
-    """지점·관 → 좌석수 lookup."""
+    """지점 → halls 리스트({no, seats, type?}) lookup. type 필드까지 보존."""
     if not SEATS_FILE.exists():
         return {}
     doc = json.loads(SEATS_FILE.read_text(encoding="utf-8"))
     theaters = doc.get("theaters") if isinstance(doc, dict) else doc
     out = {}
     for t in theaters or []:
-        out[t.get("name", "")] = {
-            (h.get("no") or ""): (h.get("seats") or 0)
-            for h in (t.get("halls") or [])
-        }
+        out[t.get("name", "")] = t.get("halls") or []
     return out
 
 
 def lookup_seats(seat_map, branch, hall):
-    """지점·관 매칭 — 특수관 이름(Dolby Cinema 등)은 평균 좌석으로 fallback."""
-    halls = seat_map.get(branch) or {}
+    """지점·관 매칭 — 특수관 이름(Dolby Cinema 등)은 type 필드로 매칭."""
+    halls = seat_map.get(branch) or []
     if not halls:
         return DEFAULT_HALL_SEATS
-    # 정확 매칭
-    if hall in halls and halls[hall]:
-        return halls[hall]
-    # 부분 매칭 — "2관" in "2관"
-    for hno, seats in halls.items():
-        if hno and (hall == hno or hall in hno or hno in hall):
-            return seats
-    # 못 찾으면 지점 평균
-    vals = [s for s in halls.values() if s]
+    # 1. 정확한 관 번호 매칭 (no 필드)
+    for h in halls:
+        if h.get("no") == hall and h.get("seats"):
+            return h["seats"]
+    # 2. type 필드 매칭 — "Dolby Cinema" → type=Dolby Cinema 인 관
+    for h in halls:
+        if h.get("type") and h.get("seats"):
+            if hall in h["type"] or h["type"] in hall:
+                return h["seats"]
+    # 3. 부분 매칭 — "2관" in "2관"
+    for h in halls:
+        no = h.get("no", "")
+        if no and h.get("seats") and (hall == no or hall in no or no in hall):
+            return h["seats"]
+    # 4. 못 찾으면 지점 평균
+    vals = [h["seats"] for h in halls if h.get("seats")]
     return round(sum(vals) / len(vals)) if vals else DEFAULT_HALL_SEATS
 
 

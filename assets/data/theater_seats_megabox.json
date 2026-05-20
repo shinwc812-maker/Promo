@@ -1,112 +1,124 @@
 {
   "chain": "MEGABOX",
-  "updatedAt": "2026-05-19",
+  "updatedAt": "2026-05-20T10:02:42+09:00",
   "theaters": [
     {
       "name": "강남",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 378,
       "halls": [
         {
-          "no": "1관",
-          "seats": 142
+          "no": "7관",
+          "seats": 46
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 53
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 116
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 53
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 54
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 56
         }
       ]
     },
     {
       "name": "강동",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 10,
+      "total_seats": 1352,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 249
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 249
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 249
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 249
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 74
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 54
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 74
+        },
+        {
+          "no": "8관",
+          "seats": 55
+        },
+        {
+          "no": "9관",
+          "seats": 64
+        },
+        {
+          "no": "10관",
+          "seats": 35
         }
       ]
     },
     {
       "name": "구의이스트폴",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 679,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 145
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 85
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 176
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 51
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 49
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 60
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 51
+        },
+        {
+          "no": "8관",
+          "seats": 62
         }
       ]
     },
@@ -144,7 +156,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "더부티크목동현대백화점",
@@ -180,113 +193,129 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "동대문",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 798,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 284
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 72,
+          "type": "리클라이너"
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 89,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 71,
+          "type": "리클라이너"
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 71,
+          "type": "리클라이너"
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 64,
+          "type": "리클라이너"
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 87,
+          "type": "리클라이너"
+        },
+        {
+          "no": "8관",
+          "seats": 60,
+          "type": "리클라이너"
         }
       ]
     },
     {
       "name": "마곡",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 815,
       "halls": [
         {
-          "no": "1관",
-          "seats": 142
+          "no": "6관",
+          "seats": 132
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 153
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 132
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 122
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 153
         },
         {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "no": "1관",
+          "seats": 123
         }
       ]
     },
     {
       "name": "목동",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 9,
+      "total_seats": 1570,
       "halls": [
         {
-          "no": "1관",
-          "seats": 142
-        },
-        {
-          "no": "2관",
-          "seats": 142
-        },
-        {
-          "no": "3관",
-          "seats": 142
-        },
-        {
-          "no": "4관",
-          "seats": 142
-        },
-        {
-          "no": "5관",
-          "seats": 142
-        },
-        {
           "no": "6관",
-          "seats": 142
+          "seats": 210
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 158
+        },
+        {
+          "no": "8관",
+          "seats": 190
+        },
+        {
+          "no": "9관",
+          "seats": 114
+        },
+        {
+          "no": "1관",
+          "seats": 318
+        },
+        {
+          "no": "2관",
+          "seats": 210
+        },
+        {
+          "no": "3관",
+          "seats": 114
+        },
+        {
+          "no": "4관",
+          "seats": 190
+        },
+        {
+          "no": "5관",
+          "seats": 66
         }
       ]
     },
@@ -294,35 +323,35 @@
       "name": "상봉",
       "location": "서울",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 924,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 155
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 121
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 96
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 154
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 148
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 96
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 154
         }
       ]
     },
@@ -330,79 +359,71 @@
       "name": "상암월드컵경기장",
       "location": "서울",
       "total_halls": 9,
-      "total_seats": 1654,
+      "total_seats": 1025,
       "halls": [
         {
           "no": "1관",
-          "seats": 183
+          "seats": 202
         },
         {
           "no": "2관",
-          "seats": 183
+          "seats": 342
         },
         {
           "no": "3관",
-          "seats": 183
+          "seats": 143
         },
         {
           "no": "4관",
-          "seats": 183
+          "seats": 101
         },
         {
           "no": "5관",
-          "seats": 183
+          "seats": 49
         },
         {
           "no": "6관",
-          "seats": 183
+          "seats": 44
         },
         {
           "no": "7관",
-          "seats": 183
+          "seats": 44
         },
         {
           "no": "8관",
-          "seats": 183
+          "seats": 50
         },
         {
           "no": "9관",
-          "seats": 183
+          "seats": 50
         }
       ]
     },
     {
       "name": "센트럴",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 680,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 92
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 159
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 175
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 136
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 118
         }
       ]
     },
@@ -440,7 +461,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "신촌",
@@ -450,151 +472,121 @@
       "halls": [
         {
           "no": "1관",
-          "seats": 211
+          "seats": 400
         },
         {
           "no": "2관",
-          "seats": 211
+          "seats": 218
         },
         {
           "no": "3관",
-          "seats": 211
+          "seats": 319
         },
         {
           "no": "4관",
-          "seats": 211
+          "seats": 102
         },
         {
           "no": "5관",
-          "seats": 211
+          "seats": 190
         },
         {
           "no": "6관",
-          "seats": 211
+          "seats": 190
         },
         {
           "no": "7관",
-          "seats": 211
+          "seats": 188
         },
         {
           "no": "8관",
-          "seats": 211
+          "seats": 87
         }
       ]
     },
     {
       "name": "이수",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 888,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 123
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 198
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 123
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 123
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 198
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 123
         }
       ]
     },
     {
       "name": "코엑스",
       "location": "서울",
-      "total_halls": 18,
-      "total_seats": 3366,
+      "total_halls": 10,
+      "total_seats": 2270,
       "halls": [
         {
           "no": "1관",
-          "seats": 187
+          "seats": 378,
+          "type": "Dolby Cinema"
         },
         {
           "no": "2관",
-          "seats": 187
+          "seats": 431
         },
         {
           "no": "3관",
-          "seats": 187
+          "seats": 399
         },
         {
           "no": "4관",
-          "seats": 187
+          "seats": 298
         },
         {
           "no": "5관",
-          "seats": 187
+          "seats": 156,
+          "type": "리클라이너"
         },
         {
           "no": "6관",
-          "seats": 187
+          "seats": 150,
+          "type": "마이어"
         },
         {
           "no": "7관",
-          "seats": 187
+          "seats": 152,
+          "type": "마이어"
         },
         {
           "no": "8관",
-          "seats": 187
-        },
-        {
-          "no": "9관",
-          "seats": 187
+          "seats": 134,
+          "type": "마이어"
         },
         {
           "no": "10관",
-          "seats": 187
+          "seats": 86
         },
         {
           "no": "11관",
-          "seats": 187
-        },
-        {
-          "no": "12관",
-          "seats": 187
-        },
-        {
-          "no": "13관",
-          "seats": 187
-        },
-        {
-          "no": "14관",
-          "seats": 187
-        },
-        {
-          "no": "15관",
-          "seats": 187
-        },
-        {
-          "no": "16관",
-          "seats": 187
-        },
-        {
-          "no": "17관",
-          "seats": 187
-        },
-        {
-          "no": "18관",
-          "seats": 187
+          "seats": 86,
+          "type": "리클라이너"
         }
       ]
     },
@@ -632,221 +624,195 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "홍대",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 726,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 160
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 170
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 113
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 170
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 113
         }
       ]
     },
     {
       "name": "화곡",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 365,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 82,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 80,
+          "type": "리클라이너"
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 82,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 41,
+          "type": "리클라이너"
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 80,
+          "type": "리클라이너"
         }
       ]
     },
     {
       "name": "성수",
       "location": "서울",
-      "total_halls": 7,
-      "total_seats": 1024,
+      "total_halls": 3,
+      "total_seats": 478,
       "halls": [
         {
           "no": "1관",
-          "seats": 146
+          "seats": 154
         },
         {
           "no": "2관",
-          "seats": 146
-        },
-        {
-          "no": "3관",
-          "seats": 146
+          "seats": 170
         },
         {
           "no": "4관",
-          "seats": 146
-        },
-        {
-          "no": "5관",
-          "seats": 146
-        },
-        {
-          "no": "6관",
-          "seats": 146
-        },
-        {
-          "no": "7관",
-          "seats": 146
+          "seats": 154
         }
       ]
     },
     {
       "name": "고양스타필드",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 9,
+      "total_seats": 1214,
       "halls": [
         {
+          "no": "8관",
+          "seats": 25
+        },
+        {
+          "no": "9관",
+          "seats": 29
+        },
+        {
           "no": "1관",
-          "seats": 142
+          "seats": 178
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 118
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 136
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 190
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 168
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 218
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 152
         }
       ]
     },
     {
       "name": "광명AK플라자",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 795,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 164
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 115
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 115
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 103
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 127
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 171
         }
       ]
     },
     {
       "name": "광명소하",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 474,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 72
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 97
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 69
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 82
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 82
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 72
         }
       ]
     },
@@ -884,7 +850,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "김포한강신도시",
@@ -920,7 +887,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "남양주현대아울렛",
@@ -956,41 +924,46 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "동탄",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 716,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 92
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 92
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 85
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 89
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 92
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 92
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 85
+        },
+        {
+          "no": "8관",
+          "seats": 89
         }
       ]
     },
@@ -1028,77 +1001,62 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "미사강변",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 260,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 42
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 52
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 74
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 46
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 46
         }
       ]
     },
     {
       "name": "백석벨라시타",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 749,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 141
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 129
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 129
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 141
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 209
         }
       ]
     },
@@ -1136,185 +1094,169 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "부천스타필드시티",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 829,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 157
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 174
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 214
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 148
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 136
         }
       ]
     },
     {
       "name": "분당",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 354,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 55
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 63
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 56
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 61
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 84
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 35
         }
       ]
     },
     {
       "name": "성남모란",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 714,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 102
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 84
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 170
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 96
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 89
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 173
         }
       ]
     },
     {
       "name": "수원",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 631,
       "halls": [
         {
-          "no": "1관",
-          "seats": 142
+          "no": "5관",
+          "seats": 91
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 91
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 76
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 76
         },
         {
-          "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "no": "1관",
+          "seats": 297,
+          "type": "리클라이너"
         }
       ]
     },
     {
       "name": "수원AK플라자",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 1920,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 275,
+          "type": "Dolby Cinema"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 264
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 267
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 176,
+          "type": "MX4D"
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 245
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 214
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 243
+        },
+        {
+          "no": "8관",
+          "seats": 236
         }
       ]
     },
@@ -1352,41 +1294,38 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "수원스타필드",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 1007,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 164
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 164
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 137
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 238
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 122
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 182
         }
       ]
     },
@@ -1424,113 +1363,100 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "시흥배곧",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 1227,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 222
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 203
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 186
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 186
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 200
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 230
         }
       ]
     },
     {
       "name": "시흥정왕",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 4,
+      "total_seats": 365,
       "halls": [
         {
-          "no": "1관",
-          "seats": 142
+          "no": "5관",
+          "seats": 91
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 92
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 92
         },
         {
           "no": "4관",
-          "seats": 142
-        },
-        {
-          "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 90
         }
       ]
     },
     {
       "name": "안산중앙",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 371,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 76,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 56,
+          "type": "리클라이너"
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 57,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 63,
+          "type": "리클라이너"
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 56,
+          "type": "리클라이너"
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 63,
+          "type": "리클라이너"
         }
       ]
     },
@@ -1538,35 +1464,36 @@
       "name": "안성스타필드",
       "location": "경기",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 1256,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 130
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 254
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 262
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 181
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 254,
+          "type": "Dolby Cinema"
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 133
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 42
         }
       ]
     },
@@ -1604,41 +1531,38 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "의정부민락",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 492,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 83
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 78
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 70
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 87
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 87
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 87
         }
       ]
     },
@@ -1646,35 +1570,35 @@
       "name": "킨텍스",
       "location": "경기",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 1299,
       "halls": [
         {
-          "no": "1관",
-          "seats": 142
-        },
-        {
           "no": "2관",
-          "seats": 142
+          "seats": 36
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 130
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 284
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 131
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 284
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 284
+        },
+        {
+          "no": "8관",
+          "seats": 150
         }
       ]
     },
@@ -1712,7 +1636,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "파주운정",
@@ -1748,41 +1673,46 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "평내호평역",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 738,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 94
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 85
         },
         {
           "no": "3관",
-          "seats": 142
-        },
-        {
-          "no": "4관",
-          "seats": 142
+          "seats": 39
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 78
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 78
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 92
+        },
+        {
+          "no": "8관",
+          "seats": 107
+        },
+        {
+          "no": "9관",
+          "seats": 165
         }
       ]
     },
@@ -1820,185 +1750,189 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "하남스타필드",
       "location": "경기",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 11,
+      "total_seats": 1458,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 188
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 188
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 188
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 152
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 116
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 132,
+          "type": "MX4D"
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 336,
+          "type": "Dolby Cinema"
+        },
+        {
+          "no": "8관",
+          "seats": 32
+        },
+        {
+          "no": "9관",
+          "seats": 62
+        },
+        {
+          "no": "10관",
+          "seats": 32
+        },
+        {
+          "no": "11관",
+          "seats": 32
         }
       ]
     },
     {
       "name": "검단",
       "location": "인천",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 457,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 60
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 89
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 89
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 103
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 116
         }
       ]
     },
     {
       "name": "송도",
       "location": "인천",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 1206,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 200
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 75
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 75
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 199
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 72
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 285,
+          "type": "Dolby Cinema"
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 214
+        },
+        {
+          "no": "8관",
+          "seats": 86
         }
       ]
     },
     {
       "name": "영종하늘도시",
       "location": "인천",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 3,
+      "total_seats": 270,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 88
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 89
         },
         {
           "no": "3관",
-          "seats": 142
-        },
-        {
-          "no": "4관",
-          "seats": 142
-        },
-        {
-          "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 93
         }
       ]
     },
     {
       "name": "인천논현",
       "location": "인천",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 1157,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 146
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 180
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 172
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 177
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 177
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 177
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 62
+        },
+        {
+          "no": "8관",
+          "seats": 66
         }
       ]
     },
@@ -2036,7 +1970,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "청라지젤",
@@ -2072,7 +2007,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "공주",
@@ -2108,7 +2044,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "논산",
@@ -2144,7 +2081,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "대전신세계",
@@ -2180,77 +2118,74 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "대전유성",
       "location": "충청",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 923,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 207
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 179
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 158
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 173
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 206
         }
       ]
     },
     {
       "name": "대전중앙로",
       "location": "충청",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 1124,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 168
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 114
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 128
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 152
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 168
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 114
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 128
+        },
+        {
+          "no": "8관",
+          "seats": 152
         }
       ]
     },
@@ -2258,35 +2193,35 @@
       "name": "대전현대프리미엄아울렛",
       "location": "충청",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 1177,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 159
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 159
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 158
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 261
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 107
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 160
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 173
         }
       ]
     },
@@ -2324,7 +2259,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "세종나성",
@@ -2360,7 +2296,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "오창",
@@ -2396,7 +2333,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "진천",
@@ -2432,41 +2370,50 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "천안",
       "location": "충청",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 9,
+      "total_seats": 989,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 208
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 74
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 76
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 105
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 105
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 108
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 108
+        },
+        {
+          "no": "8관",
+          "seats": 73
+        },
+        {
+          "no": "9관",
+          "seats": 132
         }
       ]
     },
@@ -2504,7 +2451,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "청주성안길",
@@ -2540,77 +2488,90 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "청주터미널",
       "location": "충청",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 644,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 100
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 101
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 60
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 106
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 69
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 70
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 138
         }
       ]
     },
     {
       "name": "충주연수",
       "location": "충청",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 8,
+      "total_seats": 639,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 74,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 64,
+          "type": "리클라이너"
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 101,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 81,
+          "type": "리클라이너"
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 81,
+          "type": "리클라이너"
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 81,
+          "type": "리클라이너"
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 82,
+          "type": "리클라이너"
+        },
+        {
+          "no": "8관",
+          "seats": 75,
+          "type": "리클라이너"
         }
       ]
     },
@@ -2648,7 +2609,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "경북도청",
@@ -2684,7 +2646,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "경산하양",
@@ -2720,7 +2683,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "구미강동",
@@ -2756,7 +2720,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "김천",
@@ -2792,41 +2757,38 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "남포항",
       "location": "경상",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 663,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 130
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 95
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 95
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 130
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 130
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 83
         }
       ]
     },
@@ -2864,41 +2826,39 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "대구신세계",
       "location": "경상",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 901,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 213,
+          "type": "Dolby Cinema"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 156
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 118
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 116
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 118
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 180
         }
       ]
     },
@@ -2906,35 +2866,35 @@
       "name": "대구이시아",
       "location": "경상",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 630,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 85
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 39
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 79
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 151
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 102
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 87
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 87
         }
       ]
     },
@@ -2972,41 +2932,50 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "덕천",
       "location": "경상",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 9,
+      "total_seats": 639,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 41
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 64
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 68
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 127
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 57
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 81
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 81
+        },
+        {
+          "no": "8관",
+          "seats": 60
+        },
+        {
+          "no": "9관",
+          "seats": 60
         }
       ]
     },
@@ -3044,7 +3013,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "부산극장",
@@ -3080,41 +3050,42 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "부산대",
       "location": "경상",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 663,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 70
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 105
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 50
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 35
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 70
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 60
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 273
         }
       ]
     },
@@ -3152,41 +3123,42 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "사상",
       "location": "경상",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 1209,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 143
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 194
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 191
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 148
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 148
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 191
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 194
         }
       ]
     },
@@ -3224,7 +3196,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "서면대한",
@@ -3260,7 +3233,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "양산",
@@ -3296,41 +3270,46 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "양산증산",
       "location": "경상",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 777,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 77,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 65,
+          "type": "리클라이너"
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 94,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 82,
+          "type": "리클라이너"
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 266
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 169
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 24
         }
       ]
     },
@@ -3368,7 +3347,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "진주",
@@ -3404,7 +3384,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "창원",
@@ -3440,7 +3421,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "창원내서",
@@ -3476,41 +3458,42 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "포항",
       "location": "경상",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 868,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 125
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 203
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 210
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 84
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 82
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 82
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 82
         }
       ]
     },
@@ -3548,113 +3531,145 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "화명",
       "location": "경상",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 367,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 51,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 48,
+          "type": "리클라이너"
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 49,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 51,
+          "type": "리클라이너"
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 48,
+          "type": "리클라이너"
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 49,
+          "type": "리클라이너"
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 71,
+          "type": "리클라이너"
         }
       ]
     },
     {
       "name": "광주상무",
       "location": "전라",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 10,
+      "total_seats": 837,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 84
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 71
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 84
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 104
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 56
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 85
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 123
+        },
+        {
+          "no": "8관",
+          "seats": 96
+        },
+        {
+          "no": "9관",
+          "seats": 70
+        },
+        {
+          "no": "10관",
+          "seats": 64
         }
       ]
     },
     {
       "name": "광주하남",
       "location": "전라",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 10,
+      "total_seats": 918,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 120
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 121
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 121
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 74
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 77
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 77
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 77
+        },
+        {
+          "no": "8관",
+          "seats": 65
+        },
+        {
+          "no": "9관",
+          "seats": 66
+        },
+        {
+          "no": "10관",
+          "seats": 120
         }
       ]
     },
@@ -3692,41 +3707,42 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "순천",
       "location": "전라",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 920,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 183
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 118
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 132
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 149
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 102
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 102
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 134
         }
       ]
     },
@@ -3764,7 +3780,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "전대(광주)",
@@ -3800,7 +3817,8 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "전주객사",
@@ -3836,41 +3854,40 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "전주혁신",
       "location": "전라",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 558,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 54,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 108
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 54,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 108
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
+          "seats": 108
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 126
         }
       ]
     },
@@ -3908,133 +3925,134 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "남춘천",
       "location": "강원",
       "total_halls": 7,
-      "total_seats": 1000,
+      "total_seats": 1134,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 184
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 124
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 106
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 209
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 209
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 130
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 172
         }
       ]
     },
     {
       "name": "속초",
       "location": "강원",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 585,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 107
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 119
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 119
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 107
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 133
         }
       ]
     },
     {
       "name": "원주혁신",
       "location": "강원",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 9,
+      "total_seats": 673,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 71
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 84
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 101
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 89
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 76
         },
         {
           "no": "6관",
-          "seats": 142
+          "seats": 76
         },
         {
           "no": "7관",
-          "seats": 142
+          "seats": 76
+        },
+        {
+          "no": "8관",
+          "seats": 64
+        },
+        {
+          "no": "9관",
+          "seats": 36
         }
       ]
     },
     {
       "name": "춘천석사",
       "location": "강원",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 987,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 236
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 202
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 125
         },
         {
           "no": "4관",
@@ -4042,51 +4060,44 @@
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 124
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 158
         }
       ]
     },
     {
       "name": "제주삼화",
       "location": "제주",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 5,
+      "total_seats": 260,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 59,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 59,
+          "type": "리클라이너"
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 56,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 56,
+          "type": "리클라이너"
         },
         {
           "no": "5관",
-          "seats": 142
-        },
-        {
-          "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 30,
+          "type": "리클라이너"
         }
       ]
     },
@@ -4124,43 +4135,45 @@
           "no": "7관",
           "seats": 142
         }
-      ]
+      ],
+      "placeholder": true
     },
     {
       "name": "제주아라",
       "location": "제주",
-      "total_halls": 7,
-      "total_seats": 1000,
+      "total_halls": 6,
+      "total_seats": 592,
       "halls": [
         {
           "no": "1관",
-          "seats": 142
+          "seats": 56,
+          "type": "리클라이너"
         },
         {
           "no": "2관",
-          "seats": 142
+          "seats": 130
         },
         {
           "no": "3관",
-          "seats": 142
+          "seats": 72,
+          "type": "리클라이너"
         },
         {
           "no": "4관",
-          "seats": 142
+          "seats": 202
         },
         {
           "no": "5관",
-          "seats": 142
+          "seats": 40,
+          "type": "리클라이너"
         },
         {
           "no": "6관",
-          "seats": 142
-        },
-        {
-          "no": "7관",
-          "seats": 142
+          "seats": 92,
+          "type": "리클라이너"
         }
       ]
     }
-  ]
+  ],
+  "source": "나무위키 메가박스 지점 페이지 (자동 파싱)"
 }

@@ -1,7 +1,7 @@
 {
   "chain": "MEGABOX",
   "source": "메가박스 이벤트 API · eventMngDiv.do",
-  "fetchedAt": "2026-05-20T09:12:18+09:00",
+  "fetchedAt": "2026-05-20T10:03:33+09:00",
   "movies": [
     {
       "movieCd": "20263253",
@@ -48,7 +48,7 @@
         "goods": 0,
         "etc": 1
       },
-      "promoSeats": 1910,
+      "promoSeats": 2973,
       "events": [
         {
           "eventId": "20631",
@@ -82,46 +82,46 @@
               "branch": "코엑스",
               "hall": "Dolby Cinema",
               "sessions": 2,
-              "seats": 374
+              "seats": 756
             },
             {
               "branch": "코엑스",
               "hall": "3관",
               "sessions": 2,
-              "seats": 374
+              "seats": 798
             },
             {
               "branch": "코엑스",
               "hall": "2관",
               "sessions": 1,
-              "seats": 187
+              "seats": 431
             },
             {
               "branch": "상암월드컵경기장",
               "hall": "Dolby Vision Atmos",
               "sessions": 2,
-              "seats": 366
+              "seats": 228
             },
             {
               "branch": "상암월드컵경기장",
               "hall": "1관",
               "sessions": 1,
-              "seats": 183
+              "seats": 202
             },
             {
               "branch": "목동",
               "hall": "Dolby Vision Atmos",
               "sessions": 2,
-              "seats": 284
+              "seats": 348
             },
             {
               "branch": "목동",
               "hall": "2관",
               "sessions": 1,
-              "seats": 142
+              "seats": 210
             }
           ],
-          "seats": 1910,
+          "seats": 2973,
           "branches": [
             "목동",
             "상암월드컵경기장",
@@ -140,7 +140,7 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 568,
+      "promoSeats": 768,
       "events": [
         {
           "eventId": "20581",
@@ -169,16 +169,16 @@
               "branch": "목동",
               "hall": "Dolby Vision Atmos",
               "sessions": 2,
-              "seats": 284
+              "seats": 348
             },
             {
               "branch": "목동",
               "hall": "2관",
               "sessions": 2,
-              "seats": 284
+              "seats": 420
             }
           ],
-          "seats": 568,
+          "seats": 768,
           "branches": [
             "목동"
           ]
