@@ -224,41 +224,15 @@ async function loadBoxOffice() {
   }
 }
 
-async function loadChainPromotions(opts) {
-  const tbody = document.getElementById(opts.tbodyId);
-  const note = document.getElementById(opts.noteId);
-  if (!tbody) return null;
+// 체인 프로모션 JSON 로드 (매트릭스 + 영화 상세 모달이 사용).
+// 메인 화면 체인별 표는 제거됨 — 데이터만 가져온다.
+async function loadChainData(jsonPath) {
   try {
-    const res = await fetch(opts.jsonPath, { cache: 'no-store' });
+    const res = await fetch(jsonPath, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    const movies = data.movies || [];
-    const num = (n) => `<span class="pcount ${n ? '' : 'zero'}">${n || '—'}</span>`;
-    if (movies.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="5" class="promo-empty">${opts.emptyMsg}</td></tr>`;
-    } else {
-      tbody.innerHTML = movies.map(m => {
-        const c = m.counts;
-        const total = c.coupon + c.stage + c.goods + c.etc;
-        return `
-          <tr>
-            <td class="movie"><span class="name" title="${m.title}">${truncate(m.title)}</span></td>
-            <td>${num(c.coupon)}</td>
-            <td>${num(c.stage)}</td>
-            <td>${num(c.goods)}</td>
-            <td><strong class="pcount">${total}</strong> <span class="chip ${opts.chipClass} on">${opts.chipLabel}</span></td>
-          </tr>`;
-      }).join('');
-    }
-    if (note) {
-      const ts = data.fetchedAt ? data.fetchedAt.slice(0, 16).replace('T', ' ') : '';
-      const un = (data.unmatched || []).length;
-      note.textContent = `※ 출처: ${data.source || '데이터 공급원'} · 수집 ${ts} · 미매칭 이벤트 ${un}건`;
-    }
-    return data;
+    return await res.json();
   } catch (e) {
-    tbody.innerHTML = `<tr><td colspan="5" class="promo-empty">${opts.emptyMsg}</td></tr>`;
-    if (note) note.textContent = '';
+    console.error('[chain] 로드 실패:', jsonPath, e);
     return null;
   }
 }
@@ -330,30 +304,10 @@ async function init() {
   const [resBk, resBo, resLt, resMg, resCg, resCq] = await Promise.all([
     loadBooking(),
     loadBoxOffice(),
-    loadChainPromotions({
-      jsonPath: 'assets/data/promotions_lotte.json',
-      tbodyId: 'lotte-promo', noteId: 'lotte-promo-note',
-      chipClass: 'chip-lotte', chipLabel: 'LOTTE',
-      emptyMsg: '롯데 데이터 없음',
-    }),
-    loadChainPromotions({
-      jsonPath: 'assets/data/promotions_megabox.json',
-      tbodyId: 'megabox-promo', noteId: 'megabox-promo-note',
-      chipClass: 'chip-mega', chipLabel: 'MEGABOX',
-      emptyMsg: '메가박스 데이터 없음',
-    }),
-    loadChainPromotions({
-      jsonPath: 'assets/data/promotions_cgv.json',
-      tbodyId: 'cgv-promo', noteId: 'cgv-promo-note',
-      chipClass: 'chip-cgv', chipLabel: 'CGV',
-      emptyMsg: 'CGV 데이터 없음',
-    }),
-    loadChainPromotions({
-      jsonPath: 'assets/data/promotions_cineq.json',
-      tbodyId: 'cineq-promo', noteId: 'cineq-promo-note',
-      chipClass: 'chip-cineq', chipLabel: 'CINEQ',
-      emptyMsg: '씨네큐 데이터 없음',
-    })
+    loadChainData('assets/data/promotions_lotte.json'),
+    loadChainData('assets/data/promotions_megabox.json'),
+    loadChainData('assets/data/promotions_cgv.json'),
+    loadChainData('assets/data/promotions_cineq.json'),
   ]);
   // openDetail 모달이 참조할 전역 데이터 저장
   DATA.booking = resBk; DATA.boxoffice = resBo;
