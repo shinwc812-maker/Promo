@@ -117,21 +117,19 @@ python scripts/fetch_promotions_lotte.py
 넣는다. 정부지원·1+1 등 수량 없는 쿠폰은 미공개(None).
 - 수동 오버라이드(`COUPON_COUNTS`): 자동값이 틀릴 때만 EventID→발행수 지정.
 
-### (2) 무비싸다구 — 앱 전용, 수동 dict (`MOVIE_SADAGU`)
-무비싸다구는 **모바일 롯데시네마 앱에서만** 노출되고 이벤트 API·모바일웹엔 안
-나온다(채널 HO/MW/MO/MX · ECC 전체 · SearchText · LCWS 메서드 추정 모두 실패 확인).
-앱 HTTPS 트래픽 캡처 없이는 자동 수집 불가하므로, 앱에서 확인한 발행수를
-`fetch_promotions_lotte.py` 상단 `MOVIE_SADAGU` dict 에 수동 등록한다:
-```python
-MOVIE_SADAGU = {
-    "와일드 씽": [("0원 쿠폰", 3000), ("2000원 쿠폰", 3000)],
-    "백룸":      [("0원 쿠폰", 500),  ("2000원 쿠폰", 3500)],
-}
-```
-- 영화명→[(쿠폰명, 발행수)]. 빌더가 booking TOP10 매칭 영화에 coupon 이벤트로 주입
-  (eventId=`sadagu-<movieCd>-N`). TOP10 밖 영화는 기록만 되고 미반영.
-- 무비싸다구 수량이 바뀌면 앱에서 확인해 이 dict 를 갱신. (앱 API URL 을 캡처해
-  주면 자동화 가능)
+### (2) 무비싸다구 — SpeedMulti API 자동 수집
+무비싸다구는 일반 이벤트 목록(GetEventLists)엔 안 잡히고 **전용 SpeedMulti 이벤트**
+(페이지 `NLCMW/Event/EventTemplateSpeedMulti?eventId=<ID>`)로만 노출된다. 발행수는
+`fetch_movie_sadagu()` 가 `GetSpeedEventDetailMulti` 메서드로 자동 수집한다:
+- 호출 파라미터 핵심: `MainEventID=<무비싸다구 이벤트 ID>`, `EventID=""`,
+  channelType `MW` · osType `M` (쿠키+Referer=해당 SpeedMulti 페이지)
+- 응답 `SpeedEventDetail[].ItemGroup[]`(영화별).`Items[]`(쿠폰종류):
+  `MovieNm`(제목·KOFIC코드 아님→제목 매칭) · `DisplayCouponName`(0=0원·2000=2,000원) ·
+  **`CpnUsableMaxCnt`=총 발행수** (예: 와일드 씽 0원 3,000·2,000원 3,000)
+- booking TOP10 매칭 영화에 coupon 이벤트로 주입(eventId=`sadagu-<movieCd>-N`).
+  TOP10 밖 영화는 미반영.
+- **수량은 매 실행 자동 갱신.** 새 무비싸다구 배치가 뜨면 `SADAGU_EVENT_IDS` 에
+  그 이벤트 ID 만 추가/교체하면 된다(현재 `["201210016922014"]`).
 
 ## 판매 단품 제외 → SALE_EVENTS
 가격표(원) 붙은 단품 판매(키링·쿠지·드링크)는 `SALE_EVENTS` 에 EventID 추가 →

@@ -58,14 +58,11 @@ SALE_EVENTS = set()
 # 에서 자동 추출한다. 자동값이 틀릴 때만 EventID → 발행수로 지정.
 COUPON_COUNTS = {}
 
-# 무비싸다구 (롯데 앱 전용 할인쿠폰) — 이벤트 API·웹엔 안 나오고 모바일 앱에서만
-# 노출돼 자동 수집이 불가하다. 앱에서 확인한 발행수를 영화명→[(쿠폰명, 발행수)] 로
-# 수동 등록하면, booking TOP10 매칭 영화에 coupon 이벤트로 주입된다.
-# (무비싸다구 수량 변동 시 여기 갱신 · SKILL 의 무비싸다구 절 참고)
-MOVIE_SADAGU = {
-    "와일드 씽": [("0원 쿠폰", 3000), ("2000원 쿠폰", 3000)],
-    "백룸":      [("0원 쿠폰", 500),  ("2000원 쿠폰", 3500)],
-}
+# 무비싸다구 (SpeedMulti 이벤트) — 영화별 쿠폰 발행수를 API 로 자동 수집한다.
+# 일반 이벤트 목록(GetEventLists)엔 안 잡히고 전용 메서드 GetSpeedEventDetailMulti
+# 로만 조회된다. 새 무비싸다구 배치가 뜨면 그 이벤트 ID 를 아래에 추가/교체.
+# 페이지: https://www.lottecinema.co.kr/NLCMW/Event/EventTemplateSpeedMulti?eventId=<ID>
+SADAGU_EVENT_IDS = ["201210016922014"]
 
 # 쿠폰(무비싸다구 등) 본문의 '선착순 N명/매/장' 총 발행 수량 패턴
 _COUPON_QTY_PAT = re.compile(r"선착순\s*([\d,]+)\s*(?:명|매|장)")
@@ -77,6 +74,54 @@ def extract_coupon_issued(ev):
     text = re.sub(r"<[^>]+>", " ", raw).replace("&nbsp;", " ")
     m = _COUPON_QTY_PAT.search(text)
     return int(m.group(1).replace(",", "")) if m else None
+
+
+def fetch_movie_sadagu(opener):
+    """무비싸다구 SpeedMulti 이벤트에서 영화별 쿠폰 발행수를 수집.
+
+    GetSpeedEventDetailMulti 응답 구조:
+      SpeedEventDetail[].ItemGroup[](영화별).Items[](쿠폰종류)
+        - MovieNm: 영화명 (KOFIC movieCd 아님 → 제목으로 매칭)
+        - DisplayCouponName: 할인액(0=0원쿠폰, 2000=2,000원쿠폰)
+        - CpnUsableMaxCnt: 총 발행수(매)
+    반환: {영화명: [(쿠폰명, 발행수), ...]}
+    """
+    result = {}
+    for eid in SADAGU_EVENT_IDS:
+        page = ("https://www.lottecinema.co.kr/NLCMW/Event/"
+                f"EventTemplateSpeedMulti?eventId={eid}")
+        param = {"MethodName": "GetSpeedEventDetailMulti", "channelType": "MW",
+                 "osType": "M", "osVersion": UA, "EventID": "", "MainEventID": eid}
+        boundary = "----LotteSadagu"
+        body = (f"--{boundary}\r\n"
+                'Content-Disposition: form-data; name="paramList"\r\n\r\n'
+                f"{json.dumps(param, ensure_ascii=False)}\r\n"
+                f"--{boundary}--\r\n").encode("utf-8")
+        req = Request(API_URL, data=body, headers={
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            "Referer": page, "User-Agent": UA})
+        try:
+            with opener.open(req, timeout=20) as r:
+                doc = json.loads(r.read().decode("utf-8"))
+        except (HTTPError, URLError, json.JSONDecodeError):
+            continue
+        if str(doc.get("IsOK")).lower() != "true":
+            continue
+        for detail in doc.get("SpeedEventDetail") or []:
+            for grp in detail.get("ItemGroup") or []:
+                for it in grp.get("Items") or []:
+                    name = (it.get("MovieNm") or "").strip()
+                    issued = it.get("CpnUsableMaxCnt")
+                    if not name or not issued:
+                        continue
+                    try:
+                        amt = int(it.get("DisplayCouponName"))
+                    except (TypeError, ValueError):
+                        amt = None
+                    label = ("0원 쿠폰" if amt == 0
+                             else (f"{amt:,}원 쿠폰" if amt else "쿠폰"))
+                    result.setdefault(name, []).append((label, int(issued)))
+    return result
 
 # 굿즈·특전 진행관수 (상세 포스터 '진행 극장' 목록 판독). 미등록은 '미공개'.
 # (광음특전처럼 특별관 보유 지점만 표기되고 목록 미명시면 dict 에서 제외 → 미공개)
@@ -364,8 +409,8 @@ def main():
                                        else (brackets[0] if brackets else None))
             unmatched.append(event_rec)
 
-    # 무비싸다구(앱 전용) 주입 — booking TOP10 매칭 영화에 coupon 이벤트로 추가
-    for sad_title, coupons in MOVIE_SADAGU.items():
+    # 무비싸다구(SpeedMulti) 주입 — API 로 영화별 발행수 자동 수집 후 TOP10 매칭 주입
+    for sad_title, coupons in fetch_movie_sadagu(opener).items():
         hit = match_movie(sad_title)
         if not hit:                       # TOP10 밖이면 대시보드 미반영 → 스킵
             continue
@@ -383,7 +428,7 @@ def main():
                 "name": f"<{mv_title}> 무비싸다구 {cname}",
                 "type": "coupon",
                 "issued": issued,
-                "source": "롯데 앱 무비싸다구 (수동 입력)",
+                "source": "롯데 무비싸다구 (SpeedMulti API)",
             })
 
     out = {

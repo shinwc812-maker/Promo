@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-20T15:16:20+09:00",
+  "fetchedAt": "2026-05-20T15:26:07+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -263,14 +263,14 @@
           "name": "<와일드 씽> 무비싸다구 0원 쿠폰",
           "type": "coupon",
           "issued": 3000,
-          "source": "롯데 앱 무비싸다구 (수동 입력)"
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
         },
         {
           "eventId": "sadagu-20248252-2",
-          "name": "<와일드 씽> 무비싸다구 2000원 쿠폰",
+          "name": "<와일드 씽> 무비싸다구 2,000원 쿠폰",
           "type": "coupon",
           "issued": 3000,
-          "source": "롯데 앱 무비싸다구 (수동 입력)"
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
         }
       ]
     },
