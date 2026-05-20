@@ -38,6 +38,9 @@ DEFAULT_HALL_SEATS = 100  # 관 매칭 실패 시 fallback
 # 판매 단품(유료) — 증정 아니므로 대시보드·집계 제외 (현재 씨네큐 매칭 굿즈엔 없음)
 SALE_EVENTS = set()
 
+# 쿠폰 발행수 (이미지에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
+COUPON_COUNTS = {}
+
 # 굿즈·특전 진행관수 (이미지 '진행 극장' 목록 판독). 미등록은 '미공개'.
 GOODS_THEATERS = {
     "7136": 5,   # 신극장판 은혼 개봉주 주말 현장 증정
@@ -235,6 +238,8 @@ def main():
         }
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
+        if ptype == "coupon" and eid in COUPON_COUNTS:
+            event_rec["issued"] = COUPON_COUNTS[eid]
 
         # stage: 상세 이미지 다운로드 + SCREENINGS 기반 좌석 합산
         if ptype == "stage" and eid:

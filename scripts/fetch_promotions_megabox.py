@@ -58,6 +58,9 @@ SALE_EVENTS = {
     "20618",   # 신극장판 은혼 엘리자베스 드링크 25,000원
 }
 
+# 쿠폰 발행수 (이미지에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
+COUPON_COUNTS = {}
+
 # 굿즈·특전 진행관수 (이미지 '진행 극장' 목록 판독). 미등록은 '미공개'.
 GOODS_THEATERS = {
     "20629": 52,   # 내 마음의 위험한 녀석 개봉주 현장 증정
@@ -308,6 +311,8 @@ def main():
         }
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
+        if ptype == "coupon" and eid in COUPON_COUNTS:
+            event_rec["issued"] = COUPON_COUNTS[eid]
 
         # stage: 본문 이미지 다운로드 + SCREENINGS dict 이 있으면 좌석 합산
         if ptype == "stage":

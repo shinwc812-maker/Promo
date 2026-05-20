@@ -7,9 +7,10 @@ description: 메가박스 eventMngDiv.do 로 진행중 이벤트 목록 + event/
 
 메가박스는 **API 가 일정/극장 데이터를 따로 안 줘서** 본문 이미지를 LLM 이 판독한다. 상세 페이지가 정적 HTML 이라 Selenium 불필요.
 
-`fetch_promotions_megabox.py` 상단 3종 dict:
+`fetch_promotions_megabox.py` 상단 4종 dict:
 - `SCREENINGS` = 무대인사 evntNo → [{branch, hall, sessions}]
 - `GOODS_THEATERS` = 굿즈 evntNo → 진행관수
+- `COUPON_COUNTS` = 쿠폰 evntNo → 발행수 (총 N장·선착순 N명 명시된 경우만)
 - `SALE_EVENTS` = 판매 단품 evntNo set (제외)
 
 ## 두 API/엔드포인트
@@ -117,6 +118,10 @@ SALE_EVENTS = {
     "20618",   # 엘리자베스 드링크 25,000원
 }
 ```
+
+### 5.5단계: 쿠폰 발행수 → COUPON_COUNTS
+쿠폰 이미지에 "총 N장"·"선착순 N명" 명시되면 `COUPON_COUNTS = {eid: 정수}` (선착순
+N명=N장). 수량 없는 "선착순"은 미공개. 대부분 미공개지만 있으면 수집.
 
 ### 6단계: 재실행 → 좌석·진행관수 합산
 ```bash

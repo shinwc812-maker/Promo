@@ -9,7 +9,8 @@ description: 롯데시네마 LCWS API (EventData.aspx + GetStageGreetingEventDet
 제공). **굿즈 진행관수만 상세 포스터를 판독**한다.
 
 - `SCREENINGS` 없음 (stage 는 API 자동) — `fetch_promotions_lotte.py` 상단에
-  `GOODS_THEATERS`(굿즈 evntNo→진행관수) · `SALE_EVENTS`(판매 단품 제외) dict 만 둠.
+  `GOODS_THEATERS`(굿즈 evntNo→진행관수) · `COUPON_COUNTS`(쿠폰 evntNo→발행수,
+  명시된 경우만) · `SALE_EVENTS`(판매 단품 제외) dict 를 둠.
 
 ## 핵심 API
 
@@ -106,6 +107,11 @@ python scripts/fetch_promotions_lotte.py
        "201010016926402": 15,   # 악마는프라다2 4주차 증정
    }
    ```
+
+## 쿠폰 발행수 → COUPON_COUNTS
+쿠폰 포스터에 "총 N장"·"선착순 N명" 명시되면 `COUPON_COUNTS` 에 EventID→정수 추가
+(선착순 N명 = N장). 수량 없는 "선착순"은 미공개. 롯데 쿠폰은 정부지원 등 발행수
+미공개가 대부분이지만 있으면 수집.
 
 ## 판매 단품 제외 → SALE_EVENTS
 가격표(원) 붙은 단품 판매(키링·쿠지·드링크)는 `SALE_EVENTS` 에 EventID 추가 →

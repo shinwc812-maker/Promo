@@ -39,6 +39,10 @@ SALE_EVENTS = {
     "202604237123",   # 악마는 프라다2 키링 출시 (단품 8,500원)
 }
 
+# 쿠폰 발행수 (이미지에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
+# '선착순 N명'은 N명 모두 수령 가정 → N장. 단순 '선착순'(숫자 없음)은 넣지 말 것.
+COUPON_COUNTS = {}
+
 # 굿즈·특전 진행관수 (이미지 '대상 극장' 목록 판독). 미등록은 '미공개'.
 GOODS_THEATERS = {
     "202605117932": 9,    # 너바나 굿즈패키지
@@ -285,6 +289,8 @@ def main():
             event_rec["branches"] = sorted({s["branch"] for s in screenings})
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
+        if ptype == "coupon" and eid in COUPON_COUNTS:
+            event_rec["issued"] = COUPON_COUNTS[eid]
 
         # 매칭: [영화명]·<영화명> 파싱
         brackets = re.findall(r"[\[<]([^\[\]<>]+)[\]>]", name)

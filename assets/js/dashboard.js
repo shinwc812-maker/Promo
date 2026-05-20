@@ -81,7 +81,7 @@ function buildPromoDetail(movieCd) {
     { key: 'mega',    label: '메가',  data: DATA.megabox },
     { key: 'cineq',   label: '씨네큐', data: DATA.cineq },
   ];
-  let tSeats = 0, tStage = 0, tCoupon = 0, tGoods = 0, tTheaters = 0, anyEvent = false;
+  let tSeats = 0, tStage = 0, tCoupon = 0, tGoods = 0, tTheaters = 0, tIssued = 0, anyEvent = false;
   let rows = '';
 
   chains.forEach(ch => {
@@ -93,6 +93,7 @@ function buildPromoDetail(movieCd) {
     tStage += stage.length; tCoupon += coupon.length; tGoods += goods.length;
     stage.forEach(e => { if (typeof e.seats === 'number') tSeats += e.seats; });
     goods.forEach(e => { if (typeof e.theaters === 'number') tTheaters += e.theaters; });
+    coupon.forEach(e => { if (typeof e.issued === 'number') tIssued += e.issued; });
 
     const n = Math.max(stage.length, coupon.length, goods.length);
     if (n === 0) {
@@ -110,12 +111,15 @@ function buildPromoDetail(movieCd) {
       const theaterVal = g
         ? (typeof g.theaters === 'number' && g.theaters > 0 ? g.theaters + '개관' : '미공개')
         : '';
+      const issuedVal = c
+        ? (typeof c.issued === 'number' && c.issued > 0 ? fmt(c.issued) + '매' : '미공개')
+        : '';
       rows += `<tr class="${i === 0 ? 'chain-start' : ''}">
         ${i === 0 ? `<td class="chain-label" rowspan="${n}"><span class="chip chip-${ch.key} on">${ch.label}</span></td>` : ''}
         <td class="evt">${s ? truncate(s.name, 24) : ''}</td>
         <td class="num">${seatVal}</td>
         <td class="evt">${c ? truncate(c.name, 24) : ''}</td>
-        <td class="num">${c ? '미공개' : ''}</td>
+        <td class="num">${issuedVal}</td>
         <td class="evt">${g ? truncate(g.name, 24) : ''}</td>
         <td class="num">${theaterVal}</td>
       </tr>`;
@@ -133,7 +137,7 @@ function buildPromoDetail(movieCd) {
       <td class="evt">무대인사 ${tStage}건</td>
       <td class="num">${tSeats > 0 ? fmt(tSeats) + '석' : '미공개'}</td>
       <td class="evt">쿠폰 ${tCoupon}건</td>
-      <td class="num">미공개</td>
+      <td class="num">${tIssued > 0 ? fmt(tIssued) + '매' : '미공개'}</td>
       <td class="evt">굿즈 ${tGoods}건</td>
       <td class="num">${tTheaters > 0 ? tTheaters + '개관' : '미공개'}</td>
     </tr>`;

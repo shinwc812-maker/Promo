@@ -54,6 +54,9 @@ DEFAULT_HALL_SEATS = 150
 # 판매 단품(유료) — 증정 아니므로 대시보드·집계 제외 (현재 롯데 매칭 굿즈엔 없음)
 SALE_EVENTS = set()
 
+# 쿠폰 발행수 (포스터에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
+COUPON_COUNTS = {}
+
 # 굿즈·특전 진행관수 (상세 포스터 '진행 극장' 목록 판독). 미등록은 '미공개'.
 # (광음특전처럼 특별관 보유 지점만 표기되고 목록 미명시면 dict 에서 제외 → 미공개)
 GOODS_THEATERS = {
@@ -282,6 +285,8 @@ def main():
         }
         if ptype == "goods" and str(event_id) in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[str(event_id)]
+        if ptype == "coupon" and str(event_id) in COUPON_COUNTS:
+            event_rec["issued"] = COUPON_COUNTS[str(event_id)]
 
         # stage 타입: 상세 API 호출 → 회차·지점·좌석 + 큰 포스터 이미지 받기
         stage_movie_titles = []

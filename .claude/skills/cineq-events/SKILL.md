@@ -7,9 +7,10 @@ description: 씨네큐 /Event/MoreList API 로 진행중 이벤트 수집 + /Eve
 
 씨네큐도 메가박스처럼 **API 는 일정/극장 데이터 안 줘서** 본문 이미지를 LLM 이 판독한다. 상세 HTML 이 정적이라 Selenium 불필요.
 
-`fetch_promotions_cineq.py` 상단 3종 dict:
+`fetch_promotions_cineq.py` 상단 4종 dict:
 - `SCREENINGS` = 무대인사 evntNo → [{branch, hall, sessions}]
 - `GOODS_THEATERS` = 굿즈 evntNo → 진행관수
+- `COUPON_COUNTS` = 쿠폰 evntNo → 발행수 (총 N장·선착순 N명 명시된 경우만)
 - `SALE_EVENTS` = 판매 단품 evntNo set (제외)
 
 ## 두 엔드포인트
@@ -124,6 +125,10 @@ GOODS_THEATERS = {
 
 ### 5단계: 판매 단품 제외 → SALE_EVENTS
 가격(원) 붙은 단품 판매는 `SALE_EVENTS` 에 추가. 현재 씨네큐 매칭 굿즈엔 판매 단품 없음(`set()`).
+
+### 5.5단계: 쿠폰 발행수 → COUPON_COUNTS
+쿠폰 `_2.jpg` 본문에 "총 N장"·"선착순 N명" 명시되면 `COUPON_COUNTS = {eid: 정수}`
+(선착순 N명=N장). 수량 없는 "선착순"은 미공개.
 
 ### 6단계: 재실행 → 좌석·진행관수 합산
 ```bash
