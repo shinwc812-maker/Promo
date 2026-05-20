@@ -45,6 +45,23 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 DETAIL_URL = "https://cgv.co.kr/evt/eventDetail?evntNo="
 
 
+def extract_coupon_issued(text):
+    """상세 본문의 '쿠폰 사용수량' 위젯에서 총 발행량(N명) 추출. 없으면 None.
+
+    서프라이즈 쿠폰 등 수량 한정 쿠폰 상세에는 '쿠폰 사용수량 / 100% /
+    4,000소진 / START / 4,000명' 형태의 위젯이 있다. 'START' 뒤 'N명' 이
+    총 발행량(예: 4,000). 정부지원·상시 할인쿠폰은 위젯이 없어 None.
+    """
+    if not text:
+        return None
+    m = re.search(r"쿠폰\s*사용\s*수량", text)
+    if not m:
+        return None
+    window = text[m.end(): m.end() + 120]
+    nums = [int(n.replace(",", "")) for n in re.findall(r"([\d,]+)\s*명", window)]
+    return max(nums) if nums else None
+
+
 def make_driver():
     from selenium import webdriver
     from selenium.webdriver.chrome.options import Options
@@ -216,6 +233,12 @@ def main():
             srcs = driver.execute_script(
                 "return Array.from(document.querySelectorAll('img'))"
                 ".map(i=>i.currentSrc||i.src)")
+            # 쿠폰 발행수는 상세 본문 텍스트('쿠폰 사용수량' 위젯)에 있어 같이 캡처
+            try:
+                body_text = driver.execute_script("return document.body.innerText")
+            except Exception:
+                body_text = ""
+            coupon_issued = extract_coupon_issued(body_text)
             poster = next((s for s in srcs if s and "/ips/evnt/" in s), None)
             if not poster:
                 print(f"  [{idx}/{len(events)}] {no}: 포스터 이미지 없음 (스킵)")
@@ -227,15 +250,19 @@ def main():
                 print(f"  [{idx}/{len(events)}] {no}: 이미지 다운로드 실패 ({exc})")
                 continue
             (IMG_DIR / f"{no}.jpg").write_bytes(blob)
-            pending.append({
+            rec = {
                 "evntNo": no,
                 "title": title,
                 "start": ev["start"],
                 "end": ev["end"],
                 "imagePath": f"assets/data/cgv_images/{no}.jpg",
                 "posterUrl": poster,
-            })
-            print(f"  [{idx}/{len(events)}] ✓ {no} · {title[:40]}")
+            }
+            if coupon_issued:
+                rec["couponIssued"] = coupon_issued
+            pending.append(rec)
+            issued_tag = f" · 쿠폰 {coupon_issued:,}매" if coupon_issued else ""
+            print(f"  [{idx}/{len(events)}] ✓ {no} · {title[:40]}{issued_tag}")
     finally:
         driver.quit()
 

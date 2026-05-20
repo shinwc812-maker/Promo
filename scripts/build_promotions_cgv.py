@@ -39,8 +39,9 @@ SALE_EVENTS = {
     "202604237123",   # 악마는 프라다2 키링 출시 (단품 8,500원)
 }
 
-# 쿠폰 발행수 (이미지에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
-# '선착순 N명'은 N명 모두 수령 가정 → N장. 단순 '선착순'(숫자 없음)은 넣지 말 것.
+# 쿠폰 발행수 수동 오버라이드. 평소엔 크롤러가 상세 '쿠폰 사용수량' 위젯에서
+# 자동 추출(_pending.json 의 couponIssued)하므로 비워둔다. 자동 추출이 틀린
+# 경우에만 evntNo → 발행수(매)로 강제 지정. (오버라이드가 자동값보다 우선)
 COUPON_COUNTS = {}
 
 # 굿즈·특전 진행관수 (이미지 '대상 극장' 목록 판독). 미등록은 '미공개'.
@@ -289,8 +290,11 @@ def main():
             event_rec["branches"] = sorted({s["branch"] for s in screenings})
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
-        if ptype == "coupon" and eid in COUPON_COUNTS:
-            event_rec["issued"] = COUPON_COUNTS[eid]
+        if ptype == "coupon":
+            # 수동 오버라이드(COUPON_COUNTS) 우선, 없으면 크롤러 자동 추출값
+            issued = COUPON_COUNTS.get(eid) or ev.get("couponIssued")
+            if issued:
+                event_rec["issued"] = issued
 
         # 매칭: [영화명]·<영화명> 파싱
         brackets = re.findall(r"[\[<]([^\[\]<>]+)[\]>]", name)
