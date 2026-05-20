@@ -83,44 +83,37 @@ def parse_halls(text, branch):
     """페이지 텍스트에서 관별 좌석 추출. [{no, seats, type}] 리스트."""
     if not text:
         return []
-    # '상영관' 섹션 찾기 — 좌석 데이터가 시작되는 위치
-    pos = text.find("상영관")
-    if pos < 0:
-        return []
-    # 상영관 섹션부터 본문(개요/역사 등) 사이 슬라이스
-    section_end = text.find("부대시설", pos)
-    if section_end < 0:
-        section_end = text.find("교통", pos)
-    if section_end < 0:
-        section_end = pos + 5000
-    section = text[pos:section_end]
+    # '둘러보기'(다른 지점 링크) 이전까지 — 한 지점 정보 범위로 한정
+    end = text.find("둘러보기")
+    section = text[:end] if end > 0 else text
 
+    TYPE_KW = ("MEGA|LED", "MX4D", "Dolby Cinema", "IMAX",
+               "SOUNDX", "리클라이너", "마이어", "컴포트")
     halls = {}
-    # 패턴 1: 'N관 ... : NNN석' (일반관 + 특수관 묶음 표기 - 'MEGA|LED 2관: 431석')
-    for m in re.finditer(r"(\d{1,2})관[^:]{0,100}:\s*([\d,]{2,5})\s*석", section):
-        no = f"{m.group(1)}관"
-        seats = int(m.group(2).replace(",", ""))
-        if 1 <= seats <= 2000:  # 합리적 범위
-            # type 추출 (관 번호 앞의 특수관 키워드)
-            ctx = m.group(0)
-            stype = None
-            for kw in ("MEGA|LED", "MX4D", "Dolby Cinema", "IMAX",
-                       "SOUNDX", "리클라이너", "마이어"):
-                if kw in ctx:
-                    stype = kw
-                    break
-            halls[no] = {"no": no, "seats": seats, **({"type": stype} if stype else {})}
 
-    # 패턴 2: 특수관 별도 라인 (예: 'Dolby Cinema Laser : 378석' — 관 번호 없음)
-    # 보통 첫 번째 항목 = 1관 인 경우가 많으므로, halls 에 '1관' 없고 첫 항목이 특수관이면 1관으로 등록
+    def add(no_int, seats_str, ctx):
+        seats = int(seats_str.replace(",", ""))
+        if not (1 <= seats <= 2000):
+            return
+        no = f"{no_int}관"
+        if no in halls:
+            return
+        stype = next((kw for kw in TYPE_KW if kw in ctx), None)
+        halls[no] = {"no": no, "seats": seats, **({"type": stype} if stype else {})}
+
+    # 패턴 1: 'N관 ... 총 NNN석' (관 뒤 총 — 요약행 '총 N관 X석'은 매칭 안 됨)
+    for m in re.finditer(r"(\d{1,2})관[^.]{0,22}?총\s*([\d,]{2,5})\s*석", section):
+        add(m.group(1), m.group(2), m.group(0))
+    # 패턴 2: 'N관 ... : NNN석' (콜론 표기 - 'MEGA|LED 2관: 431석')
+    for m in re.finditer(r"(\d{1,2})관[^:.]{0,80}:\s*([\d,]{2,5})\s*석", section):
+        add(m.group(1), m.group(2), m.group(0))
+    # 패턴 3: 특수관 별도 라인 'Dolby Cinema Laser : 378석' (관 번호 없음 → 1관)
     if "1관" not in halls:
-        m = re.search(
-            r"4\.1\s*\.\s*([^:]{1,80}?)\s*:\s*([\d,]{2,5})\s*석", section)
-        if m:
-            name = m.group(1).strip()
-            seats = int(m.group(2).replace(",", ""))
-            if 1 <= seats <= 2000:
-                halls["1관"] = {"no": "1관", "seats": seats, "type": name[:50]}
+        m = re.search(r"4\.1\s*\.\s*([^:.]{1,60}?)\s*:\s*([\d,]{2,5})\s*석", section)
+        if m and 1 <= int(m.group(2).replace(",", "")) <= 2000:
+            halls["1관"] = {"no": "1관",
+                            "seats": int(m.group(2).replace(",", "")),
+                            "type": m.group(1).strip()[:50]}
 
     return list(halls.values())
 

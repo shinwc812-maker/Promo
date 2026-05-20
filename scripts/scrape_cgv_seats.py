@@ -38,8 +38,10 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 PAT_INLINE = re.compile(r"(\d{1,2})관[^:\d]{0,40}:\s*([\d,]{2,5})\s*석")
 # 형식 A2: 'N관 - NNN석'  (관 직후 대시)
 PAT_DASH = re.compile(r"(\d{1,2})관\s*-\s*([\d,]{2,5})\s*석")
-# 형식 B: 'N관은 총 NNN석'
-PAT_SENTENCE = re.compile(r"(\d{1,2})관은\s*총\s*([\d,]{2,5})\s*석")
+# 형식 B: 'N관 ... 총 NNN석' (관~총 사이 '은 3층에 위치하며'·'IMAX 편집' 등 텍스트
+# 허용). '총' 이 관 뒤에 오므로 요약행 '총 N관 X석'(총이 관 앞)·'N관 X석'(총 없음)은
+# 매칭 안 됨 → 관별 좌석만 안전하게 추출.
+PAT_SENTENCE = re.compile(r"(\d{1,2})관[^.]{0,22}?총\s*([\d,]{2,5})\s*석")
 # 특수관 type 추출용 키워드
 TYPE_KW = ("SCREENX", "IMAX", "4DX", "Laser", "LASER", "Atmos", "ATMOS",
            "GOLD", "Cine", "PRIVATE", "BEREX", "컴포트", "SWEETBOX",

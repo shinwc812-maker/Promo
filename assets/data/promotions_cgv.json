@@ -1,7 +1,7 @@
 {
   "chain": "CGV",
   "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
-  "fetchedAt": "2026-05-20T11:23:49+09:00",
+  "fetchedAt": "2026-05-20T11:34:21+09:00",
   "movies": [
     {
       "movieCd": "20263344",
@@ -516,7 +516,7 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 5542,
+      "promoSeats": 5543,
       "events": [
         {
           "eventId": "202605127938",
@@ -626,8 +626,7 @@
               "sessions": 1
             }
           ],
-          "seats": 1998,
-          "seatsEstimated": true,
+          "seats": 1999,
           "branches": [
             "광주상무",
             "대전터미널",
