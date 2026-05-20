@@ -1,7 +1,7 @@
 {
   "chain": "CGV",
   "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
-  "fetchedAt": "2026-05-20T09:26:04+09:00",
+  "fetchedAt": "2026-05-20T10:16:48+09:00",
   "movies": [
     {
       "movieCd": "20263344",
@@ -392,7 +392,7 @@
         "goods": 1,
         "etc": 0
       },
-      "promoSeats": 1852,
+      "promoSeats": 1630,
       "events": [
         {
           "eventId": "202605187657",
@@ -439,8 +439,7 @@
               "sessions": 2
             }
           ],
-          "seats": 1852,
-          "seatsEstimated": true,
+          "seats": 1630,
           "branches": [
             "구로",
             "상봉",
@@ -511,7 +510,7 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 5532,
+      "promoSeats": 5542,
       "events": [
         {
           "eventId": "202605127938",
@@ -621,7 +620,7 @@
               "sessions": 1
             }
           ],
-          "seats": 1988,
+          "seats": 1998,
           "seatsEstimated": true,
           "branches": [
             "광주상무",
