@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-20T15:04:11+09:00",
+  "fetchedAt": "2026-05-20T15:16:20+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -162,6 +162,119 @@
       ]
     },
     {
+      "movieCd": "20248252",
+      "title": "와일드 씽",
+      "matched": true,
+      "counts": {
+        "coupon": 2,
+        "stage": 1,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 5839,
+      "events": [
+        {
+          "eventId": "201110016926002",
+          "name": "<와일드 씽> 프리미어 상영회",
+          "type": "etc",
+          "start": "2026.05.20",
+          "end": "2026.05.31"
+        },
+        {
+          "eventId": "401070016926154",
+          "name": "<와일드씽>1주차 무대인사",
+          "type": "stage",
+          "start": "2026.06.06",
+          "end": "2026.06.07",
+          "screenings": [
+            {
+              "branch": "월드타워",
+              "hall": "15관",
+              "sessions": 1,
+              "seats": 416
+            },
+            {
+              "branch": "건대입구",
+              "hall": "5관",
+              "sessions": 2,
+              "seats": 524
+            },
+            {
+              "branch": "건대입구",
+              "hall": "6관",
+              "sessions": 2,
+              "seats": 802
+            },
+            {
+              "branch": "월드타워",
+              "hall": "5관",
+              "sessions": 2,
+              "seats": 778
+            },
+            {
+              "branch": "월드타워",
+              "hall": "9관",
+              "sessions": 4,
+              "seats": 1440
+            },
+            {
+              "branch": "영등포",
+              "hall": "1관",
+              "sessions": 1,
+              "seats": 227
+            },
+            {
+              "branch": "영등포",
+              "hall": "7관",
+              "sessions": 1,
+              "seats": 206
+            },
+            {
+              "branch": "영등포",
+              "hall": "6관",
+              "sessions": 1,
+              "seats": 226
+            },
+            {
+              "branch": "김포공항",
+              "hall": "7관",
+              "sessions": 2,
+              "seats": 576
+            },
+            {
+              "branch": "김포공항",
+              "hall": "10관",
+              "sessions": 2,
+              "seats": 644
+            }
+          ],
+          "seats": 5839,
+          "branches": [
+            "건대입구",
+            "김포공항",
+            "영등포",
+            "월드타워"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/9401d485ec964ec5b82048a3e677f902.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926154.jpg"
+        },
+        {
+          "eventId": "sadagu-20248252-1",
+          "name": "<와일드 씽> 무비싸다구 0원 쿠폰",
+          "type": "coupon",
+          "issued": 3000,
+          "source": "롯데 앱 무비싸다구 (수동 입력)"
+        },
+        {
+          "eventId": "sadagu-20248252-2",
+          "name": "<와일드 씽> 무비싸다구 2000원 쿠폰",
+          "type": "coupon",
+          "issued": 3000,
+          "source": "롯데 앱 무비싸다구 (수동 입력)"
+        }
+      ]
+    },
+    {
       "movieCd": "20262975",
       "title": "신극장판 은혼: 요시와라 대염상",
       "matched": true,
@@ -265,105 +378,6 @@
           "type": "etc",
           "start": "2026.04.30",
           "end": "2026.05.31"
-        }
-      ]
-    },
-    {
-      "movieCd": "20248252",
-      "title": "와일드 씽",
-      "matched": true,
-      "counts": {
-        "coupon": 0,
-        "stage": 1,
-        "goods": 0,
-        "etc": 1
-      },
-      "promoSeats": 5839,
-      "events": [
-        {
-          "eventId": "201110016926002",
-          "name": "<와일드 씽> 프리미어 상영회",
-          "type": "etc",
-          "start": "2026.05.20",
-          "end": "2026.05.31"
-        },
-        {
-          "eventId": "401070016926154",
-          "name": "<와일드씽>1주차 무대인사",
-          "type": "stage",
-          "start": "2026.06.06",
-          "end": "2026.06.07",
-          "screenings": [
-            {
-              "branch": "월드타워",
-              "hall": "15관",
-              "sessions": 1,
-              "seats": 416
-            },
-            {
-              "branch": "건대입구",
-              "hall": "5관",
-              "sessions": 2,
-              "seats": 524
-            },
-            {
-              "branch": "건대입구",
-              "hall": "6관",
-              "sessions": 2,
-              "seats": 802
-            },
-            {
-              "branch": "월드타워",
-              "hall": "5관",
-              "sessions": 2,
-              "seats": 778
-            },
-            {
-              "branch": "월드타워",
-              "hall": "9관",
-              "sessions": 4,
-              "seats": 1440
-            },
-            {
-              "branch": "영등포",
-              "hall": "1관",
-              "sessions": 1,
-              "seats": 227
-            },
-            {
-              "branch": "영등포",
-              "hall": "7관",
-              "sessions": 1,
-              "seats": 206
-            },
-            {
-              "branch": "영등포",
-              "hall": "6관",
-              "sessions": 1,
-              "seats": 226
-            },
-            {
-              "branch": "김포공항",
-              "hall": "7관",
-              "sessions": 2,
-              "seats": 576
-            },
-            {
-              "branch": "김포공항",
-              "hall": "10관",
-              "sessions": 2,
-              "seats": 644
-            }
-          ],
-          "seats": 5839,
-          "branches": [
-            "건대입구",
-            "김포공항",
-            "영등포",
-            "월드타워"
-          ],
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/9401d485ec964ec5b82048a3e677f902.jpg",
-          "imagePath": "assets/data/lotte_images/401070016926154.jpg"
         }
       ]
     }

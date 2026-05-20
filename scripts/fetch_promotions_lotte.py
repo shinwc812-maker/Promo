@@ -54,9 +54,18 @@ DEFAULT_HALL_SEATS = 150
 # 판매 단품(유료) — 증정 아니므로 대시보드·집계 제외 (현재 롯데 매칭 굿즈엔 없음)
 SALE_EVENTS = set()
 
-# 쿠폰 발행수 수동 오버라이드. 평소엔 크롤러가 무비싸다구 등 쿠폰의 EventCntnt
-# 본문 '선착순 N명' 에서 자동 추출한다. 자동값이 틀릴 때만 EventID → 발행수로 지정.
+# 쿠폰 발행수 수동 오버라이드. 평소엔 크롤러가 쿠폰의 EventCntnt 본문 '선착순 N명'
+# 에서 자동 추출한다. 자동값이 틀릴 때만 EventID → 발행수로 지정.
 COUPON_COUNTS = {}
+
+# 무비싸다구 (롯데 앱 전용 할인쿠폰) — 이벤트 API·웹엔 안 나오고 모바일 앱에서만
+# 노출돼 자동 수집이 불가하다. 앱에서 확인한 발행수를 영화명→[(쿠폰명, 발행수)] 로
+# 수동 등록하면, booking TOP10 매칭 영화에 coupon 이벤트로 주입된다.
+# (무비싸다구 수량 변동 시 여기 갱신 · SKILL 의 무비싸다구 절 참고)
+MOVIE_SADAGU = {
+    "와일드 씽": [("0원 쿠폰", 3000), ("2000원 쿠폰", 3000)],
+    "백룸":      [("0원 쿠폰", 500),  ("2000원 쿠폰", 3500)],
+}
 
 # 쿠폰(무비싸다구 등) 본문의 '선착순 N명/매/장' 총 발행 수량 패턴
 _COUPON_QTY_PAT = re.compile(r"선착순\s*([\d,]+)\s*(?:명|매|장)")
@@ -354,6 +363,28 @@ def main():
             event_rec["movieName"] = (stage_movie_titles[0] if stage_movie_titles
                                        else (brackets[0] if brackets else None))
             unmatched.append(event_rec)
+
+    # 무비싸다구(앱 전용) 주입 — booking TOP10 매칭 영화에 coupon 이벤트로 추가
+    for sad_title, coupons in MOVIE_SADAGU.items():
+        hit = match_movie(sad_title)
+        if not hit:                       # TOP10 밖이면 대시보드 미반영 → 스킵
+            continue
+        movie_cd, mv_title = hit
+        rec = movies.setdefault(movie_cd, {
+            "movieCd": movie_cd, "title": mv_title, "matched": True,
+            "counts": {"coupon": 0, "stage": 0, "goods": 0, "etc": 0},
+            "promoSeats": 0, "events": [],
+        })
+        for idx, (cname, issued) in enumerate(coupons, 1):
+            rec["counts"]["coupon"] += 1
+            type_counter["coupon"] += 1
+            rec["events"].append({
+                "eventId": f"sadagu-{movie_cd}-{idx}",
+                "name": f"<{mv_title}> 무비싸다구 {cname}",
+                "type": "coupon",
+                "issued": issued,
+                "source": "롯데 앱 무비싸다구 (수동 입력)",
+            })
 
     out = {
         "chain": "LOTTE",

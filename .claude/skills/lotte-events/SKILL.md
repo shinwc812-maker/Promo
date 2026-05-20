@@ -109,16 +109,29 @@ python scripts/fetch_promotions_lotte.py
    }
    ```
 
-## 쿠폰 발행수 (자동 추출)
-**무비싸다구 등 선착순 쿠폰의 발행수는 크롤러가 자동 등록한다.** 발행수는 이벤트
-본문 `EventCntnt`(+`EventNtc`) 텍스트의 "선착순 N명"(또는 N매/N장)에 있어,
-`extract_coupon_issued()` 가 파싱해 coupon 이벤트의 `issued` 로 넣는다. 정부지원·
-1+1 등 수량 없는 쿠폰은 자동으로 미공개(None).
+## 쿠폰 발행수
+
+### (1) 일반 웹 쿠폰 — 자동 추출
+이벤트 API 에 잡히는 쿠폰의 발행수는 본문 `EventCntnt`(+`EventNtc`) 텍스트의
+"선착순 N명"(또는 N매/N장)에 있어 `extract_coupon_issued()` 가 파싱해 `issued` 로
+넣는다. 정부지원·1+1 등 수량 없는 쿠폰은 미공개(None).
 - 수동 오버라이드(`COUPON_COUNTS`): 자동값이 틀릴 때만 EventID→발행수 지정.
-- ⚠ **무비싸다구는 모바일에서 노출**되고, 비활성 시기엔 이벤트 API(채널 HO/MW/MO·
-  ECC 전체·SearchText 검색)에 안 잡힌다(확인 완료). 활성화되면 본문에 "선착순 N명"
-  형태로 들어올 것으로 보고 자동 추출하되, 표기가 다르거나 별도 모바일 전용
-  엔드포인트라면 활성 시점에 `_COUPON_QTY_PAT`·수집 경로 재확인 필요.
+
+### (2) 무비싸다구 — 앱 전용, 수동 dict (`MOVIE_SADAGU`)
+무비싸다구는 **모바일 롯데시네마 앱에서만** 노출되고 이벤트 API·모바일웹엔 안
+나온다(채널 HO/MW/MO/MX · ECC 전체 · SearchText · LCWS 메서드 추정 모두 실패 확인).
+앱 HTTPS 트래픽 캡처 없이는 자동 수집 불가하므로, 앱에서 확인한 발행수를
+`fetch_promotions_lotte.py` 상단 `MOVIE_SADAGU` dict 에 수동 등록한다:
+```python
+MOVIE_SADAGU = {
+    "와일드 씽": [("0원 쿠폰", 3000), ("2000원 쿠폰", 3000)],
+    "백룸":      [("0원 쿠폰", 500),  ("2000원 쿠폰", 3500)],
+}
+```
+- 영화명→[(쿠폰명, 발행수)]. 빌더가 booking TOP10 매칭 영화에 coupon 이벤트로 주입
+  (eventId=`sadagu-<movieCd>-N`). TOP10 밖 영화는 기록만 되고 미반영.
+- 무비싸다구 수량이 바뀌면 앱에서 확인해 이 dict 를 갱신. (앱 API URL 을 캡처해
+  주면 자동화 가능)
 
 ## 판매 단품 제외 → SALE_EVENTS
 가격표(원) 붙은 단품 판매(키링·쿠지·드링크)는 `SALE_EVENTS` 에 EventID 추가 →
