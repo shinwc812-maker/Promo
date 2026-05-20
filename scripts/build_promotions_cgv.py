@@ -34,6 +34,28 @@ OUT_FILE = DATA_DIR / "promotions_cgv.json"
 # 관 미명시 무대인사·GV 의 평균 좌석 추정값 (CGV 일반관 평균)
 DEFAULT_HALL_SEATS = 200
 
+# 판매 단품(키링·쿠지 등 유료) — 증정이 아니므로 대시보드·집계에서 완전 제외
+SALE_EVENTS = {
+    "202604237123",   # 악마는 프라다2 키링 출시 (단품 8,500원)
+}
+
+# 굿즈·특전 진행관수 (이미지 '대상 극장' 목록 판독). 미등록은 '미공개'.
+GOODS_THEATERS = {
+    "202605117932": 9,    # 너바나 굿즈패키지
+    "202605087835": 27,   # 마이클 IMAX 포스터
+    "202605077630": 48,   # 마이클 TTT
+    "202605087929": 23,   # 마이클 SCREENX 포스터
+    "202605087732": 37,   # 마이클 4DX 포스터
+    "202605187853": 1,    # 마이클 팝콘 증정 상영회 (동대문)
+    "202605187848": 37,   # 군체 4DX 포스터
+    "202605187847": 27,   # 군체 IMAX 포스터
+    "202605187647": 24,   # 군체 SCREENX 포스터
+    "202604247431": 24,   # 악마 SCREENX 리미티드 포스터
+    "202604297337": 48,   # 악마 TTT
+    "202605187657": 32,   # 호빵맨 1주차 현장 증정
+    "202605147843": 45,   # 신극장판 은혼 TTT
+}
+
 # 이미지 판독으로 추출한 무대인사·시사회 일정.
 # screenings: {branch, hall, sessions} — hall=None 이면 관 미명시(평균 좌석 사용)
 SCREENINGS = {
@@ -237,6 +259,8 @@ def main():
         eid = str(ev.get("evntNo") or "")
         if not name:
             continue
+        if eid in SALE_EVENTS:        # 판매 단품 — 대시보드·집계 제외
+            continue
         ptype = classify(name)
         # SCREENINGS 에 있으면 무조건 stage 로 강제 (시사회/GV/무대인사)
         if eid in SCREENINGS:
@@ -259,6 +283,8 @@ def main():
                 event_rec["seatsEstimated"] = True
             # 지점 목록(중복 제거)
             event_rec["branches"] = sorted({s["branch"] for s in screenings})
+        if ptype == "goods" and eid in GOODS_THEATERS:
+            event_rec["theaters"] = GOODS_THEATERS[eid]
 
         # 매칭: [영화명]·<영화명> 파싱
         brackets = re.findall(r"[\[<]([^\[\]<>]+)[\]>]", name)

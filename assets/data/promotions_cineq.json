@@ -1,7 +1,7 @@
 {
   "chain": "CINEQ",
   "source": "씨네큐 공식 이벤트 API",
-  "fetchedAt": "2026-05-20T09:12:20+09:00",
+  "fetchedAt": "2026-05-20T11:23:54+09:00",
   "movies": [
     {
       "movieCd": "20258236",
@@ -53,7 +53,8 @@
           "name": "<신극장판 은혼: 요시와라 대염상> 개봉주 주말 현장 증정 이벤트",
           "type": "goods",
           "duration": "2026.05.23~2026.05.29",
-          "fetchedAt": "2026-05-20"
+          "fetchedAt": "2026-05-20",
+          "theaters": 5
         },
         {
           "eventId": "7090",
@@ -80,7 +81,8 @@
           "name": "<너바나 더 밴드...> 개봉 1주차 현장 증정 이벤트",
           "type": "goods",
           "duration": "2026.05.20~2026.05.26",
-          "fetchedAt": "2026-05-20"
+          "fetchedAt": "2026-05-20",
+          "theaters": 1
         }
       ]
     },
@@ -102,7 +104,7 @@
           "duration": "2026.05.30~2026.05.30",
           "fetchedAt": "2026-05-20",
           "posterUrls": [
-            "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
+            "https://file.cineq.co.kr/j.aspx?guid=a5c50a7e5ad846cd9cff2f4805afb7ea",
             "https://file.cineq.co.kr/j.aspx?guid=5c94e37dd0264234a627b5e5fb7aa6c3",
             "https://file.cineq.co.kr/j.aspx?guid=1898d605556a4e41a0e9d697caabad9b"
           ],
@@ -150,7 +152,7 @@
           "duration": "2026.05.12~2026.05.12",
           "fetchedAt": "2026-05-20",
           "posterUrls": [
-            "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
+            "https://file.cineq.co.kr/j.aspx?guid=a5c50a7e5ad846cd9cff2f4805afb7ea",
             "https://file.cineq.co.kr/j.aspx?guid=078f2aa34bd2488eb37cae9f918348f6",
             "https://file.cineq.co.kr/j.aspx?guid=9b54111299a24b81b61fac1a367d2857"
           ],
@@ -190,7 +192,8 @@
           "name": "<악마는 프라다를 입는다 2> 개봉주 스페셜 포스터 증정 이벤트",
           "type": "goods",
           "duration": "2026.04.29~2026.05.05",
-          "fetchedAt": "2026-05-20"
+          "fetchedAt": "2026-05-20",
+          "theaters": 3
         }
       ]
     }
@@ -273,7 +276,7 @@
       "duration": "2026.06.02~2026.06.02",
       "fetchedAt": "2026-05-20",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=56e6a07e25ef4e5b8891a1648acba994",
+        "https://file.cineq.co.kr/j.aspx?guid=a5c50a7e5ad846cd9cff2f4805afb7ea",
         "https://file.cineq.co.kr/j.aspx?guid=a65a1148bbd0456bb0f50f2967b5dc71",
         "https://file.cineq.co.kr/j.aspx?guid=22e53c63e2af4595a4926897180259a0"
       ],

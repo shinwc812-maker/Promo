@@ -52,6 +52,17 @@ MAX_PAGES = 30   # 안전 상한
 
 DEFAULT_HALL_SEATS = 150  # 관 매칭 실패 시 fallback
 
+# 판매 단품(쿠지·드링크 등 유료) — 증정 아니므로 대시보드·집계 제외
+SALE_EVENTS = {
+    "20619",   # 내 마음의 위험한 녀석 쿠지 단품 11,000원
+    "20618",   # 신극장판 은혼 엘리자베스 드링크 25,000원
+}
+
+# 굿즈·특전 진행관수 (이미지 '진행 극장' 목록 판독). 미등록은 '미공개'.
+GOODS_THEATERS = {
+    "20629": 52,   # 내 마음의 위험한 녀석 개봉주 현장 증정
+}
+
 # 이미지 판독으로 추출한 무대인사 일정 (지점·관·sessions)
 # Megabox 본문은 일정표가 이미지에만 있어 사람·LLM 이 판독한 결과를 여기 하드코딩.
 # 좌석은 theater_seats_megabox.json 의 지점·관 좌석수로 자동 합산.
@@ -282,10 +293,12 @@ def main():
 
     for ev in events:
         title = ev["title"]
+        eid = ev["no"]
+        if eid in SALE_EVENTS:        # 판매 단품 — 대시보드·집계 제외
+            continue
         ptype = classify(title)
         type_counter[ptype] += 1
         start, _, end = ev["date"].partition("~")
-        eid = ev["no"]
         event_rec = {
             "eventId": eid,
             "name": title,
@@ -293,6 +306,8 @@ def main():
             "start": start.strip(),
             "end": end.strip(),
         }
+        if ptype == "goods" and eid in GOODS_THEATERS:
+            event_rec["theaters"] = GOODS_THEATERS[eid]
 
         # stage: 본문 이미지 다운로드 + SCREENINGS dict 이 있으면 좌석 합산
         if ptype == "stage":

@@ -1,7 +1,7 @@
 {
   "chain": "MEGABOX",
   "source": "메가박스 이벤트 API · eventMngDiv.do",
-  "fetchedAt": "2026-05-20T10:03:33+09:00",
+  "fetchedAt": "2026-05-20T11:23:52+09:00",
   "movies": [
     {
       "movieCd": "20263253",
@@ -10,7 +10,7 @@
       "counts": {
         "coupon": 0,
         "stage": 0,
-        "goods": 2,
+        "goods": 1,
         "etc": 1
       },
       "promoSeats": 0,
@@ -23,18 +23,12 @@
           "end": "2026.05.24"
         },
         {
-          "eventId": "20619",
-          "name": "[프로모션/굿즈] <내 마음의 위험한 녀석> 쿠지 런칭",
-          "type": "goods",
-          "start": "2026.05.21",
-          "end": "2026.06.07"
-        },
-        {
           "eventId": "20629",
           "name": "<극장판 내 마음의 위험한 녀석> 개봉주 현장 증정 이벤트",
           "type": "goods",
           "start": "2026.05.21",
-          "end": "2026.05.27"
+          "end": "2026.05.27",
+          "theaters": 52
         }
       ]
     },
@@ -182,27 +176,6 @@
           "branches": [
             "목동"
           ]
-        }
-      ]
-    },
-    {
-      "movieCd": "20262975",
-      "title": "신극장판 은혼: 요시와라 대염상",
-      "matched": true,
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 1,
-        "etc": 0
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "20618",
-          "name": "[프로모션/굿즈] <신극장판 은혼 : 요시와라 대염상> 엘리자베스 드링크 컵홀더 런칭",
-          "type": "goods",
-          "start": "2026.05.20",
-          "end": "2026.06.07"
         }
       ]
     },
@@ -580,16 +553,16 @@
       "movieName": null
     },
     {
-      "eventId": "20508",
-      "name": "[고양스타필드] 팝콘 샘플러 시즈닝바 OPEN!",
+      "eventId": "20633",
+      "name": "[더 부티크 목동현대백화점] 부티크 스위트 와인 패키지",
       "type": "etc",
       "start": "2026.05.01",
       "end": "2026.05.31",
       "movieName": null
     },
     {
-      "eventId": "20505",
-      "name": "[강남] 생차 녹차, 호지차와 함께하는 가정의 달",
+      "eventId": "20508",
+      "name": "[고양스타필드] 팝콘 샘플러 시즈닝바 OPEN!",
       "type": "etc",
       "start": "2026.05.01",
       "end": "2026.05.31",
@@ -628,6 +601,14 @@
       "movieName": null
     },
     {
+      "eventId": "20412",
+      "name": "[상암월드컵경기장] 러너 할인 이벤트",
+      "type": "coupon",
+      "start": "2026.04.06",
+      "end": "2026.06.30",
+      "movieName": null
+    },
+    {
       "eventId": "20038",
       "name": "[청주터미널] 배달 런칭! 오픈 기념 이벤트",
       "type": "etc",
@@ -652,11 +633,11 @@
       "movieName": null
     },
     {
-      "eventId": "20185",
-      "name": "[사상] 이달의 대형 OT 챌린지",
-      "type": "etc",
-      "start": "2026.04.01",
-      "end": "2026.09.30",
+      "eventId": "19795",
+      "name": "[광명AK플라자] 관람권패키지 3+1 특가 한정 판매!",
+      "type": "coupon",
+      "start": "2026.01.09",
+      "end": "2026.12.31",
       "movieName": null
     },
     {
@@ -684,10 +665,10 @@
       "movieName": null
     },
     {
-      "eventId": "18858",
-      "name": "[세종(조치원)] 온라인 예매시 누구나 다 할인",
-      "type": "coupon",
-      "start": "2026.01.01",
+      "eventId": "17111",
+      "name": "[세종(조치원)] 영화 보고, 맛있는 팝콘 리필하기!",
+      "type": "etc",
+      "start": "2025.01.24",
       "end": "2026.12.31",
       "movieName": null
     },
@@ -712,14 +693,6 @@
       "name": "[세종(조치원)] 조조시간, 확대시행!",
       "type": "etc",
       "start": "2024.09.01",
-      "end": "2026.12.31",
-      "movieName": null
-    },
-    {
-      "eventId": "16097",
-      "name": "[광주상무] 한강라면을 영화관에서?!",
-      "type": "etc",
-      "start": "2024.08.29",
       "end": "2026.12.31",
       "movieName": null
     }

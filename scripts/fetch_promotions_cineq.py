@@ -35,6 +35,16 @@ FILE_URL = "https://file.cineq.co.kr/j.aspx?guid="
 
 DEFAULT_HALL_SEATS = 100  # 관 매칭 실패 시 fallback
 
+# 판매 단품(유료) — 증정 아니므로 대시보드·집계 제외 (현재 씨네큐 매칭 굿즈엔 없음)
+SALE_EVENTS = set()
+
+# 굿즈·특전 진행관수 (이미지 '진행 극장' 목록 판독). 미등록은 '미공개'.
+GOODS_THEATERS = {
+    "7136": 5,   # 신극장판 은혼 개봉주 주말 현장 증정
+    "7091": 1,   # 너바나 개봉 1주차 현장 증정 (신도림)
+    "6922": 3,   # 악마는프라다2 개봉주 스페셜 포스터 (신도림·경주보문·구미봉곡)
+}
+
 # 이미지 판독으로 추출한 무대인사·시사회 일정.
 # hall=None 이면 관 미명시 → 지점 평균 좌석 사용.
 SCREENINGS = {
@@ -204,6 +214,9 @@ def main():
         if not title: continue
         eid = str(item.get("EventId") or "")
 
+        if eid in SALE_EVENTS:        # 판매 단품 — 대시보드·집계 제외
+            continue
+
         # 기간 끝 추출 후 cutoff 비교
         dur = item.get("Duration") or ""
         end = dur.partition("~")[2].strip()
@@ -220,6 +233,8 @@ def main():
             "duration": dur,
             "fetchedAt": datetime.now(KST).strftime("%Y-%m-%d"),
         }
+        if ptype == "goods" and eid in GOODS_THEATERS:
+            event_rec["theaters"] = GOODS_THEATERS[eid]
 
         # stage: 상세 이미지 다운로드 + SCREENINGS 기반 좌석 합산
         if ptype == "stage" and eid:

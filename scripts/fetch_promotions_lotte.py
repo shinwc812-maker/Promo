@@ -51,6 +51,19 @@ CLASS_CODES = ["10", "20", "40"]   # 수집 대상 EventClassificationCode
 # 관 매칭 실패 시 사용할 기본 좌석수 (롯데 일반관 평균)
 DEFAULT_HALL_SEATS = 150
 
+# 판매 단품(유료) — 증정 아니므로 대시보드·집계 제외 (현재 롯데 매칭 굿즈엔 없음)
+SALE_EVENTS = set()
+
+# 굿즈·특전 진행관수 (상세 포스터 '진행 극장' 목록 판독). 미등록은 '미공개'.
+# (광음특전처럼 특별관 보유 지점만 표기되고 목록 미명시면 dict 에서 제외 → 미공개)
+GOODS_THEATERS = {
+    "201010016926397": 59,   # 군체 시그니처 아트카드 (전국)
+    "201010016926406": 28,   # 마이클 2주차 주말증정
+    "201010016926384": 59,   # 마이클 시그니처 아트카드 (전국)
+    "201010016926398": 27,   # 신극장판 은혼 시그니처 아트카드
+    "201010016926402": 15,   # 악마는프라다2 4주차 증정
+}
+
 # 타입 분류 키워드 (우선순위 순으로 검사)
 STAGE_KW = ("무대인사", "GV", "시사회", "관객과의 대화", "관객과의대화")
 COUPON_KW = ("무비싸다구", "쿠폰", "관람권", "할인")
@@ -254,10 +267,12 @@ def main():
         end = ev.get("ProgressEndDate", "")
         if end and end < cutoff:       # 종료 1개월 이상 지난 이벤트만 제외
             continue
+        event_id = ev.get("EventID")
+        if str(event_id) in SALE_EVENTS:   # 판매 단품 — 대시보드·집계 제외
+            continue
         name = (ev.get("EventName") or "").strip()
         ptype = classify(name, ev.get("EventClassificationCode", ""))
         type_counter[ptype] += 1
-        event_id = ev.get("EventID")
         event_rec = {
             "eventId": event_id,
             "name": name,
@@ -265,6 +280,8 @@ def main():
             "start": ev.get("ProgressStartDate", ""),
             "end": end,
         }
+        if ptype == "goods" and str(event_id) in GOODS_THEATERS:
+            event_rec["theaters"] = GOODS_THEATERS[str(event_id)]
 
         # stage 타입: 상세 API 호출 → 회차·지점·좌석 + 큰 포스터 이미지 받기
         stage_movie_titles = []

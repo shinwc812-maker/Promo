@@ -81,7 +81,7 @@ function buildPromoDetail(movieCd) {
     { key: 'mega',    label: '메가',  data: DATA.megabox },
     { key: 'cineq',   label: '씨네큐', data: DATA.cineq },
   ];
-  let tSeats = 0, tStage = 0, tCoupon = 0, tGoods = 0, anyEvent = false;
+  let tSeats = 0, tStage = 0, tCoupon = 0, tGoods = 0, tTheaters = 0, anyEvent = false;
   let rows = '';
 
   chains.forEach(ch => {
@@ -92,6 +92,7 @@ function buildPromoDetail(movieCd) {
     const goods  = events.filter(e => e.type === 'goods');
     tStage += stage.length; tCoupon += coupon.length; tGoods += goods.length;
     stage.forEach(e => { if (typeof e.seats === 'number') tSeats += e.seats; });
+    goods.forEach(e => { if (typeof e.theaters === 'number') tTheaters += e.theaters; });
 
     const n = Math.max(stage.length, coupon.length, goods.length);
     if (n === 0) {
@@ -106,6 +107,9 @@ function buildPromoDetail(movieCd) {
       const seatVal = s
         ? (typeof s.seats === 'number' && s.seats > 0 ? fmt(s.seats) + '석' : '미공개')
         : '';
+      const theaterVal = g
+        ? (typeof g.theaters === 'number' && g.theaters > 0 ? g.theaters + '개관' : '미공개')
+        : '';
       rows += `<tr class="${i === 0 ? 'chain-start' : ''}">
         ${i === 0 ? `<td class="chain-label" rowspan="${n}"><span class="chip chip-${ch.key} on">${ch.label}</span></td>` : ''}
         <td class="evt">${s ? truncate(s.name, 24) : ''}</td>
@@ -113,7 +117,7 @@ function buildPromoDetail(movieCd) {
         <td class="evt">${c ? truncate(c.name, 24) : ''}</td>
         <td class="num">${c ? '미공개' : ''}</td>
         <td class="evt">${g ? truncate(g.name, 24) : ''}</td>
-        <td class="num">${g ? '미공개' : ''}</td>
+        <td class="num">${theaterVal}</td>
       </tr>`;
     }
   });
@@ -131,7 +135,7 @@ function buildPromoDetail(movieCd) {
       <td class="evt">쿠폰 ${tCoupon}건</td>
       <td class="num">미공개</td>
       <td class="evt">굿즈 ${tGoods}건</td>
-      <td class="num">미공개</td>
+      <td class="num">${tTheaters > 0 ? tTheaters + '개관' : '미공개'}</td>
     </tr>`;
   if (!anyEvent && tStage + tCoupon + tGoods === 0) {
     return head + `<tbody><tr><td colspan="7" class="promo-empty">
