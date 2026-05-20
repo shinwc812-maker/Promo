@@ -8,3 +8,9 @@
 # .env 파일은 .gitignore 에 등록되어 있어 깃에 올라가지 않습니다.
 
 KOFIC_API_KEY=
+
+# 백데이터 구글 시트 누적 (Apps Script 웹앱) — scripts/sheets_webapp.gs 참고
+# 시트에 Apps Script 를 웹앱으로 배포한 뒤 그 URL 과 비밀 토큰을 채우세요.
+# (미설정이면 CSV 로컬 누적만 하고 시트 전송은 생략됩니다.)
+SHEETS_WEBAPP_URL=
+SHEETS_TOKEN=

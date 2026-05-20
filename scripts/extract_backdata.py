@@ -8,12 +8,14 @@ extract_backdata.py
   - 척추(spine) = 실시간 예매율 TOP 10 (booking.json)
   - 각 영화를 movieCd 로 박스오피스(boxoffice.json) · 4사 프로모션
     (promotions_{cgv,lotte,megabox,cineq}.json) 과 조인
-한 다음, 엑셀로 바로 열어 검증·제출할 수 있는 long format CSV 로 누적 저장한다.
+한 다음, long format 으로 (1) 로컬 CSV 누적 + (2) 구글 시트 누적 한다.
 
-산출물: assets/data/backdata/promotions_daily.csv
+산출물:
+  (1) assets/data/backdata/promotions_daily.csv  (로컬 백업 · utf-8-sig BOM)
+  (2) 구글 시트 (Apps Script 웹앱 · .env SHEETS_WEBAPP_URL 설정 시)
   - grain(행 단위) = (date, movieCd, chain)  · 영화 1편당 4사 4행
   - 같은 date 를 다시 추출하면 그 날짜 행만 교체(upsert)해 중복 안 쌓임
-  - 인코딩 utf-8-sig (BOM) — 엑셀에서 한글 안 깨지게
+    (CSV·시트 모두 동일하게 날짜 기준 upsert)
 
 영화 단위 집계값(promoSeatsTotal · seatRatioPct · efficiency)은 같은 영화의
 4개 체인 행에 동일하게 들어간다(denormalize). 한 행만 봐도 맥락을 알 수 있고,
@@ -25,9 +27,12 @@ extract_backdata.py
 """
 import csv
 import json
+import os
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 for _stream in (sys.stdout, sys.stderr):
     try:
@@ -55,12 +60,11 @@ FIELDS = [
     "chain",           # CGV / LOTTE / MEGA / CINEQ
     "bookingRate",     # 예매율 (%)
     "bookingAudi",     # 예매 관객수 (누적)
-    "stageSeats",      # 해당 체인 무대인사·시사회·GV 좌석수
-    "couponIssued",    # 해당 체인 쿠폰 발행 매수
     "stageEvt",        # 해당 체인 무대인사 건수
+    "stageSeats",      # 해당 체인 무대인사·시사회·GV 좌석수
     "couponEvt",       # 해당 체인 쿠폰 건수
+    "couponIssued",    # 해당 체인 쿠폰 발행 매수
     "goodsEvt",        # 해당 체인 굿즈 건수
-    "etcEvt",          # 해당 체인 기타 건수
     "promoTotal",      # 4사 합산 프로모션 좌석 = 무대인사좌석 + 쿠폰매수 (영화 단위)
     "promoRatioPct",   # 프로모션좌석합계/예매관객 ×100 (대시보드 지표, 영화 단위)
 ]
@@ -77,7 +81,6 @@ FIELD_KR = {
     "stageEvt": "무대인사건수",
     "couponEvt": "쿠폰건수",
     "goodsEvt": "굿즈건수",
-    "etcEvt": "기타건수",
     "promoTotal": "프로모션좌석합계",
     "promoRatioPct": "프로모션좌석점유율(%)",
 }
@@ -91,6 +94,53 @@ def load_json(name):
         return json.loads(path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         return None
+
+
+def load_env(key):
+    """환경변수 → 프로젝트 루트 .env 순으로 값을 찾는다."""
+    val = os.environ.get(key)
+    if val:
+        return val.strip()
+    env = ROOT / ".env"
+    if env.exists():
+        for line in env.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            name, _, value = line.partition("=")
+            if name.strip() == key:
+                return value.strip().strip('"').strip("'")
+    return None
+
+
+def post_to_sheets(today, header, today_rows):
+    """오늘자 행을 구글 시트(Apps Script 웹앱)로 전송해 누적 저장한다.
+
+    웹앱(scripts/sheets_webapp.gs)이 같은 날짜 행을 교체(upsert)한다.
+    SHEETS_WEBAPP_URL 미설정이면 조용히 건너뛴다(설정 전엔 CSV 만 누적).
+    """
+    url = load_env("SHEETS_WEBAPP_URL")
+    if not url:
+        print("  (구글 시트 미설정 — .env 의 SHEETS_WEBAPP_URL 없음 · 시트 전송 생략)")
+        return
+    payload = json.dumps({
+        "token": load_env("SHEETS_TOKEN") or "",
+        "date": today,
+        "header": header,
+        "rows": today_rows,
+    }, ensure_ascii=False).encode("utf-8")
+    req = Request(url, data=payload,
+                  headers={"Content-Type": "application/json"})
+    try:
+        with urlopen(req, timeout=30) as r:
+            resp = json.loads(r.read().decode("utf-8"))
+    except (HTTPError, URLError, json.JSONDecodeError) as exc:
+        print(f"  ⚠ 구글 시트 전송 실패: {exc}")
+        return
+    if resp.get("ok"):
+        print(f"  ✓ 구글 시트 누적 → {today} {resp.get('added')}행")
+    else:
+        print(f"  ⚠ 구글 시트 오류: {resp.get('error')}")
 
 
 def main():
@@ -151,7 +201,6 @@ def main():
                 "stageEvt": counts.get("stage", 0),
                 "couponEvt": counts.get("coupon", 0),
                 "goodsEvt": counts.get("goods", 0),
-                "etcEvt": counts.get("etc", 0),
                 "promoTotal": promo_total,
                 "promoRatioPct": promo_ratio,
             })
@@ -197,6 +246,11 @@ def main():
     matched = sum(1 for bk in spine
                   if any(chain_idx[k].get(bk['movieCd']) for k, _l, _f in CHAINS))
     print(f"  예매율 TOP{len(spine)} 중 4사 프로모션 매칭 {matched}편")
+
+    # 구글 시트 누적 (Apps Script 웹앱 · 미설정이면 생략)
+    header = [FIELD_KR[f] for f in FIELDS]
+    today_rows = [[r.get(f, "") for f in FIELDS] for r in rows]
+    post_to_sheets(today, header, today_rows)
 
 
 if __name__ == "__main__":
