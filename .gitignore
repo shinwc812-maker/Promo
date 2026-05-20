@@ -1,0 +1,48 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env / secrets
+.env
+.env.local
+*.key
+
+# Future: Python data collection
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Future: Node tooling
+node_modules/
+dist/
+build/
+
+# Data caches (실제 데이터는 별도 저장소 권장)
+data/cache/
+*.sqlite
+*.db
+
+# Event poster images — 수백 MB. 대시보드는 JSON 만 읽고 이미지 직접 안 씀
+assets/data/cgv_images/
+assets/data/lotte_images/
+assets/data/megabox_images/
+assets/data/cineq_images/
+
+# 임시 crop / 테스트 이미지 (사람 판독용)
+**/_crop_*.jpg
+**/_test_*.jpg
+**/_lotte_event_page.png
+
+# 일일 로그 (히스토리 추적 무의미, 매일 새로 생성)
+assets/data/daily_log/

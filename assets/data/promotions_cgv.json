@@ -1,0 +1,1446 @@
+{
+  "chain": "CGV",
+  "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
+  "fetchedAt": "2026-05-20T08:53:25+09:00",
+  "movies": [
+    {
+      "movieCd": "20259773",
+      "title": "슈퍼 마리오 갤럭시",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 8,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "202604247433",
+          "name": "[슈퍼 마리오 갤럭시] SCREENX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-04-24",
+          "end": "2026-05-24"
+        },
+        {
+          "eventId": "202604287248",
+          "name": "[슈퍼 마리오 갤럭시] CGV와 함께 파워업 콜라보!",
+          "type": "goods",
+          "start": "2026-04-29",
+          "end": "2026-05-28"
+        },
+        {
+          "eventId": "202604237243",
+          "name": "[슈퍼 마리오 갤럭시] TTT",
+          "type": "goods",
+          "start": "2026-04-24",
+          "end": "2026-05-22"
+        },
+        {
+          "eventId": "202604247245",
+          "name": "[슈퍼 마리오 갤럭시] 4DX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-04-24",
+          "end": "2026-05-24"
+        },
+        {
+          "eventId": "202604297251",
+          "name": "[슈퍼 마리오 갤럭시] SCREENX XTRACOLLECTION 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-02",
+          "end": "2026-05-29"
+        },
+        {
+          "eventId": "202604247432",
+          "name": "[슈퍼 마리오 갤럭시] IMAX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-04-24",
+          "end": "2026-05-24"
+        },
+        {
+          "eventId": "202604307252",
+          "name": "[슈퍼 마리오 갤럭시] ULTRA 4DX MOMENT LABEL 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-02",
+          "end": "2026-05-30"
+        },
+        {
+          "eventId": "202604307537",
+          "name": "[슈퍼 마리오 갤럭시] 4DX XTRACOLLECTION 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-02",
+          "end": "2026-05-30"
+        }
+      ]
+    },
+    {
+      "movieCd": "20263344",
+      "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 4,
+        "goods": 1,
+        "etc": 2
+      },
+      "promoSeats": 1164,
+      "events": [
+        {
+          "eventId": "202605187648",
+          "name": "[너바나 더 밴드...] 관람인증 이벤트",
+          "type": "etc",
+          "start": "2026-05-20",
+          "end": "2026-06-02"
+        },
+        {
+          "eventId": "202605127937",
+          "name": "[너바나 더 밴드...] 빠더너스 크루 개봉일 GV",
+          "type": "stage",
+          "start": "2026-05-20",
+          "end": "2026-05-20",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": 194,
+          "branches": [
+            "용산아이파크몰"
+          ]
+        },
+        {
+          "eventId": "202605137941",
+          "name": "[너바나 더 밴드...] 개봉 기념 현장 이벤트",
+          "type": "etc",
+          "start": "2026-05-20",
+          "end": "2026-05-26"
+        },
+        {
+          "eventId": "202605187949",
+          "name": "[너바나 더 밴드...] 빠더너스 문상훈 무대인사",
+          "type": "stage",
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 2
+            }
+          ],
+          "seats": 388,
+          "branches": [
+            "용산아이파크몰"
+          ]
+        },
+        {
+          "eventId": "202605147645",
+          "name": "[너바나 더 밴드...] 싱어송라이터 한로로 GV",
+          "type": "stage",
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": 194,
+          "branches": [
+            "용산아이파크몰"
+          ]
+        },
+        {
+          "eventId": "202605147644",
+          "name": "[너바나 더 밴드...] 개봉일 무대인사",
+          "type": "stage",
+          "start": "2026-05-20",
+          "end": "2026-05-20",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 2
+            }
+          ],
+          "seats": 388,
+          "branches": [
+            "용산아이파크몰"
+          ]
+        },
+        {
+          "eventId": "202605117932",
+          "name": "[너바나 더 밴드...] 굿즈패키지",
+          "type": "goods",
+          "start": "2026-05-21",
+          "end": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "movieCd": "20259791",
+      "title": "악마는 프라다를 입는다 2",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 3,
+        "etc": 3
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "202604247431",
+          "name": "[악마는 프라다를 입는다 2] SCREENX 리미티드 포스터",
+          "type": "goods",
+          "start": "2026-04-24",
+          "end": "2026-05-24"
+        },
+        {
+          "eventId": "202604297443",
+          "name": "[악마는 프라다를 입는다 2] N차 관람 이벤트",
+          "type": "etc",
+          "start": "2026-04-29",
+          "end": "2026-05-19"
+        },
+        {
+          "eventId": "202604237123",
+          "name": "악마는 키링까지 완벽하다, 악마는 프라다를 입는다2 키링 2종 출시",
+          "type": "goods",
+          "start": "2026-04-24",
+          "end": "2026-05-23"
+        },
+        {
+          "eventId": "202604297337",
+          "name": "[악마는 프라다를 입는다 2] TTT",
+          "type": "goods",
+          "start": "2026-04-29",
+          "end": "2026-05-29"
+        },
+        {
+          "eventId": "202605117933",
+          "name": "[악마는 프라다를 입는다2] 현장이벤트",
+          "type": "etc",
+          "start": "2026-05-13",
+          "end": "2026-05-19"
+        },
+        {
+          "eventId": "202605187654",
+          "name": "[악마는 프라다를 입는다2] 현장이벤트",
+          "type": "etc",
+          "start": "2026-05-20",
+          "end": "2026-05-26"
+        }
+      ]
+    },
+    {
+      "movieCd": "20259626",
+      "title": "마이클",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 5,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "202605117935",
+          "name": "[마이클] N차 관람 이벤트",
+          "type": "etc",
+          "start": "2026-05-11",
+          "end": "2026-06-02"
+        },
+        {
+          "eventId": "202605087835",
+          "name": "[마이클] IMAX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-08",
+          "end": "2026-06-08"
+        },
+        {
+          "eventId": "202605077630",
+          "name": "[마이클] TTT",
+          "type": "goods",
+          "start": "2026-05-07",
+          "end": "2026-06-07"
+        },
+        {
+          "eventId": "202605087929",
+          "name": "[마이클] SCREENX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-08",
+          "end": "2026-06-08"
+        },
+        {
+          "eventId": "202605087732",
+          "name": "[마이클] 4DX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-08",
+          "end": "2026-06-08"
+        },
+        {
+          "eventId": "202605187853",
+          "name": "[마이클] 팝콘 증정 상영회",
+          "type": "goods",
+          "start": "2026-05-21",
+          "end": "2026-05-21"
+        }
+      ]
+    },
+    {
+      "movieCd": "20252402",
+      "title": "군체",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 3,
+        "goods": 3,
+        "etc": 0
+      },
+      "promoSeats": 7206,
+      "events": [
+        {
+          "eventId": "202605187848",
+          "name": "[군체] 4DX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-18",
+          "end": "2026-06-18"
+        },
+        {
+          "eventId": "202605187847",
+          "name": "[군체] IMAX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-18",
+          "end": "2026-06-18"
+        },
+        {
+          "eventId": "202605187647",
+          "name": "[군체] SCREENX 포스터 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-18",
+          "end": "2026-06-18"
+        },
+        {
+          "eventId": "202604307547",
+          "name": "[군체] 개봉일 무대인사",
+          "type": "stage",
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": "20관",
+              "sessions": 2
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "16관",
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "6관",
+              "sessions": 2
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "5관",
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "4관",
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "7관",
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "11관",
+              "sessions": 2
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "12관",
+              "sessions": 2
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "13관",
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "15관",
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "17관",
+              "sessions": 2
+            }
+          ],
+          "seats": 4118,
+          "branches": [
+            "용산아이파크몰"
+          ]
+        },
+        {
+          "eventId": "202605117840",
+          "name": "[군체] 개봉 2주차 무대인사",
+          "type": "stage",
+          "start": "2026-05-30",
+          "end": "2026-05-30",
+          "screenings": [
+            {
+              "branch": "영등포",
+              "hall": "12관",
+              "sessions": 2
+            },
+            {
+              "branch": "영등포",
+              "hall": "1관",
+              "sessions": 2
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "20관",
+              "sessions": 2
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "15관",
+              "sessions": 2
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "13관",
+              "sessions": 1
+            }
+          ],
+          "seats": 2768,
+          "branches": [
+            "영등포",
+            "용산아이파크몰"
+          ]
+        },
+        {
+          "eventId": "202605147943",
+          "name": "[군체] 군체설명회 GV",
+          "type": "stage",
+          "start": "2026-05-22",
+          "end": "2026-05-22",
+          "screenings": [
+            {
+              "branch": "영등포",
+              "hall": "5관",
+              "sessions": 1
+            }
+          ],
+          "seats": 320,
+          "branches": [
+            "영등포"
+          ]
+        }
+      ]
+    },
+    {
+      "movieCd": "20263222",
+      "title": "극장판 호빵맨: 세균맨과 그림책의 루룬",
+      "matched": true,
+      "counts": {
+        "coupon": 2,
+        "stage": 1,
+        "goods": 1,
+        "etc": 0
+      },
+      "promoSeats": 1852,
+      "events": [
+        {
+          "eventId": "202605187657",
+          "name": "[극장판 호빵맨] 개봉 1주차 현장 증정 이벤트",
+          "type": "goods",
+          "start": "2026-05-23",
+          "end": "2026-06-09"
+        },
+        {
+          "eventId": "202605137940",
+          "name": "[극장판 호빵맨] 개봉 주 무대인사",
+          "type": "stage",
+          "start": "2026-05-23",
+          "end": "2026-05-24",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": "16관",
+              "sessions": 2
+            },
+            {
+              "branch": "영등포",
+              "hall": "7관",
+              "sessions": 2
+            },
+            {
+              "branch": "구로",
+              "hall": "9관",
+              "sessions": 2
+            },
+            {
+              "branch": "파주운정",
+              "hall": "5관",
+              "sessions": 2
+            },
+            {
+              "branch": "의정부",
+              "hall": "4관",
+              "sessions": 2
+            },
+            {
+              "branch": "상봉",
+              "hall": "7관",
+              "sessions": 2
+            }
+          ],
+          "seats": 1852,
+          "seatsEstimated": true,
+          "branches": [
+            "구로",
+            "상봉",
+            "영등포",
+            "용산아이파크몰",
+            "의정부",
+            "파주운정"
+          ]
+        },
+        {
+          "eventId": "202605137842",
+          "name": "[극장판 호빵맨] 정부 지원 6천원 할인 관람 안내",
+          "type": "coupon",
+          "start": "2026-05-13",
+          "end": "2026-06-13"
+        },
+        {
+          "eventId": "202605147739",
+          "name": "[극장판 호빵맨-세균맨과 그림책의 루룬] 서프라이즈 쿠폰",
+          "type": "coupon",
+          "start": "2026-05-18",
+          "end": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 1,
+        "etc": 2
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "202605147843",
+          "name": "[신극장판 은혼: 요시와라 대염상] TTT",
+          "type": "goods",
+          "start": "2026-05-14",
+          "end": "2026-06-14"
+        },
+        {
+          "eventId": "202605187747",
+          "name": "[신극장판 은혼: 요시와라 대염상] 현장이벤트",
+          "type": "etc",
+          "start": "2026-05-23",
+          "end": "2026-05-26"
+        },
+        {
+          "eventId": "202605187854",
+          "name": "[신극장판 은혼: 요시와라 대염상] 응원 메세지 상영회",
+          "type": "etc",
+          "start": "2026-05-23",
+          "end": "2026-05-24"
+        }
+      ]
+    },
+    {
+      "movieCd": "20248252",
+      "title": "와일드 씽",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 2,
+        "goods": 0,
+        "etc": 0
+      },
+      "promoSeats": 5532,
+      "events": [
+        {
+          "eventId": "202605117839",
+          "name": "[CGV회원시사] 와일드 씽",
+          "type": "stage",
+          "start": "2026-05-11",
+          "end": "2026-05-17",
+          "screenings": [
+            {
+              "branch": "광주상무",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "대전터미널",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "센텀시티",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "영등포",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "왕십리",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "울산삼산",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "의정부",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "인천",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "천안터미널",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": 1988,
+          "seatsEstimated": true,
+          "branches": [
+            "광주상무",
+            "대전터미널",
+            "센텀시티",
+            "영등포",
+            "왕십리",
+            "용산아이파크몰",
+            "울산삼산",
+            "의정부",
+            "인천",
+            "천안터미널"
+          ]
+        },
+        {
+          "eventId": "202605127938",
+          "name": "[와일드 씽] 개봉주 무대인사",
+          "type": "stage",
+          "start": "2026-06-06",
+          "end": "2026-06-06",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": "15관",
+              "sessions": 4
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "13관",
+              "sessions": 4
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": "12관",
+              "sessions": 2
+            },
+            {
+              "branch": "왕십리",
+              "hall": "7관",
+              "sessions": 2
+            },
+            {
+              "branch": "왕십리",
+              "hall": "5관",
+              "sessions": 2
+            },
+            {
+              "branch": "영등포",
+              "hall": "5관",
+              "sessions": 2
+            },
+            {
+              "branch": "영등포",
+              "hall": "6관",
+              "sessions": 1
+            }
+          ],
+          "seats": 3544,
+          "branches": [
+            "영등포",
+            "왕십리",
+            "용산아이파크몰"
+          ]
+        }
+      ]
+    },
+    {
+      "movieCd": "20261782",
+      "title": "프로젝트 헤일메리",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 0,
+        "etc": 2
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "202605117639",
+          "name": "[프로젝트 헤일메리] 현장이벤트",
+          "type": "etc",
+          "start": "2026-05-13",
+          "end": "2026-05-19"
+        },
+        {
+          "eventId": "202605147741",
+          "name": "[프로젝트 헤일메리] 현장이벤트",
+          "type": "etc",
+          "start": "2026-05-16",
+          "end": "2026-05-19"
+        }
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "eventId": "202605177646",
+      "name": "[2026 KBO 리그] 5월 4주차 극장 단독 생중계",
+      "type": "etc",
+      "start": "2026-05-24",
+      "end": "2026-05-24",
+      "movieName": "2026 KBO 리그"
+    },
+    {
+      "eventId": "202605087733",
+      "name": "2026 CGV 정부지원 국민 영화 관람권 프로모션",
+      "type": "coupon",
+      "start": "2026-05-13",
+      "end": "2026-09-08",
+      "movieName": null
+    },
+    {
+      "eventId": "202605117737",
+      "name": "5월, 이달의 SCREENX -CGV배곧,CGV인천",
+      "type": "etc",
+      "start": "2026-05-11",
+      "end": "2026-05-25",
+      "movieName": null
+    },
+    {
+      "eventId": "202605087631",
+      "name": "[탑건] RE:Masterpiece 리:마스터피스 기획전",
+      "type": "etc",
+      "start": "2026-05-08",
+      "end": "2026-06-08",
+      "movieName": "탑건"
+    },
+    {
+      "eventId": "202605117736",
+      "name": "떡잎상사도 못말려~ 짱구 떡잎상사 콜라보 2탄!",
+      "type": "goods",
+      "start": "2026-05-13",
+      "end": "2026-06-11",
+      "movieName": null
+    },
+    {
+      "eventId": "202604277437",
+      "name": "♡캐치 티니핑! 하츄핑 봉제키링 출시♡",
+      "type": "goods",
+      "start": "2026-04-29",
+      "end": "2026-05-27",
+      "movieName": null
+    },
+    {
+      "eventId": "202604207213",
+      "name": "오늘 기분 어떤 핑구?! 컬러 핑구 인형키링 출시!",
+      "type": "goods",
+      "start": "2026-04-22",
+      "end": "2026-05-20",
+      "movieName": null
+    },
+    {
+      "eventId": "202604277530",
+      "name": "[씨집에 가면] 5월 이달의 단독 입주작",
+      "type": "etc",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "movieName": "씨집에 가면"
+    },
+    {
+      "eventId": "202507144723",
+      "name": "씨네톡 - CGV NEW 커뮤니티",
+      "type": "etc",
+      "start": "2026-04-28",
+      "end": "2999-12-30",
+      "movieName": null
+    },
+    {
+      "eventId": "202605187746",
+      "name": "[CGV회원시사] 현상수배",
+      "type": "etc",
+      "start": "2026-05-18",
+      "end": "2026-05-25",
+      "movieName": "CGV회원시사"
+    },
+    {
+      "eventId": "202605087734",
+      "name": "[교생실습] 전격 예매 오픈!",
+      "type": "etc",
+      "start": "2026-05-08",
+      "end": "2026-06-08",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202605157743",
+      "name": "[2026 빔 벤더스 감독전 PART2] 안젤름 현장이벤트",
+      "type": "etc",
+      "start": "2026-05-20",
+      "end": "2026-06-30",
+      "movieName": "2026 빔 벤더스 감독전 PART2"
+    },
+    {
+      "eventId": "202605087836",
+      "name": "[파티마가 사랑한 계절] 현장이벤트",
+      "type": "etc",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "파티마가 사랑한 계절"
+    },
+    {
+      "eventId": "202605187745",
+      "name": "[플레이브 아시아 투어 [대쉬: 퀀텀 리프] 앙코르 인 시네마] 개봉 기념 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026-06-03",
+      "end": "2026-06-09",
+      "movieName": "대쉬: 퀀텀 리프"
+    },
+    {
+      "eventId": "202605187948",
+      "name": "[로메리아] 프리미어DAY",
+      "type": "stage",
+      "start": "2026-05-23",
+      "end": "2026-05-24",
+      "movieName": "로메리아"
+    },
+    {
+      "eventId": "202605137942",
+      "name": "[CGV회원시사] 상자 속의 양",
+      "type": "etc",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "CGV회원시사"
+    },
+    {
+      "eventId": "202605057728",
+      "name": "<2026 TXT MOA CON IN JAPAN : LIVE VIEWING> 생중계 이벤트",
+      "type": "etc",
+      "start": "2026-05-24",
+      "end": "2026-05-24",
+      "movieName": "2026 TXT MOA CON IN JAPAN : LIVE VIEWING"
+    },
+    {
+      "eventId": "202605157742",
+      "name": "[2026 빔 벤더스 감독전 PART2] 피나 현장이벤트",
+      "type": "etc",
+      "start": "2026-05-20",
+      "end": "2026-06-30",
+      "movieName": "2026 빔 벤더스 감독전 PART2"
+    },
+    {
+      "eventId": "202605187653",
+      "name": "[이상한 과자가게 전청당] 프리미어",
+      "type": "stage",
+      "start": "2026-05-25",
+      "end": "2026-05-25",
+      "movieName": "이상한 과자가게 전청당"
+    },
+    {
+      "eventId": "202605087837",
+      "name": "[이프 온리] 현장이벤트",
+      "type": "etc",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "이프 온리"
+    },
+    {
+      "eventId": "202605087930",
+      "name": "[비발디와 나] 현장이벤트",
+      "type": "etc",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "비발디와 나"
+    },
+    {
+      "eventId": "202605157944",
+      "name": "[2026 버스터 키튼 걸작전] 굿즈패키지",
+      "type": "goods",
+      "start": "2026-05-23",
+      "end": "2026-05-25",
+      "movieName": "2026 버스터 키튼 걸작전"
+    },
+    {
+      "eventId": "202605187649",
+      "name": "[미세스 그린 애플 매지컬 10주년 기념 라이브 ~피오르드~ 온 스크린] 개봉주차 이벤트",
+      "type": "etc",
+      "start": "2026-05-27",
+      "end": "2026-06-16",
+      "movieName": "미세스 그린 애플 매지컬 10주년 기념 라이브 ~피오르드~ 온 스크린"
+    },
+    {
+      "eventId": "202605117838",
+      "name": "[교생실습] 개봉 1주차 현장 이벤트",
+      "type": "etc",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202605187652",
+      "name": "[교생실습] 개봉 2주차 현장 이벤트",
+      "type": "etc",
+      "start": "2026-05-20",
+      "end": "2026-05-26",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202605187655",
+      "name": "[CGV회원시사] 에픽:엘비스 프레슬리 콘서트",
+      "type": "etc",
+      "start": "2026-05-18",
+      "end": "2026-06-07",
+      "movieName": "CGV회원시사"
+    },
+    {
+      "eventId": "202605187650",
+      "name": "[미세스 그린 애플 매지컬 10주년 다큐멘터리 필름 ~디 오리진~] 개봉주차 이벤트",
+      "type": "etc",
+      "start": "2026-05-27",
+      "end": "2026-06-16",
+      "movieName": "미세스 그린 애플 매지컬 10주년 다큐멘터리 필름 ~디 오리진~"
+    },
+    {
+      "eventId": "202605187656",
+      "name": "[교생실습] 굿즈패키지",
+      "type": "goods",
+      "start": "2026-05-22",
+      "end": "2026-05-22",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202605187850",
+      "name": "[유레카] 프리미어DAY",
+      "type": "stage",
+      "start": "2026-05-23",
+      "end": "2026-05-24",
+      "movieName": "유레카"
+    },
+    {
+      "eventId": "202605147740",
+      "name": "[싱 스트리트] SNS 기대평 이벤트",
+      "type": "etc",
+      "start": "2026-05-15",
+      "end": "2026-05-25",
+      "movieName": "싱 스트리트"
+    },
+    {
+      "eventId": "202605157946",
+      "name": "[남태령] 개봉일에 함께하는 시네마톡",
+      "type": "etc",
+      "start": "2026-05-15",
+      "end": "2026-05-20",
+      "movieName": "남태령"
+    },
+    {
+      "eventId": "202605157846",
+      "name": "[올 그린스] 개봉 3주차 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026-05-20",
+      "end": "2026-05-26",
+      "movieName": "올 그린스"
+    },
+    {
+      "eventId": "202605137642",
+      "name": "[교생실습] 호러 맛집 감독님들의 크로스 GV",
+      "type": "stage",
+      "start": "2026-05-19",
+      "end": "2026-05-19",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202605147844",
+      "name": "[뒷자리에 태워줘] 티셔츠 굿즈패키지",
+      "type": "goods",
+      "start": "2026-05-29",
+      "end": "2026-05-29",
+      "movieName": "뒷자리에 태워줘"
+    },
+    {
+      "eventId": "202605087735",
+      "name": "[올 그린스] 개봉 2주차 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "올 그린스"
+    },
+    {
+      "eventId": "202605117934",
+      "name": "[쇼타씨의 마지막 출장] 프리미어 무대인사",
+      "type": "stage",
+      "start": "2026-05-23",
+      "end": "2026-05-23",
+      "movieName": "쇼타씨의 마지막 출장"
+    },
+    {
+      "eventId": "202605157947",
+      "name": "[교생실습] 귀신 출몰 & 배우 무대인사",
+      "type": "stage",
+      "start": "2026-05-23",
+      "end": "2026-05-24",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202605187744",
+      "name": "[이프 온리] 현장이벤트",
+      "type": "etc",
+      "start": "2026-05-20",
+      "end": "2026-05-26",
+      "movieName": "이프 온리"
+    },
+    {
+      "eventId": "202605087928",
+      "name": "[2026 빔 벤더스 감독전 PART2] 현장이벤트",
+      "type": "etc",
+      "start": "2026-05-13",
+      "end": "2026-06-30",
+      "movieName": "2026 빔 벤더스 감독전 PART2"
+    },
+    {
+      "eventId": "202605087633",
+      "name": "[줄무늬 파자마를 입은 소년] 개봉 4주차 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "줄무늬 파자마를 입은 소년"
+    },
+    {
+      "eventId": "202605077834",
+      "name": "[뒷자리에 태워줘] 관람평 이벤트",
+      "type": "etc",
+      "start": "2026-05-09",
+      "end": "2026-05-26",
+      "movieName": "뒷자리에 태워줘"
+    },
+    {
+      "eventId": "202605157845",
+      "name": "[뒷자리에 태워줘] 서프라이즈 쿠폰",
+      "type": "coupon",
+      "start": "2026-05-19",
+      "end": "2026-05-31",
+      "movieName": "뒷자리에 태워줘"
+    },
+    {
+      "eventId": "202605157945",
+      "name": "[교생실습] 3차 서프라이즈 쿠폰",
+      "type": "coupon",
+      "start": "2026-05-19",
+      "end": "2026-05-25",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202605127939",
+      "name": "[쇼타씨의 마지막 출장] 개봉기념 무대인사",
+      "type": "stage",
+      "start": "2026-05-12",
+      "end": "2026-05-27",
+      "movieName": "쇼타씨의 마지막 출장"
+    },
+    {
+      "eventId": "202605127641",
+      "name": "[쇼타씨의 마지막 출장] 개봉기념 GV",
+      "type": "stage",
+      "start": "2026-05-12",
+      "end": "2026-05-27",
+      "movieName": "쇼타씨의 마지막 출장"
+    },
+    {
+      "eventId": "202604137012",
+      "name": "[내 이름은] 현장이벤트",
+      "type": "etc",
+      "start": "2026-04-17",
+      "end": "2026-05-31",
+      "movieName": "내 이름은"
+    },
+    {
+      "eventId": "202605117636",
+      "name": "[기동전사 건담-섬광의 하사웨이 키르케의 마녀] 4주차 메카 비주얼 카드 + 게임 프로모션 코드 증정",
+      "type": "goods",
+      "start": "2026-05-13",
+      "end": "2026-05-19",
+      "movieName": "기동전사 건담-섬광의 하사웨이 키르케의 마녀"
+    },
+    {
+      "eventId": "202605147643",
+      "name": "[남태령] 서프라이즈 쿠폰",
+      "type": "coupon",
+      "start": "2026-05-18",
+      "end": "2026-05-26",
+      "movieName": "남태령"
+    },
+    {
+      "eventId": "202605077831",
+      "name": "[짱구] 4차 서프라이즈 쿠폰",
+      "type": "coupon",
+      "start": "2026-05-11",
+      "end": "2026-05-19",
+      "movieName": "짱구"
+    },
+    {
+      "eventId": "202604307343",
+      "name": "[올 그린스] N차 관람 이벤트",
+      "type": "etc",
+      "start": "2026-05-04",
+      "end": "2026-05-26",
+      "movieName": "올 그린스"
+    },
+    {
+      "eventId": "202605077730",
+      "name": "[교생실습] 2차 서프라이즈 쿠폰",
+      "type": "coupon",
+      "start": "2026-05-11",
+      "end": "2026-05-19",
+      "movieName": "교생실습"
+    },
+    {
+      "eventId": "202604207237",
+      "name": "[2026 버스터 키튼 걸작전]",
+      "type": "etc",
+      "start": "2026-04-22",
+      "end": "2026-05-31",
+      "movieName": "2026 버스터 키튼 걸작전"
+    },
+    {
+      "eventId": "202605187852",
+      "name": "[기동전사 건담-섬광의 하사웨이 키르케의 마녀] 5주차 미니 원안 3종 세트 + 게임 프로모션 코드 증정",
+      "type": "goods",
+      "start": "2026-05-20",
+      "end": "2026-05-26",
+      "movieName": "기동전사 건담-섬광의 하사웨이 키르케의 마녀"
+    },
+    {
+      "eventId": "202604307546",
+      "name": "[2026 빔 벤더스 감독전 PART2]",
+      "type": "etc",
+      "start": "2026-05-06",
+      "end": "2026-06-30",
+      "movieName": "2026 빔 벤더스 감독전 PART2"
+    },
+    {
+      "eventId": "202605087931",
+      "name": "[윤지원의 뮤직 페어링] 아스파라거스 왈츠",
+      "type": "etc",
+      "start": "2026-05-31",
+      "end": "2026-05-31",
+      "movieName": "윤지원의 뮤직 페어링"
+    },
+    {
+      "eventId": "202604177206",
+      "name": "[씨네드쉐프 센텀] 모닝 & 나잇",
+      "type": "etc",
+      "start": "2026-05-07",
+      "end": "2026-06-30",
+      "movieName": "씨네드쉐프 센텀"
+    },
+    {
+      "eventId": "202604217117",
+      "name": "[CGV고덕강일] 오픈 1주년 축하 기념 이벤트",
+      "type": "etc",
+      "start": "2026-04-01",
+      "end": "2026-05-31",
+      "movieName": "CGV고덕강일"
+    },
+    {
+      "eventId": "202603096941",
+      "name": "[CGV오리] 시네마힐링 프로모션",
+      "type": "etc",
+      "start": "2026-03-14",
+      "end": "2026-06-14",
+      "movieName": "CGV오리"
+    },
+    {
+      "eventId": "202601064645",
+      "name": "CGV전주에코시티 카톡 친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-06",
+      "end": "2026-12-31",
+      "movieName": null
+    },
+    {
+      "eventId": "202601024821",
+      "name": "CJ ONE 포인트로 영화 더블 할인",
+      "type": "coupon",
+      "start": "2026-01-02",
+      "end": "2026-12-31",
+      "movieName": null
+    },
+    {
+      "eventId": "202601064837",
+      "name": "CGV당진 카톡 친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-06",
+      "end": "2026-12-31",
+      "movieName": null
+    },
+    {
+      "eventId": "202603136952",
+      "name": "[CGV기흥] 팝콘 반값 리필 이벤트",
+      "type": "etc",
+      "start": "2026-03-01",
+      "end": "2026-06-30",
+      "movieName": "CGV기흥"
+    },
+    {
+      "eventId": "202605127640",
+      "name": "[CGV배곧/인천] SCREENX 그랜드 오픈 기념",
+      "type": "etc",
+      "start": "2026-05-12",
+      "end": "2026-05-31",
+      "movieName": "CGV배곧/인천"
+    },
+    {
+      "eventId": "202602025328",
+      "name": "CGV 광명역 카톡 채널 친구 추가 이벤트",
+      "type": "etc",
+      "start": "2026-02-02",
+      "end": "2026-07-31",
+      "movieName": null
+    },
+    {
+      "eventId": "202601064838",
+      "name": "CGV아산 카톡 친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-06",
+      "end": "2026-12-31",
+      "movieName": null
+    },
+    {
+      "eventId": "202604307340",
+      "name": "[CGV대구] 한달내내 어린이날 선물이벤트",
+      "type": "etc",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "movieName": "CGV대구"
+    },
+    {
+      "eventId": "202604237239",
+      "name": "[CGV동백] 팝콘 반값 리필 이벤트",
+      "type": "etc",
+      "start": "2026-04-01",
+      "end": "2026-06-30",
+      "movieName": "CGV동백"
+    },
+    {
+      "eventId": "202604297336",
+      "name": "[CGV전주고사] 제 27회 전주국제영화제 STRAW에서 CGV스몰세트 교환권 증정",
+      "type": "goods",
+      "start": "2026-04-30",
+      "end": "2026-05-07",
+      "movieName": "CGV전주고사"
+    },
+    {
+      "eventId": "202602256327",
+      "name": "[CGV다산] 팝콘 반값 리필 이벤트",
+      "type": "etc",
+      "start": "2026-02-01",
+      "end": "2026-06-30",
+      "movieName": "CGV다산"
+    },
+    {
+      "eventId": "44964",
+      "name": "[CGV동백] 카톡\r\n친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-01",
+      "end": "2026-06-30",
+      "movieName": "CGV동백"
+    },
+    {
+      "eventId": "44966",
+      "name": "[CGV용인크랙사이드]\r\n카톡 친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-01",
+      "end": "2026-06-30",
+      "movieName": "CGV용인크랙사이드"
+    },
+    {
+      "eventId": "44963",
+      "name": "[CGV기흥] 카톡\r\n친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-01",
+      "end": "2026-06-30",
+      "movieName": "CGV기흥"
+    },
+    {
+      "eventId": "44967",
+      "name": "[CGV이천] 카톡\r\n친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-01",
+      "end": "2026-06-30",
+      "movieName": "CGV이천"
+    },
+    {
+      "eventId": "44969",
+      "name": "[CGV경기광주] 카톡\r\n친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-01",
+      "end": "2026-06-30",
+      "movieName": "CGV경기광주"
+    },
+    {
+      "eventId": "44965",
+      "name": "[CGV용인] 카톡\r\n친구 채널 이벤트",
+      "type": "etc",
+      "start": "2026-01-01",
+      "end": "2026-06-30",
+      "movieName": "CGV용인"
+    },
+    {
+      "eventId": "37848",
+      "name": "클라이밍 일일체험 이벤트",
+      "type": "etc",
+      "start": "2023-07-25",
+      "end": "2033-07-25",
+      "movieName": null
+    },
+    {
+      "eventId": "39019",
+      "name": "[CGV강남]\r\nALL DAY CINEMA",
+      "type": "etc",
+      "start": "2025-07-15",
+      "end": "2999-12-30",
+      "movieName": "CGV강남"
+    },
+    {
+      "eventId": "202604307253",
+      "name": "[신한카드] 2D영화 1만원 관람 프로모션",
+      "type": "etc",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "movieName": "신한카드"
+    },
+    {
+      "eventId": "43603",
+      "name": "문화누리카드 할인 혜택",
+      "type": "coupon",
+      "start": "2026-01-31",
+      "end": "2026-12-31",
+      "movieName": null
+    },
+    {
+      "eventId": "202505164008",
+      "name": "티플 CGV 신규 요금제 출시",
+      "type": "etc",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "movieName": null
+    },
+    {
+      "eventId": "31426",
+      "name": "현대카드 6천 M포인트 사용",
+      "type": "etc",
+      "start": "2026-01-01",
+      "end": "2026-12-31",
+      "movieName": null
+    },
+    {
+      "eventId": "37443",
+      "name": "해피포인트 회원이라면\r\n상시 영화, 콤보 할인!",
+      "type": "coupon",
+      "start": "2026-01-01",
+      "end": "2026-12-31",
+      "movieName": null
+    },
+    {
+      "eventId": "33674",
+      "name": "현대자동차 블루멤버스\r\n회원 혜택",
+      "type": "etc",
+      "start": "2024-12-18",
+      "end": "2034-12-18",
+      "movieName": null
+    },
+    {
+      "eventId": "30063",
+      "name": "기아멤버스\r\n회원 전용 파격 혜택!",
+      "type": "etc",
+      "start": "2025-06-11",
+      "end": "2035-06-11",
+      "movieName": null
+    },
+    {
+      "eventId": "30008",
+      "name": "현대오일뱅크 보너스포인트\r\n사용 설명서",
+      "type": "etc",
+      "start": "2025-06-30",
+      "end": "2035-06-30",
+      "movieName": null
+    },
+    {
+      "eventId": "202604016889",
+      "name": "[류이치 사카모토:다이어리] 아트하우스 클럽 굿즈",
+      "type": "goods",
+      "start": "2026-04-04",
+      "end": "2026-05-31",
+      "movieName": "류이치 사카모토:다이어리"
+    },
+    {
+      "eventId": "202604137102",
+      "name": "아티스트 뱃지 [힌드의 목소리]",
+      "type": "etc",
+      "start": "2026-04-18",
+      "end": "2026-05-31",
+      "movieName": "힌드의 목소리"
+    },
+    {
+      "eventId": "202505204309",
+      "name": "[CGV VIP] SVIP 스페셜 기프트",
+      "type": "etc",
+      "start": "2026-03-11",
+      "end": "2999-12-30",
+      "movieName": "CGV VIP"
+    }
+  ]
+}

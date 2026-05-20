@@ -1,0 +1,727 @@
+{
+  "chain": "MEGABOX",
+  "source": "메가박스 이벤트 API · eventMngDiv.do",
+  "fetchedAt": "2026-05-20T09:12:18+09:00",
+  "movies": [
+    {
+      "movieCd": "20263253",
+      "title": "극장판 내 마음의 위험한 녀석",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 2,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20594",
+          "name": "메가박스 아트그라피 <극장판 내 마음의 위험한 녀석>",
+          "type": "etc",
+          "start": "2026.05.23",
+          "end": "2026.05.24"
+        },
+        {
+          "eventId": "20619",
+          "name": "[프로모션/굿즈] <내 마음의 위험한 녀석> 쿠지 런칭",
+          "type": "goods",
+          "start": "2026.05.21",
+          "end": "2026.06.07"
+        },
+        {
+          "eventId": "20629",
+          "name": "<극장판 내 마음의 위험한 녀석> 개봉주 현장 증정 이벤트",
+          "type": "goods",
+          "start": "2026.05.21",
+          "end": "2026.05.27"
+        }
+      ]
+    },
+    {
+      "movieCd": "20248252",
+      "title": "와일드 씽",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 1,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 1910,
+      "events": [
+        {
+          "eventId": "20631",
+          "name": "<와일드 씽> 선공개 프리미어 상영회",
+          "type": "etc",
+          "start": "2026.05.30",
+          "end": "2026.05.31"
+        },
+        {
+          "eventId": "20591",
+          "name": "<와일드 씽> 개봉주 무대인사",
+          "type": "stage",
+          "start": "2026.06.06",
+          "end": "2026.06.07",
+          "posterUrls": [
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/ZWQjcYiTAFUezryMEFM6rpZV8NmptvYs.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/llWTRJUlcWpI19xtMxJuDX5VR76a4W92.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/jCzRJBokgblWDlIJF4vAjhOyQksiemul.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/LU0Q5knxFjxVYz9jYDR7uRBuX6kBbJAQ.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/uYEPyqApXZPCwMD3yUhTSTLhzZhjUBoS.jpg"
+          ],
+          "imagePaths": [
+            "assets/data/megabox_images/20591_1.jpg",
+            "assets/data/megabox_images/20591_2.jpg",
+            "assets/data/megabox_images/20591_3.jpg",
+            "assets/data/megabox_images/20591_4.jpg",
+            "assets/data/megabox_images/20591_5.jpg"
+          ],
+          "screenings": [
+            {
+              "branch": "코엑스",
+              "hall": "Dolby Cinema",
+              "sessions": 2,
+              "seats": 374
+            },
+            {
+              "branch": "코엑스",
+              "hall": "3관",
+              "sessions": 2,
+              "seats": 374
+            },
+            {
+              "branch": "코엑스",
+              "hall": "2관",
+              "sessions": 1,
+              "seats": 187
+            },
+            {
+              "branch": "상암월드컵경기장",
+              "hall": "Dolby Vision Atmos",
+              "sessions": 2,
+              "seats": 366
+            },
+            {
+              "branch": "상암월드컵경기장",
+              "hall": "1관",
+              "sessions": 1,
+              "seats": 183
+            },
+            {
+              "branch": "목동",
+              "hall": "Dolby Vision Atmos",
+              "sessions": 2,
+              "seats": 284
+            },
+            {
+              "branch": "목동",
+              "hall": "2관",
+              "sessions": 1,
+              "seats": 142
+            }
+          ],
+          "seats": 1910,
+          "branches": [
+            "목동",
+            "상암월드컵경기장",
+            "코엑스"
+          ]
+        }
+      ]
+    },
+    {
+      "movieCd": "20252402",
+      "title": "군체",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 1,
+        "goods": 0,
+        "etc": 0
+      },
+      "promoSeats": 568,
+      "events": [
+        {
+          "eventId": "20581",
+          "name": "<군체> 개봉2주차 무대인사",
+          "type": "stage",
+          "start": "2026.05.30",
+          "end": "2026.05.30",
+          "posterUrls": [
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/gIS19o7LX53zhJDMqvDJQRhQsi3mdmnZ.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/dgC4XWqMCyFMBzVRAGEbWtCraPDqtAKl.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/AD0kN3rHePb0fqaX2tgqgs5vg8bWjwZv.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/3tVFLNgL6b3GHiqTAaGlikkqiaNuwdaZ.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/T3zwF0FQOYSkHPo6xpWp2xSDyWTTZh6Y.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/Bu0VnXpTR5rtZhkbLRB9dcJD3WxUPWeY.jpg"
+          ],
+          "imagePaths": [
+            "assets/data/megabox_images/20581_1.jpg",
+            "assets/data/megabox_images/20581_2.jpg",
+            "assets/data/megabox_images/20581_3.jpg",
+            "assets/data/megabox_images/20581_4.jpg",
+            "assets/data/megabox_images/20581_5.jpg",
+            "assets/data/megabox_images/20581_6.jpg"
+          ],
+          "screenings": [
+            {
+              "branch": "목동",
+              "hall": "Dolby Vision Atmos",
+              "sessions": 2,
+              "seats": 284
+            },
+            {
+              "branch": "목동",
+              "hall": "2관",
+              "sessions": 2,
+              "seats": 284
+            }
+          ],
+          "seats": 568,
+          "branches": [
+            "목동"
+          ]
+        }
+      ]
+    },
+    {
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 1,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20618",
+          "name": "[프로모션/굿즈] <신극장판 은혼 : 요시와라 대염상> 엘리자베스 드링크 컵홀더 런칭",
+          "type": "goods",
+          "start": "2026.05.20",
+          "end": "2026.06.07"
+        }
+      ]
+    },
+    {
+      "movieCd": "20263030",
+      "title": "백룸",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20597",
+          "name": "<백룸> 메가토크",
+          "type": "etc",
+          "start": "2026.05.21",
+          "end": "2026.05.21"
+        }
+      ]
+    },
+    {
+      "movieCd": "20259791",
+      "title": "악마는 프라다를 입는다 2",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20585",
+          "name": "<악마는 프라다를 입는다 2> 제대로 즐기는 방법👠",
+          "type": "etc",
+          "start": "2026.05.13",
+          "end": "2026.06.14"
+        }
+      ]
+    },
+    {
+      "movieCd": "20259626",
+      "title": "마이클",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20562",
+          "name": "<마이클> N차 관람 이벤트",
+          "type": "etc",
+          "start": "2026.05.13",
+          "end": "2026.06.02"
+        }
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "eventId": "20634",
+      "name": "<이상한 과자가게 전천당> 캔디 팝콘 상영회",
+      "type": "etc",
+      "start": "2026.05.23",
+      "end": "2026.05.25",
+      "movieName": "이상한 과자가게 전천당"
+    },
+    {
+      "eventId": "20596",
+      "name": "<쇼타씨의 마지막 출장> 메가토크",
+      "type": "etc",
+      "start": "2026.05.31",
+      "end": "2026.05.31",
+      "movieName": "쇼타씨의 마지막 출장"
+    },
+    {
+      "eventId": "20609",
+      "name": "<돌핀보이: 푸른 바다의 수호자> 프리미어 상영회",
+      "type": "etc",
+      "start": "2026.05.30",
+      "end": "2026.05.31",
+      "movieName": "돌핀보이: 푸른 바다의 수호자"
+    },
+    {
+      "eventId": "20627",
+      "name": "<극장판 총집편 걸즈 밴드 크라이 있잖아, 미래.> 응원 상영회 현장증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.30",
+      "end": "2026.05.30",
+      "movieName": "극장판 총집편 걸즈 밴드 크라이 있잖아, 미래."
+    },
+    {
+      "eventId": "20595",
+      "name": "<쇼타씨의 마지막 출장> 개봉주 무대인사",
+      "type": "stage",
+      "start": "2026.05.31",
+      "end": "2026.05.31",
+      "posterUrls": [
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/5RDCUtkZFqvFLckfVNSPTfwOzsA94USG.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/OflRLSy2cZfifv6le38RYU9p86IPCHPK.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/f8wv1YBU9rbOT3X2R0epxMLCV34R52C2.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/1V2CGVuWEQBrvki8LuE2iVDrqkcTJXdz.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/wRVYjWPqioqKr4PW9CzrgTK1wCxSBKl3.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/OfkxlsSklvkI8syPLG41hzFHgfLqkVTE.jpg"
+      ],
+      "imagePaths": [
+        "assets/data/megabox_images/20595_1.jpg",
+        "assets/data/megabox_images/20595_2.jpg",
+        "assets/data/megabox_images/20595_3.jpg",
+        "assets/data/megabox_images/20595_4.jpg",
+        "assets/data/megabox_images/20595_5.jpg",
+        "assets/data/megabox_images/20595_6.jpg"
+      ],
+      "movieName": "쇼타씨의 마지막 출장"
+    },
+    {
+      "eventId": "20593",
+      "name": "<파이널 피스> 사카구치 켄타로 내한 무대인사",
+      "type": "stage",
+      "start": "2026.05.29",
+      "end": "2026.05.30",
+      "posterUrls": [
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/15/jdJn8mPv4a2hWn7KUWBvcrx2GfkZvQrC.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/15/fXduHVh07vQ7VCbjpTsoniK5563McYNm.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/15/WdPF9HUkk9s2HioLQhwpIiItcxsGoX0P.jpg",
+        "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/15/UV7B2VEgzg18WLTXhc9WGzIcoME4DQsL.jpg"
+      ],
+      "imagePaths": [
+        "assets/data/megabox_images/20593_1.jpg",
+        "assets/data/megabox_images/20593_2.jpg",
+        "assets/data/megabox_images/20593_3.jpg",
+        "assets/data/megabox_images/20593_4.jpg"
+      ],
+      "movieName": "파이널 피스"
+    },
+    {
+      "eventId": "20599",
+      "name": "코카콜라 월드컵 폴라베어 & 피크닉 콤보 런칭",
+      "type": "etc",
+      "start": "2026.05.20",
+      "end": "2026.06.30",
+      "movieName": null
+    },
+    {
+      "eventId": "20621",
+      "name": "[프로모션/굿즈] 몬치치 PVC 랜덤키링 런칭",
+      "type": "goods",
+      "start": "2026.05.19",
+      "end": "2026.06.07",
+      "movieName": null
+    },
+    {
+      "eventId": "20569",
+      "name": "[2026 시네도슨트] 미술관, 그곳으로 한 걸음 더",
+      "type": "etc",
+      "start": "2026.05.18",
+      "end": "2026.06.16",
+      "movieName": null
+    },
+    {
+      "eventId": "20628",
+      "name": "<이프 온리> 개봉 2주차 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.20",
+      "end": "2026.05.26",
+      "movieName": "이프 온리"
+    },
+    {
+      "eventId": "20625",
+      "name": "<피어스> 개봉 2주차 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.20",
+      "end": "2026.05.26",
+      "movieName": "피어스"
+    },
+    {
+      "eventId": "20603",
+      "name": "<상자 속의 양> 메가박스 회원시사",
+      "type": "etc",
+      "start": "2026.05.14",
+      "end": "2026.05.25",
+      "movieName": "상자 속의 양"
+    },
+    {
+      "eventId": "20608",
+      "name": "<아이엠 포포> 메가박스 회원시사",
+      "type": "etc",
+      "start": "2026.05.14",
+      "end": "2026.05.20",
+      "movieName": "아이엠 포포"
+    },
+    {
+      "eventId": "20515",
+      "name": "메가박스ㅣ영화관람료 6천원 할인 [정부지원 국민 영화관람 할인권]",
+      "type": "coupon",
+      "start": "2026.05.13",
+      "end": "2026.09.08",
+      "movieName": null
+    },
+    {
+      "eventId": "20583",
+      "name": "[국민 영화관람 할인] 영화 할인받고 행운의 목걸이도 받자!",
+      "type": "coupon",
+      "start": "2026.05.13",
+      "end": "2026.09.08",
+      "movieName": null
+    },
+    {
+      "eventId": "20571",
+      "name": "[프로모션/굿즈] 40주년 기념 <TOP GUN> 헬멧 버켓 콤보 런칭",
+      "type": "goods",
+      "start": "2026.05.13",
+      "end": "2026.05.31",
+      "movieName": "TOP GUN"
+    },
+    {
+      "eventId": "20549",
+      "name": "[26년 5월호] MEGA ONLY",
+      "type": "etc",
+      "start": "2026.05.13",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20500",
+      "name": "[강남] 아사히 비어라운지 OPEN",
+      "type": "etc",
+      "start": "2026.04.29",
+      "end": "2026.06.30",
+      "movieName": null
+    },
+    {
+      "eventId": "20204",
+      "name": "[토스페이] 5월 토스페이로 결제하고 할인혜택 받으세요!",
+      "type": "coupon",
+      "start": "2026.05.01",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20522",
+      "name": "[퀵계좌이체] 토스 퀵계좌이체로 결제하고 할인 받으세요!",
+      "type": "coupon",
+      "start": "2026.05.01",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20457",
+      "name": "프링글스 하트 미니로즈 토핑 팝콘 런칭🩷",
+      "type": "etc",
+      "start": "2026.04.27",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20468",
+      "name": "우베라떼 런칭",
+      "type": "etc",
+      "start": "2026.04.24",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20463",
+      "name": "[프로모션][굿즈] 몬치치 미니 사각 파우치 런칭",
+      "type": "goods",
+      "start": "2026.04.23",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20357",
+      "name": "유니버설 픽쳐스 빅5 패키지 런칭",
+      "type": "etc",
+      "start": "2026.04.17",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20177",
+      "name": "[2026 메트오페라] 시즌 상영 안내 Live on Screen in Cinemas @ The Met",
+      "type": "etc",
+      "start": "2026.03.19",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20446",
+      "name": "[네이버페이] 가정의 달에도 네이버페이로 혜택 받자!",
+      "type": "etc",
+      "start": "2026.04.24",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20456",
+      "name": "[삼성카드] The Twenty 회원전용 영화할인!",
+      "type": "coupon",
+      "start": "2026.04.10",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20373",
+      "name": "[청년문화예술패스] 메가박스에서 청년문화예술패스로 즐거운 영화 관람 하세요!",
+      "type": "etc",
+      "start": "2026.02.25",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "19226",
+      "name": "[토스 퀵계좌이체] 퀵계좌이체 결제 시 0.3% 즉시할인!",
+      "type": "coupon",
+      "start": "2025.11.17",
+      "end": "2026.10.30",
+      "movieName": null
+    },
+    {
+      "eventId": "16920",
+      "name": "나도 영화 평론가! 관람평 작성하고 50P 받자!",
+      "type": "etc",
+      "start": "2026.01.01",
+      "end": "2999.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20630",
+      "name": "[와일드 씽] 선착순 빵원티켓 ➕",
+      "type": "etc",
+      "start": "2026.05.20",
+      "end": "2026.06.09",
+      "movieName": null
+    },
+    {
+      "eventId": "20620",
+      "name": "[이상한 과자 가게 전천당] 선착순 빵원티켓 ➕",
+      "type": "etc",
+      "start": "2026.05.19",
+      "end": "2026.06.04",
+      "movieName": null
+    },
+    {
+      "eventId": "20611",
+      "name": "[백룸] 선착순 빵원티켓 ➕",
+      "type": "etc",
+      "start": "2026.05.18",
+      "end": "2026.06.02",
+      "movieName": null
+    },
+    {
+      "eventId": "20521",
+      "name": "[송도] 인스타그램 팔로우 하고 굿즈 받는 법",
+      "type": "goods",
+      "start": "2026.05.01",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20558",
+      "name": "[양산증산] 26' 다시봐도 매력적인 볼매팡팡!",
+      "type": "etc",
+      "start": "2026.05.01",
+      "end": "2026.06.30",
+      "movieName": null
+    },
+    {
+      "eventId": "20508",
+      "name": "[고양스타필드] 팝콘 샘플러 시즈닝바 OPEN!",
+      "type": "etc",
+      "start": "2026.05.01",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20505",
+      "name": "[강남] 생차 녹차, 호지차와 함께하는 가정의 달",
+      "type": "etc",
+      "start": "2026.05.01",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "16973",
+      "name": "2026년 군인, 경찰 특별 혜택 안내",
+      "type": "etc",
+      "start": "2026.01.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "19898",
+      "name": "기아멤버스포인트로 영화 차감 할인 가능!",
+      "type": "coupon",
+      "start": "2026.01.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "19897",
+      "name": "블루멤버스포인트로 영화 4,000원 할인 예매 가능!",
+      "type": "coupon",
+      "start": "2026.01.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "19896",
+      "name": "2,000/3,000/5,000 해피포인트로 영화 할인 예매 가능!",
+      "type": "coupon",
+      "start": "2026.01.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20038",
+      "name": "[청주터미널] 배달 런칭! 오픈 기념 이벤트",
+      "type": "etc",
+      "start": "2026.04.01",
+      "end": "2027.04.01",
+      "movieName": null
+    },
+    {
+      "eventId": "19869",
+      "name": "[센트럴] 행운의 랜덤뽑기!",
+      "type": "etc",
+      "start": "2026.04.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "20410",
+      "name": "[백석벨라시타] N회 이상 보면 선물이 따라온다!",
+      "type": "etc",
+      "start": "2026.04.01",
+      "end": "2026.09.30",
+      "movieName": null
+    },
+    {
+      "eventId": "20185",
+      "name": "[사상] 이달의 대형 OT 챌린지",
+      "type": "etc",
+      "start": "2026.04.01",
+      "end": "2026.09.30",
+      "movieName": null
+    },
+    {
+      "eventId": "18655",
+      "name": "[킨텍스] 돌아온 고양 PASS",
+      "type": "etc",
+      "start": "2026.01.05",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "17837",
+      "name": "[사상] 공무원노동조합 사상구지부 제휴 할인",
+      "type": "coupon",
+      "start": "2026.01.01",
+      "end": "2027.01.01",
+      "movieName": null
+    },
+    {
+      "eventId": "12005",
+      "name": "[춘천석사] 춘천석사점 관람권 할인 패키지",
+      "type": "coupon",
+      "start": "2026.01.01",
+      "end": "2027.01.01",
+      "movieName": null
+    },
+    {
+      "eventId": "18858",
+      "name": "[세종(조치원)] 온라인 예매시 누구나 다 할인",
+      "type": "coupon",
+      "start": "2026.01.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "17209",
+      "name": "[정관] 카카오채널 친구추가 이벤트",
+      "type": "etc",
+      "start": "2025.01.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "16950",
+      "name": "[삼천포] 갓성비 관람권 10장 사면 3장 더!",
+      "type": "coupon",
+      "start": "2025.01.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "16100",
+      "name": "[세종(조치원)] 조조시간, 확대시행!",
+      "type": "etc",
+      "start": "2024.09.01",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "16097",
+      "name": "[광주상무] 한강라면을 영화관에서?!",
+      "type": "etc",
+      "start": "2024.08.29",
+      "end": "2026.12.31",
+      "movieName": null
+    }
+  ]
+}

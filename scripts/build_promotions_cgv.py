@@ -1,0 +1,319 @@
+#!/usr/bin/env python3
+"""
+build_promotions_cgv.py
+--------------------------------------------------
+fetch_cgv_images.py 가 만든 `_pending.json` (수집된 이벤트 메타) 을
+`booking.json` (실시간 예매율 TOP 10) 과 조인해 `promotions_cgv.json` 을 만든다.
+
+이미지에서 직접 판독한 무대인사 일정(지점/관/회차)은 이 파일 상단의
+`SCREENINGS` dict 에 evntNo → screenings[] 로 하드코딩한다. 좌석 합산은
+`theater_seats_cgv.json` 의 지점·관 좌석수를 조회해 자동 계산.
+
+(이미지 판독 자체는 사람·LLM 이 별도로 수행. 이 스크립트는 단순 조립.)
+"""
+import json
+import re
+import sys
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+
+KST = timezone(timedelta(hours=9))
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "assets" / "data"
+PENDING_FILE = DATA_DIR / "cgv_images" / "_pending.json"
+SEATS_FILE = DATA_DIR / "theater_seats_cgv.json"
+BOOKING_FILE = DATA_DIR / "booking.json"
+OUT_FILE = DATA_DIR / "promotions_cgv.json"
+
+# 관 미명시 무대인사·GV 의 평균 좌석 추정값 (CGV 일반관 평균)
+DEFAULT_HALL_SEATS = 200
+
+# 이미지 판독으로 추출한 무대인사·시사회 일정.
+# screenings: {branch, hall, sessions} — hall=None 이면 관 미명시(평균 좌석 사용)
+SCREENINGS = {
+    # 군체 개봉일 무대인사 (5/21 용산아이파크몰)
+    "202604307547": [
+        {"branch": "용산아이파크몰", "hall": "20관", "sessions": 2},   # IMAX LASER 624
+        {"branch": "용산아이파크몰", "hall": "16관", "sessions": 1},   # SCREENX 142
+        {"branch": "용산아이파크몰", "hall": "6관", "sessions": 2},    # 200
+        {"branch": "용산아이파크몰", "hall": "5관", "sessions": 1},    # 186
+        {"branch": "용산아이파크몰", "hall": "4관", "sessions": 1},    # SKYBOX 414
+        {"branch": "용산아이파크몰", "hall": "7관", "sessions": 1},    # 204
+        {"branch": "용산아이파크몰", "hall": "11관", "sessions": 2},   # 194
+        {"branch": "용산아이파크몰", "hall": "12관", "sessions": 2},   # 214
+        {"branch": "용산아이파크몰", "hall": "13관", "sessions": 1},   # 211
+        {"branch": "용산아이파크몰", "hall": "15관", "sessions": 1},   # 247
+        {"branch": "용산아이파크몰", "hall": "17관", "sessions": 2},   # PREMIUM 154
+    ],
+    # 군체 개봉 2주차 무대인사 (5/30 영등포·용산)
+    "202605117840": [
+        {"branch": "영등포", "hall": "12관", "sessions": 2},    # IMAX LASER 387
+        {"branch": "영등포", "hall": "1관", "sessions": 2},     # 358
+        {"branch": "용산아이파크몰", "hall": "20관", "sessions": 2},  # IMAX LASER 624
+        {"branch": "용산아이파크몰", "hall": "15관", "sessions": 2},  # 247
+        {"branch": "용산아이파크몰", "hall": "13관", "sessions": 1},  # 211
+    ],
+    # 군체설명회 GV (5/22 영등포 5관)
+    "202605147943": [
+        {"branch": "영등포", "hall": "5관", "sessions": 1},     # 320
+    ],
+    # 호빵맨 개봉 주 무대인사
+    "202605137940": [
+        {"branch": "용산아이파크몰", "hall": "16관", "sessions": 2},
+        {"branch": "영등포", "hall": "7관", "sessions": 2},
+        {"branch": "구로", "hall": "9관", "sessions": 2},
+        {"branch": "파주운정", "hall": "5관", "sessions": 2},
+        {"branch": "의정부", "hall": "4관", "sessions": 2},
+        {"branch": "상봉", "hall": "7관", "sessions": 2},
+    ],
+    # 와일드 씽 개봉주 무대인사 (6/6~7)
+    "202605127938": [
+        {"branch": "용산아이파크몰", "hall": "15관", "sessions": 4},
+        {"branch": "용산아이파크몰", "hall": "13관", "sessions": 4},
+        {"branch": "용산아이파크몰", "hall": "12관", "sessions": 2},
+        {"branch": "왕십리", "hall": "7관", "sessions": 2},
+        {"branch": "왕십리", "hall": "5관", "sessions": 2},
+        {"branch": "영등포", "hall": "5관", "sessions": 2},
+        {"branch": "영등포", "hall": "6관", "sessions": 1},
+    ],
+    # 와일드 씽 CGV회원시사 (5/28 10지점) — 관 미명시 → 평균 좌석
+    "202605117839": [
+        {"branch": "광주상무", "hall": None, "sessions": 1},
+        {"branch": "대전터미널", "hall": None, "sessions": 1},
+        {"branch": "센텀시티", "hall": None, "sessions": 1},
+        {"branch": "영등포", "hall": None, "sessions": 1},
+        {"branch": "왕십리", "hall": None, "sessions": 1},
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
+        {"branch": "울산삼산", "hall": None, "sessions": 1},
+        {"branch": "의정부", "hall": None, "sessions": 1},
+        {"branch": "인천", "hall": None, "sessions": 1},
+        {"branch": "천안터미널", "hall": None, "sessions": 1},
+    ],
+    # 너바나 빠더너스 크루 개봉일 GV (5/20 용산, 관 미명시)
+    "202605127937": [
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
+    ],
+    # 너바나 개봉일 무대인사 (5/20 용산 2회, 관 미명시)
+    "202605147644": [
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 2},
+    ],
+    # 너바나 한로로 GV (5/26 용산, 관 미명시)
+    "202605147645": [
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
+    ],
+    # 너바나 문상훈 무대인사 (5/26 용산 2회, 관 미명시)
+    "202605187949": [
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 2},
+    ],
+}
+
+# 타입 분류 키워드
+STAGE_KW = ("무대인사", "GV", "시사회", "관객과의 대화", "관객과의대화",
+            "팬미팅", "내한", "프리미어")
+COUPON_KW = ("쿠폰", "관람권", "할인", "1+1", "무비싸다구")
+GOODS_KW = ("포스터", "특전", "굿즈", "증정", "키링", "TTT", "아트카드",
+            "필름마크", "패키지", "콜라보", "오브제", "스티커")
+
+
+def classify(name):
+    """이벤트명 키워드로 프로모션 타입 결정."""
+    text = name.replace("CGV", "")
+    if any(k in text for k in STAGE_KW):
+        return "stage"
+    if any(k in text for k in COUPON_KW):
+        return "coupon"
+    if any(k in text for k in GOODS_KW):
+        return "goods"
+    return "etc"
+
+
+def norm_title(text):
+    return re.sub(r"[\s\W_]+", "", text or "").lower()
+
+
+def build_title_map():
+    title_map = {}
+    if not BOOKING_FILE.exists():
+        return title_map
+    doc = json.loads(BOOKING_FILE.read_text(encoding="utf-8"))
+    for row in doc.get("bookingRate") or []:
+        if row.get("movieCd") and row.get("title"):
+            title_map[norm_title(row["title"])] = (row["movieCd"], row["title"])
+    return title_map
+
+
+def build_seat_map():
+    """지점·관 → 좌석수 (placeholder 도 포함, 'placeholder' 플래그 보존)."""
+    if not SEATS_FILE.exists():
+        return {}
+    doc = json.loads(SEATS_FILE.read_text(encoding="utf-8"))
+    theaters = doc.get("theaters") if isinstance(doc, dict) else doc
+    out = {}
+    for t in theaters or []:
+        name = t.get("name", "")
+        is_placeholder = bool(t.get("placeholder"))
+        halls = {}
+        for h in t.get("halls") or []:
+            halls[h.get("no", "")] = (h.get("seats", 0), is_placeholder)
+        out[name] = halls
+    return out
+
+
+def find_branch_halls(seat_map, branch_query):
+    """지점명 부분일치로 halls 딕셔너리 반환."""
+    for name, halls in seat_map.items():
+        # 'CGV용산아이파크몰' 같이 'CGV' 접두 있을 수도, 'CGV' 제거 후 비교
+        clean = name.replace("CGV", "").strip()
+        if branch_query == clean or branch_query in name or branch_query in clean:
+            return name, halls
+    return None, {}
+
+
+def lookup_seats(seat_map, branch, hall):
+    """branch·hall → (seats, placeholder_flag, matched_branch_name)."""
+    bname, halls = find_branch_halls(seat_map, branch)
+    if not halls:
+        return DEFAULT_HALL_SEATS, True, branch
+    if hall is None:
+        # 일반관 평균: GOLD/Chef/PrivateBox/BEREX 같은 특수관 제외
+        special = ("GOLD", "Chef", "Private", "BEREX", "ArtHouse")
+        normal = [s for (s, _) in halls.values()
+                  if s > 0]  # 평균은 일단 전체로 (특수관 영향 작음)
+        avg = round(sum(normal) / len(normal)) if normal else DEFAULT_HALL_SEATS
+        return avg, halls.get(next(iter(halls)), (0, True))[1], bname
+    # 관 매칭: '12관'·'IMAX' 등 다양한 표기
+    for hno, (seats, ph) in halls.items():
+        if hall in hno or hno in hall:
+            return seats, ph, bname
+    # 못 찾으면 평균
+    normal = [s for (s, _) in halls.values() if s > 0]
+    avg = round(sum(normal) / len(normal)) if normal else DEFAULT_HALL_SEATS
+    return avg, True, bname
+
+
+def compute_seats(screenings, seat_map):
+    """screenings 배열의 (branch, hall, sessions) 들의 좌석 합산."""
+    total = 0
+    any_placeholder = False
+    for s in screenings:
+        seats_per, ph, _ = lookup_seats(seat_map, s["branch"], s.get("hall"))
+        total += seats_per * s["sessions"]
+        any_placeholder = any_placeholder or ph
+    return total, any_placeholder
+
+
+def main():
+    if not PENDING_FILE.exists():
+        sys.exit(f"_pending.json 없음 — fetch_cgv_images.py 먼저 실행: {PENDING_FILE}")
+    pending = json.loads(PENDING_FILE.read_text(encoding="utf-8"))
+    events_raw = pending.get("events", [])
+    if not events_raw:
+        sys.exit("_pending.json 에 events 가 없습니다.")
+
+    title_map = build_title_map()
+    seat_map = build_seat_map()
+
+    def match_movie(name):
+        norm = norm_title(name)
+        if not norm:
+            return None
+        for key, val in title_map.items():
+            if norm == key or norm in key or key in norm:
+                return val
+        return None
+
+    movies = {}
+    unmatched = []
+    type_counter = {"coupon": 0, "stage": 0, "goods": 0, "etc": 0}
+
+    for ev in events_raw:
+        name = (ev.get("title") or "").strip()
+        eid = str(ev.get("evntNo") or "")
+        if not name:
+            continue
+        ptype = classify(name)
+        # SCREENINGS 에 있으면 무조건 stage 로 강제 (시사회/GV/무대인사)
+        if eid in SCREENINGS:
+            ptype = "stage"
+        type_counter[ptype] += 1
+
+        event_rec = {
+            "eventId": eid,
+            "name": name,
+            "type": ptype,
+            "start": ev.get("start", ""),
+            "end": ev.get("end", ""),
+        }
+        if eid in SCREENINGS:
+            screenings = SCREENINGS[eid]
+            seats, has_ph = compute_seats(screenings, seat_map)
+            event_rec["screenings"] = screenings
+            event_rec["seats"] = seats
+            if has_ph:
+                event_rec["seatsEstimated"] = True
+            # 지점 목록(중복 제거)
+            event_rec["branches"] = sorted({s["branch"] for s in screenings})
+
+        # 매칭: [영화명]·<영화명> 파싱
+        brackets = re.findall(r"[\[<]([^\[\]<>]+)[\]>]", name)
+        hit = None
+        for cand in brackets:
+            cand = cand.strip()
+            if not cand:
+                continue
+            hit = match_movie(cand)
+            if hit:
+                break
+        if not hit:
+            hit = match_movie(name)
+
+        if hit:
+            movie_cd, mv_title = hit
+            rec = movies.setdefault(movie_cd, {
+                "movieCd": movie_cd, "title": mv_title, "matched": True,
+                "counts": {"coupon": 0, "stage": 0, "goods": 0, "etc": 0},
+                "promoSeats": 0,
+                "events": [],
+            })
+            rec["counts"][ptype] += 1
+            rec["promoSeats"] += event_rec.get("seats", 0)
+            rec["events"].append(event_rec)
+        else:
+            event_rec["movieName"] = brackets[0].strip() if brackets else None
+            unmatched.append(event_rec)
+
+    out = {
+        "chain": "CGV",
+        "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
+        "fetchedAt": datetime.now(KST).isoformat(timespec="seconds"),
+        "movies": sorted(movies.values(),
+                         key=lambda m: sum(m["counts"].values()),
+                         reverse=True),
+        "unmatched": unmatched,
+    }
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    OUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2),
+                        encoding="utf-8")
+
+    matched_events = sum(len(m["events"]) for m in out["movies"])
+    print(f"✓ CGV 프로모션 저장 → {OUT_FILE.relative_to(ROOT)}")
+    print(f"  진행 이벤트 {matched_events + len(unmatched)}건 · "
+          f"영화 매칭 {len(out['movies'])}편 · 미매칭 {len(unmatched)}건")
+    print(f"  타입 분포: 쿠폰 {type_counter['coupon']} · "
+          f"무대인사 {type_counter['stage']} · 굿즈 {type_counter['goods']} · "
+          f"기타 {type_counter['etc']}")
+    print("  영화별 promoSeats:")
+    for m in out["movies"]:
+        print(f"    {m['title'][:30]:<30s}  {m['promoSeats']:>6,} 석  "
+              f"(stage={m['counts']['stage']}·goods={m['counts']['goods']}"
+              f"·coupon={m['counts']['coupon']}·etc={m['counts']['etc']})")
+
+
+if __name__ == "__main__":
+    main()

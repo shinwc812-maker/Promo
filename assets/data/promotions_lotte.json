@@ -1,0 +1,901 @@
+{
+  "chain": "LOTTE",
+  "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
+  "fetchedAt": "2026-05-20T09:12:17+09:00",
+  "movies": [
+    {
+      "movieCd": "20252402",
+      "title": "군체",
+      "matched": true,
+      "counts": {
+        "coupon": 1,
+        "stage": 2,
+        "goods": 1,
+        "etc": 1
+      },
+      "promoSeats": 3428,
+      "events": [
+        {
+          "eventId": "101010050026005",
+          "name": "<인사이드 더 플레이 : 군체> 체험형 공연 오픈!",
+          "type": "etc",
+          "start": "2026.04.24",
+          "end": "2026.09.30"
+        },
+        {
+          "eventId": "201010016926397",
+          "name": "<군체>시그니처 아트카드",
+          "type": "goods",
+          "start": "2026.05.21",
+          "end": "2026.06.03"
+        },
+        {
+          "eventId": "201010014726031",
+          "name": "<군체> 정부지원 할인쿠폰 이벤트",
+          "type": "coupon",
+          "start": "2026.05.13",
+          "end": "2026.06.01"
+        },
+        {
+          "eventId": "401070016926149",
+          "name": "<군체>2주차 주말 무대인사",
+          "type": "stage",
+          "start": "2026.05.30",
+          "end": "2026.05.30",
+          "screenings": [
+            {
+              "branch": "김포공항",
+              "hall": "7관",
+              "sessions": 2,
+              "seats": 576
+            },
+            {
+              "branch": "김포공항",
+              "hall": "10관",
+              "sessions": 2,
+              "seats": 644
+            }
+          ],
+          "seats": 1220,
+          "branches": [
+            "김포공항"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/2c804f69b8134f56b38d177fa7f2eddd.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926149.jpg"
+        },
+        {
+          "eventId": "401070016926147",
+          "name": "<군체>개봉주말 무대인사",
+          "type": "stage",
+          "start": "2026.05.23",
+          "end": "2026.05.23",
+          "screenings": [
+            {
+              "branch": "월드타워",
+              "hall": "4관 광음시네마",
+              "sessions": 1,
+              "seats": 150
+            },
+            {
+              "branch": "월드타워",
+              "hall": "5관",
+              "sessions": 1,
+              "seats": 389
+            },
+            {
+              "branch": "월드타워",
+              "hall": "9관",
+              "sessions": 2,
+              "seats": 720
+            },
+            {
+              "branch": "월드타워",
+              "hall": "15관",
+              "sessions": 1,
+              "seats": 416
+            },
+            {
+              "branch": "월드타워",
+              "hall": "20관",
+              "sessions": 1,
+              "seats": 383
+            },
+            {
+              "branch": "월드타워",
+              "hall": "21관 SUPER PLEX",
+              "sessions": 1,
+              "seats": 150
+            }
+          ],
+          "seats": 2208,
+          "branches": [
+            "월드타워"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/c511fbf4c3464b10b256149207ace8f8.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926147.jpg"
+        }
+      ]
+    },
+    {
+      "movieCd": "20259626",
+      "title": "마이클",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 3,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "201010016926406",
+          "name": "<마이클>2주차 주말증정이벤트",
+          "type": "goods",
+          "start": "2026.05.23",
+          "end": "2026.05.29"
+        },
+        {
+          "eventId": "201010014726029",
+          "name": "<마이클> 광음 특전 증정 이벤트",
+          "type": "goods",
+          "start": "2026.05.15",
+          "end": "2026.05.28"
+        },
+        {
+          "eventId": "201010016926384",
+          "name": "<마이클>시그니처 아트카드",
+          "type": "goods",
+          "start": "2026.05.13",
+          "end": "2026.05.26"
+        },
+        {
+          "eventId": "201110014726012",
+          "name": "<마이클> N차 올포맷 챌린지 이벤트",
+          "type": "etc",
+          "start": "2026.05.11",
+          "end": "2026.06.02"
+        }
+      ]
+    },
+    {
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 1,
+        "goods": 1,
+        "etc": 1
+      },
+      "promoSeats": 639,
+      "events": [
+        {
+          "eventId": "201010016926404",
+          "name": "<신극장판 은혼>1주차주말",
+          "type": "etc",
+          "start": "2026.05.23",
+          "end": "2026.05.29"
+        },
+        {
+          "eventId": "201010016926398",
+          "name": "<신극장판 은혼> 시그니처 아트카드",
+          "type": "goods",
+          "start": "2026.05.20",
+          "end": "2026.06.02"
+        },
+        {
+          "eventId": "401070016926158",
+          "name": "<신극장판 은혼>스페셜상영회",
+          "type": "stage",
+          "start": "2026.05.23",
+          "end": "2026.05.24",
+          "screenings": [
+            {
+              "branch": "건대입구",
+              "hall": "2관",
+              "sessions": 1,
+              "seats": 195
+            },
+            {
+              "branch": "광복",
+              "hall": "5관",
+              "sessions": 1,
+              "seats": 144
+            },
+            {
+              "branch": "신림",
+              "hall": "2관 리클라이너",
+              "sessions": 1,
+              "seats": 150
+            },
+            {
+              "branch": "동성로",
+              "hall": "8관 리클라이너",
+              "sessions": 1,
+              "seats": 150
+            }
+          ],
+          "seats": 639,
+          "branches": [
+            "건대입구",
+            "광복",
+            "동성로",
+            "신림"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/f93d9beb410947478fe5c3c5b3b72f8c.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926158.jpg"
+        }
+      ]
+    },
+    {
+      "movieCd": "20259791",
+      "title": "악마는 프라다를 입는다 2",
+      "matched": true,
+      "counts": {
+        "coupon": 1,
+        "stage": 0,
+        "goods": 1,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "201010016926402",
+          "name": "<악마는프라다를입는다2>4주차 증정이벤트",
+          "type": "goods",
+          "start": "2026.05.20",
+          "end": "2026.05.26"
+        },
+        {
+          "eventId": "201010014726032",
+          "name": "<악마는 프라다를 입는다2> 정부지원 할인쿠폰 프로모션",
+          "type": "coupon",
+          "start": "2026.05.13",
+          "end": "2026.05.31"
+        },
+        {
+          "eventId": "201110014726011",
+          "name": "<악마는 프라다를 입는다2> N차의 품격",
+          "type": "etc",
+          "start": "2026.04.30",
+          "end": "2026.05.31"
+        }
+      ]
+    },
+    {
+      "movieCd": "20248252",
+      "title": "와일드 씽",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 1,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 5839,
+      "events": [
+        {
+          "eventId": "201110016926002",
+          "name": "<와일드 씽> 프리미어 상영회",
+          "type": "etc",
+          "start": "2026.05.20",
+          "end": "2026.05.31"
+        },
+        {
+          "eventId": "401070016926154",
+          "name": "<와일드씽>1주차 무대인사",
+          "type": "stage",
+          "start": "2026.06.06",
+          "end": "2026.06.07",
+          "screenings": [
+            {
+              "branch": "월드타워",
+              "hall": "15관",
+              "sessions": 1,
+              "seats": 416
+            },
+            {
+              "branch": "건대입구",
+              "hall": "5관",
+              "sessions": 2,
+              "seats": 524
+            },
+            {
+              "branch": "건대입구",
+              "hall": "6관",
+              "sessions": 2,
+              "seats": 802
+            },
+            {
+              "branch": "월드타워",
+              "hall": "5관",
+              "sessions": 2,
+              "seats": 778
+            },
+            {
+              "branch": "월드타워",
+              "hall": "9관",
+              "sessions": 4,
+              "seats": 1440
+            },
+            {
+              "branch": "영등포",
+              "hall": "1관",
+              "sessions": 1,
+              "seats": 227
+            },
+            {
+              "branch": "영등포",
+              "hall": "7관",
+              "sessions": 1,
+              "seats": 206
+            },
+            {
+              "branch": "영등포",
+              "hall": "6관",
+              "sessions": 1,
+              "seats": 226
+            },
+            {
+              "branch": "김포공항",
+              "hall": "7관",
+              "sessions": 2,
+              "seats": 576
+            },
+            {
+              "branch": "김포공항",
+              "hall": "10관",
+              "sessions": 2,
+              "seats": 644
+            }
+          ],
+          "seats": 5839,
+          "branches": [
+            "건대입구",
+            "김포공항",
+            "영등포",
+            "월드타워"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/9401d485ec964ec5b82048a3e677f902.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926154.jpg"
+        }
+      ]
+    },
+    {
+      "movieCd": "20263030",
+      "title": "백룸",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 1,
+        "goods": 0,
+        "etc": 0
+      },
+      "promoSeats": 150,
+      "events": [
+        {
+          "eventId": "401070016926157",
+          "name": "<백룸> GV (5/28)",
+          "type": "stage",
+          "start": "2026.05.28",
+          "end": "2026.05.28",
+          "screenings": [
+            {
+              "branch": "월드타워",
+              "hall": "3관 cineBiz",
+              "sessions": 1,
+              "seats": 150
+            }
+          ],
+          "seats": 150,
+          "branches": [
+            "월드타워"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/7b0324dd8c714c0f87511eb39002bf3c.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926157.jpg"
+        }
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "eventId": "101010016926007",
+      "name": "<메이플 스토리> 라이브 뷰잉",
+      "type": "etc",
+      "start": "2026.06.13",
+      "end": "2026.06.13",
+      "movieName": "메이플 스토리"
+    },
+    {
+      "eventId": "101010014726016",
+      "name": "(정부지원) 영화관람료 6천원 할인 안내",
+      "type": "coupon",
+      "start": "2026.05.13",
+      "end": "2026.07.07",
+      "movieName": null
+    },
+    {
+      "eventId": "101110014726031",
+      "name": "(정부지원) 신규회원 영화 쿠폰 받기!",
+      "type": "coupon",
+      "start": "2026.05.12",
+      "end": "2026.07.07",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021226017",
+      "name": "시그니처 아트카드북 VOL.6 런칭 및 판매 안내",
+      "type": "goods",
+      "start": "2026.05.01",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010014726015",
+      "name": "<문화가 있는 수요일> 매월 2번 만나세요!",
+      "type": "etc",
+      "start": "2026.05.01",
+      "end": "2026.05.31",
+      "movieName": "문화가 있는 수요일"
+    },
+    {
+      "eventId": "101010038526004",
+      "name": "이달의광음시네마 26년 5월",
+      "type": "etc",
+      "start": "2026.04.30",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101170014726005",
+      "name": "롯시스탬프 추가적립 찬스!!!",
+      "type": "etc",
+      "start": "2026.04.30",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101170014726004",
+      "name": "무중력 롯시 여행, 평촌&노원 전석 리클라이너 오픈",
+      "type": "etc",
+      "start": "2026.04.28",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101110014726022",
+      "name": "평촌 전석 리클라이너 리뉴얼, 무중력 롯시 여행!",
+      "type": "etc",
+      "start": "2026.04.28",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101110014726023",
+      "name": "노원 전석 리클라이너 리뉴얼, 무중력 롯시 여행!",
+      "type": "etc",
+      "start": "2026.04.28",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021226019",
+      "name": "실바니안 패밀리 콤보 런칭",
+      "type": "etc",
+      "start": "2026.04.28",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010050026006",
+      "name": "♥무비플러팅 22기 모집 안내♥",
+      "type": "etc",
+      "start": "2026.04.27",
+      "end": "2026.05.29",
+      "movieName": null
+    },
+    {
+      "eventId": "101010050326002",
+      "name": "NMIXX(엔믹스) 콤보 런칭",
+      "type": "etc",
+      "start": "2026.04.24",
+      "end": "2026.05.25",
+      "movieName": null
+    },
+    {
+      "eventId": "101010014726013",
+      "name": "<스파이패밀리> 콜라보카페",
+      "type": "etc",
+      "start": "2026.04.24",
+      "end": "2026.05.24",
+      "movieName": "스파이패밀리"
+    },
+    {
+      "eventId": "101010021226018",
+      "name": "악마는 프라다를 입는다2 키링 런칭",
+      "type": "etc",
+      "start": "2026.04.23",
+      "end": "2026.06.14",
+      "movieName": null
+    },
+    {
+      "eventId": "101170014726003",
+      "name": "(유니버설매니아) 영화보고 팝콘 받자!",
+      "type": "etc",
+      "start": "2026.04.20",
+      "end": "2026.09.06",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021226016",
+      "name": "코난 모델킷 피규어 런칭",
+      "type": "etc",
+      "start": "2026.04.16",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021226015",
+      "name": "슈퍼마리오 갤럭시 굿즈 런칭",
+      "type": "goods",
+      "start": "2026.04.14",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021226013",
+      "name": "포켓몬 파티 인형키링 런칭",
+      "type": "etc",
+      "start": "2026.04.13",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101110014726020",
+      "name": "광음MANIA: 고막이 견딜 때까지",
+      "type": "etc",
+      "start": "2026.04.13",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010042526001",
+      "name": "울산관 주중(월~목) 요금 인하",
+      "type": "etc",
+      "start": "2026.04.09",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021226012",
+      "name": "짱구 맹구 과일 피규어 런칭",
+      "type": "etc",
+      "start": "2026.04.07",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010038525027",
+      "name": "영화 한편 스탬프 하나, 볼수록 커지는 롯시스탬프!",
+      "type": "etc",
+      "start": "2026.04.01",
+      "end": "2026.08.01",
+      "movieName": null
+    },
+    {
+      "eventId": "101010050026003",
+      "name": "♥대전 무비플러팅 모집 안내♥",
+      "type": "etc",
+      "start": "2026.03.30",
+      "end": "2026.06.27",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021226011",
+      "name": "산리오 하트 피규어 런칭",
+      "type": "etc",
+      "start": "2026.03.25",
+      "end": "2026.05.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101170014224002",
+      "name": "2026 VIP 특별 제휴혜택",
+      "type": "etc",
+      "start": "2026.01.03",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010050025002",
+      "name": "라이브시네마 롤플레잉 체험 공간",
+      "type": "etc",
+      "start": "2025.12.30",
+      "end": "2999.01.06",
+      "movieName": null
+    },
+    {
+      "eventId": "101010021225019",
+      "name": "네이버스토어 상시 이벤트（상시시안）",
+      "type": "etc",
+      "start": "2025.08.05",
+      "end": "2026.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "101010024421015",
+      "name": "랜선 굿즈 1탄! 굿노트 다이어리 배포",
+      "type": "goods",
+      "start": "2021.05.31",
+      "end": "2099.12.31",
+      "movieName": null
+    },
+    {
+      "eventId": "201010016926403",
+      "name": "<이프 온리>2주차",
+      "type": "etc",
+      "start": "2026.05.20",
+      "end": "2026.05.26",
+      "movieName": "이프 온리"
+    },
+    {
+      "eventId": "201010016926401",
+      "name": "<돌핀보이> SNS이벤트",
+      "type": "etc",
+      "start": "2026.05.18",
+      "end": "2026.05.25",
+      "movieName": "돌핀보이"
+    },
+    {
+      "eventId": "201010016926399",
+      "name": "<프로젝트 헤일메리>9주차주말증정이벤트",
+      "type": "goods",
+      "start": "2026.05.16",
+      "end": "2026.05.22",
+      "movieName": "프로젝트 헤일메리"
+    },
+    {
+      "eventId": "201010014726033",
+      "name": "<탑건><탑건:매버릭> 광음,MX4D포스터 증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.16",
+      "end": "2026.05.29",
+      "movieName": "탑건"
+    },
+    {
+      "eventId": "201010016926391",
+      "name": "<5월18일생>1주차(5/14목~20수,책 랜덤1권)",
+      "type": "etc",
+      "start": "2026.05.14",
+      "end": "2026.05.20",
+      "movieName": "5월18일생"
+    },
+    {
+      "eventId": "201110014726013",
+      "name": "<르세라핌 브이알콘서트> 아듀 1+1할인 이벤트",
+      "type": "coupon",
+      "start": "2026.05.13",
+      "end": "2026.05.26",
+      "movieName": "르세라핌 브이알콘서트"
+    },
+    {
+      "eventId": "201010016926385",
+      "name": "<이프 온리> 무비티켓",
+      "type": "etc",
+      "start": "2026.05.13",
+      "end": "2026.05.26",
+      "movieName": "이프 온리"
+    },
+    {
+      "eventId": "201010050326012",
+      "name": "<힌드의 목소리> 일러스트 포스터 증정",
+      "type": "goods",
+      "start": "2026.05.13",
+      "end": "2026.06.09",
+      "movieName": "힌드의 목소리"
+    },
+    {
+      "eventId": "201010050326013",
+      "name": "<비발디와 나> 포스터 증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.13",
+      "end": "2026.06.09",
+      "movieName": "비발디와 나"
+    },
+    {
+      "eventId": "201010050326014",
+      "name": "<훈련사> 경기인디시네마 엽서 증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.13",
+      "end": "2026.06.09",
+      "movieName": "훈련사"
+    },
+    {
+      "eventId": "201010050326010",
+      "name": "<힌드의목소리> 경기인디시네마 포스터 증정",
+      "type": "goods",
+      "start": "2026.05.06",
+      "end": "2026.06.05",
+      "movieName": "힌드의목소리"
+    },
+    {
+      "eventId": "201010050326011",
+      "name": "<비발디와 나> 2주차 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.06",
+      "end": "2026.06.05",
+      "movieName": "비발디와 나"
+    },
+    {
+      "eventId": "201010016926365",
+      "name": "<극장판 달님이>어린이날 이벤트",
+      "type": "etc",
+      "start": "2026.05.05",
+      "end": "2026.05.25",
+      "movieName": "극장판 달님이"
+    },
+    {
+      "eventId": "201010050326009",
+      "name": "<침묵의 친구> 경인디",
+      "type": "etc",
+      "start": "2026.04.24",
+      "end": "2026.06.30",
+      "movieName": "침묵의 친구"
+    },
+    {
+      "eventId": "201010050326006",
+      "name": "<두 검사> 경기인디",
+      "type": "etc",
+      "start": "2026.04.15",
+      "end": "2026.05.31",
+      "movieName": "두 검사"
+    },
+    {
+      "eventId": "201010014726016",
+      "name": "르세라핌 브이알 콘서트 : 인비테이션 1주차 증정 이벤트",
+      "type": "goods",
+      "start": "2026.04.15",
+      "end": "2026.05.26",
+      "movieName": null
+    },
+    {
+      "eventId": "201010050326004",
+      "name": "<극장의 시간들> 에피소드 포스터 3종",
+      "type": "etc",
+      "start": "2026.03.27",
+      "end": "2026.05.31",
+      "movieName": "극장의 시간들"
+    },
+    {
+      "eventId": "201010050326003",
+      "name": "<열여덟 청춘> 사인 포스터",
+      "type": "etc",
+      "start": "2026.03.26",
+      "end": "2026.05.31",
+      "movieName": "열여덟 청춘"
+    },
+    {
+      "eventId": "201010050326002",
+      "name": "<극장의 시간들> 티저 포스터",
+      "type": "etc",
+      "start": "2026.03.26",
+      "end": "2026.05.31",
+      "movieName": "극장의 시간들"
+    },
+    {
+      "eventId": "401070016926156",
+      "name": "<내 이름은>GV (건대입구,5/21)",
+      "type": "stage",
+      "start": "2026.05.21",
+      "end": "2026.05.21",
+      "screenings": [
+        {
+          "branch": "건대입구",
+          "hall": "1관",
+          "sessions": 1,
+          "seats": 208
+        }
+      ],
+      "seats": 208,
+      "branches": [
+        "건대입구"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/b542739e94804a019f7f6a330702d41a.jpg",
+      "imagePath": "assets/data/lotte_images/401070016926156.jpg",
+      "movieName": "내 이름은"
+    },
+    {
+      "eventId": "401080016926021",
+      "name": "<아이엠 포포>회원시사회",
+      "type": "stage",
+      "start": "2026.05.15",
+      "end": "2026.05.21",
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/f068bd3f674240448da9667bdde6c324.jpg",
+      "imagePath": "assets/data/lotte_images/401080016926021.jpg",
+      "movieName": "아이엠 포포"
+    },
+    {
+      "eventId": "401080016926020",
+      "name": "<상자 속의 양> 회원시사회",
+      "type": "stage",
+      "start": "2026.05.15",
+      "end": "2026.05.25",
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/05a90c76fc1f4191a678496d39de380b.jpg",
+      "imagePath": "assets/data/lotte_images/401080016926020.jpg",
+      "movieName": "상자 속의 양"
+    },
+    {
+      "eventId": "401070050326003",
+      "name": "<파티마가 사랑한 계절> 씨네토크",
+      "type": "stage",
+      "start": "2026.05.31",
+      "end": "2026.05.31",
+      "screenings": [
+        {
+          "branch": "광교",
+          "hall": "1관",
+          "sessions": 1,
+          "seats": 150
+        }
+      ],
+      "seats": 150,
+      "branches": [
+        "광교"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/d977c31252b244df80e805ff42965711.jpg",
+      "imagePath": "assets/data/lotte_images/401070050326003.jpg",
+      "movieName": "파티마가 사랑한 계절"
+    },
+    {
+      "eventId": "401070016926152",
+      "name": "<쇼타씨의 마지막 출장> Gv",
+      "type": "stage",
+      "start": "2026.05.23",
+      "end": "2026.05.23",
+      "screenings": [
+        {
+          "branch": "월드타워",
+          "hall": "18관",
+          "sessions": 1,
+          "seats": 160
+        }
+      ],
+      "seats": 160,
+      "branches": [
+        "월드타워"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/a222b4b2cf634ee6a18c7176dedd7a41.jpg",
+      "imagePath": "assets/data/lotte_images/401070016926152.jpg",
+      "movieName": "쇼타씨의 마지막 출장"
+    },
+    {
+      "eventId": "401070016926153",
+      "name": "<쇼타씨의 마지막 출장>무대인사",
+      "type": "stage",
+      "start": "2026.05.23",
+      "end": "2026.05.23",
+      "screenings": [
+        {
+          "branch": "월드타워",
+          "hall": "6관",
+          "sessions": 1,
+          "seats": 124
+        },
+        {
+          "branch": "월드타워",
+          "hall": "7관",
+          "sessions": 1,
+          "seats": 124
+        }
+      ],
+      "seats": 248,
+      "branches": [
+        "월드타워"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/02911d40ae134ca1967a3cfadf69d6bd.jpg",
+      "imagePath": "assets/data/lotte_images/401070016926153.jpg",
+      "movieName": "쇼타씨의 마지막 출장"
+    }
+  ]
+}

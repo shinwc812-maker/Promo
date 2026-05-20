@@ -1,0 +1,106 @@
+{
+  "chain": "CINEQ",
+  "updatedAt": "2026-05-19",
+  "source": "Namuwiki, Official CineQ Info Consolidation",
+  "theaters": [
+    {
+      "name": "신도림",
+      "location": "서울 구로구",
+      "total_halls": 10,
+      "halls": [
+        {"no": "1관", "seats": 214},
+        {"no": "2관", "seats": 174},
+        {"no": "3관", "seats": 69, "type": "RESERVE"},
+        {"no": "4관", "seats": 140},
+        {"no": "5관", "seats": 174},
+        {"no": "6관", "seats": 69, "type": "RESERVE"},
+        {"no": "7관", "seats": 30, "type": "SUITE"},
+        {"no": "8관", "seats": 91},
+        {"no": "9관", "seats": 91},
+        {"no": "10관", "seats": 91}
+      ]
+    },
+    {
+      "name": "경주보문",
+      "location": "경북 경주시",
+      "total_halls": 6,
+      "halls": [
+        {"no": "1관", "seats": 201},
+        {"no": "2관", "seats": 70, "type": "RESERVE"},
+        {"no": "3관", "seats": 68, "type": "RESERVE"},
+        {"no": "4관", "seats": 95},
+        {"no": "5관", "seats": 98},
+        {"no": "6관", "seats": 98}
+      ]
+    },
+    {
+      "name": "구미봉곡",
+      "location": "경북 구미시",
+      "total_halls": 5,
+      "halls": [
+        {"no": "1관", "seats": 149},
+        {"no": "2관", "seats": 91},
+        {"no": "3관", "seats": 83},
+        {"no": "4관", "seats": 73},
+        {"no": "5관", "seats": 106}
+      ]
+    },
+    {
+      "name": "인천청라",
+      "location": "인천 서구",
+      "total_halls": 7,
+      "halls": [
+        {"no": "1관", "seats": 74, "type": "리클라이너"},
+        {"no": "2관", "seats": 57, "type": "리클라이너"},
+        {"no": "3관", "seats": 77, "type": "리클라이너"},
+        {"no": "4관", "seats": 74, "type": "리클라이너"},
+        {"no": "5관", "seats": 57, "type": "리클라이너"},
+        {"no": "6관", "seats": 77, "type": "리클라이너"},
+        {"no": "7관", "seats": 90, "type": "리클라이너"}
+      ]
+    },
+    {
+      "name": "남양주다산",
+      "location": "경기 남양주시",
+      "total_halls": 6,
+      "halls": [
+        {"no": "1관", "seats": 58, "type": "리클라이너"},
+        {"no": "2관", "seats": 58, "type": "리클라이너"},
+        {"no": "3관", "seats": 58, "type": "리클라이너"},
+        {"no": "4관", "seats": 58, "type": "리클라이너"},
+        {"no": "5관", "seats": 58, "type": "리클라이너"},
+        {"no": "6관", "seats": 58, "type": "리클라이너"}
+      ]
+    },
+    {
+      "name": "대구이시아",
+      "location": "대구 동구",
+      "total_halls": 7,
+      "halls": [
+        {"no": "1관", "seats": 84, "type": "리클라이너"},
+        {"no": "2관", "seats": 126, "type": "리클라이너"},
+        {"no": "3관", "seats": 60, "type": "리클라이너"},
+        {"no": "4관", "seats": 62, "type": "리클라이너"},
+        {"no": "5관", "seats": 62, "type": "리클라이너"},
+        {"no": "6관", "seats": 62, "type": "리클라이너"},
+        {"no": "7관", "seats": 60, "type": "리클라이너"}
+      ]
+    },
+    {
+      "name": "전주영화의거리",
+      "location": "전북 전주시",
+      "total_halls": 10,
+      "halls": [
+        {"no": "평균", "seats": 85, "type": "총10관/850석"}
+      ]
+    },
+    {
+      "name": "천안불당",
+      "location": "충남 천안시",
+      "total_halls": 4,
+      "halls": [
+        {"no": "평균", "seats": 79, "type": "총4관/317석"}
+      ]
+    }
+  ]
+}
