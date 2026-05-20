@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-20T15:26:07+09:00",
+  "fetchedAt": "2026-05-21T07:00:12+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -380,6 +380,76 @@
           "end": "2026.05.31"
         }
       ]
+    },
+    {
+      "movieCd": "20263030",
+      "title": "백룸",
+      "matched": true,
+      "counts": {
+        "coupon": 2,
+        "stage": 1,
+        "goods": 0,
+        "etc": 0
+      },
+      "promoSeats": 150,
+      "events": [
+        {
+          "eventId": "401070016926157",
+          "name": "<백룸> GV (5/28)",
+          "type": "stage",
+          "start": "2026.05.28",
+          "end": "2026.05.28",
+          "screenings": [
+            {
+              "branch": "월드타워",
+              "hall": "3관 cineBiz",
+              "sessions": 1,
+              "seats": 150
+            }
+          ],
+          "seats": 150,
+          "branches": [
+            "월드타워"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/7b0324dd8c714c0f87511eb39002bf3c.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926157.jpg"
+        },
+        {
+          "eventId": "sadagu-20263030-1",
+          "name": "<백룸> 무비싸다구 0원 쿠폰",
+          "type": "coupon",
+          "issued": 500,
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
+        },
+        {
+          "eventId": "sadagu-20263030-2",
+          "name": "<백룸> 무비싸다구 2,000원 쿠폰",
+          "type": "coupon",
+          "issued": 3500,
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
+        }
+      ]
+    },
+    {
+      "movieCd": "20258236",
+      "title": "만달로리안과 그로구",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 1,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "201010014726037",
+          "name": "<만달로리안과 그로구> 썬캡 증정 이벤트",
+          "type": "goods",
+          "start": "2026.05.22",
+          "end": "2026.06.09"
+        }
+      ]
     }
   ],
   "unmatched": [
@@ -664,14 +734,6 @@
       "movieName": "탑건"
     },
     {
-      "eventId": "201010016926391",
-      "name": "<5월18일생>1주차(5/14목~20수,책 랜덤1권)",
-      "type": "etc",
-      "start": "2026.05.14",
-      "end": "2026.05.20",
-      "movieName": "5월18일생"
-    },
-    {
       "eventId": "201110014726013",
       "name": "<르세라핌 브이알콘서트> 아듀 1+1할인 이벤트",
       "type": "coupon",
@@ -834,28 +896,6 @@
       "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/05a90c76fc1f4191a678496d39de380b.jpg",
       "imagePath": "assets/data/lotte_images/401080016926020.jpg",
       "movieName": "상자 속의 양"
-    },
-    {
-      "eventId": "401070016926157",
-      "name": "<백룸> GV (5/28)",
-      "type": "stage",
-      "start": "2026.05.28",
-      "end": "2026.05.28",
-      "screenings": [
-        {
-          "branch": "월드타워",
-          "hall": "3관 cineBiz",
-          "sessions": 1,
-          "seats": 150
-        }
-      ],
-      "seats": 150,
-      "branches": [
-        "월드타워"
-      ],
-      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/7b0324dd8c714c0f87511eb39002bf3c.jpg",
-      "imagePath": "assets/data/lotte_images/401070016926157.jpg",
-      "movieName": "백룸"
     },
     {
       "eventId": "401070050326003",
