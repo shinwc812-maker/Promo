@@ -275,14 +275,18 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
                       pick(rCg, bk.movieCd), pick(rCq, bk.movieCd)];
       const sum = (key) => chains.reduce(
         (s, m) => s + ((m && m.counts && m.counts[key]) || 0), 0);
-      // 프로모션 좌석 — 무대인사 상영관 좌석 합계 (체인 크롤러가 promoSeats 로 제공)
-      const promoSeats = chains.reduce(
+      // 프로모션 좌석 = 무대인사·시사회·GV 좌석(promoSeats) + 쿠폰 발행 매수(issued).
+      // 굿즈는 단위가 달라(진행관수) 제외.
+      const stageSeats = chains.reduce(
         (s, m) => s + ((m && m.promoSeats) || 0), 0);
+      const couponIssued = chains.reduce((s, m) => s + ((m && m.events || [])
+        .filter(e => e.type === 'coupon')
+        .reduce((a, e) => a + (typeof e.issued === 'number' ? e.issued : 0), 0)), 0);
       return {
         movieCd: bk.movieCd, title: bk.title, rate: bk.rate,
         audience: bk.audience || 0,
         coupons: sum('coupon'), stage: sum('stage'), goods: sum('goods'),
-        promoSeats: promoSeats,
+        promoSeats: stageSeats + couponIssued,
       };
     });
 
