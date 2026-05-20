@@ -410,7 +410,9 @@ def main():
             unmatched.append(event_rec)
 
     # 무비싸다구(SpeedMulti) 주입 — API 로 영화별 발행수 자동 수집 후 TOP10 매칭 주입
-    for sad_title, coupons in fetch_movie_sadagu(opener).items():
+    sadagu_data = fetch_movie_sadagu(opener)
+    sadagu_injected = 0
+    for sad_title, coupons in sadagu_data.items():
         hit = match_movie(sad_title)
         if not hit:                       # TOP10 밖이면 대시보드 미반영 → 스킵
             continue
@@ -423,6 +425,7 @@ def main():
         for idx, (cname, issued) in enumerate(coupons, 1):
             rec["counts"]["coupon"] += 1
             type_counter["coupon"] += 1
+            sadagu_injected += 1
             rec["events"].append({
                 "eventId": f"sadagu-{movie_cd}-{idx}",
                 "name": f"<{mv_title}> 무비싸다구 {cname}",
@@ -452,6 +455,13 @@ def main():
     print(f"  타입 분포: 쿠폰 {type_counter['coupon']} · "
           f"무대인사 {type_counter['stage']} · 굿즈 {type_counter['goods']} · "
           f"기타 {type_counter['etc']}")
+    sgu_cpn = sum(len(v) for v in sadagu_data.values())
+    if sadagu_data:
+        print(f"  무비싸다구: API {len(sadagu_data)}편/{sgu_cpn}쿠폰 · "
+              f"TOP10 주입 {sadagu_injected}건")
+    else:
+        print(f"  ⚠ 무비싸다구 수집 0건 — SADAGU_EVENT_IDS({SADAGU_EVENT_IDS}) "
+              f"점검 필요 (이벤트 종료/ID 변경 가능)")
     print("  영화별 promoSeats:")
     for m in out["movies"]:
         if m["promoSeats"] > 0:
