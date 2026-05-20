@@ -83,9 +83,9 @@ def parse_halls(text, branch):
     """페이지 텍스트에서 관별 좌석 추출. [{no, seats, type}] 리스트."""
     if not text:
         return []
-    # '둘러보기'(다른 지점 링크) 이전까지 — 한 지점 정보 범위로 한정
-    end = text.find("둘러보기")
-    section = text[:end] if end > 0 else text
+    # 전체 텍스트 대상 (페이지 상단 접기 토글 등으로 '둘러보기'가 일찍 나오면
+    # 관별 본문이 잘려 누락되므로 컷하지 않음. 좌석 패턴이 specific 해 안전)
+    section = text
 
     TYPE_KW = ("MEGA|LED", "MX4D", "Dolby Cinema", "IMAX",
                "SOUNDX", "리클라이너", "마이어", "컴포트")

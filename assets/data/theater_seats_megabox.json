@@ -1,6 +1,6 @@
 {
   "chain": "MEGABOX",
-  "updatedAt": "2026-05-20T11:33:59+09:00",
+  "updatedAt": "2026-05-20T11:41:18+09:00",
   "theaters": [
     {
       "name": "강남",
@@ -1763,7 +1763,7 @@
       "name": "하남스타필드",
       "location": "경기",
       "total_halls": 11,
-      "total_seats": 1458,
+      "total_seats": 1466,
       "halls": [
         {
           "no": "1관",
@@ -1797,7 +1797,7 @@
         },
         {
           "no": "8관",
-          "seats": 32
+          "seats": 40
         },
         {
           "no": "9관",
@@ -1811,8 +1811,7 @@
           "no": "11관",
           "seats": 32
         }
-      ],
-      "placeholder": true
+      ]
     },
     {
       "name": "검단",

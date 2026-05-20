@@ -66,9 +66,11 @@ def fetch_namuwiki(branch):
 def parse_halls(text):
     if not text:
         return []
-    # '둘러보기'(다른 지점 링크 모음) 이전까지만 — 한 지점 정보 범위로 한정
-    end = text.find("둘러보기")
-    section = text[:end] if end > 0 else text
+    # 전체 텍스트 대상. (과거 '둘러보기' 이전만 잘랐으나, 페이지 상단에 접기 토글
+    # 등으로 '둘러보기'가 일찍 등장하면 관별 본문이 통째로 잘려 누락됐다.
+    # 좌석 패턴은 'N관 ... 총/콜론/대시 NNN석' 으로 specific 해 푸터 네비(지점명만)
+    # 에는 매칭되지 않으므로 전체 텍스트를 그대로 본다.)
+    section = text
 
     halls = {}
 
