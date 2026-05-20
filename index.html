@@ -190,7 +190,7 @@
   <div class="modal-content">
     <header class="modal-header">
       <div class="modal-movie-info">
-        <div class="modal-eyebrow">DETAILED ANALYSIS REPORT</div>
+        <div class="modal-eyebrow">프로모션 상세 리포트</div>
         <h2 id="modal-title">영화 제목</h2>
         <div class="modal-badges">
           <span class="badge" id="modal-dday">D-Day</span>
@@ -201,39 +201,12 @@
     </header>
 
     <div class="modal-body">
-      <div class="modal-grid">
-        <!-- 주요 지표 -->
-        <div class="modal-card stat">
-          <div class="label">감성 온도 (긍정/부정)</div>
-          <div class="value-row">
-            <span class="val pos" id="modal-pos">0</span>
-            <span class="sep">/</span>
-            <span class="val neg" id="modal-neg">0</span>
-          </div>
-          <div class="desc" id="modal-sent-desc">비율 분석 중...</div>
-        </div>
-        
-        <div class="modal-card stat">
-          <div class="label">캠페인 볼륨</div>
-          <div class="value" id="modal-volume">0<span class="unit">건</span></div>
-          <div class="desc">YouTube 및 커뮤니티 누적</div>
-        </div>
-
-        <!-- 인사이트 섹션 -->
-        <div class="modal-card insight full">
-          <div class="label">데일리 마케팅 인사이트</div>
-          <ul id="modal-insights">
-            <li>데이터를 로드 중입니다...</li>
-          </ul>
-        </div>
-
-        <!-- 키워드 섹션 -->
-        <div class="modal-card keywords full">
-          <div class="label">주요 키워드 반응</div>
-          <div id="modal-keyword-grid" class="modal-kw-grid">
-            <!-- 키워드 칩들이 여기에 들어감 -->
-          </div>
-        </div>
+      <div class="detail-section-label">상세 프로모션 · 4사 진행 현황</div>
+      <div class="promo-detail-wrap">
+        <table class="promo-detail" id="promo-detail-table"></table>
+      </div>
+      <div class="promo-detail-note">
+        ※ 무대인사 좌석수 = 상영관 좌석 합계 · 쿠폰 발행수·굿즈 진행관수는 영화관 미공개 항목
       </div>
     </div>
   </div>

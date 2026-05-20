@@ -49,33 +49,113 @@ function renderRanks(targetId, data, valueKey, deltaKey, valueFormat) {
 }
 
 // ============ MODAL LOGIC ============
+// 로드된 데이터 전역 저장 — openDetail 에서 영화별 4사 프로모션 조회
+const DATA = { booking: null, boxoffice: null,
+               cgv: null, lotte: null, megabox: null, cineq: null };
+
+// 개봉일(openDt) → D-day 표기. 개봉 후면 '개봉 N일차', 전이면 'D-N'
+function ddayText(openDt) {
+  if (!openDt) return '';
+  const open = new Date(openDt + 'T00:00:00+09:00');
+  const today = new Date();
+  const diff = Math.floor((today - open) / 86400000);
+  if (diff === 0) return 'D-DAY (개봉일)';
+  if (diff > 0) return `개봉 ${diff + 1}일차 (D+${diff})`;
+  return `개봉 D-${Math.abs(diff)}`;
+}
+
+// 영화명 → {movieCd, title, openDt} (booking 우선, boxoffice 보조)
+function resolveMovie(title) {
+  const bk = (DATA.booking?.bookingRate || []).find(m => m.title === title);
+  if (bk) return { movieCd: bk.movieCd, title: bk.title, openDt: bk.openDt };
+  const bo = (DATA.boxoffice?.boxOffice || []).find(m => m.title === title);
+  if (bo) return { movieCd: bo.movieCd, title: bo.title, openDt: null };
+  return null;
+}
+
+// 4사 프로모션 상세 테이블 HTML 생성
+function buildPromoDetail(movieCd) {
+  const chains = [
+    { key: 'cgv',     label: 'CGV',   data: DATA.cgv },
+    { key: 'lotte',   label: '롯데',  data: DATA.lotte },
+    { key: 'mega',    label: '메가',  data: DATA.megabox },
+    { key: 'cineq',   label: '씨네큐', data: DATA.cineq },
+  ];
+  let tSeats = 0, tStage = 0, tCoupon = 0, tGoods = 0, anyEvent = false;
+  let rows = '';
+
+  chains.forEach(ch => {
+    const movie = (ch.data?.movies || []).find(m => m.movieCd === movieCd);
+    const events = movie?.events || [];
+    const stage  = events.filter(e => e.type === 'stage');
+    const coupon = events.filter(e => e.type === 'coupon');
+    const goods  = events.filter(e => e.type === 'goods');
+    tStage += stage.length; tCoupon += coupon.length; tGoods += goods.length;
+    stage.forEach(e => { if (typeof e.seats === 'number') tSeats += e.seats; });
+
+    const n = Math.max(stage.length, coupon.length, goods.length);
+    if (n === 0) {
+      rows += `<tr class="chain-start empty-chain">
+        <td class="chain-label"><span class="chip chip-${ch.key} on">${ch.label}</span></td>
+        <td class="evt none" colspan="6">진행 이벤트 없음</td></tr>`;
+      return;
+    }
+    anyEvent = true;
+    for (let i = 0; i < n; i++) {
+      const s = stage[i], c = coupon[i], g = goods[i];
+      const seatVal = s
+        ? (typeof s.seats === 'number' && s.seats > 0 ? fmt(s.seats) + '석' : '미공개')
+        : '';
+      rows += `<tr class="${i === 0 ? 'chain-start' : ''}">
+        ${i === 0 ? `<td class="chain-label" rowspan="${n}"><span class="chip chip-${ch.key} on">${ch.label}</span></td>` : ''}
+        <td class="evt">${s ? truncate(s.name, 24) : ''}</td>
+        <td class="num">${seatVal}</td>
+        <td class="evt">${c ? truncate(c.name, 24) : ''}</td>
+        <td class="num">${c ? '미공개' : ''}</td>
+        <td class="evt">${g ? truncate(g.name, 24) : ''}</td>
+        <td class="num">${g ? '미공개' : ''}</td>
+      </tr>`;
+    }
+  });
+
+  const head = `<thead><tr>
+      <th class="chain-col"></th>
+      <th>무대인사·시사회</th><th class="num">좌석수</th>
+      <th>쿠폰</th><th class="num">발행수</th>
+      <th>굿즈·특전</th><th class="num">진행관수</th>
+    </tr></thead>`;
+  const total = `<tr class="total-row">
+      <td class="chain-label">총합</td>
+      <td class="evt">무대인사 ${tStage}건</td>
+      <td class="num">${tSeats > 0 ? fmt(tSeats) + '석' : '미공개'}</td>
+      <td class="evt">쿠폰 ${tCoupon}건</td>
+      <td class="num">미공개</td>
+      <td class="evt">굿즈 ${tGoods}건</td>
+      <td class="num">미공개</td>
+    </tr>`;
+  if (!anyEvent && tStage + tCoupon + tGoods === 0) {
+    return head + `<tbody><tr><td colspan="7" class="promo-empty">
+      4사 진행 프로모션 없음 (실시간 예매율 TOP 10 매칭 기준)</td></tr></tbody>`;
+  }
+  return head + `<tbody>${rows}${total}</tbody>`;
+}
+
 function openDetail(movieTitle) {
   const modal = document.getElementById('detail-modal');
   if (!modal) return;
+  const mv = resolveMovie(movieTitle);
   document.getElementById('modal-title').textContent = movieTitle;
+  document.getElementById('modal-dday').textContent =
+    mv && mv.openDt ? ddayText(mv.openDt) : '개봉일 미상';
+  document.getElementById('modal-genre').textContent = '장르 미공개';
 
-  // 샘플 데이터 (실제로는 영화별로 다른 데이터를 로드해야 함)
-  document.getElementById('modal-dday').textContent = 'D-17';
-  document.getElementById('modal-genre').textContent = '코미디 / 액션';
-  document.getElementById('modal-pos').textContent = '5,791';
-  document.getElementById('modal-neg').textContent = '134';
-  document.getElementById('modal-sent-desc').textContent = '비율 43.2:1 · 긍정 98% (중립 제외)';
-  document.getElementById('modal-volume').innerHTML = '324<span class="unit">건</span>';
-
-  const insights = [
-    'YouTube 누적 10M뷰 돌파 (2,419만 뷰 기록 중)',
-    '오늘의 TOP 컨텐츠: 배우 비하인드 영상 (좋아요 119개)',
-    '전일 대비 긍정적 키워드 유입 15% 증가'
-  ];
-  document.getElementById('modal-insights').innerHTML = insights.map(i => `<li>${i}</li>`).join('');
-
-  const keywords = [
-    {n: '강동원', v: 211}, {n: '엄태구', v: 154}, {n: '비하인드', v: 89},
-    {n: '코미디', v: 77}, {n: '롯데시네마', v: 45}, {n: '포스터', v: 32}
-  ];
-  document.getElementById('modal-keyword-grid').innerHTML = keywords.map(k => `
-    <span class="kw-pill">${k.n} <strong>${k.v}</strong></span>
-  `).join('');
+  const table = document.getElementById('promo-detail-table');
+  if (mv) {
+    table.innerHTML = buildPromoDetail(mv.movieCd);
+  } else {
+    table.innerHTML = `<tbody><tr><td class="promo-empty">
+      매칭되는 영화 데이터를 찾을 수 없습니다.</td></tr></tbody>`;
+  }
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -266,6 +346,9 @@ async function init() {
       emptyMsg: '씨네큐 데이터 없음',
     })
   ]);
+  // openDetail 모달이 참조할 전역 데이터 저장
+  DATA.booking = resBk; DATA.boxoffice = resBo;
+  DATA.lotte = resLt; DATA.megabox = resMg; DATA.cgv = resCg; DATA.cineq = resCq;
   await buildAnalysisMatrix(resBo, resBk, resLt, resMg, resCg, resCq);
 }
 
