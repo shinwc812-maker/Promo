@@ -1,11 +1,16 @@
 ---
 name: megabox-events
-description: 메가박스 eventMngDiv.do 로 진행중 이벤트 목록 + event/detail HTML scrape 로 본문 editorImg 이미지(일정표 포함)를 다운로드한 뒤, 무대인사·시사회 일정표를 LLM 이 판독해 fetch_promotions_megabox.py 의 SCREENINGS dict 를 갱신해 promoSeats 합산. 트리거 - "메가박스 이벤트", "Megabox 무대인사", "메가박스 갱신", "/megabox-events".
+description: 메가박스 eventMngDiv.do 로 진행중 이벤트 목록 + event/detail HTML scrape 로 본문 editorImg 이미지를 받아, 무대인사 일정표(지점·관·회차)와 굿즈 진행 극장수를 LLM 이 판독해 SCREENINGS·GOODS_THEATERS dict 갱신, 판매 단품은 SALE_EVENTS 로 제외해 promotions_megabox.json 에 정리. 트리거 - "메가박스 이벤트", "Megabox 무대인사", "메가박스 굿즈 진행관수", "메가박스 갱신", "/megabox-events".
 ---
 
-# 메가박스 이벤트 수집 + HTML scrape + 일정 판독
+# 메가박스 이벤트 수집 + HTML scrape + 일정·굿즈 판독
 
-메가박스는 **API 가 일정 데이터를 따로 안 줘서** 본문 일정표 이미지를 LLM 이 판독해야 한다. 대신 상세 페이지가 정적 HTML 이라 Selenium 은 불필요.
+메가박스는 **API 가 일정/극장 데이터를 따로 안 줘서** 본문 이미지를 LLM 이 판독한다. 상세 페이지가 정적 HTML 이라 Selenium 불필요.
+
+`fetch_promotions_megabox.py` 상단 3종 dict:
+- `SCREENINGS` = 무대인사 evntNo → [{branch, hall, sessions}]
+- `GOODS_THEATERS` = 굿즈 evntNo → 진행관수
+- `SALE_EVENTS` = 판매 단품 evntNo set (제외)
 
 ## 두 API/엔드포인트
 
@@ -94,16 +99,44 @@ SCREENINGS = {
 - 숫자만 표시되면 `"2관"` 형태로
 - `Dolby Cinema`, `Dolby Vision Atmos`, `Dolby Vision+Atmos` 등 특수관 이름은 그대로 — `theater_seats_megabox.json` 에 없으면 빌더가 지점 평균으로 fallback
 
-### 4단계: 재실행 → 좌석 합산
+### 4단계: 굿즈 진행관수 → GOODS_THEATERS
+굿즈 이벤트도 본문 editorImg 가 다운로드됨. 그 중 **"진행 극장" 목록** 이미지를
+판독해 지점 수를 센다 (작은 글씨면 PIL 로 crop+2배 확대).
+- 예: `<내 마음의 위험한 녀석> 개봉주 현장 증정` → 강남·고양스타필드·… = **52개**
+```python
+GOODS_THEATERS = {
+    "20629": 52,   # 내 마음의 위험한 녀석 개봉주 현장 증정
+}
+```
+
+### 5단계: 판매 단품 제외 → SALE_EVENTS
+가격(원) 붙은 단품 판매는 제외. 메가박스는 **쿠지(이치방쿠지)·드링크 콤보**가 흔함:
+```python
+SALE_EVENTS = {
+    "20619",   # 쿠지 단품 11,000원
+    "20618",   # 엘리자베스 드링크 25,000원
+}
+```
+
+### 6단계: 재실행 → 좌석·진행관수 합산
 ```bash
 python scripts/fetch_promotions_megabox.py
 ```
-이미지는 이미 받아둔 거 skip, SCREENINGS 변경분만 반영.
+이미지는 이미 받아둔 거 skip, dict 변경분만 반영.
+
+## 좌석 DB 보완
+`theater_seats_megabox.json` 은 원래 가짜(지점 내 모든 관 동일). 나무위키로 보완:
+```bash
+python scripts/scrape_megabox_seats.py   # 나무위키 '메가박스 {지점}' 파싱
+```
+현재 69/114 진짜. 무대인사 지점(코엑스·상암·목동)은 진짜. 남은 placeholder 는
+나무위키 페이지 없음(404). lookup_seats 는 특수관(Dolby Cinema 등)을 type 필드로 매칭.
 
 ## 핵심 파일
 
-- 크롤러: `scripts/fetch_promotions_megabox.py` — 표준 lib (urllib + html.parser + re)
-- 좌석 DB: `assets/data/theater_seats_megabox.json` — 114 지점 (단, 지점 내 모든 관 동일 좌석인 **Gemini 가짜 데이터** 가능성 있음 — 실제 데이터로 교체 필요)
+- 크롤러: `scripts/fetch_promotions_megabox.py` — `SCREENINGS`·`GOODS_THEATERS`·`SALE_EVENTS` dict
+- 좌석 스크래퍼: `scripts/scrape_megabox_seats.py` — 나무위키 보완
+- 좌석 DB: `assets/data/theater_seats_megabox.json` — 69/114 진짜
 - 이미지: `assets/data/megabox_images/{eid}_{n}.jpg`
 - 결과: `assets/data/promotions_megabox.json`
 

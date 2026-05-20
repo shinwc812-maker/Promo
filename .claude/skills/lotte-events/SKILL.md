@@ -1,11 +1,15 @@
 ---
 name: lotte-events
-description: 롯데시네마 LCWS API (EventData.aspx + GetStageGreetingEventDetailTOBE) 를 호출해 이벤트 목록 + 무대인사·시사회 회차별 일정(지점·관·시간·MovieNameKR)을 직접 받아 promotions_lotte.json 의 promoSeats 를 자동 합산한다. 이미지 판독 불필요. 트리거 - "롯데 이벤트 수집", "롯데시네마 무대인사", "Lotte 갱신", "/lotte-events".
+description: 롯데시네마 LCWS API (EventData.aspx + GetStageGreetingEventDetailTOBE) 로 무대인사·시사회 회차별 일정(지점·관·시간·MovieNameKR)을 자동 받아 promoSeats 를 합산하고, 굿즈 상세 포스터(EventTemplateInfo)에서 진행관수를 판독하며 판매 단품은 제외해 promotions_lotte.json 에 정리한다. 트리거 - "롯데 이벤트 수집", "롯데시네마 무대인사", "롯데 굿즈 진행관수", "Lotte 갱신", "/lotte-events".
 ---
 
-# 롯데시네마 이벤트 수집 + API 일정 추출
+# 롯데시네마 이벤트 수집 + API 일정 + 굿즈 판독
 
-롯데는 **이미지 판독이 필요 없다.** LCWS API 가 회차별 지점·관·시간을 JSON 으로 직접 제공하기 때문.
+롯데는 **무대인사·시사회는 이미지 판독 불필요** (API 가 회차별 지점·관·시간을 직접
+제공). **굿즈 진행관수만 상세 포스터를 판독**한다.
+
+- `SCREENINGS` 없음 (stage 는 API 자동) — `fetch_promotions_lotte.py` 상단에
+  `GOODS_THEATERS`(굿즈 evntNo→진행관수) · `SALE_EVENTS`(판매 단품 제외) dict 만 둠.
 
 ## 핵심 API
 
@@ -81,11 +85,37 @@ python scripts/fetch_promotions_lotte.py
     ...
 ```
 
+## 굿즈 진행관수 판독 → GOODS_THEATERS
+무대인사와 달리 굿즈(ECC=20)는 API 가 회차를 안 줘서 **상세 포스터를 판독**한다.
+굿즈 상세 페이지는 **`EventTemplateInfo`** 템플릿 (무대인사의 StageGreeting 과 다름):
+
+1. 굿즈 이벤트 상세 포스터 URL 얻기 — Selenium 으로 페이지 열어 `Media/Event` 큰
+   이미지(naturalHeight≥800) src 추출:
+   ```
+   https://www.lottecinema.co.kr/NLCHS/Event/EventTemplateInfo?eventId={EventID}
+   ```
+2. 포스터(`cf.lottecinema.co.kr/Media/Event/{guid}.jpg`, 980×5000+) 다운로드 후
+   **"진행 극장" 영역** 판독 → 지점 수 카운트
+   - 예: `<마이클> 시그니처 아트카드` → 서울 16+경기 17+… = **59개** (전국)
+   - `<악마는프라다2> 4주차 증정` → 15개
+   - "광음시네마 보유 지점" 처럼 목록 미명시면 dict 에 안 넣음 → 미공개
+3. `GOODS_THEATERS` 에 추가 (키는 문자열 EventID):
+   ```python
+   GOODS_THEATERS = {
+       "201010016926397": 59,   # 군체 시그니처 아트카드 (전국)
+       "201010016926402": 15,   # 악마는프라다2 4주차 증정
+   }
+   ```
+
+## 판매 단품 제외 → SALE_EVENTS
+가격표(원) 붙은 단품 판매(키링·쿠지·드링크)는 `SALE_EVENTS` 에 EventID 추가 →
+완전 제외. (유료 굿즈패키지=관람객 증정은 포함.) 현재 롯데 매칭 굿즈엔 판매 단품 없음.
+
 ## 핵심 파일
 
-- 크롤러: `scripts/fetch_promotions_lotte.py` — 표준 lib 만 (urllib + json), API 직접
-- 좌석 DB: `assets/data/theater_seats_lotte.json` — 61 지점 진짜 데이터
-- 이미지: `assets/data/lotte_images/{EventID}.jpg` — 보조 (판독 안 함, 보고용 보관)
+- 크롤러: `scripts/fetch_promotions_lotte.py` — API 직접 + `GOODS_THEATERS`·`SALE_EVENTS` dict
+- 좌석 DB: `assets/data/theater_seats_lotte.json` — 61 지점 진짜 데이터 (100%)
+- 이미지: `assets/data/lotte_images/{EventID}.jpg` — 무대인사 포스터(API) + 굿즈 포스터(판독용)
 - 결과: `assets/data/promotions_lotte.json`
 
 ## 주의
@@ -95,7 +125,7 @@ python scripts/fetch_promotions_lotte.py
 - `MethodName` 오타 시 `요청하신 서비스명이 존재하지 않습니다` — 정확히 `GetStageGreetingEventDetailTOBE`
 - 영화명은 **MovieNameKR** 가 정답. `<영화명>` 이벤트명 파싱은 fallback (오기·생략 가능)
 - 시사회(EventTypeCode=108) 일부는 Items 비어있음 → seats=0 으로 저장 (등록만)
-- API 가 일정을 직접 주므로 **이미지 판독 작업 자체가 불필요**
+- 무대인사·시사회는 API 자동, **굿즈만 EventTemplateInfo 포스터 판독** (booking TOP 10 매칭 굿즈 한정)
 
 ## 디버깅
 

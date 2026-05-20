@@ -1,17 +1,23 @@
 ---
 name: cgv-events
-description: CGV 이벤트/혜택 페이지에서 진행중 이벤트(쿠폰·무대인사·시사회·GV·굿즈)를 Selenium 으로 수집하고 포스터 이미지를 다운로드한 뒤, 무대인사·시사회·GV 의 일정표를 LLM 이 직접 판독해 지점·관·회차 좌석을 promotions_cgv.json 에 합산한다. 트리거 - "CGV 이벤트 수집", "CGV 무대인사 분석", "CGV 새 이벤트", "/cgv-events", "CGV 포스터 분석".
+description: CGV 이벤트/혜택 페이지에서 진행중 이벤트(쿠폰·무대인사·시사회·GV·굿즈)를 Selenium 으로 수집하고 포스터 이미지를 다운로드한 뒤, 무대인사·시사회·GV 일정표(지점·관·회차→좌석)와 굿즈 대상극장(진행관수)을 LLM 이 직접 판독하고, 판매 단품은 제외해 promotions_cgv.json 에 정리한다. 트리거 - "CGV 이벤트 수집", "CGV 무대인사 분석", "CGV 굿즈 진행관수", "CGV 새 이벤트", "/cgv-events", "CGV 포스터 분석".
 ---
 
-# CGV 이벤트 수집 + 일정 판독
+# CGV 이벤트 수집 + 일정·굿즈 판독
 
 CGV 이벤트 API(`searchEvtListForPage`)는 x-signature HMAC 서명을 요구해 외부 직접 호출 불가. 따라서:
 
 1. **Selenium + CDP** 로 진짜 브라우저를 띄워 CGV 이벤트/혜택 페이지를 순회하면 CGV JS 가 서명·호출한 응답을 캡처
 2. 진행중 이벤트(`expnYn=N`) 메타 + 포스터 이미지 다운로드
-3. 무대인사·시사회·GV(stage 분류) 포스터에서 **일정표(지점·관·회차)** 를 LLM 이 판독
-4. `scripts/build_promotions_cgv.py` 의 `SCREENINGS` dict 에 evntNo → screenings 추가
-5. 빌더 재실행 → `promotions_cgv.json` 의 movies[].promoSeats 합산
+3. 무대인사·시사회·GV(stage) 포스터 → **일정표(지점·관·회차)** 판독 → `SCREENINGS`
+4. 굿즈·특전 포스터 → **대상 극장 목록(진행관수)** 판독 → `GOODS_THEATERS`
+5. **판매 단품**(키링·쿠지 등 유료 상품) 식별 → `SALE_EVENTS` (대시보드·집계 제외)
+6. `scripts/build_promotions_cgv.py` 의 dict 갱신 후 빌더 재실행 → `promotions_cgv.json`
+
+> **3종 dict 모두 `scripts/build_promotions_cgv.py` 상단에 있음**
+> - `SCREENINGS` = 무대인사 evntNo → [{branch, hall, sessions}]
+> - `GOODS_THEATERS` = 굿즈 evntNo → 진행관수(정수)
+> - `SALE_EVENTS` = 판매 단품 evntNo set (완전 제외)
 
 ## 절차
 
@@ -28,11 +34,12 @@ python scripts/fetch_cgv_images.py
 
 크롤러는 5개 roundtab(영화·SPECIAL·극장·제휴·멤버십/CLUB) × 영화 하위 sub-sub-tab(전체/일반/시사회/무대인사/아트하우스) 까지 순회해 전체 이벤트(약 130~160건)를 잡는다. CDP `Network.getResponseBody` 로 `searchEvtListForPage` 응답을 캡처.
 
-### 2단계: 신규 stage 이벤트 식별
-`_pending.json` 의 이벤트 중 다음 조건을 만족하는 것만 분석 대상:
-- 이벤트명에 **무대인사·시사회·GV·관객과의대화** 키워드
-- `[영화명]` 이 `assets/data/booking.json` 의 `bookingRate` TOP 10 영화와 매칭
-- `scripts/build_promotions_cgv.py` 의 `SCREENINGS` dict 에 evntNo 가 **없는 것**(=신규)
+### 2단계: 신규 분석 대상 식별
+`_pending.json` 이벤트 중 `[영화명]` 이 `booking.json` 의 `bookingRate` TOP 10 과
+매칭되고, 아직 dict 에 없는 것만 분석:
+- **무대인사·시사회·GV** (키워드: 무대인사·시사회·GV·관객과의대화) → `SCREENINGS` 미등록분
+- **굿즈·특전** (포스터/TTT/증정/아트카드/굿즈패키지 등) → `GOODS_THEATERS` 미등록분
+- **판매 의심** (키링/쿠지/드링크 "출시·단품·N,NNN원") → 이미지로 판매 확인 후 `SALE_EVENTS`
 
 CGV 브랜드명의 `GV` 가 무대인사 키워드로 오인되지 않도록 분류 시 `name.replace("CGV", "")` 후 검색.
 
@@ -76,7 +83,41 @@ SCREENINGS = {
 - 포스터에서 `1` 만 표시되면 `"1관"` 으로
 - `Dolby Cinema`, `SCREENX` 같은 특수관도 그대로 적되, theater_seats 에 매칭 안 되면 빌더가 지점 평균으로 fallback
 
-### 5단계: 빌드 + 검증
+### 5단계: 굿즈 진행관수 판독 → GOODS_THEATERS
+굿즈·특전 포스터(`{evntNo}.jpg`)의 **"대상 극장" / "진행 극장"** 영역을 판독해
+지점 수를 센다. 보통 이미지 하단(y 42%~) 에 있어 PIL crop 권장:
+
+```python
+im = Image.open("assets/data/cgv_images/202605187848.jpg")
+im.crop((0, int(im.height*0.42), 780, im.height)).save("_g.jpg", quality=88)
+```
+
+예: `[군체] 4DX 포스터 증정` → "대상 극장: 강변, 계양, … 평택" = **37개**. 4DX/IMAX/
+SCREENX 포스터는 해당 특수관 보유 지점만이라 수가 다르다 (4DX 37 · IMAX 27 · SCREENX 24 등).
+
+`scripts/build_promotions_cgv.py` 의 `GOODS_THEATERS` 에 추가:
+```python
+GOODS_THEATERS = {
+    # ... 기존 ...
+    "202605187848": 37,   # [군체] 4DX 포스터 증정
+}
+```
+- 진행 극장 목록이 없고 "전점"·"광음시네마 보유 지점" 처럼 수가 불명확하면 dict 에
+  넣지 말 것 → 빌더가 자동으로 "미공개" 표기.
+
+### 6단계: 판매 단품 제외 → SALE_EVENTS
+굿즈 중 **증정이 아니라 돈 주고 사는 단품**(키링·쿠지·드링크 등, 이미지에 가격
+"N,NNN원" 표기)은 프로모션 집계 의미가 없으므로 제외. evntNo 를 `SALE_EVENTS` 에 추가:
+```python
+SALE_EVENTS = {
+    "202604237123",   # [악마는 프라다2] 키링 출시 (단품 8,500원)
+}
+```
+- **포함 예외**: 유료 굿즈패키지(특별 상영회 티켓값에 굿즈 포함, 예: 너바나 17,000원
+  케이블)는 **관람객 증정**이라 포함 (SALE 아님).
+- 빌더가 `SALE_EVENTS` 의 evntNo 를 events·counts 에서 완전히 스킵.
+
+### 7단계: 빌드 + 검증
 ```bash
 python scripts/build_promotions_cgv.py
 ```
@@ -85,24 +126,38 @@ python scripts/build_promotions_cgv.py
 ```
 영화별 promoSeats:
   군체                  7,206 석  (stage=3·goods=3·...)
-  와일드 씽             5,532 석  (stage=2·goods=0·...)
+  와일드 씽             5,543 석  (stage=2·goods=0·...)
   ...
 ```
 
-대시보드 매트릭스(섹션 03)의 "프로모션 좌석" 컬럼이 자동 갱신됨.
+대시보드 매트릭스(섹션 03) "프로모션 좌석" + 영화별 모달의 무대인사 좌석·굿즈
+진행관수가 자동 갱신됨. 모달은 `assets/js/dashboard.js` 의 `buildPromoDetail()`
+(stage→seats·goods→theaters·sale 자동 제외) 가 렌더.
+
+## 좌석 DB 보완 (placeholder → 진짜)
+`theater_seats_cgv.json` 의 일부 지점은 가짜(placeholder) 좌석. 나무위키에서 실제
+관별 좌석을 긁어 채운다:
+```bash
+python scripts/scrape_cgv_seats.py   # placeholder 지점만 나무위키 'CGV {지점}' 파싱
+```
+- 현재 160/195 진짜. 남은 placeholder 는 나무위키 페이지 없음(404·폐점) 또는 관별
+  좌석 미작성(요약만) 이라 추가 추출 불가 — 단 무대인사 진행 지점은 전부 진짜라 영향 없음.
+- 파서는 3형식 지원(`N관: NNN석`·`N관 - NNN석`·`N관 … 총 NNN석`) + 전체 텍스트 파싱
+  (페이지 상단 접기 토글의 '둘러보기' 에서 자르면 본문 누락되므로 컷 안 함).
 
 ## 핵심 파일
-
 - 크롤러: `scripts/fetch_cgv_images.py` — Selenium + CDP, sub-sub-tab 순회
-- 빌더: `scripts/build_promotions_cgv.py` — `SCREENINGS` dict + `_pending.json` + `theater_seats_cgv.json` 조립
-- 좌석 DB: `assets/data/theater_seats_cgv.json` — 28 지점 진짜 데이터 + 167 placeholder
-- 이미지: `assets/data/cgv_images/{evntNo}.jpg`
-- 메타: `assets/data/cgv_images/_pending.json`
+- 빌더: `scripts/build_promotions_cgv.py` — `SCREENINGS`·`GOODS_THEATERS`·`SALE_EVENTS`
+  dict + `_pending.json` + `theater_seats_cgv.json` 조립
+- 좌석 스크래퍼: `scripts/scrape_cgv_seats.py` — 나무위키 placeholder 보완
+- 좌석 DB: `assets/data/theater_seats_cgv.json` — 160/195 진짜
+- 이미지: `assets/data/cgv_images/{evntNo}.jpg` · 메타: `_pending.json`
 - 결과: `assets/data/promotions_cgv.json`
 
 ## 주의
-
 - 영화 매칭은 **booking.json TOP 10 한정** (boxoffice 섞지 말 것 — 짱구·왕과사는남자 등 leak)
 - 종료 1개월 이상 지난 이벤트는 자동 제외 (크롤러가 expnYn=N 필터)
-- 포스터 이미지를 못 받은 이벤트(`/mShrtU/XXXXX` 단축 URL · 제휴/멤버십 카드 등)는 SCREENINGS 분석 불필요 — name-only 분류만
-- placeholder 지점(`theater_seats_cgv.json` 의 `"placeholder": true`) 은 좌석 추정치 — 실제 좌석으로 교체 시 promoSeats 정확해짐
+- 포스터 못 받은 이벤트(`/mShrtU/XXXXX` 단축 URL·제휴/멤버십 카드)는 분석 불필요 — name-only 분류만
+- 굿즈 진행관수·SALE 은 **booking TOP 10 매칭 굿즈만** 판독 (범위 한정)
+- 저장은 집계 수준(좌석 합·진행관 수). 상영 시간·참석자·진행 지점 이름 목록은 JSON 에
+  안 담음 — 필요하면 스키마 확장

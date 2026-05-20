@@ -1,11 +1,16 @@
 ---
 name: cineq-events
-description: 씨네큐 /Event/MoreList API 로 진행중 이벤트 페이지네이션 수집 + /Event/Info 정적 HTML 의 file.cineq.co.kr guid 추출로 본문 이미지(일정표) 다운로드한 뒤, 무대인사·시사회 일정표를 LLM 이 판독해 fetch_promotions_cineq.py 의 SCREENINGS dict 를 갱신해 promoSeats 합산. 트리거 - "씨네큐 이벤트", "CineQ 무대인사", "씨네큐 갱신", "/cineq-events".
+description: 씨네큐 /Event/MoreList API 로 진행중 이벤트 수집 + /Event/Info 정적 HTML 의 file.cineq.co.kr guid 로 본문 이미지를 받아, 무대인사 일정표(지점·관·회차)와 굿즈 진행 극장수를 LLM 이 판독해 SCREENINGS·GOODS_THEATERS dict 갱신, 판매 단품은 SALE_EVENTS 로 제외해 promotions_cineq.json 에 정리. 트리거 - "씨네큐 이벤트", "CineQ 무대인사", "씨네큐 굿즈 진행관수", "씨네큐 갱신", "/cineq-events".
 ---
 
-# 씨네큐 이벤트 수집 + HTML scrape + 일정 판독
+# 씨네큐 이벤트 수집 + HTML scrape + 일정·굿즈 판독
 
-씨네큐도 메가박스처럼 **API 는 일정 데이터 안 줘서** 본문 일정표 이미지를 LLM 이 판독해야 한다. 상세 HTML 이 정적이라 Selenium 불필요.
+씨네큐도 메가박스처럼 **API 는 일정/극장 데이터 안 줘서** 본문 이미지를 LLM 이 판독한다. 상세 HTML 이 정적이라 Selenium 불필요.
+
+`fetch_promotions_cineq.py` 상단 3종 dict:
+- `SCREENINGS` = 무대인사 evntNo → [{branch, hall, sessions}]
+- `GOODS_THEATERS` = 굿즈 evntNo → 진행관수
+- `SALE_EVENTS` = 판매 단품 evntNo set (제외)
 
 ## 두 엔드포인트
 
@@ -102,16 +107,34 @@ SCREENINGS = {
 - 포스터에서 숫자만 표시 → `"1관"` 형태로
 - 관 미명시(회원시사 등) → `hall=None` (빌더가 신도림 평균 ~114석 사용)
 
-### 4단계: 재실행 → 좌석 합산
+### 4단계: 굿즈 진행관수 → GOODS_THEATERS
+굿즈 이벤트도 stage 와 동일하게 guid 3장 다운로드됨. **`_2.jpg`(본문)** 의 "진행
+극장" 영역 판독 → 지점 수. (씨네큐는 지점이 8개뿐이라 보통 1~5개)
+- 예: `<신극장판 은혼> 개봉주 주말 현장 증정` → 경주보문·구미봉곡·남양주다산·신도림·청라 = **5개**
+- `<너바나> 개봉 1주차 현장 증정` → 신도림 = **1개**
+```python
+GOODS_THEATERS = {
+    "7136": 5,   # 신극장판 은혼 개봉주 주말 현장 증정
+    "7091": 1,   # 너바나 개봉 1주차 현장 증정
+    "6922": 3,   # 악마는프라다2 개봉주 스페셜 포스터
+}
+```
+> 굿즈는 stage 가 아니라 분류상 fetch 시 이미지 다운로드가 안 될 수 있음 — 그 경우
+> Info HTML 의 guid 를 직접 받아(디버깅 코드 참고) 판독.
+
+### 5단계: 판매 단품 제외 → SALE_EVENTS
+가격(원) 붙은 단품 판매는 `SALE_EVENTS` 에 추가. 현재 씨네큐 매칭 굿즈엔 판매 단품 없음(`set()`).
+
+### 6단계: 재실행 → 좌석·진행관수 합산
 ```bash
 python scripts/fetch_promotions_cineq.py
 ```
-이미지 이미 받아둔 거 skip, SCREENINGS 변경분만 반영.
+이미지 이미 받아둔 거 skip, dict 변경분만 반영.
 
 ## 핵심 파일
 
-- 크롤러: `scripts/fetch_promotions_cineq.py` — 표준 lib (urllib + json + re)
-- 좌석 DB: `assets/data/theater_seats_cineq.json` — 8 지점 (신도림 진짜 데이터: 1관 214/2관 174 등 다양; 남양주다산 등 일부는 동일 좌석)
+- 크롤러: `scripts/fetch_promotions_cineq.py` — `SCREENINGS`·`GOODS_THEATERS`·`SALE_EVENTS` dict
+- 좌석 DB: `assets/data/theater_seats_cineq.json` — 8 지점 100% 진짜 (신도림 1관 214 등)
 - 이미지: `assets/data/cineq_images/{eid}_{1,2,3}.jpg`
 - 결과: `assets/data/promotions_cineq.json`
 
