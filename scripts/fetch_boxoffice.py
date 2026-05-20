@@ -109,6 +109,12 @@ def main():
     if not rows:
         sys.exit(f"{target_dt} 박스오피스 데이터가 비어 있습니다. (날짜 확인 필요)")
 
+    def to_int(val):
+        try:
+            return int(val)
+        except (TypeError, ValueError):
+            return 0
+
     box_office = [
         {
             "rank": int(item["rank"]),
@@ -116,6 +122,11 @@ def main():
             "title": item["movieNm"],
             "audience": int(item["audiCnt"]),
             "change": fmt_change(item),
+            # 백데이터(보고서 근거)용 추가 필드 — 대시보드는 안 읽음(추가 전용)
+            "openDt": item.get("openDt", ""),
+            "salesAmt": to_int(item.get("salesAmt")),
+            "salesAcc": to_int(item.get("salesAcc")),
+            "audiAcc": to_int(item.get("audiAcc")),
         }
         for item in rows
     ]

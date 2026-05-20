@@ -46,3 +46,6 @@ assets/data/cineq_images/
 
 # 일일 로그 (히스토리 추적 무의미, 매일 새로 생성)
 assets/data/daily_log/
+
+# 백데이터 (보고서 근거용 누적 CSV — 내부 자료, 공개 Pages 엔 불필요)
+assets/data/backdata/

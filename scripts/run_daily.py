@@ -12,10 +12,12 @@ run_daily.py
   5. fetch_promotions_cineq.py    ~2분  (HTML scrape + 이미지 다운로드, 페이징 ~450건)
   6. fetch_cgv_images.py    ~20분 (Selenium + CDP, sub-sub-tab 순회)
   7. build_promotions_cgv.py      ~5초  (CGV _pending.json 조립)
+  8. extract_backdata.py    ~1초  (4사+박스오피스+예매율 조인 → 마스터 CSV 누적)
 
 산출물:
   - assets/data/daily_log/{YYYY-MM-DD}.json : 실행 결과 + 신규 stage 이벤트 리스트
   - 각 체인 promotions_*.json 갱신
+  - assets/data/backdata/promotions_daily.csv : 보고서 근거용 백데이터 누적
 
 신규 stage 이벤트 감지:
   promotions_*.json 의 events 중 type=stage 이면서 screenings 가 비어있거나
@@ -47,6 +49,7 @@ STEPS = [
     ("CINEQ",     ["scripts/fetch_promotions_cineq.py"]),
     ("CGV-IMG",   ["scripts/fetch_cgv_images.py"]),
     ("CGV-BUILD", ["scripts/build_promotions_cgv.py"]),
+    ("EXTRACT",   ["scripts/extract_backdata.py"]),
 ]
 
 

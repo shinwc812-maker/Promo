@@ -2,77 +2,117 @@
   "source": "KOFIC OpenAPI · searchDailyBoxOfficeList",
   "targetDt": "20260519",
   "showRange": "20260519~20260519",
-  "fetchedAt": "2026-05-20T09:12:15+09:00",
+  "fetchedAt": "2026-05-20T13:47:14+09:00",
   "boxOffice": [
     {
       "rank": 1,
       "movieCd": "20259626",
       "title": "마이클",
       "audience": 38031,
-      "change": "-12.9%"
+      "change": "-12.9%",
+      "openDt": "2026-05-13",
+      "salesAmt": 410908860,
+      "salesAcc": 8221476650,
+      "audiAcc": 729580
     },
     {
       "rank": 2,
       "movieCd": "20259791",
       "title": "악마는 프라다를 입는다 2",
       "audience": 13783,
-      "change": "-3.5%"
+      "change": "-3.5%",
+      "openDt": "2026-04-29",
+      "salesAmt": 144264530,
+      "salesAcc": 14822859620,
+      "audiAcc": 1472253
     },
     {
       "rank": 3,
       "movieCd": "20254121",
       "title": "살목지",
       "audience": 7973,
-      "change": "-9.3%"
+      "change": "-9.3%",
+      "openDt": "2026-04-08",
+      "salesAmt": 85084100,
+      "salesAcc": 32723739510,
+      "audiAcc": 3186492
     },
     {
       "rank": 4,
       "movieCd": "20259773",
       "title": "슈퍼 마리오 갤럭시",
       "audience": 3890,
-      "change": "+6.8%"
+      "change": "+6.8%",
+      "openDt": "2026-04-29",
+      "salesAmt": 36829940,
+      "salesAcc": 14307181470,
+      "audiAcc": 1477024
     },
     {
       "rank": 5,
       "movieCd": "20261782",
       "title": "프로젝트 헤일메리",
       "audience": 3750,
-      "change": "-5.4%"
+      "change": "-5.4%",
+      "openDt": "2026-03-18",
+      "salesAmt": 41028280,
+      "salesAcc": 32387002480,
+      "audiAcc": 2854861
     },
     {
       "rank": 6,
       "movieCd": "20242837",
       "title": "왕과 사는 남자",
       "audience": 3014,
-      "change": "+24.2%"
+      "change": "+24.2%",
+      "openDt": "2026-02-04",
+      "salesAmt": 26663250,
+      "salesAcc": 162835268740,
+      "audiAcc": 16869321
     },
     {
       "rank": 7,
       "movieCd": "20240532",
       "title": "짱구",
       "audience": 2144,
-      "change": "+19.8%"
+      "change": "+19.8%",
+      "openDt": "2026-04-22",
+      "salesAmt": 19875800,
+      "salesAcc": 3980989120,
+      "audiAcc": 407792
     },
     {
       "rank": 8,
       "movieCd": "20252402",
       "title": "군체",
       "audience": 1953,
-      "change": "+0.6%"
+      "change": "+0.6%",
+      "openDt": "2026-05-21",
+      "salesAmt": 21062000,
+      "salesAcc": 45370000,
+      "audiAcc": 4300
     },
     {
       "rank": 9,
       "movieCd": "20040695",
       "title": "이프 온리",
       "audience": 1833,
-      "change": "+0.2%"
+      "change": "+0.2%",
+      "openDt": "2004-10-29",
+      "salesAmt": 20509050,
+      "salesAcc": 7196629970,
+      "audiAcc": 1059253
     },
     {
       "rank": 10,
       "movieCd": "20194376",
       "title": "탑건: 매버릭",
       "audience": 1830,
-      "change": "+8.9%"
+      "change": "+8.9%",
+      "openDt": "2022-06-22",
+      "salesAmt": 21837720,
+      "salesAcc": 88836725594,
+      "audiAcc": 8274051
     }
   ]
 }
