@@ -220,7 +220,7 @@ def main():
                                   cwd=ROOT, capture_output=True, text=True,
                                   timeout=120)
             if push.returncode == 0:
-                print(f"  ✓ push 성공 → https://shyain456.github.io/Promo/")
+                print(f"  ✓ push 성공 → https://shinwc812-maker.github.io/Promo/")
             else:
                 print(f"  ⚠ push 실패: {push.stderr[:300]}")
     except (subprocess.SubprocessError, OSError) as exc:
