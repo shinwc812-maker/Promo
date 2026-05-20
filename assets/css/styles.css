@@ -684,14 +684,14 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 /* ===== 프로모션 상세 테이블 (모달) ===== */
 .detail-section-label {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-2);
-  font-weight: 600;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--ink);
-  margin-bottom: 16px;
+  color: var(--ink);
+  font-weight: 700;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 4px;
 }
 .promo-detail-wrap { overflow-x: auto; }
 table.promo-detail {
@@ -701,20 +701,21 @@ table.promo-detail {
 }
 table.promo-detail thead th {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.04em;
+  font-size: 12px;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--ink-3);
-  font-weight: 600;
+  color: var(--ink-2);
+  font-weight: 700;
   text-align: left;
-  padding: 8px 10px;
+  padding: 16px 8px 11px;
   border-bottom: 1px solid var(--ink);
   white-space: nowrap;
+  vertical-align: bottom;
 }
 table.promo-detail thead th.num { text-align: right; }
 table.promo-detail thead th.chain-col { width: 56px; }
 table.promo-detail tbody td {
-  padding: 9px 10px;
+  padding: 10px 8px;
   border-bottom: 1px dotted var(--line-soft);
   vertical-align: middle;
 }
