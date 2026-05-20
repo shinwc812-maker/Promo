@@ -198,6 +198,31 @@ def main():
     else:
         print(f"\n  ✓ LLM 판독 대기 이벤트 없음 — 모든 stage 이벤트 좌석 합산 완료")
 
+    # GitHub Pages 자동 배포 — .gitignore 로 이미지·로그 제외된 변경분만 push
+    print(f"\n{'='*60}")
+    print(f"[GIT-PUSH] 변경분 push 시도")
+    try:
+        subprocess.run(["git", "add", "-A"],
+                       cwd=ROOT, check=False, capture_output=True)
+        diff = subprocess.run(["git", "diff", "--cached", "--shortstat"],
+                              cwd=ROOT, capture_output=True, text=True)
+        if not (diff.stdout or "").strip():
+            print(f"  변경분 없음 — push 스킵")
+        else:
+            print(f"  변경:{diff.stdout.strip()}")
+            msg = f"Daily sync {today} ({log['totalSec']:.0f}s)"
+            subprocess.run(["git", "commit", "-m", msg],
+                           cwd=ROOT, check=False, capture_output=True)
+            push = subprocess.run(["git", "push", "origin", "main"],
+                                  cwd=ROOT, capture_output=True, text=True,
+                                  timeout=120)
+            if push.returncode == 0:
+                print(f"  ✓ push 성공 → https://shyain456.github.io/Promo/")
+            else:
+                print(f"  ⚠ push 실패: {push.stderr[:300]}")
+    except (subprocess.SubprocessError, OSError) as exc:
+        print(f"  ⚠ git push 예외: {exc}")
+
     sys.exit(1 if failed else 0)
 
 
