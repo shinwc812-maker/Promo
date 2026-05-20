@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-20T11:23:51+09:00",
+  "fetchedAt": "2026-05-20T15:04:11+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -364,41 +364,6 @@
           ],
           "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/9401d485ec964ec5b82048a3e677f902.jpg",
           "imagePath": "assets/data/lotte_images/401070016926154.jpg"
-        }
-      ]
-    },
-    {
-      "movieCd": "20263030",
-      "title": "백룸",
-      "matched": true,
-      "counts": {
-        "coupon": 0,
-        "stage": 1,
-        "goods": 0,
-        "etc": 0
-      },
-      "promoSeats": 150,
-      "events": [
-        {
-          "eventId": "401070016926157",
-          "name": "<백룸> GV (5/28)",
-          "type": "stage",
-          "start": "2026.05.28",
-          "end": "2026.05.28",
-          "screenings": [
-            {
-              "branch": "월드타워",
-              "hall": "3관 cineBiz",
-              "sessions": 1,
-              "seats": 150
-            }
-          ],
-          "seats": 150,
-          "branches": [
-            "월드타워"
-          ],
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/7b0324dd8c714c0f87511eb39002bf3c.jpg",
-          "imagePath": "assets/data/lotte_images/401070016926157.jpg"
         }
       ]
     }
@@ -855,6 +820,28 @@
       "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/05a90c76fc1f4191a678496d39de380b.jpg",
       "imagePath": "assets/data/lotte_images/401080016926020.jpg",
       "movieName": "상자 속의 양"
+    },
+    {
+      "eventId": "401070016926157",
+      "name": "<백룸> GV (5/28)",
+      "type": "stage",
+      "start": "2026.05.28",
+      "end": "2026.05.28",
+      "screenings": [
+        {
+          "branch": "월드타워",
+          "hall": "3관 cineBiz",
+          "sessions": 1,
+          "seats": 150
+        }
+      ],
+      "seats": 150,
+      "branches": [
+        "월드타워"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/7b0324dd8c714c0f87511eb39002bf3c.jpg",
+      "imagePath": "assets/data/lotte_images/401070016926157.jpg",
+      "movieName": "백룸"
     },
     {
       "eventId": "401070050326003",

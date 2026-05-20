@@ -58,7 +58,8 @@ SALE_EVENTS = {
     "20618",   # 신극장판 은혼 엘리자베스 드링크 25,000원
 }
 
-# 쿠폰 발행수 (이미지에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
+# 쿠폰 발행수 수동 오버라이드. 평소엔 크롤러가 빵원티켓 등 쿠폰 상세 본문의
+# '선착순 N명' 에서 자동 추출한다. 자동값이 틀릴 때만 eventNo → 발행수로 지정.
 COUPON_COUNTS = {}
 
 # 굿즈·특전 진행관수 (이미지 '진행 극장' 목록 판독). 미등록은 '미공개'.
@@ -92,9 +93,12 @@ SCREENINGS = {
 
 # 타입 분류 키워드 (우선순위 순) — 롯데 크롤러와 동일 기준 + 메가박스 굿즈명
 STAGE_KW = ("무대인사", "GV", "시사회", "관객과의 대화", "관객과의대화")
-COUPON_KW = ("무비싸다구", "쿠폰", "관람권", "할인")
+COUPON_KW = ("무비싸다구", "쿠폰", "관람권", "할인", "빵원티켓", "빵원")
 GOODS_KW = ("특전", "굿즈", "오브제", "아트카드", "증정", "포토카드",
             "오리지널 티켓", "오리지널티켓")
+
+# 쿠폰(빵원티켓 등) 상세 본문의 '선착순 N명' 총 발행 수량 패턴
+_COUPON_QTY_PAT = re.compile(r"선착순\s*([\d,]+)\s*명")
 
 
 def classify(name):
@@ -259,6 +263,22 @@ def fetch_detail_images(event_id):
     return [IMG_CDN + (p if p.startswith("/") else "/" + p) for p in paths]
 
 
+def fetch_coupon_issued(event_id):
+    """쿠폰(빵원티켓 등) 상세 본문에서 '선착순 N명' 총 발행 수량 추출. 없으면 None.
+
+    예: '[와일드 씽] 선착순 빵원티켓' 상세 → '선착순 3,000명까지' → 3000.
+    멤버십·제휴 할인쿠폰은 수량 문구가 없어 None.
+    """
+    try:
+        html = urlopen(Request(DETAIL_URL + event_id, headers={"User-Agent": UA}),
+                       timeout=20).read().decode("utf-8", "replace")
+    except (HTTPError, URLError):
+        return None
+    text = re.sub(r"<[^>]+>", " ", html)
+    m = _COUPON_QTY_PAT.search(text)
+    return int(m.group(1).replace(",", "")) if m else None
+
+
 def download_image(url, target):
     if target.exists():
         return False
@@ -311,8 +331,11 @@ def main():
         }
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
-        if ptype == "coupon" and eid in COUPON_COUNTS:
-            event_rec["issued"] = COUPON_COUNTS[eid]
+        if ptype == "coupon":
+            # 수동 오버라이드 우선, 없으면 상세 본문 '선착순 N명' 자동 추출
+            issued = COUPON_COUNTS.get(eid) or fetch_coupon_issued(eid)
+            if issued:
+                event_rec["issued"] = issued
 
         # stage: 본문 이미지 다운로드 + SCREENINGS dict 이 있으면 좌석 합산
         if ptype == "stage":
@@ -339,7 +362,8 @@ def main():
                 event_rec["seats"] = total
                 event_rec["branches"] = sorted({s["branch"] for s in screenings})
 
-        brackets = [b.strip() for b in re.findall(r"<([^<>]+)>", title)]
+        # 영화명은 <꺾쇠> 또는 [대괄호] 둘 다 사용됨 (빵원티켓은 [대괄호])
+        brackets = [b.strip() for b in re.findall(r"[\[<]([^\[\]<>]+)[\]>]", title)]
         hit = None
         for cand in brackets:
             if cand in ("전체", ""):

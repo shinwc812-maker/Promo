@@ -54,8 +54,20 @@ DEFAULT_HALL_SEATS = 150
 # 판매 단품(유료) — 증정 아니므로 대시보드·집계 제외 (현재 롯데 매칭 굿즈엔 없음)
 SALE_EVENTS = set()
 
-# 쿠폰 발행수 (포스터에 '총 N장'·'선착순 N명' 명시된 경우만). 미등록은 '미공개'.
+# 쿠폰 발행수 수동 오버라이드. 평소엔 크롤러가 무비싸다구 등 쿠폰의 EventCntnt
+# 본문 '선착순 N명' 에서 자동 추출한다. 자동값이 틀릴 때만 EventID → 발행수로 지정.
 COUPON_COUNTS = {}
+
+# 쿠폰(무비싸다구 등) 본문의 '선착순 N명/매/장' 총 발행 수량 패턴
+_COUPON_QTY_PAT = re.compile(r"선착순\s*([\d,]+)\s*(?:명|매|장)")
+
+
+def extract_coupon_issued(ev):
+    """이벤트 본문(EventCntnt)+유의사항(EventNtc)에서 '선착순 N명' 추출. 없으면 None."""
+    raw = (ev.get("EventCntnt") or "") + " " + (ev.get("EventNtc") or "")
+    text = re.sub(r"<[^>]+>", " ", raw).replace("&nbsp;", " ")
+    m = _COUPON_QTY_PAT.search(text)
+    return int(m.group(1).replace(",", "")) if m else None
 
 # 굿즈·특전 진행관수 (상세 포스터 '진행 극장' 목록 판독). 미등록은 '미공개'.
 # (광음특전처럼 특별관 보유 지점만 표기되고 목록 미명시면 dict 에서 제외 → 미공개)
@@ -285,8 +297,11 @@ def main():
         }
         if ptype == "goods" and str(event_id) in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[str(event_id)]
-        if ptype == "coupon" and str(event_id) in COUPON_COUNTS:
-            event_rec["issued"] = COUPON_COUNTS[str(event_id)]
+        if ptype == "coupon":
+            # 수동 오버라이드 우선, 없으면 EventCntnt '선착순 N명' 자동 추출
+            issued = COUPON_COUNTS.get(str(event_id)) or extract_coupon_issued(ev)
+            if issued:
+                event_rec["issued"] = issued
 
         # stage 타입: 상세 API 호출 → 회차·지점·좌석 + 큰 포스터 이미지 받기
         stage_movie_titles = []
