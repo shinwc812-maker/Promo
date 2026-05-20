@@ -318,6 +318,11 @@ table.matrix tbody td {
 table.matrix tbody tr:last-child td { border-bottom: none; }
 table.matrix tbody tr:hover { background: rgba(142, 31, 27, 0.02); }
 
+/* 행 전체 클릭 → 상세 모달. 호버 시 클릭 가능함을 분명히 표시 */
+table.matrix tbody tr.clickable-row { cursor: pointer; transition: background 0.15s; }
+table.matrix tbody tr.clickable-row:hover { background: rgba(142, 31, 27, 0.06); }
+table.matrix tbody tr.clickable-row:hover td.movie .name { color: var(--accent); }
+
 td.movie {
   text-align: left !important;
   width: 120px;

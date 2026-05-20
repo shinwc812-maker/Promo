@@ -305,9 +305,9 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
     matrixBody.innerHTML = integrated.map(p => {
       const seatRatio = p.audience > 0 ? (p.promoSeats / p.audience) * 100 : 0;
       return `
-        <tr>
+        <tr class="clickable-row" onclick="openDetail('${p.title}')">
           <td class="movie">
-            <span class="name clickable-title" title="${p.title}" onclick="openDetail('${p.title}')">${truncate(p.title)}</span>
+            <span class="name" title="${p.title}">${truncate(p.title)}</span>
           </td>
           <td class="rate">${cellVal(p.rate, true)}</td>
           <td>${cellVal(p.audience)}</td>
