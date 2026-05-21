@@ -433,6 +433,8 @@ td .share .bar::after {
 }
 td.rate .val { color: var(--accent); font-weight: 600; }
 td.rate .share .bar::after { background: var(--accent); }
+/* 실예매 — 실시간 예매율과 동일 강조색 */
+td.net-booking .val { color: var(--accent); font-weight: 600; }
 
 td.efficiency {
   text-align: right;
