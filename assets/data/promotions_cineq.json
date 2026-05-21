@@ -139,42 +139,12 @@
       "title": "마이클",
       "counts": {
         "coupon": 0,
-        "stage": 1,
+        "stage": 0,
         "goods": 0,
         "etc": 0
       },
       "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "6996",
-          "name": "<마이클> 회원시사회",
-          "type": "stage",
-          "duration": "2026.05.12~2026.05.12",
-          "fetchedAt": "2026-05-21",
-          "posterUrls": [
-            "https://file.cineq.co.kr/j.aspx?guid=2ff447d7bf8640ac95eb123f92aac963",
-            "https://file.cineq.co.kr/j.aspx?guid=078f2aa34bd2488eb37cae9f918348f6",
-            "https://file.cineq.co.kr/j.aspx?guid=9b54111299a24b81b61fac1a367d2857"
-          ],
-          "imagePaths": [
-            "assets/data/cineq_images/6996_1.jpg",
-            "assets/data/cineq_images/6996_2.jpg",
-            "assets/data/cineq_images/6996_3.jpg"
-          ],
-          "screenings": [
-            {
-              "branch": "신도림",
-              "hall": null,
-              "sessions": 1,
-              "seats": null
-            }
-          ],
-          "seats": null,
-          "branches": [
-            "신도림"
-          ]
-        }
-      ]
+      "events": []
     },
     {
       "movieCd": "20259791",

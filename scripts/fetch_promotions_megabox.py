@@ -313,6 +313,7 @@ def main():
     movies = {}
     unmatched = []
     type_counter = {"coupon": 0, "stage": 0, "goods": 0, "etc": 0}
+    today = datetime.now(KST).strftime("%Y.%m.%d")
 
     for ev in events:
         title = ev["title"]
@@ -320,14 +321,18 @@ def main():
         if eid in SALE_EVENTS:        # 판매 단품 — 대시보드·집계 제외
             continue
         ptype = classify(title)
-        type_counter[ptype] += 1
         start, _, end = ev["date"].partition("~")
+        start, end = start.strip(), end.strip()
+        # 무대인사·시사회·GV: 상영일(end) 지나면 즉시 제외 (예매→상영되면 박스오피스로 전환)
+        if ptype == "stage" and end and end < today:
+            continue
+        type_counter[ptype] += 1
         event_rec = {
             "eventId": eid,
             "name": title,
             "type": ptype,
-            "start": start.strip(),
-            "end": end.strip(),
+            "start": start,
+            "end": end,
         }
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
