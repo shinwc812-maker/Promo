@@ -152,20 +152,11 @@
       "counts": {
         "coupon": 0,
         "stage": 0,
-        "goods": 1,
+        "goods": 0,
         "etc": 0
       },
       "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "6922",
-          "name": "<악마는 프라다를 입는다 2> 개봉주 스페셜 포스터 증정 이벤트",
-          "type": "goods",
-          "duration": "2026.04.29~2026.05.05",
-          "fetchedAt": "2026-05-21",
-          "theaters": 3
-        }
-      ]
+      "events": []
     }
   ],
   "unmatched": [

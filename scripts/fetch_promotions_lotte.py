@@ -311,12 +311,9 @@ def main():
     if not events:
         sys.exit("수집된 이벤트가 없습니다. (API 구조 변경 가능성)")
 
-    # 제외 기준:
-    #  · 무대인사·시사회·GV: 상영일(종료일) 지나면 즉시 제외 (예매→상영되면 박스오피스로 전환)
-    #  · 쿠폰: 사용 기한(종료일) 지나면 즉시 제외
-    #  · 그 외(굿즈·기타): 종료 1개월 이상 지난 것만 제외 (최근 종료분은 보고에 유지)
+    # 종료일(상영일/사용기한/지급기한) 지난 이벤트는 타입 무관 모두 제외.
+    # 실시간 예매율(예매=미래)에 맞춰 진행중·예정 프로모션만 집계한다.
     today = datetime.now(KST).strftime("%Y.%m.%d")
-    cutoff = (datetime.now(KST) - timedelta(days=30)).strftime("%Y.%m.%d")
     title_map = build_title_map()
     seat_map = build_seat_map()
     IMG_DIR.mkdir(parents=True, exist_ok=True)
@@ -343,8 +340,7 @@ def main():
         name = (ev.get("EventName") or "").strip()
         ptype = classify(name, ev.get("EventClassificationCode", ""))
         end = ev.get("ProgressEndDate", "")
-        drop_before = today if ptype in ("stage", "coupon") else cutoff
-        if end and end < drop_before:      # stage·쿠폰=기한 경과 / 그 외=종료 1개월 경과 시 제외
+        if end and end < today:            # 종료일 지난 이벤트는 타입 무관 제외
             continue
         type_counter[ptype] += 1
         event_rec = {

@@ -211,12 +211,9 @@ def main():
     unmatched = []
     type_counter = {"coupon": 0, "stage": 0, "goods": 0, "etc": 0}
 
-    # 제외 기준 (Duration='YYYY.MM.DD~YYYY.MM.DD' 끝값 비교)
-    #  · 무대인사·시사회·GV: 상영일 지나면 즉시 제외 (예매→상영되면 박스오피스로 전환)
-    #  · 쿠폰: 사용 기한(end) 지나면 즉시 제외
-    #  · 그 외(굿즈·기타): 종료 1개월 이상 지난 것만 제외 (최근 종료분은 보고에 유지)
+    # 종료일(상영일/사용기한/지급기한, Duration 끝값) 지난 이벤트는 타입 무관 모두 제외.
+    # 실시간 예매율(예매=미래)에 맞춰 진행중·예정 프로모션만 집계한다.
     today = datetime.now(KST).strftime("%Y.%m.%d")
-    cutoff = (datetime.now(KST) - timedelta(days=30)).strftime("%Y.%m.%d")
 
     for item in events_json:
         title = item.get("Title", "").strip()
@@ -227,11 +224,10 @@ def main():
             continue
 
         ptype = classify(title)
-        # 기간 끝 추출 후 타입별 제외 기준 비교
+        # 기간 끝(Duration 끝값)이 오늘 이전이면 제외
         dur = item.get("Duration") or ""
         end = dur.partition("~")[2].strip()
-        drop_before = today if ptype in ("stage", "coupon") else cutoff
-        if end and end < drop_before:
+        if end and end < today:
             continue
 
         type_counter[ptype] += 1
