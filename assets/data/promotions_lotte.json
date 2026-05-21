@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-21T07:00:12+09:00",
+  "fetchedAt": "2026-05-21T11:35:25+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -263,6 +263,8 @@
           "name": "<와일드 씽> 무비싸다구 0원 쿠폰",
           "type": "coupon",
           "issued": 3000,
+          "start": "2026.05.20",
+          "end": "2026.06.09",
           "source": "롯데 무비싸다구 (SpeedMulti API)"
         },
         {
@@ -270,6 +272,8 @@
           "name": "<와일드 씽> 무비싸다구 2,000원 쿠폰",
           "type": "coupon",
           "issued": 3000,
+          "start": "2026.05.20",
+          "end": "2026.06.09",
           "source": "롯데 무비싸다구 (SpeedMulti API)"
         }
       ]
@@ -419,6 +423,8 @@
           "name": "<백룸> 무비싸다구 0원 쿠폰",
           "type": "coupon",
           "issued": 500,
+          "start": "2026.05.21",
+          "end": "2026.06.02",
           "source": "롯데 무비싸다구 (SpeedMulti API)"
         },
         {
@@ -426,6 +432,8 @@
           "name": "<백룸> 무비싸다구 2,000원 쿠폰",
           "type": "coupon",
           "issued": 3500,
+          "start": "2026.05.21",
+          "end": "2026.06.02",
           "source": "롯데 무비싸다구 (SpeedMulti API)"
         }
       ]
@@ -460,6 +468,14 @@
       "start": "2026.06.13",
       "end": "2026.06.13",
       "movieName": "메이플 스토리"
+    },
+    {
+      "eventId": "101010016926009",
+      "name": "BTS WORLD TOUR ‘ARIRANG’ in BUSAN : LIVE VIEWING",
+      "type": "etc",
+      "start": "2026.06.13",
+      "end": "2026.06.14",
+      "movieName": null
     },
     {
       "eventId": "101010014726016",
@@ -692,6 +708,14 @@
       "start": "2026.06.04",
       "end": "2026.06.23",
       "movieName": "노트북"
+    },
+    {
+      "eventId": "201010016926409",
+      "name": "<케이온> 5차 응원 상영회",
+      "type": "etc",
+      "start": "2026.05.23",
+      "end": "2026.05.24",
+      "movieName": "케이온"
     },
     {
       "eventId": "201010016926403",

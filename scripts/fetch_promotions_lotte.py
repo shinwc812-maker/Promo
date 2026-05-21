@@ -84,7 +84,8 @@ def fetch_movie_sadagu(opener):
         - MovieNm: 영화명 (KOFIC movieCd 아님 → 제목으로 매칭)
         - DisplayCouponName: 할인액(0=0원쿠폰, 2000=2,000원쿠폰)
         - CpnUsableMaxCnt: 총 발행수(매)
-    반환: {영화명: [(쿠폰명, 발행수), ...]}
+        - ProgressStartDate/ProgressEndDate: 쿠폰 사용 기한('YYYY-MM-DD')
+    반환: {영화명: [(쿠폰명, 발행수, 시작일, 종료일), ...]}  (날짜는 'YYYY.MM.DD')
     """
     result = {}
     for eid in SADAGU_EVENT_IDS:
@@ -120,7 +121,10 @@ def fetch_movie_sadagu(opener):
                         amt = None
                     label = ("0원 쿠폰" if amt == 0
                              else (f"{amt:,}원 쿠폰" if amt else "쿠폰"))
-                    result.setdefault(name, []).append((label, int(issued)))
+                    # 사용 기한: API 'YYYY-MM-DD' → 롯데 점 포맷('YYYY.MM.DD')으로 통일
+                    start = (it.get("ProgressStartDate") or "").replace("-", ".")
+                    end = (it.get("ProgressEndDate") or "").replace("-", ".")
+                    result.setdefault(name, []).append((label, int(issued), start, end))
     return result
 
 # 굿즈·특전 진행관수 (상세 포스터 '진행 극장' 목록 판독). 미등록은 '미공개'.
@@ -418,12 +422,16 @@ def main():
         if not hit:                       # TOP10 밖이면 대시보드 미반영 → 스킵
             continue
         movie_cd, mv_title = hit
+        # 사용 기한(end) 지난 쿠폰 제외 — 다른 이벤트와 동일 기준
+        live = [c for c in coupons if not (c[3] and c[3] < today)]
+        if not live:
+            continue
         rec = movies.setdefault(movie_cd, {
             "movieCd": movie_cd, "title": mv_title, "matched": True,
             "counts": {"coupon": 0, "stage": 0, "goods": 0, "etc": 0},
             "promoSeats": 0, "events": [],
         })
-        for idx, (cname, issued) in enumerate(coupons, 1):
+        for idx, (cname, issued, start, end) in enumerate(live, 1):
             rec["counts"]["coupon"] += 1
             type_counter["coupon"] += 1
             sadagu_injected += 1
@@ -432,6 +440,8 @@ def main():
                 "name": f"<{mv_title}> 무비싸다구 {cname}",
                 "type": "coupon",
                 "issued": issued,
+                "start": start,
+                "end": end,
                 "source": "롯데 무비싸다구 (SpeedMulti API)",
             })
 
