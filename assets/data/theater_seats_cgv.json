@@ -1,20 +1,20 @@
 {
   "chain": "CGV",
-  "updatedAt": "2026-05-20T11:39:53+09:00",
+  "updatedAt": "2026-05-21T10:39:56+09:00",
   "theaters": [
     {
       "name": "용산아이파크몰",
       "location": "서울",
       "total_halls": 20,
-      "total_seats": 3888,
+      "total_seats": 3767,
       "halls": [
         {
           "no": "1관",
-          "seats": 192
+          "seats": 204
         },
         {
           "no": "2관",
-          "seats": 172
+          "seats": 184
         },
         {
           "no": "3관",
@@ -23,12 +23,12 @@
         },
         {
           "no": "4관",
-          "seats": 414,
-          "type": "SKYBOX포함"
+          "seats": 200,
+          "type": "SCREENX"
         },
         {
           "no": "5관",
-          "seats": 186
+          "seats": 190
         },
         {
           "no": "6관",
@@ -36,7 +36,7 @@
         },
         {
           "no": "7관",
-          "seats": 204
+          "seats": 201
         },
         {
           "no": "8관",
@@ -63,7 +63,7 @@
         },
         {
           "no": "13관",
-          "seats": 211
+          "seats": 223
         },
         {
           "no": "14관",
@@ -72,7 +72,7 @@
         },
         {
           "no": "15관",
-          "seats": 247
+          "seats": 289
         },
         {
           "no": "16관",
@@ -81,7 +81,7 @@
         },
         {
           "no": "17관",
-          "seats": 154,
+          "seats": 166,
           "type": "PREMIUM"
         },
         {

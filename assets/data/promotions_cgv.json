@@ -1,7 +1,7 @@
 {
   "chain": "CGV",
   "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
-  "fetchedAt": "2026-05-21T09:18:39+09:00",
+  "fetchedAt": "2026-05-21T10:40:13+09:00",
   "movies": [
     {
       "movieCd": "20259626",
@@ -81,7 +81,7 @@
         "goods": 3,
         "etc": 0
       },
-      "promoSeats": 7206,
+      "promoSeats": 7900,
       "events": [
         {
           "eventId": "202605187848",
@@ -170,7 +170,7 @@
               "sessions": 2
             }
           ],
-          "seats": 4118,
+          "seats": 4041,
           "branches": [
             "용산아이파크몰"
           ]
@@ -208,7 +208,7 @@
               "sessions": 1
             }
           ],
-          "seats": 2768,
+          "seats": 3539,
           "branches": [
             "영등포",
             "용산아이파크몰"
@@ -403,7 +403,7 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 3544,
+      "promoSeats": 4356,
       "events": [
         {
           "eventId": "202605127938",
@@ -448,7 +448,7 @@
               "sessions": 1
             }
           ],
-          "seats": 3544,
+          "seats": 4356,
           "branches": [
             "영등포",
             "왕십리",
@@ -710,7 +710,8 @@
           "sessions": 2
         }
       ],
-      "seats": 1630,
+      "seats": 1612,
+      "seatsEstimated": true,
       "branches": [
         "구로",
         "상봉",

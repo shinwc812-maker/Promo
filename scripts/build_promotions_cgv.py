@@ -203,6 +203,12 @@ def find_branch_halls(seat_map, branch_query):
     return None, {}
 
 
+def _hall_num(name):
+    """'12관'·'12관 IMAX' → '12'(관 번호). 숫자관이 아니면 None."""
+    m = re.match(r"\s*(\d+)\s*관", name or "")
+    return m.group(1) if m else None
+
+
 def lookup_seats(seat_map, branch, hall):
     """branch·hall → (seats, placeholder_flag, matched_branch_name)."""
     bname, halls = find_branch_halls(seat_map, branch)
@@ -215,10 +221,22 @@ def lookup_seats(seat_map, branch, hall):
                   if s > 0]  # 평균은 일단 전체로 (특수관 영향 작음)
         avg = round(sum(normal) / len(normal)) if normal else DEFAULT_HALL_SEATS
         return avg, halls.get(next(iter(halls)), (0, True))[1], bname
-    # 관 매칭: '12관'·'IMAX' 등 다양한 표기
-    for hno, (seats, ph) in halls.items():
-        if hall in hno or hno in hall:
-            return seats, ph, bname
+    # 관 매칭 (부분 문자열 오매칭 방지: '5관'이 '15관'에, '6관'이 '16관'에 잡히던 버그)
+    # 1) 정확 일치
+    if hall in halls:
+        seats, ph = halls[hall]
+        return seats, ph, bname
+    # 2) 'N관' 번호가 같은 관 (숫자관은 번호 일치로만 매칭 — 부분 문자열 금지)
+    qn = _hall_num(hall)
+    if qn is not None:
+        for hno, (seats, ph) in halls.items():
+            if _hall_num(hno) == qn:
+                return seats, ph, bname
+    else:
+        # 3) 숫자관이 아닌 표기차(IMAX/SCREENX/GOLD 등)만 부분 일치 허용
+        for hno, (seats, ph) in halls.items():
+            if _hall_num(hno) is None and (hall in hno or hno in hall):
+                return seats, ph, bname
     # 못 찾으면 평균
     normal = [s for (s, _) in halls.values() if s > 0]
     avg = round(sum(normal) / len(normal)) if normal else DEFAULT_HALL_SEATS
