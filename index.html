@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-<link rel="stylesheet" href="assets/css/styles.css?v=20260520g">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260520h">
 </head>
 <body>
 
@@ -29,6 +29,12 @@
     <span>실시간 예매율 TOP 10</span><span>4사 프로모션 통합</span>
   </div>
   <div>v0.3 · 내부 보고용</div>
+</div>
+
+<div class="toolbar">
+  <button class="btn-export" type="button" onclick="exportCSV()">
+    <span class="ico">↓</span> CSV 추출
+  </button>
 </div>
 
 <section class="analysis">
@@ -69,8 +75,8 @@
   </div>
 </footer>
 
-<script src="assets/js/data.js?v=20260520g"></script>
-<script src="assets/js/dashboard.js?v=20260520g"></script>
+<script src="assets/js/data.js?v=20260520h"></script>
+<script src="assets/js/dashboard.js?v=20260520h"></script>
 
 <!-- 상세 분석 리포트 모달 레이어 -->
 <div id="detail-modal" class="modal-overlay">

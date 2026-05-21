@@ -74,6 +74,9 @@ function renderRanks(targetId, data, valueKey, deltaKey, valueFormat) {
 const DATA = { booking: null, boxoffice: null,
                cgv: null, lotte: null, megabox: null, cineq: null };
 
+// 매트릭스 통합 데이터 캐시 — CSV 추출(exportCSV)이 화면과 동일 데이터를 내보낸다.
+let matrixRows = [];
+
 // 개봉일(openDt) → D-day 표기. 개봉 후면 '개봉 N일차', 전이면 'D-N'
 function ddayText(openDt) {
   if (!openDt) return '';
@@ -208,6 +211,49 @@ function cellVal(val, isRate=false) {
   return `<span class="val">${display}</span>`;
 }
 
+// ============ CSV 추출 ============
+// 화면 매트릭스(matrixRows)를 그대로 CSV 로 내려받는다. 엑셀 한글 위해 UTF-8 BOM.
+function exportCSV() {
+  if (!matrixRows.length) {
+    alert('내보낼 데이터가 없습니다. 잠시 후 다시 시도해 주세요.');
+    return;
+  }
+  const headers = ['영화제목', '실시간예매율(%)', '예매관객수', '프로모션좌석',
+                   '실예매', '예매관객대비(%)', '무대인사·시사회·GV(건)',
+                   '쿠폰(건)', '굿즈·특전(건)'];
+  const esc = (v) => {
+    const s = String(v ?? '');
+    return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  };
+  const lines = [headers.map(esc).join(',')];
+  matrixRows.forEach(p => {
+    const ratio = p.audience > 0
+      ? (p.promoSeats / p.audience * 100).toFixed(1) : '';
+    lines.push([
+      p.title,
+      p.rate.toFixed(1),
+      p.audience,
+      p.promoSeats,
+      p.audience - p.promoSeats,
+      ratio,
+      p.stage,
+      p.coupons,
+      p.goods,
+    ].map(esc).join(','));
+  });
+  const csv = '﻿' + lines.join('\r\n');   // BOM → 엑셀에서 한글 안 깨짐
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const d = new Date();
+  const ymd = `${d.getFullYear()}${pad2(d.getMonth() + 1)}${pad2(d.getDate())}`;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `프로모션_대시보드_${ymd}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
 // ============ DATA FETCHING ============
 
 async function loadBooking() {
@@ -289,6 +335,7 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
         promoSeats: stageSeats + couponIssued,
       };
     });
+    matrixRows = integrated;   // CSV 추출용 캐시 (화면과 동일 데이터)
 
     // 해당 항목 이벤트가 있는 체인만 칩 활성화
     const chainBadges = (movieCd, type) => {

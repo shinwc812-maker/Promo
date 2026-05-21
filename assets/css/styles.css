@@ -103,6 +103,33 @@ h1.title em {
   color: var(--ink-4);
 }
 
+/* ========== TOOLBAR / CSV 추출 버튼 ========== */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 4px 0 16px;
+}
+.btn-export {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-export:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-export .ico { font-size: 13px; line-height: 1; }
+
 /* ========== SECTION LABEL ========== */
 .section-label {
   display: flex;
