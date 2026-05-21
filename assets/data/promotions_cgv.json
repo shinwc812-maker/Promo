@@ -1,7 +1,7 @@
 {
   "chain": "CGV",
   "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
-  "fetchedAt": "2026-05-21T07:14:18+09:00",
+  "fetchedAt": "2026-05-21T09:18:39+09:00",
   "movies": [
     {
       "movieCd": "20259626",
@@ -244,7 +244,7 @@
         "goods": 1,
         "etc": 3
       },
-      "promoSeats": 582,
+      "promoSeats": 0,
       "events": [
         {
           "eventId": "202605117932",
@@ -267,7 +267,7 @@
               "sessions": 2
             }
           ],
-          "seats": 388,
+          "seats": null,
           "branches": [
             "용산아이파크몰"
           ]
@@ -299,7 +299,7 @@
               "sessions": 1
             }
           ],
-          "seats": 194,
+          "seats": null,
           "branches": [
             "용산아이파크몰"
           ]

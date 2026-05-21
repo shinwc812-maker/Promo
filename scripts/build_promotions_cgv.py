@@ -31,7 +31,8 @@ SEATS_FILE = DATA_DIR / "theater_seats_cgv.json"
 BOOKING_FILE = DATA_DIR / "booking.json"
 OUT_FILE = DATA_DIR / "promotions_cgv.json"
 
-# 관 미명시 무대인사·GV 의 평균 좌석 추정값 (CGV 일반관 평균)
+# 관명은 있으나 좌석 데이터에서 못 찾을 때의 폴백 좌석수 (CGV 일반관 평균).
+# 관 자체가 미명시(hall=None)인 경우는 추정하지 않고 좌석 미공개로 둔다.
 DEFAULT_HALL_SEATS = 200
 
 # 판매 단품(키링·쿠지 등 유료) — 증정이 아니므로 대시보드·집계에서 완전 제외
@@ -62,7 +63,7 @@ GOODS_THEATERS = {
 }
 
 # 이미지 판독으로 추출한 무대인사·시사회 일정.
-# screenings: {branch, hall, sessions} — hall=None 이면 관 미명시(평균 좌석 사용)
+# screenings: {branch, hall, sessions} — hall=None 이면 관 미명시(좌석 미공개)
 SCREENINGS = {
     # 군체 개봉일 무대인사 (5/21 용산아이파크몰)
     "202604307547": [
@@ -109,7 +110,7 @@ SCREENINGS = {
         {"branch": "영등포", "hall": "5관", "sessions": 2},
         {"branch": "영등포", "hall": "6관", "sessions": 1},
     ],
-    # 와일드 씽 CGV회원시사 (5/28 10지점) — 관 미명시 → 평균 좌석
+    # 와일드 씽 CGV회원시사 (5/28 10지점) — 관 미명시 → 좌석 미공개
     "202605117839": [
         {"branch": "광주상무", "hall": None, "sessions": 1},
         {"branch": "대전터미널", "hall": None, "sessions": 1},
@@ -225,14 +226,21 @@ def lookup_seats(seat_map, branch, hall):
 
 
 def compute_seats(screenings, seat_map):
-    """screenings 배열의 (branch, hall, sessions) 들의 좌석 합산."""
+    """관 명시된 회차만 좌석 합산. 관 미명시(hall=None)는 추정 안 함 → 미공개.
+
+    명시된 관이 하나도 없으면 (전부 hall=None) 좌석수는 None(미공개)을 반환한다.
+    """
     total = 0
     any_placeholder = False
+    known = 0
     for s in screenings:
-        seats_per, ph, _ = lookup_seats(seat_map, s["branch"], s.get("hall"))
+        if not s.get("hall"):
+            continue                      # 관 미명시 → 좌석 미공개(평균 추정 금지)
+        seats_per, ph, _ = lookup_seats(seat_map, s["branch"], s["hall"])
         total += seats_per * s["sessions"]
         any_placeholder = any_placeholder or ph
-    return total, any_placeholder
+        known += 1
+    return (total if known else None), any_placeholder
 
 
 def main():
@@ -318,7 +326,7 @@ def main():
                 "events": [],
             })
             rec["counts"][ptype] += 1
-            rec["promoSeats"] += event_rec.get("seats", 0)
+            rec["promoSeats"] += event_rec.get("seats") or 0
             rec["events"].append(event_rec)
         else:
             event_rec["movieName"] = brackets[0].strip() if brackets else None

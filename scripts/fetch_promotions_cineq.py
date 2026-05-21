@@ -51,7 +51,7 @@ GOODS_THEATERS = {
 }
 
 # 이미지 판독으로 추출한 무대인사·시사회 일정.
-# hall=None 이면 관 미명시 → 지점 평균 좌석 사용.
+# hall=None 이면 관 미명시 → 좌석수 미공개(평균 추정 안 함).
 SCREENINGS = {
     # 군체 2주차 무대인사 (5/30 신도림 1관 2회 + 2관 1회)
     "7078": [
@@ -260,13 +260,18 @@ def main():
             if ptype == "stage" and eid in SCREENINGS:
                 screenings = []
                 total = 0
+                known = 0
                 for s in SCREENINGS[eid]:
-                    seats_per = lookup_seats(seat_map, s["branch"], s.get("hall"))
-                    seats = seats_per * s["sessions"]
-                    total += seats
-                    screenings.append({**s, "seats": seats})
+                    if s.get("hall"):
+                        seats = lookup_seats(seat_map, s["branch"], s["hall"]) * s["sessions"]
+                        total += seats
+                        known += 1
+                        screenings.append({**s, "seats": seats})
+                    else:
+                        # 관 미명시 → 좌석 추정 안 함(미공개). 평균 좌석 폴백 금지.
+                        screenings.append({**s, "seats": None})
                 event_rec["screenings"] = screenings
-                event_rec["seats"] = total
+                event_rec["seats"] = total if known else None
                 event_rec["branches"] = sorted({s["branch"] for s in screenings})
 
         # 1. 괄호 내용 추출 매칭
@@ -301,7 +306,7 @@ def main():
                 "events": [],
             })
             rec["counts"][ptype] += 1
-            rec["promoSeats"] += event_rec.get("seats", 0)
+            rec["promoSeats"] += event_rec.get("seats") or 0
             rec["events"].append(event_rec)
         else:
             unmatched.append(event_rec)

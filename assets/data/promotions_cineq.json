@@ -143,7 +143,7 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 114,
+      "promoSeats": 0,
       "events": [
         {
           "eventId": "6996",
@@ -166,10 +166,10 @@
               "branch": "신도림",
               "hall": null,
               "sessions": 1,
-              "seats": 114
+              "seats": null
             }
           ],
-          "seats": 114,
+          "seats": null,
           "branches": [
             "신도림"
           ]
