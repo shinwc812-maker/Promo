@@ -1,8 +1,43 @@
 {
   "chain": "CINEQ",
   "source": "씨네큐 공식 이벤트 API",
-  "fetchedAt": "2026-05-21T07:00:17+09:00",
+  "fetchedAt": "2026-05-22T07:00:13+09:00",
   "movies": [
+    {
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 1,
+        "etc": 2
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "7140",
+          "name": "<신극장판 은혼: 요시와라 대염상> 카무이 생일축하 상영회",
+          "type": "etc",
+          "duration": "2026.05.31~2026.05.31",
+          "fetchedAt": "2026-05-22"
+        },
+        {
+          "eventId": "7136",
+          "name": "<신극장판 은혼: 요시와라 대염상> 개봉주 주말 현장 증정 이벤트",
+          "type": "goods",
+          "duration": "2026.05.23~2026.05.29",
+          "fetchedAt": "2026-05-22",
+          "theaters": 5
+        },
+        {
+          "eventId": "7090",
+          "name": "<신극장판 은혼: 요시와라 대염상> 응원 메세지, 너에게 닿기를! 상영회",
+          "type": "etc",
+          "duration": "2026.05.23~2026.05.23",
+          "fetchedAt": "2026-05-22"
+        }
+      ]
+    },
     {
       "movieCd": "20258236",
       "title": "만달로리안과 그로구",
@@ -19,49 +54,21 @@
           "name": "<만달로리안과 그로구> 단체 관람 예매 이벤트",
           "type": "etc",
           "duration": "2026.05.27~2026.06.02",
-          "fetchedAt": "2026-05-21"
+          "fetchedAt": "2026-05-22"
         },
         {
           "eventId": "7088",
           "name": "<만달로리안과 그로구> SNS 인증 이벤트",
           "type": "etc",
           "duration": "2026.05.15~2026.06.07",
-          "fetchedAt": "2026-05-21"
+          "fetchedAt": "2026-05-22"
         },
         {
           "eventId": "7074",
           "name": "<만달로리안과 그로구> 얼리버드 예매 이벤트",
           "type": "etc",
           "duration": "2026.05.11~2026.05.26",
-          "fetchedAt": "2026-05-21"
-        }
-      ]
-    },
-    {
-      "movieCd": "20262975",
-      "title": "신극장판 은혼: 요시와라 대염상",
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 1,
-        "etc": 1
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "7136",
-          "name": "<신극장판 은혼: 요시와라 대염상> 개봉주 주말 현장 증정 이벤트",
-          "type": "goods",
-          "duration": "2026.05.23~2026.05.29",
-          "fetchedAt": "2026-05-21",
-          "theaters": 5
-        },
-        {
-          "eventId": "7090",
-          "name": "<신극장판 은혼: 요시와라 대염상> 응원 메세지, 너에게 닿기를! 상영회",
-          "type": "etc",
-          "duration": "2026.05.23~2026.05.23",
-          "fetchedAt": "2026-05-21"
+          "fetchedAt": "2026-05-22"
         }
       ]
     },
@@ -81,7 +88,7 @@
           "name": "<너바나 더 밴드...> 개봉 1주차 현장 증정 이벤트",
           "type": "goods",
           "duration": "2026.05.20~2026.05.26",
-          "fetchedAt": "2026-05-21",
+          "fetchedAt": "2026-05-22",
           "theaters": 1
         }
       ]
@@ -102,9 +109,9 @@
           "name": "<군체> 씨네큐 2주차 무대인사",
           "type": "stage",
           "duration": "2026.05.30~2026.05.30",
-          "fetchedAt": "2026-05-21",
+          "fetchedAt": "2026-05-22",
           "posterUrls": [
-            "https://file.cineq.co.kr/j.aspx?guid=2ff447d7bf8640ac95eb123f92aac963",
+            "https://file.cineq.co.kr/j.aspx?guid=762db4daef124e90bb49d49437268581",
             "https://file.cineq.co.kr/j.aspx?guid=5c94e37dd0264234a627b5e5fb7aa6c3",
             "https://file.cineq.co.kr/j.aspx?guid=1898d605556a4e41a0e9d697caabad9b"
           ],
@@ -133,118 +140,101 @@
           ]
         }
       ]
-    },
-    {
-      "movieCd": "20259626",
-      "title": "마이클",
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 0,
-        "etc": 0
-      },
-      "promoSeats": 0,
-      "events": []
-    },
-    {
-      "movieCd": "20259791",
-      "title": "악마는 프라다를 입는다 2",
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 0,
-        "etc": 0
-      },
-      "promoSeats": 0,
-      "events": []
     }
   ],
   "unmatched": [
+    {
+      "eventId": "7144",
+      "name": "<돌핀보이: 푸른 바다의 수호자> 5월 바다의 날 기념 현장 이벤트",
+      "type": "etc",
+      "duration": "2026.05.22~2026.05.29",
+      "fetchedAt": "2026-05-22"
+    },
     {
       "eventId": "7138",
       "name": "<케이온> 응원 상영회",
       "type": "etc",
       "duration": "2026.05.23~2026.05.23",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7135",
       "name": "<돌핀보이: 푸른 바다의 수호자> 네이밍 챌린지 이벤트",
       "type": "etc",
       "duration": "2026.05.19~2026.06.01",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7134",
       "name": "<이프 온리> 2주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.20~2026.05.26",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7133",
       "name": "<안젤름> 2주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.20~2026.05.26",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7132",
       "name": "<교생실습> 2주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.20~2026.05.26",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7131",
       "name": "<교생실습> 관람 인증 이벤트",
       "type": "etc",
       "duration": "2026.05.20~2026.05.26",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7129",
       "name": "<피나> 3주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.20~2026.05.26",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7102",
       "name": "무비0원딜! <교생실습>",
       "type": "etc",
       "duration": "2026.05.15~2026.05.31",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7097",
       "name": "SPECIAL TICKET ★",
       "type": "goods",
       "duration": "2026.05.20~2026.05.26",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7092",
       "name": "SPECIAL TICKET 291",
       "type": "goods",
       "duration": "2026.05.21~2026.05.27",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7089",
       "name": "SPECIAL TICKET 290",
       "type": "goods",
       "duration": "2026.05.20~2026.05.26",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7086",
       "name": "<상자 속의 양> 회원 시사회",
       "type": "stage",
       "duration": "2026.06.02~2026.06.02",
-      "fetchedAt": "2026-05-21",
+      "fetchedAt": "2026-05-22",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=2ff447d7bf8640ac95eb123f92aac963",
+        "https://file.cineq.co.kr/j.aspx?guid=762db4daef124e90bb49d49437268581",
         "https://file.cineq.co.kr/j.aspx?guid=a65a1148bbd0456bb0f50f2967b5dc71",
         "https://file.cineq.co.kr/j.aspx?guid=22e53c63e2af4595a4926897180259a0"
       ],
@@ -259,16 +249,16 @@
       "name": "씨네Q 문화가 있는 날",
       "type": "etc",
       "duration": "2026.05.27~2026.05.27",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "7077",
       "name": "씨네Q 정부지원 국민 영화관람 할인권",
       "type": "coupon",
       "duration": "2026.05.13~2026.07.07",
-      "fetchedAt": "2026-05-21",
+      "fetchedAt": "2026-05-22",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=2ff447d7bf8640ac95eb123f92aac963",
+        "https://file.cineq.co.kr/j.aspx?guid=762db4daef124e90bb49d49437268581",
         "https://file.cineq.co.kr/j.aspx?guid=fc87cb6583bd49a79d7aa50fcfd785de",
         "https://file.cineq.co.kr/j.aspx?guid=7859303d90784e1d91205eeeb46f97c3"
       ],
@@ -279,209 +269,27 @@
       ]
     },
     {
-      "eventId": "7076",
-      "name": "<탑건: 매버릭> 개봉주 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7075",
-      "name": "<탑 건> 개봉주 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7071",
-      "name": "<이프 온리> 개봉 1주차 현장 이벤트",
-      "type": "etc",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7070",
-      "name": "<비발디와 나> 3주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7051",
-      "name": "SERIES TICKET 150 <안젤름>",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7050",
-      "name": "<안젤름>개봉 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7047",
-      "name": "SERIES TICKET 149 <파티마가 사랑한 계절>",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7046",
-      "name": "SPECIAL TICKET 289",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7045",
-      "name": "SERIES TICKET 148 <교생실습>",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7044",
-      "name": "SERIES TICKET 147 <이프 온리>",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7043",
-      "name": "<피나> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.13~2026.05.19",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7039",
-      "name": "<비발디와 나> 원작 도서 증정 상영회",
-      "type": "goods",
-      "duration": "2026.05.14~2026.05.14",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7038",
-      "name": "<올 그린스> 개봉 1주차 주말 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.09~2026.05.15",
-      "fetchedAt": "2026-05-21"
-    },
-    {
       "eventId": "7037",
       "name": "[U+멤버십전용] 5월 유플투쁠 혜택",
       "type": "etc",
       "duration": "2026.05.14~2026.05.31",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7036",
-      "name": "<사랑의 하츄핑 특별판> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.09~2026.05.15",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7031",
-      "name": "<마녀배달부 키키> 리본 포스터 상영회",
-      "type": "goods",
-      "duration": "2026.05.09~2026.05.09",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7025",
-      "name": "<란 12.3> 3주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.06~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7023",
-      "name": "<사토상과 사토상> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.07~2026.05.13",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7022",
-      "name": "<슈퍼 마리오 갤럭시> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.06~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7021",
-      "name": "<비발디와 나> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.06~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7007",
-      "name": "SERIES TICKET 146 <피나>",
-      "type": "goods",
-      "duration": "2026.05.06~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7002",
-      "name": "SPECIAL TICKET 288",
-      "type": "goods",
-      "duration": "2026.05.06~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "7000",
-      "name": "<힌드의 목소리> 포스터 증정 상영회",
-      "type": "goods",
-      "duration": "2026.05.09~2026.05.09",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6998",
-      "name": "<케이온> 주말 감사 특별 상영회",
-      "type": "etc",
-      "duration": "2026.05.09~2026.05.09",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6995",
-      "name": "<마녀배달부 키키> 3주차 주말 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.02~2026.05.08",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6994",
-      "name": "<그녀가 돌아온 날> 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.06~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6993",
-      "name": "무비0원딜! <란 12.3>",
-      "type": "etc",
-      "duration": "2026.04.29~2026.05.15",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "6992",
       "name": "[청라점] 5월 만원의 행복!",
       "type": "etc",
       "duration": "2026.05.01~2026.05.31",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "6991",
       "name": "[청라점] 5월 조조 할인!",
       "type": "coupon",
       "duration": "2026.05.01~2026.05.31",
-      "fetchedAt": "2026-05-21",
+      "fetchedAt": "2026-05-22",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=2ff447d7bf8640ac95eb123f92aac963",
+        "https://file.cineq.co.kr/j.aspx?guid=762db4daef124e90bb49d49437268581",
         "https://file.cineq.co.kr/j.aspx?guid=8952e0c24ef94d22b3f517ac3a9a4529",
         "https://file.cineq.co.kr/j.aspx?guid=5cf2fce1f50e41a9a5a9cd8264ca7ec7"
       ],
@@ -492,419 +300,41 @@
       ]
     },
     {
-      "eventId": "6989",
-      "name": "<마녀배달부 키키> 키키 북마크 상영회",
-      "type": "etc",
-      "duration": "2026.05.02~2026.05.02",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6979",
-      "name": "<슈퍼 마리오 갤럭시> N차 관람 이벤트",
-      "type": "etc",
-      "duration": "2026.04.29~2026.05.10",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6978",
-      "name": "<달걀 원정대> 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6977",
-      "name": "<르누아르> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6975",
-      "name": "<마녀배달부 키키> 3주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6973",
-      "name": "<피나> 개봉 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.06~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6972",
-      "name": "<비발디와 나> 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6971",
-      "name": "<짱구> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6969",
-      "name": "<류이치 사카모토: 코다> 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6968",
-      "name": "<마녀배달부 키키> 키링 증정 상영회",
-      "type": "goods",
-      "duration": "2026.05.03~2026.05.03",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6967",
-      "name": "<마녀배달부 키키> 스페셜 엽서 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6966",
-      "name": "<사랑의 하츄핑 특별판> 스페셜 스티커 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.01~2026.05.07",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6963",
-      "name": "<란 12.3> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6960",
-      "name": "<파과: 인터내셔널 컷> 스페셜 굿즈 증정 상영회",
-      "type": "goods",
-      "duration": "2026.05.01~2026.05.01",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6938",
-      "name": "SERIES TICKET 145 <달걀 원정대>",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6935",
-      "name": "SERIES TICKET 144 <사토상과 사토상>",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6928",
-      "name": "<사토상과 사토상> 개봉 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6926",
-      "name": "<로봇 드림> '어린이 리액션' 상영회",
-      "type": "etc",
-      "duration": "2026.05.05~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6925",
-      "name": "SERIES TICKET 143 <비발디와 나>",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6924",
-      "name": "ENCORE SPECIAL TICKET 🍑",
-      "type": "goods",
-      "duration": "2026.04.30~2026.05.06",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6917",
-      "name": "SPECIAL TICKET 287",
-      "type": "goods",
-      "duration": "2026.04.29~2026.05.05",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6912",
-      "name": "<힌드의 목소리> 굿즈 증정 상영회",
-      "type": "goods",
-      "duration": "2026.04.25~2026.04.25",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6900",
-      "name": "SPECIAL TICKET 285 ENCORE",
-      "type": "goods",
-      "duration": "2026.04.25~2026.05.01",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6899",
-      "name": "<짱구> 개봉주 주말 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.25~2026.05.01",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6898",
-      "name": "<마녀배달부 키키> 2주차 주말 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.25~2026.05.01",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6895",
-      "name": "<짱구> 관람 인증 이벤트",
-      "type": "etc",
-      "duration": "2026.04.22~2026.05.03",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6886",
-      "name": "<줄무늬 파자마를 입은 소년> 개봉 1주차 현장 이벤트",
-      "type": "etc",
-      "duration": "2026.04.23~2026.04.29",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6884",
-      "name": "<르누아르> 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6879",
-      "name": "<마녀배달부 키키> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6878",
-      "name": "<네가 마지막으로 남긴 노래> 4주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6876",
-      "name": "SERIES TICKET 142 <줄무늬 파자마를 입은 소년>",
-      "type": "goods",
-      "duration": "2026.04.23~2026.04.29",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6875",
-      "name": "<힌드의 목소리> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6874",
-      "name": "<퀸 락 몬트리올> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6873",
-      "name": "<침묵의 친구> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6849",
-      "name": "SERIES TICKET 141 <새벽의 Tango>",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6848",
-      "name": "SPECIAL TICKET 286",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6844",
-      "name": "<마녀배달부 키키> 개봉주 주말 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.18~2026.04.24",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6841",
-      "name": "<센티멘탈 밸류> 굿즈 패키지",
-      "type": "goods",
-      "duration": "2026.04.23~2026.04.23",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6840",
-      "name": "<네가 마지막으로 남긴 노래> 3주차 주말 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.18~2026.04.24",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6826",
-      "name": "<류이치 사카모토: 도쿄 멜로디> 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6806",
-      "name": "<살목지> 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6805",
-      "name": "<네가 마지막으로 남긴 노래> 3주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6793",
-      "name": "<황家씨네> 시즌2 무비토크 - 조던 필",
-      "type": "etc",
-      "duration": "2026.04.25~2026.04.25",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6792",
-      "name": "<마녀배달부 키키> N차 관람 이벤트",
-      "type": "etc",
-      "duration": "2026.04.15~2026.05.12",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6791",
-      "name": "2026 史월의 사극 기획전",
-      "type": "etc",
-      "duration": "2026.04.15~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6771",
-      "name": "<퀸 락 몬트리올> 개봉 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6770",
-      "name": "<우리에게는 아직 내일이 있다> 스페셜 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.22~2026.04.28",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6769",
-      "name": "SERIES TICKET 140 <힌드의 목소리>",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6768",
-      "name": "<힌드의 목소리> 개봉 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6767",
-      "name": "SERIES TICKET 139 <침묵의 친구>",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6766",
-      "name": "<침묵의 친구> 개봉 1주차 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6763",
-      "name": "SPECIAL TICKET 285",
-      "type": "goods",
-      "duration": "2026.04.15~2026.04.21",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6735",
-      "name": "<리바운드> 재개봉 특가 이벤트",
-      "type": "etc",
-      "duration": "2026.04.03~2026.04.30",
-      "fetchedAt": "2026-05-21"
-    },
-    {
-      "eventId": "6708",
-      "name": "무비0원딜! <끝장수사>",
-      "type": "etc",
-      "duration": "2026.03.26~2026.04.30",
-      "fetchedAt": "2026-05-21"
-    },
-    {
       "eventId": "6230",
       "name": "2026 VIP 혜택 발표",
       "type": "etc",
       "duration": "2026.01.13~2027.01.31",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "5750",
       "name": "[T멤버십] 씨네Q 상시 제휴★",
       "type": "etc",
       "duration": "2025.11.17~2026.12.31",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "5598",
       "name": "[U+멤버십] 씨네Q 상시제휴 론칭!",
       "type": "etc",
       "duration": "2025.11.01~2026.12.31",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "2240",
       "name": "영화비, 문화비 소득공제 적용",
       "type": "etc",
       "duration": "2023.07.01~2030.06.30",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     },
     {
       "eventId": "2029",
       "name": "[씨네QX대한적십자사] 헌혈 인증 할인!",
       "type": "coupon",
       "duration": "2023.04.06~2026.06.30",
-      "fetchedAt": "2026-05-21",
+      "fetchedAt": "2026-05-22",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=2ff447d7bf8640ac95eb123f92aac963",
+        "https://file.cineq.co.kr/j.aspx?guid=762db4daef124e90bb49d49437268581",
         "https://file.cineq.co.kr/j.aspx?guid=8efbf0c070944efe84d0dd90080f61f9",
         "https://file.cineq.co.kr/j.aspx?guid=dcd244756efc4cb896ffc70f6f4ce65c"
       ],
@@ -919,7 +349,7 @@
       "name": "카카오톡 선물하기로 씨네Q를 만나보세요!",
       "type": "etc",
       "duration": "2023.02.22~2030.12.31",
-      "fetchedAt": "2026-05-21"
+      "fetchedAt": "2026-05-22"
     }
   ]
 }
