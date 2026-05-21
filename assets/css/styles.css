@@ -280,8 +280,11 @@ h1.title em {
   border-right: 1px solid var(--ink);
 }
 
+/* 모바일 세로 등 좁은 화면에서 매트릭스 가로 스크롤 (창밖으로 잘리지 않게) */
+.matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table.matrix {
   width: 100%;
+  min-width: 700px;      /* 좁은 화면에선 이 폭 유지하고 .matrix-wrap 이 가로 스크롤 */
   border-collapse: collapse;
   margin-top: 6px;
   table-layout: fixed;   /* 균등 너비 그리드: 영화명 외 숫자 열은 잔여 너비 자동 균등 분배 */
@@ -299,9 +302,10 @@ table.matrix thead th {
   vertical-align: bottom;
 }
 table.matrix thead th:first-child,
-table.matrix thead th.l { 
-  text-align: left !important; 
-  padding-left: 0 !important; 
+table.matrix thead th.l {
+  text-align: left !important;
+  padding-left: 0 !important;
+  width: 120px;   /* table-layout:fixed — 첫 행이 열폭 기준이라 영화 열 너비를 여기서 고정 */
 }
 table.matrix thead th .sub {
   display: block;
@@ -613,6 +617,17 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
   .top-grid { grid-template-columns: 1fr; }
   h1.title { font-size: 38px; }
   body { padding: 24px 20px; }
+}
+
+/* 모바일 세로 — 헤더/서브헤드/푸터 텍스트가 화면 밖으로 빠지지 않게 세로 배치 */
+@media (max-width: 640px) {
+  body { padding: 16px 12px 28px; }
+  .masthead { grid-template-columns: 1fr; gap: 10px; }
+  h1.title { font-size: 28px; }
+  .masthead-meta { text-align: left; }
+  .subhead { flex-direction: column; gap: 6px; }
+  .footnote { flex-direction: column; gap: 12px; }
+  .footnote .right { text-align: left; }
 }
 
 /* ========== MODAL / DETAIL REPORT ========== */
