@@ -313,7 +313,8 @@ def main():
 
     # 제외 기준:
     #  · 무대인사·시사회·GV: 상영일(종료일) 지나면 즉시 제외 (예매→상영되면 박스오피스로 전환)
-    #  · 그 외(쿠폰·굿즈): 종료 1개월 이상 지난 것만 제외 (최근 종료분은 보고에 유지)
+    #  · 쿠폰: 사용 기한(종료일) 지나면 즉시 제외
+    #  · 그 외(굿즈·기타): 종료 1개월 이상 지난 것만 제외 (최근 종료분은 보고에 유지)
     today = datetime.now(KST).strftime("%Y.%m.%d")
     cutoff = (datetime.now(KST) - timedelta(days=30)).strftime("%Y.%m.%d")
     title_map = build_title_map()
@@ -342,8 +343,8 @@ def main():
         name = (ev.get("EventName") or "").strip()
         ptype = classify(name, ev.get("EventClassificationCode", ""))
         end = ev.get("ProgressEndDate", "")
-        drop_before = today if ptype == "stage" else cutoff
-        if end and end < drop_before:      # stage=상영일 경과 / 그 외=종료 1개월 경과 시 제외
+        drop_before = today if ptype in ("stage", "coupon") else cutoff
+        if end and end < drop_before:      # stage·쿠폰=기한 경과 / 그 외=종료 1개월 경과 시 제외
             continue
         type_counter[ptype] += 1
         event_rec = {

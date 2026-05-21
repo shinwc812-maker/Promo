@@ -323,8 +323,9 @@ def main():
         ptype = classify(title)
         start, _, end = ev["date"].partition("~")
         start, end = start.strip(), end.strip()
-        # 무대인사·시사회·GV: 상영일(end) 지나면 즉시 제외 (예매→상영되면 박스오피스로 전환)
-        if ptype == "stage" and end and end < today:
+        # 무대인사·시사회·GV: 상영일(end) 지나면 / 쿠폰: 사용 기한(end) 지나면 즉시 제외
+        # (예매→상영되면 박스오피스로 전환 · 쿠폰은 기한 지나면 무효)
+        if ptype in ("stage", "coupon") and end and end < today:
             continue
         type_counter[ptype] += 1
         event_rec = {
