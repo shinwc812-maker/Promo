@@ -155,7 +155,7 @@ function buildPromoDetail(movieCd, movieTitle) {
     </tr></thead>`;
   const total = `<tr class="total-row">
       <td class="chain-label">총합</td>
-      <td class="evt">무대인사 ${tStage}건</td>
+      <td class="evt">무대인사·시사회 ${tStage}건</td>
       <td class="num">${tSeats > 0 ? fmt(tSeats) + '석' : '미공개'}</td>
       <td class="evt">쿠폰 ${tCoupon}건</td>
       <td class="num">${tIssued > 0 ? fmt(tIssued) + '매' : '미공개'}</td>
@@ -312,6 +312,7 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
           <td class="rate">${cellVal(p.rate, true)}</td>
           <td>${cellVal(p.audience)}</td>
           <td>${cellVal(p.promoSeats)}</td>
+          <td>${cellVal(p.audience - p.promoSeats)}</td>
           <td class="seat-ratio"><span class="val">${seatRatio.toFixed(1)}%</span></td>
           <td>${cellVal(p.stage)}${chainBadges(p.movieCd, 'stage')}</td>
           <td>${cellVal(p.coupons)}${chainBadges(p.movieCd, 'coupon')}</td>
@@ -320,7 +321,7 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
     }).join('');
   } catch (e) {
     console.error('[matrix] 통합 실패:', e);
-    matrixBody.innerHTML = `<tr><td colspan="8" class="promo-empty">데이터 구성 오류: ${e.message}</td></tr>`;
+    matrixBody.innerHTML = `<tr><td colspan="9" class="promo-empty">데이터 구성 오류: ${e.message}</td></tr>`;
   }
 }
 

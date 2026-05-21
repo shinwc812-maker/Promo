@@ -284,6 +284,7 @@ table.matrix {
   width: 100%;
   border-collapse: collapse;
   margin-top: 6px;
+  table-layout: fixed;   /* 균등 너비 그리드: 영화명 외 숫자 열은 잔여 너비 자동 균등 분배 */
 }
 table.matrix thead th {
   text-align: right;
