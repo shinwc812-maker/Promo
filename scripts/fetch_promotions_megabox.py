@@ -117,14 +117,14 @@ def classify(name):
     """이벤트명 키워드로 프로모션 타입 결정."""
     if any(k in name for k in STAGE_KW):
         return "stage"
-    # 프리미어·특별·선공개 '상영회'는 시사회 성격 → stage 로 잡는다.
-    # 단 '증정/굿즈패키지 상영회'처럼 굿즈·쿠폰 키워드가 함께 있으면 해당 타입 우선.
-    if "상영회" in name and not any(k in name for k in COUPON_KW + GOODS_KW):
-        return "stage"
     if any(k in name for k in COUPON_KW):
         return "coupon"
     if any(k in name for k in GOODS_KW):
         return "goods"
+    # '상영회'는 '프리미어'와 함께 있을 때만 시사회(stage). 그 외 응원·특별 상영회는 기타.
+    # (굿즈·쿠폰성 상영회는 위에서 이미 분기됨)
+    if "프리미어" in name and "상영회" in name:
+        return "stage"
     return "etc"
 
 

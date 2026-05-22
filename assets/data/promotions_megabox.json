@@ -9,16 +9,16 @@
       "matched": true,
       "counts": {
         "coupon": 0,
-        "stage": 3,
+        "stage": 2,
         "goods": 1,
-        "etc": 0
+        "etc": 1
       },
       "promoSeats": 5054,
       "events": [
         {
           "eventId": "20642",
           "name": "<군체> 감염오랑 상영회",
-          "type": "stage",
+          "type": "etc",
           "start": "2026.05.24",
           "end": "2026.05.25"
         },
@@ -485,7 +485,7 @@
     {
       "eventId": "20616",
       "name": "<마이 샤이니 월드> 특별 상영회",
-      "type": "stage",
+      "type": "etc",
       "start": "2026.05.23",
       "end": "2026.05.25",
       "movieName": "마이 샤이니 월드"

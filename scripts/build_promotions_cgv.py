@@ -143,7 +143,7 @@ SCREENINGS = {
 
 # 타입 분류 키워드
 STAGE_KW = ("무대인사", "GV", "시사회", "관객과의 대화", "관객과의대화",
-            "팬미팅", "내한", "프리미어")
+            "팬미팅", "내한")
 COUPON_KW = ("쿠폰", "관람권", "할인", "1+1", "무비싸다구")
 GOODS_KW = ("포스터", "특전", "굿즈", "증정", "키링", "TTT", "아트카드",
             "필름마크", "패키지", "콜라보", "오브제", "스티커")
@@ -154,15 +154,27 @@ def classify(name):
     text = name.replace("CGV", "")
     if any(k in text for k in STAGE_KW):
         return "stage"
-    # 응원·리액션·특별 '상영회'는 시사회 성격 → stage 로 잡는다.
-    # 단 '증정/굿즈 상영회'처럼 굿즈·쿠폰 키워드가 함께 있으면 해당 타입 우선.
-    if "상영회" in text and not any(k in text for k in COUPON_KW + GOODS_KW):
-        return "stage"
     if any(k in text for k in COUPON_KW):
         return "coupon"
     if any(k in text for k in GOODS_KW):
         return "goods"
+    # '상영회'는 '프리미어'와 함께 있을 때만 시사회(stage). 그 외 응원·리액션·특별 상영회는 기타.
+    # (굿즈·쿠폰성 상영회는 위에서 이미 분기됨)
+    if "프리미어" in text and "상영회" in text:
+        return "stage"
     return "etc"
+
+
+def cap_goods_end(start, end, weeks=2):
+    """CGV 굿즈 종료일 캡 — '소진 시 종료'라 CGV 명시 종료일이 길게(≈한 달) 잡힌다.
+    실제론 그 전에 소진되므로 '시작일+N주'로 넉넉히 캡(원래 종료일이 더 짧으면 그대로 둠)."""
+    if not start:
+        return end
+    try:
+        cap = (datetime.strptime(start, "%Y-%m-%d") + timedelta(weeks=weeks)).strftime("%Y-%m-%d")
+    except ValueError:
+        return end
+    return cap if not end else min(end, cap)
 
 
 def norm_title(text):
@@ -301,8 +313,12 @@ def main():
         # SCREENINGS 에 있으면 무조건 stage 로 강제 (시사회/GV/무대인사)
         if eid in SCREENINGS:
             ptype = "stage"
-        # 종료일(end) 지난 이벤트는 타입 무관 모두 제외 (진행중·예정만 집계)
+        start = ev.get("start", "")
         end = ev.get("end") or ""
+        # CGV 굿즈는 '소진 시 종료'라 명시 종료일이 길게 잡힘 → 시작일+2주로 캡.
+        if ptype == "goods":
+            end = cap_goods_end(start, end)
+        # 종료일(end) 지난 이벤트는 타입 무관 모두 제외 (진행중·예정만 집계)
         if end and end < today:
             continue
         type_counter[ptype] += 1
@@ -311,8 +327,8 @@ def main():
             "eventId": eid,
             "name": name,
             "type": ptype,
-            "start": ev.get("start", ""),
-            "end": ev.get("end", ""),
+            "start": start,
+            "end": end,
         }
         if eid in SCREENINGS:
             screenings = SCREENINGS[eid]
