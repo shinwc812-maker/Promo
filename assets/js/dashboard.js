@@ -29,6 +29,32 @@ function cleanEventName(name, movieTitle) {
   return out.replace(/\s+/g, ' ').trim();
 }
 
+// 체인 key + eventId → 이벤트 상세 페이지 URL. 만들 수 없으면 null.
+// (롯데 무비싸다구 'sadagu-…' 등 합성 ID 는 실제 페이지가 없어 링크 생략)
+function eventUrl(chainKey, eid) {
+  if (!eid) return null;
+  const id = String(eid);
+  switch (chainKey) {
+    case 'cgv':   return `https://cgv.co.kr/evt/eventDetail?evntNo=${id}`;
+    case 'mega':  return `https://www.megabox.co.kr/event/detail?eventNo=${id}`;
+    case 'cineq': return `https://www.cineq.co.kr/Event/Info?eventId=${id}`;
+    case 'lotte': return /^\d+$/.test(id)
+      ? `https://www.lottecinema.co.kr/NLCHS/Event/EventTemplateInfo?eventId=${id}`
+      : null;
+    default: return null;
+  }
+}
+
+// 이벤트명 셀 — 제목 괄호 정리·말줄임 후, URL 있으면 새 탭 링크로 감싼다.
+function evtName(e, movieTitle, chainKey) {
+  if (!e) return '';
+  const label = truncate(cleanEventName(e.name, movieTitle), 24);
+  const url = eventUrl(chainKey, e.eventId);
+  if (!url) return label;
+  const full = (e.name || '').replace(/"/g, '&quot;');
+  return `<a class="evt-link" href="${url}" target="_blank" rel="noopener" title="${full}">${label}</a>`;
+}
+
 const pad2 = (n) => String(n).padStart(2, '0');
 const now = new Date();
 const ts = `${now.getFullYear()}.${pad2(now.getMonth()+1)}.${pad2(now.getDate())} ` +
@@ -140,11 +166,11 @@ function buildPromoDetail(movieCd, movieTitle) {
         : '';
       rows += `<tr class="${i === 0 ? 'chain-start' : ''}">
         ${i === 0 ? `<td class="chain-label" rowspan="${n}"><span class="chip chip-${ch.key} on">${ch.label}</span></td>` : ''}
-        <td class="evt">${s ? truncate(cleanEventName(s.name, movieTitle), 24) : ''}</td>
+        <td class="evt">${evtName(s, movieTitle, ch.key)}</td>
         <td class="num">${seatVal}</td>
-        <td class="evt">${c ? truncate(cleanEventName(c.name, movieTitle), 24) : ''}</td>
+        <td class="evt">${evtName(c, movieTitle, ch.key)}</td>
         <td class="num">${issuedVal}</td>
-        <td class="evt">${g ? truncate(cleanEventName(g.name, movieTitle), 24) : ''}</td>
+        <td class="evt">${evtName(g, movieTitle, ch.key)}</td>
         <td class="num">${theaterVal}</td>
       </tr>`;
     }
@@ -177,6 +203,16 @@ function openDetail(movieTitle) {
   if (!modal) return;
   const mv = resolveMovie(movieTitle);
   document.getElementById('modal-title').textContent = movieTitle;
+  // D-Day 좌측 개봉 날짜 — openDt 있으면 'YYYY.MM.DD' 표기, 없으면 배지 숨김
+  const openEl = document.getElementById('modal-opendt');
+  if (openEl) {
+    if (mv && mv.openDt) {
+      openEl.textContent = '개봉 ' + mv.openDt.replace(/-/g, '.');
+      openEl.style.display = '';
+    } else {
+      openEl.style.display = 'none';
+    }
+  }
   document.getElementById('modal-dday').textContent =
     mv && mv.openDt ? ddayText(mv.openDt) : '개봉일 미상';
   document.getElementById('modal-genre').textContent =
