@@ -89,6 +89,18 @@ SCREENINGS = {
         {"branch": "목동", "hall": "Dolby Vision Atmos", "sessions": 2},
         {"branch": "목동", "hall": "2관", "sessions": 2},
     ],
+    # 군체 개봉 주말 무대인사 (5/23 코엑스 15회차 — 일정표 이미지 20613_2.jpg 판독)
+    "20613": [
+        {"branch": "코엑스", "hall": "4관", "sessions": 1},
+        {"branch": "코엑스", "hall": "6관", "sessions": 1},
+        {"branch": "코엑스", "hall": "8관", "sessions": 1},
+        {"branch": "코엑스", "hall": "2관", "sessions": 2},
+        {"branch": "코엑스", "hall": "MX4D", "sessions": 2},   # 9관 192석
+        {"branch": "코엑스", "hall": "7관", "sessions": 2},
+        {"branch": "코엑스", "hall": "5관", "sessions": 2},
+        {"branch": "코엑스", "hall": "3관", "sessions": 2},
+        {"branch": "코엑스", "hall": "Dolby Cinema", "sessions": 2},  # 1관 378석
+    ],
 }
 
 # 타입 분류 키워드 (우선순위 순) — 롯데 크롤러와 동일 기준 + 메가박스 굿즈명
@@ -104,6 +116,10 @@ _COUPON_QTY_PAT = re.compile(r"선착순\s*([\d,]+)\s*명")
 def classify(name):
     """이벤트명 키워드로 프로모션 타입 결정."""
     if any(k in name for k in STAGE_KW):
+        return "stage"
+    # 프리미어·특별·선공개 '상영회'는 시사회 성격 → stage 로 잡는다.
+    # 단 '증정/굿즈패키지 상영회'처럼 굿즈·쿠폰 키워드가 함께 있으면 해당 타입 우선.
+    if "상영회" in name and not any(k in name for k in COUPON_KW + GOODS_KW):
         return "stage"
     if any(k in name for k in COUPON_KW):
         return "coupon"

@@ -154,6 +154,10 @@ def classify(name):
     text = name.replace("CGV", "")
     if any(k in text for k in STAGE_KW):
         return "stage"
+    # 응원·리액션·특별 '상영회'는 시사회 성격 → stage 로 잡는다.
+    # 단 '증정/굿즈 상영회'처럼 굿즈·쿠폰 키워드가 함께 있으면 해당 타입 우선.
+    if "상영회" in text and not any(k in text for k in COUPON_KW + GOODS_KW):
+        return "stage"
     if any(k in text for k in COUPON_KW):
         return "coupon"
     if any(k in text for k in GOODS_KW):

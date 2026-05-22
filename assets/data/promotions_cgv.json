@@ -364,9 +364,9 @@
       "matched": true,
       "counts": {
         "coupon": 0,
-        "stage": 0,
+        "stage": 1,
         "goods": 1,
-        "etc": 2
+        "etc": 1
       },
       "promoSeats": 0,
       "events": [
@@ -388,7 +388,7 @@
         {
           "eventId": "202605187854",
           "name": "[신극장판 은혼: 요시와라 대염상] 응원 메세지 상영회",
-          "type": "etc",
+          "type": "stage",
           "start": "2026-05-23",
           "end": "2026-05-24"
         }
@@ -659,7 +659,7 @@
     {
       "eventId": "202605218160",
       "name": "[싱 스트리트]로큰롤 리액션 상영회",
-      "type": "etc",
+      "type": "stage",
       "start": "2026-06-06",
       "end": "2026-06-07",
       "movieName": "싱 스트리트"
@@ -684,7 +684,7 @@
     {
       "eventId": "202605198151",
       "name": "[뒷자리에 태워줘] 레이 브로마이드 상영회",
-      "type": "etc",
+      "type": "stage",
       "start": "2026-05-27",
       "end": "2026-05-27",
       "movieName": "뒷자리에 태워줘"
@@ -862,7 +862,7 @@
     {
       "eventId": "202605208156",
       "name": "[뒷자리에 태워줘] 월간 레이 상영회",
-      "type": "etc",
+      "type": "stage",
       "start": "2026-05-29",
       "end": "2026-05-31",
       "movieName": "뒷자리에 태워줘"

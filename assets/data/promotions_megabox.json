@@ -9,16 +9,16 @@
       "matched": true,
       "counts": {
         "coupon": 0,
-        "stage": 2,
+        "stage": 3,
         "goods": 1,
-        "etc": 1
+        "etc": 0
       },
-      "promoSeats": 768,
+      "promoSeats": 5054,
       "events": [
         {
           "eventId": "20642",
           "name": "<군체> 감염오랑 상영회",
-          "type": "etc",
+          "type": "stage",
           "start": "2026.05.24",
           "end": "2026.05.25"
         },
@@ -49,7 +49,7 @@
               "branch": "목동",
               "hall": "Dolby Vision Atmos",
               "sessions": 2,
-              "seats": 348
+              "seats": 636
             },
             {
               "branch": "목동",
@@ -58,7 +58,7 @@
               "seats": 420
             }
           ],
-          "seats": 768,
+          "seats": 1056,
           "branches": [
             "목동"
           ]
@@ -84,6 +84,66 @@
             "assets/data/megabox_images/20613_4.jpg",
             "assets/data/megabox_images/20613_5.jpg",
             "assets/data/megabox_images/20613_6.jpg"
+          ],
+          "screenings": [
+            {
+              "branch": "코엑스",
+              "hall": "4관",
+              "sessions": 1,
+              "seats": 298
+            },
+            {
+              "branch": "코엑스",
+              "hall": "6관",
+              "sessions": 1,
+              "seats": 150
+            },
+            {
+              "branch": "코엑스",
+              "hall": "8관",
+              "sessions": 1,
+              "seats": 134
+            },
+            {
+              "branch": "코엑스",
+              "hall": "2관",
+              "sessions": 2,
+              "seats": 862
+            },
+            {
+              "branch": "코엑스",
+              "hall": "MX4D",
+              "sessions": 2,
+              "seats": 384
+            },
+            {
+              "branch": "코엑스",
+              "hall": "7관",
+              "sessions": 2,
+              "seats": 304
+            },
+            {
+              "branch": "코엑스",
+              "hall": "5관",
+              "sessions": 2,
+              "seats": 312
+            },
+            {
+              "branch": "코엑스",
+              "hall": "3관",
+              "sessions": 2,
+              "seats": 798
+            },
+            {
+              "branch": "코엑스",
+              "hall": "Dolby Cinema",
+              "sessions": 2,
+              "seats": 756
+            }
+          ],
+          "seats": 3998,
+          "branches": [
+            "코엑스"
           ]
         },
         {
@@ -101,16 +161,16 @@
       "matched": true,
       "counts": {
         "coupon": 1,
-        "stage": 1,
+        "stage": 2,
         "goods": 0,
-        "etc": 1
+        "etc": 0
       },
-      "promoSeats": 2973,
+      "promoSeats": 3717,
       "events": [
         {
           "eventId": "20631",
           "name": "<와일드 씽> 선공개 프리미어 상영회",
-          "type": "etc",
+          "type": "stage",
           "start": "2026.05.30",
           "end": "2026.05.31"
         },
@@ -157,7 +217,7 @@
               "branch": "상암월드컵경기장",
               "hall": "Dolby Vision Atmos",
               "sessions": 2,
-              "seats": 228
+              "seats": 684
             },
             {
               "branch": "상암월드컵경기장",
@@ -169,7 +229,7 @@
               "branch": "목동",
               "hall": "Dolby Vision Atmos",
               "sessions": 2,
-              "seats": 348
+              "seats": 636
             },
             {
               "branch": "목동",
@@ -178,7 +238,7 @@
               "seats": 210
             }
           ],
-          "seats": 2973,
+          "seats": 3717,
           "branches": [
             "목동",
             "상암월드컵경기장",
@@ -357,7 +417,7 @@
     {
       "eventId": "20609",
       "name": "<돌핀보이: 푸른 바다의 수호자> 프리미어 상영회",
-      "type": "etc",
+      "type": "stage",
       "start": "2026.05.30",
       "end": "2026.05.31",
       "movieName": "돌핀보이: 푸른 바다의 수호자"
@@ -425,7 +485,7 @@
     {
       "eventId": "20616",
       "name": "<마이 샤이니 월드> 특별 상영회",
-      "type": "etc",
+      "type": "stage",
       "start": "2026.05.23",
       "end": "2026.05.25",
       "movieName": "마이 샤이니 월드"

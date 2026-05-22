@@ -286,42 +286,52 @@
       "total_seats": 1570,
       "halls": [
         {
-          "no": "6관",
-          "seats": 210
-        },
-        {
-          "no": "7관",
-          "seats": 158
-        },
-        {
-          "no": "8관",
-          "seats": 190
-        },
-        {
-          "no": "9관",
-          "seats": 114
-        },
-        {
           "no": "1관",
-          "seats": 318
+          "seats": 318,
+          "type": "Dolby Vision Atmos"
         },
         {
           "no": "2관",
-          "seats": 210
+          "seats": 210,
+          "type": "컴포트 소파석 Laser"
         },
         {
           "no": "3관",
-          "seats": 114
+          "seats": 114,
+          "type": "Laser"
         },
         {
           "no": "4관",
-          "seats": 190
+          "seats": 190,
+          "type": "Laser"
         },
         {
           "no": "5관",
-          "seats": 66
+          "seats": 66,
+          "type": "컴포트 SideWall Laser"
+        },
+        {
+          "no": "6관",
+          "seats": 210,
+          "type": "컴포트 소파석 Laser"
+        },
+        {
+          "no": "7관",
+          "seats": 158,
+          "type": "Laser"
+        },
+        {
+          "no": "8관",
+          "seats": 190,
+          "type": "Laser"
+        },
+        {
+          "no": "9관",
+          "seats": 114,
+          "type": "Laser"
         }
-      ]
+      ],
+      "manualCorrected": "2026-05-22"
     },
     {
       "name": "상봉",
@@ -371,7 +381,8 @@
         },
         {
           "no": "2관",
-          "seats": 342
+          "seats": 342,
+          "type": "Dolby Vision Atmos"
         },
         {
           "no": "3관",
@@ -401,7 +412,8 @@
           "no": "9관",
           "seats": 50
         }
-      ]
+      ],
+      "manualCorrected": "2026-05-22"
     },
     {
       "name": "센트럴",
@@ -543,20 +555,28 @@
     {
       "name": "코엑스",
       "location": "서울",
-      "total_halls": 10,
-      "total_seats": 2270,
+      "total_halls": 20,
+      "total_seats": 2726,
       "halls": [
         {
+          "no": "1관",
+          "seats": 378,
+          "type": "Dolby Cinema Laser"
+        },
+        {
           "no": "2관",
-          "seats": 431
+          "seats": 431,
+          "type": "MEGA LED"
         },
         {
           "no": "3관",
-          "seats": 399
+          "seats": 399,
+          "type": "MEGA LED"
         },
         {
           "no": "4관",
-          "seats": 298
+          "seats": 298,
+          "type": "MEGA LED"
         },
         {
           "no": "5관",
@@ -579,8 +599,14 @@
           "type": "마이어"
         },
         {
+          "no": "9관",
+          "seats": 192,
+          "type": "MX4D"
+        },
+        {
           "no": "10관",
-          "seats": 86
+          "seats": 86,
+          "type": "리클라이너"
         },
         {
           "no": "11관",
@@ -588,11 +614,48 @@
           "type": "리클라이너"
         },
         {
-          "no": "1관",
-          "seats": 378,
-          "type": "Dolby Cinema Laser"
+          "no": "101호",
+          "seats": 36,
+          "type": "부티크 스위트 Laser"
+        },
+        {
+          "no": "102호",
+          "seats": 36,
+          "type": "부티크 스위트 Laser"
+        },
+        {
+          "no": "103호",
+          "seats": 36,
+          "type": "부티크 스위트 Laser"
+        },
+        {
+          "no": "104호",
+          "seats": 36,
+          "type": "부티크 스위트 Laser"
+        },
+        {
+          "no": "105호",
+          "seats": 36,
+          "type": "부티크 스위트 Laser"
+        },
+        {
+          "no": "스크린A",
+          "seats": 36
+        },
+        {
+          "no": "스크린B",
+          "seats": 30
+        },
+        {
+          "no": "더 부티크 프라이빗 1호",
+          "seats": 8
+        },
+        {
+          "no": "더 부티크 프라이빗 2호",
+          "seats": 10
         }
-      ]
+      ],
+      "manualCorrected": "2026-05-22"
     },
     {
       "name": "픽쳐하우스",

@@ -123,9 +123,9 @@
       "matched": true,
       "counts": {
         "coupon": 3,
-        "stage": 1,
+        "stage": 2,
         "goods": 0,
-        "etc": 1
+        "etc": 0
       },
       "promoSeats": 5839,
       "events": [
@@ -139,7 +139,7 @@
         {
           "eventId": "201110016926002",
           "name": "<와일드 씽> 프리미어 상영회",
-          "type": "etc",
+          "type": "stage",
           "start": "2026.05.20",
           "end": "2026.05.31"
         },
@@ -768,7 +768,7 @@
     {
       "eventId": "201010016926409",
       "name": "<케이온> 5차 응원 상영회",
-      "type": "etc",
+      "type": "stage",
       "start": "2026.05.23",
       "end": "2026.05.24",
       "movieName": "케이온"
