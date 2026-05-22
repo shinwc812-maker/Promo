@@ -1,15 +1,15 @@
 {
   "source": "KOBIS 실시간 예매율 · findRealTicketList.do",
-  "fetchedAt": "2026-05-22T07:00:07+09:00",
+  "fetchedAt": "2026-05-23T07:00:08+09:00",
   "bookingRate": [
     {
       "rank": 1,
       "movieCd": "20252402",
       "title": "군체",
       "openDt": "2026-05-21",
-      "rate": 49.6,
-      "audience": 266756,
-      "delta": "-2.8",
+      "rate": 50.0,
+      "audience": 314427,
+      "delta": "+0.4",
       "genre": "액션, 스릴러"
     },
     {
@@ -17,9 +17,9 @@
       "movieCd": "20259626",
       "title": "마이클",
       "openDt": "2026-05-13",
-      "rate": 12.9,
-      "audience": 69603,
-      "delta": "+2.0",
+      "rate": 13.9,
+      "audience": 87533,
+      "delta": "+1.0",
       "genre": "드라마"
     },
     {
@@ -27,9 +27,9 @@
       "movieCd": "20248252",
       "title": "와일드 씽",
       "openDt": "2026-06-03",
-      "rate": 6.6,
-      "audience": 35669,
-      "delta": "-0.1",
+      "rate": 6.1,
+      "audience": 38486,
+      "delta": "-0.5",
       "genre": "코미디"
     },
     {
@@ -37,19 +37,19 @@
       "movieCd": "20263761",
       "title": "플레이브 아시아 투어 [대쉬: 퀀텀 리프] 앙코르 인 시네마",
       "openDt": "2026-06-03",
-      "rate": 5.7,
-      "audience": 30700,
-      "delta": "-0.5",
+      "rate": 4.8,
+      "audience": 30155,
+      "delta": "-0.9",
       "genre": "공연"
     },
     {
       "rank": 5,
-      "movieCd": "20262975",
-      "title": "신극장판 은혼: 요시와라 대염상",
-      "openDt": "2026-05-20",
-      "rate": 2.5,
-      "audience": 13346,
-      "delta": "+0.2",
+      "movieCd": "20259773",
+      "title": "슈퍼 마리오 갤럭시",
+      "openDt": "2026-04-29",
+      "rate": 2.8,
+      "audience": 17628,
+      "delta": "+1.0",
       "genre": "애니메이션"
     },
     {
@@ -57,49 +57,49 @@
       "movieCd": "20258236",
       "title": "만달로리안과 그로구",
       "openDt": "2026-05-27",
-      "rate": 2.5,
-      "audience": 13223,
-      "delta": "+0.4",
+      "rate": 2.7,
+      "audience": 16845,
+      "delta": "+0.2",
       "genre": "액션, 어드벤처"
     },
     {
       "rank": 7,
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
+      "openDt": "2026-05-20",
+      "rate": 2.3,
+      "audience": 14271,
+      "delta": "-0.2",
+      "genre": "애니메이션"
+    },
+    {
+      "rank": 8,
       "movieCd": "20263030",
       "title": "백룸",
       "openDt": "2026-05-27",
       "rate": 2.2,
-      "audience": 11676,
-      "delta": "+0.9",
+      "audience": 13964,
+      "delta": "+0.0",
       "genre": "공포(호러), 스릴러"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "movieCd": "20259791",
       "title": "악마는 프라다를 입는다 2",
       "openDt": "2026-04-29",
-      "rate": 1.9,
-      "audience": 10242,
-      "delta": "+0.2",
-      "genre": "드라마"
-    },
-    {
-      "rank": 9,
-      "movieCd": "20259773",
-      "title": "슈퍼 마리오 갤럭시",
-      "openDt": "2026-04-29",
       "rate": 1.8,
-      "audience": 9434,
-      "delta": "NEW",
-      "genre": "애니메이션"
+      "audience": 11026,
+      "delta": "-0.1",
+      "genre": "드라마"
     },
     {
       "rank": 10,
       "movieCd": "20263344",
       "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
       "openDt": "2026-05-20",
-      "rate": 1.7,
-      "audience": 9235,
-      "delta": "+0.0",
+      "rate": 1.6,
+      "audience": 9795,
+      "delta": "-0.1",
       "genre": "코미디, 어드벤처, SF"
     }
   ]
