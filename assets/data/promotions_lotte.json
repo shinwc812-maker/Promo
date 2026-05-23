@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-23T07:00:10+09:00",
+  "fetchedAt": "2026-05-24T07:00:09+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -9,11 +9,11 @@
       "matched": true,
       "counts": {
         "coupon": 1,
-        "stage": 2,
+        "stage": 1,
         "goods": 1,
         "etc": 2
       },
-      "promoSeats": 3428,
+      "promoSeats": 1220,
       "events": [
         {
           "eventId": "101010050026005",
@@ -70,57 +70,6 @@
           ],
           "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/2c804f69b8134f56b38d177fa7f2eddd.jpg",
           "imagePath": "assets/data/lotte_images/401070016926149.jpg"
-        },
-        {
-          "eventId": "401070016926147",
-          "name": "<군체>개봉주말 무대인사",
-          "type": "stage",
-          "start": "2026.05.23",
-          "end": "2026.05.23",
-          "screenings": [
-            {
-              "branch": "월드타워",
-              "hall": "4관 광음시네마",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "월드타워",
-              "hall": "5관",
-              "sessions": 1,
-              "seats": 389
-            },
-            {
-              "branch": "월드타워",
-              "hall": "9관",
-              "sessions": 2,
-              "seats": 720
-            },
-            {
-              "branch": "월드타워",
-              "hall": "15관",
-              "sessions": 1,
-              "seats": 416
-            },
-            {
-              "branch": "월드타워",
-              "hall": "20관",
-              "sessions": 1,
-              "seats": 383
-            },
-            {
-              "branch": "월드타워",
-              "hall": "21관 SUPER PLEX",
-              "sessions": 1,
-              "seats": 150
-            }
-          ],
-          "seats": 2208,
-          "branches": [
-            "월드타워"
-          ],
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/c511fbf4c3464b10b256149207ace8f8.jpg",
-          "imagePath": "assets/data/lotte_images/401070016926147.jpg"
         }
       ]
     },
@@ -134,7 +83,7 @@
         "goods": 2,
         "etc": 1
       },
-      "promoSeats": 1240,
+      "promoSeats": 901,
       "events": [
         {
           "eventId": "201010016926413",
@@ -208,18 +157,6 @@
           "end": "2026.05.24",
           "screenings": [
             {
-              "branch": "건대입구",
-              "hall": "2관",
-              "sessions": 1,
-              "seats": 195
-            },
-            {
-              "branch": "광복",
-              "hall": "5관",
-              "sessions": 1,
-              "seats": 144
-            },
-            {
               "branch": "신림",
               "hall": "2관 리클라이너",
               "sessions": 1,
@@ -232,10 +169,8 @@
               "seats": 150
             }
           ],
-          "seats": 639,
+          "seats": 300,
           "branches": [
-            "건대입구",
-            "광복",
             "동성로",
             "신림"
           ],
@@ -1051,56 +986,6 @@
       "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/d977c31252b244df80e805ff42965711.jpg",
       "imagePath": "assets/data/lotte_images/401070050326003.jpg",
       "movieName": "파티마가 사랑한 계절"
-    },
-    {
-      "eventId": "401070016926152",
-      "name": "<쇼타씨의 마지막 출장> Gv",
-      "type": "stage",
-      "start": "2026.05.23",
-      "end": "2026.05.23",
-      "screenings": [
-        {
-          "branch": "월드타워",
-          "hall": "18관",
-          "sessions": 1,
-          "seats": 160
-        }
-      ],
-      "seats": 160,
-      "branches": [
-        "월드타워"
-      ],
-      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/a222b4b2cf634ee6a18c7176dedd7a41.jpg",
-      "imagePath": "assets/data/lotte_images/401070016926152.jpg",
-      "movieName": "쇼타씨의 마지막 출장"
-    },
-    {
-      "eventId": "401070016926153",
-      "name": "<쇼타씨의 마지막 출장>무대인사",
-      "type": "stage",
-      "start": "2026.05.23",
-      "end": "2026.05.23",
-      "screenings": [
-        {
-          "branch": "월드타워",
-          "hall": "6관",
-          "sessions": 1,
-          "seats": 124
-        },
-        {
-          "branch": "월드타워",
-          "hall": "7관",
-          "sessions": 1,
-          "seats": 124
-        }
-      ],
-      "seats": 248,
-      "branches": [
-        "월드타워"
-      ],
-      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/02911d40ae134ca1967a3cfadf69d6bd.jpg",
-      "imagePath": "assets/data/lotte_images/401070016926153.jpg",
-      "movieName": "쇼타씨의 마지막 출장"
     }
   ]
 }
