@@ -198,6 +198,62 @@ function buildPromoDetail(movieCd, movieTitle) {
   return head + `<tbody>${rows}${total}</tbody>`;
 }
 
+// 종료된 이벤트 — 상세 모달 하단 접이식 섹션. 표시 전용으로, 매트릭스 실예매·집계·CSV엔
+// 일절 반영되지 않는다(별도 endedEvents[] 배열만 읽음). 이벤트 없으면 '' 반환 → 섹션 숨김.
+const ENDED_TYPE_LABEL = { stage: '무대인사·시사회', coupon: '쿠폰', goods: '굿즈·특전', etc: '기타' };
+function endedDateText(s) {
+  if (!s) return '';
+  const m = String(s).match(/(\d{4})[.\-](\d{1,2})[.\-](\d{1,2})/);
+  return m ? `~${pad2(m[2])}.${pad2(m[3])} 종료` : `~${s} 종료`;
+}
+function buildEndedSection(movieCd, movieTitle) {
+  const chains = [
+    { key: 'cgv',   label: 'CGV',   data: DATA.cgv },
+    { key: 'lotte', label: '롯데',  data: DATA.lotte },
+    { key: 'mega',  label: '메가',  data: DATA.megabox },
+    { key: 'cineq', label: '씨네큐', data: DATA.cineq },
+  ];
+  const rows = [];
+  chains.forEach(ch => {
+    (ch.data?.endedEvents || [])
+      .filter(e => e.movieCd === movieCd)
+      .forEach(e => rows.push({ ch, e }));
+  });
+  if (!rows.length) return '';
+  rows.sort((a, b) => (b.e.end || '').localeCompare(a.e.end || ''));   // 최근 종료 순
+  const list = rows.map(({ ch, e }) => `
+    <div class="ended-row">
+      <span class="chip chip-${ch.key} on">${ch.label}</span>
+      <span class="badge gray">종료</span>
+      <span class="ended-type">${ENDED_TYPE_LABEL[e.type] || e.type}</span>
+      <span class="ended-name">${evtName(e, movieTitle, ch.key)}</span>
+      <span class="ended-date">${endedDateText(e.end)}</span>
+    </div>`).join('');
+  return `
+    <button type="button" class="ended-toggle" aria-expanded="false" onclick="toggleEnded(this)">
+      <span class="ended-caret">▸</span> 종료된 이벤트 ${rows.length}건
+    </button>
+    <div class="ended-list" hidden>
+      ${list}
+      <div class="ended-note">※ 종료된 이벤트는 실예매·집계(매트릭스·CSV)에 포함되지 않습니다.</div>
+    </div>`;
+}
+
+function toggleEnded(btn) {
+  const list = btn.nextElementSibling;
+  if (!list) return;
+  const isHidden = list.hasAttribute('hidden');
+  if (isHidden) {
+    list.removeAttribute('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+  } else {
+    list.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  const caret = btn.querySelector('.ended-caret');
+  if (caret) caret.textContent = isHidden ? '▾' : '▸';
+}
+
 function openDetail(movieTitle) {
   const modal = document.getElementById('detail-modal');
   if (!modal) return;
@@ -225,6 +281,10 @@ function openDetail(movieTitle) {
     table.innerHTML = `<tbody><tr><td class="promo-empty">
       매칭되는 영화 데이터를 찾을 수 없습니다.</td></tr></tbody>`;
   }
+
+  // 종료된 이벤트 섹션 (있을 때만 렌더 — 집계 무관, 표시 전용)
+  const endedEl = document.getElementById('ended-events');
+  if (endedEl) endedEl.innerHTML = mv ? buildEndedSection(mv.movieCd, mv.title || movieTitle) : '';
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';

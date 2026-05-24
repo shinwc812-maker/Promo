@@ -407,6 +407,26 @@ def main():
             event_rec["movieName"] = brackets[0] if brackets else None
             unmatched.append(event_rec)
 
+    # --- 종료 이벤트 누적(carry-forward) — 전체 보관 ---
+    # 직전 출력에서 종료분을 이월하고, 어제 진행중이었으나 종료일이 지난 이벤트를 승격.
+    # movies[](진행중)는 그대로 두므로 counts/promoSeats/실예매 집계엔 영향 없음.
+    prev = {}
+    if OUT_FILE.exists():
+        try:
+            prev = json.loads(OUT_FILE.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            prev = {}
+    ended_by_id = {e["eventId"]: e for e in prev.get("endedEvents", [])}
+    _KEEP = ("eventId", "name", "type", "start", "end", "seats", "issued", "theaters")
+    for mv in prev.get("movies", []):
+        for e in mv.get("events", []):
+            ee = e.get("end", "")
+            if ee and ee < today and e["eventId"] not in ended_by_id:
+                rec = {k: e[k] for k in _KEEP if k in e}
+                rec.update(ended=True, end=ee,
+                           movieCd=mv["movieCd"], movieTitle=mv["title"])
+                ended_by_id[e["eventId"]] = rec
+
     out = {
         "chain": "MEGABOX",
         "source": "메가박스 이벤트 API · eventMngDiv.do",
@@ -415,6 +435,8 @@ def main():
                          key=lambda m: sum(m["counts"].values()),
                          reverse=True),
         "unmatched": unmatched,
+        "endedEvents": sorted(ended_by_id.values(),
+                              key=lambda e: e.get("end", ""), reverse=True),
     }
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2),

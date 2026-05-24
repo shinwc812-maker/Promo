@@ -314,12 +314,35 @@ def main():
         else:
             unmatched.append(event_rec)
 
+    # --- 종료 이벤트 누적(carry-forward) — 전체 보관 ---
+    # 직전 출력에서 종료분을 이월하고, 어제 진행중이었으나 종료일이 지난 이벤트를 승격.
+    # 씨네큐 이벤트는 start/end 분리 없이 duration("시작~종료")만 가지므로 end를 파싱한다.
+    # movies[](진행중)는 그대로 두므로 counts/promoSeats/실예매 집계엔 영향 없음.
+    prev = {}
+    if OUT_FILE.exists():
+        try:
+            prev = json.loads(OUT_FILE.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            prev = {}
+    ended_by_id = {e["eventId"]: e for e in prev.get("endedEvents", [])}
+    _KEEP = ("eventId", "name", "type", "seats", "issued", "theaters")
+    for mv in prev.get("movies", []):
+        for e in mv.get("events", []):
+            ee = e.get("end") or e.get("duration", "").partition("~")[2].strip()
+            if ee and ee < today and e["eventId"] not in ended_by_id:
+                rec = {k: e[k] for k in _KEEP if k in e}
+                rec.update(ended=True, end=ee,
+                           movieCd=mv["movieCd"], movieTitle=mv["title"])
+                ended_by_id[e["eventId"]] = rec
+
     out = {
         "chain": "CINEQ",
         "source": "씨네큐 공식 이벤트 API",
         "fetchedAt": datetime.now(KST).isoformat(timespec="seconds"),
         "movies": sorted(movies.values(), key=lambda m: sum(m["counts"].values()), reverse=True),
         "unmatched": unmatched,
+        "endedEvents": sorted(ended_by_id.values(),
+                              key=lambda e: e.get("end", ""), reverse=True),
     }
     
     DATA_DIR.mkdir(parents=True, exist_ok=True)
