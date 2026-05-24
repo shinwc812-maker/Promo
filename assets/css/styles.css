@@ -838,16 +838,17 @@ table.promo-detail .promo-empty {
   cursor: pointer;
   padding: 14px 2px 12px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13.5px;
+  font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--ink-3);
+  color: var(--accent);
   transition: color 0.15s;
 }
-.ended-toggle:hover { color: var(--ink); }
+.ended-toggle:hover { color: #6f1714; }
 .ended-toggle .ended-caret {
   display: inline-block;
   width: 1em;
-  color: var(--ink-4);
+  color: var(--accent);
 }
 .ended-list {
   background: var(--bg-deep);
@@ -883,12 +884,23 @@ table.promo-detail .promo-empty {
   color: var(--ink-2);
 }
 .ended-row .ended-name .evt-link { color: inherit; }
+.ended-row .ended-metric {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  text-align: right;
+  min-width: 52px;
+}
 .ended-row .ended-date {
+  flex: 0 0 auto;
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--ink-3);
   white-space: nowrap;
-  margin-left: auto;
+  text-align: right;
+  min-width: 84px;
 }
 .ended-note {
   margin-top: 8px;

@@ -206,6 +206,16 @@ function endedDateText(s) {
   const m = String(s).match(/(\d{4})[.\-](\d{1,2})[.\-](\d{1,2})/);
   return m ? `~${pad2(m[2])}.${pad2(m[3])} 종료` : `~${s} 종료`;
 }
+// 타입별 수치 — 무대인사 N석 / 쿠폰 N장 / 굿즈 N개관, 값 없으면 '미공개' (액티브 표와 동일 규칙)
+function endedMetric(e) {
+  if (e.type === 'stage')
+    return (typeof e.seats === 'number' && e.seats > 0) ? fmt(e.seats) + '석' : '미공개';
+  if (e.type === 'coupon')
+    return (typeof e.issued === 'number' && e.issued > 0) ? fmt(e.issued) + '장' : '미공개';
+  if (e.type === 'goods')
+    return (typeof e.theaters === 'number' && e.theaters > 0) ? e.theaters + '개관' : '미공개';
+  return '';
+}
 function buildEndedSection(movieCd, movieTitle) {
   const chains = [
     { key: 'cgv',   label: 'CGV',   data: DATA.cgv },
@@ -229,15 +239,16 @@ function buildEndedSection(movieCd, movieTitle) {
       <span class="badge gray">종료</span>
       <span class="ended-type">${ENDED_TYPE_LABEL[e.type] || e.type}</span>
       <span class="ended-name">${evtName(e, movieTitle, ch.key)}</span>
+      <span class="ended-metric">${endedMetric(e)}</span>
       <span class="ended-date">${endedDateText(e.end)}</span>
     </div>`).join('');
   return `
     <button type="button" class="ended-toggle" aria-expanded="false" onclick="toggleEnded(this)">
-      <span class="ended-caret">▸</span> 종료된 이벤트 ${rows.length}건
+      <span class="ended-caret">▸</span> 지난 프로모션 ${rows.length}건
     </button>
     <div class="ended-list" hidden>
       ${list}
-      <div class="ended-note">※ 종료된 이벤트는 실예매·집계(매트릭스·CSV)에 포함되지 않습니다.</div>
+      <div class="ended-note">※ 지난 프로모션은 실예매·집계(매트릭스·CSV)에 포함되지 않습니다.</div>
     </div>`;
 }
 
