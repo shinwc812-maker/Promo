@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-24T07:00:09+09:00",
+  "fetchedAt": "2026-05-25T07:00:10+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -70,112 +70,6 @@
           ],
           "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/2c804f69b8134f56b38d177fa7f2eddd.jpg",
           "imagePath": "assets/data/lotte_images/401070016926149.jpg"
-        }
-      ]
-    },
-    {
-      "movieCd": "20262975",
-      "title": "신극장판 은혼: 요시와라 대염상",
-      "matched": true,
-      "counts": {
-        "coupon": 0,
-        "stage": 2,
-        "goods": 2,
-        "etc": 1
-      },
-      "promoSeats": 901,
-      "events": [
-        {
-          "eventId": "201010016926413",
-          "name": "<은혼>2주차 증정이벤트",
-          "type": "goods",
-          "start": "2026.05.27",
-          "end": "2026.06.02"
-        },
-        {
-          "eventId": "201010016926404",
-          "name": "<신극장판 은혼>1주차주말",
-          "type": "etc",
-          "start": "2026.05.23",
-          "end": "2026.05.29"
-        },
-        {
-          "eventId": "201010016926398",
-          "name": "<신극장판 은혼> 시그니처 아트카드",
-          "type": "goods",
-          "start": "2026.05.20",
-          "end": "2026.06.02",
-          "theaters": 27
-        },
-        {
-          "eventId": "401070016926159",
-          "name": "<신극장판 은혼>2주차 주말상영회",
-          "type": "stage",
-          "start": "2026.05.30",
-          "end": "2026.05.31",
-          "screenings": [
-            {
-              "branch": "월드타워",
-              "hall": "13관 광음LED",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "부산본점",
-              "hall": "3관 리클라이너",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "노원",
-              "hall": "7관 리클라이너",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "건대입구",
-              "hall": "9관",
-              "sessions": 1,
-              "seats": 151
-            }
-          ],
-          "seats": 601,
-          "branches": [
-            "건대입구",
-            "노원",
-            "부산본점",
-            "월드타워"
-          ],
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/116e900b149f4c26ab46f9a92ef382ac.jpg",
-          "imagePath": "assets/data/lotte_images/401070016926159.jpg"
-        },
-        {
-          "eventId": "401070016926158",
-          "name": "<신극장판 은혼>스페셜상영회",
-          "type": "stage",
-          "start": "2026.05.23",
-          "end": "2026.05.24",
-          "screenings": [
-            {
-              "branch": "신림",
-              "hall": "2관 리클라이너",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "동성로",
-              "hall": "8관 리클라이너",
-              "sessions": 1,
-              "seats": 150
-            }
-          ],
-          "seats": 300,
-          "branches": [
-            "동성로",
-            "신림"
-          ],
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/f93d9beb410947478fe5c3c5b3b72f8c.jpg",
-          "imagePath": "assets/data/lotte_images/401070016926158.jpg"
         }
       ]
     },
@@ -369,6 +263,84 @@
           "start": "2026.05.20",
           "end": "2026.06.09",
           "source": "롯데 무비싸다구 (SpeedMulti API)"
+        }
+      ]
+    },
+    {
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 1,
+        "goods": 2,
+        "etc": 1
+      },
+      "promoSeats": 601,
+      "events": [
+        {
+          "eventId": "201010016926413",
+          "name": "<은혼>2주차 증정이벤트",
+          "type": "goods",
+          "start": "2026.05.27",
+          "end": "2026.06.02"
+        },
+        {
+          "eventId": "201010016926404",
+          "name": "<신극장판 은혼>1주차주말",
+          "type": "etc",
+          "start": "2026.05.23",
+          "end": "2026.05.29"
+        },
+        {
+          "eventId": "201010016926398",
+          "name": "<신극장판 은혼> 시그니처 아트카드",
+          "type": "goods",
+          "start": "2026.05.20",
+          "end": "2026.06.02",
+          "theaters": 27
+        },
+        {
+          "eventId": "401070016926159",
+          "name": "<신극장판 은혼>2주차 주말상영회",
+          "type": "stage",
+          "start": "2026.05.30",
+          "end": "2026.05.31",
+          "screenings": [
+            {
+              "branch": "월드타워",
+              "hall": "13관 광음LED",
+              "sessions": 1,
+              "seats": 150
+            },
+            {
+              "branch": "부산본점",
+              "hall": "3관 리클라이너",
+              "sessions": 1,
+              "seats": 150
+            },
+            {
+              "branch": "노원",
+              "hall": "7관 리클라이너",
+              "sessions": 1,
+              "seats": 150
+            },
+            {
+              "branch": "건대입구",
+              "hall": "9관",
+              "sessions": 1,
+              "seats": 151
+            }
+          ],
+          "seats": 601,
+          "branches": [
+            "건대입구",
+            "노원",
+            "부산본점",
+            "월드타워"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/116e900b149f4c26ab46f9a92ef382ac.jpg",
+          "imagePath": "assets/data/lotte_images/401070016926159.jpg"
         }
       ]
     },
@@ -618,14 +590,6 @@
       "movieName": null
     },
     {
-      "eventId": "101010014726013",
-      "name": "<스파이패밀리> 콜라보카페",
-      "type": "etc",
-      "start": "2026.04.24",
-      "end": "2026.05.24",
-      "movieName": "스파이패밀리"
-    },
-    {
       "eventId": "101010021226018",
       "name": "악마는 프라다를 입는다2 키링 런칭",
       "type": "etc",
@@ -760,14 +724,6 @@
       "start": "2026.05.27",
       "end": "2026.06.02",
       "movieName": "로메리아"
-    },
-    {
-      "eventId": "201010016926409",
-      "name": "<케이온> 5차 응원 상영회",
-      "type": "etc",
-      "start": "2026.05.23",
-      "end": "2026.05.24",
-      "movieName": "케이온"
     },
     {
       "eventId": "201010014726036",
@@ -989,6 +945,17 @@
     }
   ],
   "endedEvents": [
+    {
+      "eventId": "401070016926158",
+      "name": "<신극장판 은혼>스페셜상영회",
+      "type": "stage",
+      "start": "2026.05.23",
+      "end": "2026.05.24",
+      "seats": 300,
+      "ended": true,
+      "movieCd": "20262975",
+      "movieTitle": "신극장판 은혼: 요시와라 대염상"
+    },
     {
       "eventId": "401070016926147",
       "name": "<군체>개봉주말 무대인사",
