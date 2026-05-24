@@ -735,5 +735,18 @@
       "end": "2026.12.31",
       "movieName": "군자"
     }
+  ],
+  "endedEvents": [
+    {
+      "eventId": "20613",
+      "name": "<군체> 개봉 주말 무대인사",
+      "type": "stage",
+      "start": "2026.05.23",
+      "end": "2026.05.23",
+      "seats": 3998,
+      "movieCd": "20252402",
+      "movieTitle": "군체",
+      "ended": true
+    }
   ]
 }

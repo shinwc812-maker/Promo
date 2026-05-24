@@ -987,5 +987,18 @@
       "imagePath": "assets/data/lotte_images/401070050326003.jpg",
       "movieName": "파티마가 사랑한 계절"
     }
+  ],
+  "endedEvents": [
+    {
+      "eventId": "401070016926147",
+      "name": "<군체>개봉주말 무대인사",
+      "type": "stage",
+      "start": "2026.05.23",
+      "end": "2026.05.23",
+      "seats": 2208,
+      "movieCd": "20252402",
+      "movieTitle": "군체",
+      "ended": true
+    }
   ]
 }

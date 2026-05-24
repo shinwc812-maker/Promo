@@ -1293,5 +1293,126 @@
       "end": "2999-12-30",
       "movieName": "CGV VIP"
     }
+  ],
+  "endedEvents": [
+    {
+      "eventId": "202604237123",
+      "name": "악마는 키링까지 완벽하다, 악마는 프라다를 입는다2 키링 2종 출시",
+      "type": "goods",
+      "start": "2026-04-24",
+      "end": "2026-05-23",
+      "movieCd": "20259791",
+      "movieTitle": "악마는 프라다를 입는다 2",
+      "ended": true
+    },
+    {
+      "eventId": "202605087835",
+      "name": "[마이클] IMAX 포스터 증정 이벤트",
+      "type": "goods",
+      "start": "2026-05-08",
+      "end": "2026-05-22",
+      "theaters": 27,
+      "movieCd": "20259626",
+      "movieTitle": "마이클",
+      "ended": true
+    },
+    {
+      "eventId": "202605087929",
+      "name": "[마이클] SCREENX 포스터 증정 이벤트",
+      "type": "goods",
+      "start": "2026-05-08",
+      "end": "2026-05-22",
+      "theaters": 23,
+      "movieCd": "20259626",
+      "movieTitle": "마이클",
+      "ended": true
+    },
+    {
+      "eventId": "202605087732",
+      "name": "[마이클] 4DX 포스터 증정 이벤트",
+      "type": "goods",
+      "start": "2026-05-08",
+      "end": "2026-05-22",
+      "theaters": 37,
+      "movieCd": "20259626",
+      "movieTitle": "마이클",
+      "ended": true
+    },
+    {
+      "eventId": "202605147943",
+      "name": "[군체] 군체설명회 GV",
+      "type": "stage",
+      "start": "2026-05-22",
+      "end": "2026-05-22",
+      "seats": 320,
+      "movieCd": "20252402",
+      "movieTitle": "군체",
+      "ended": true
+    },
+    {
+      "eventId": "202604237243",
+      "name": "[슈퍼 마리오 갤럭시] TTT",
+      "type": "goods",
+      "start": "2026-04-24",
+      "end": "2026-05-22",
+      "movieCd": "20259773",
+      "movieTitle": "슈퍼 마리오 갤럭시",
+      "ended": true
+    },
+    {
+      "eventId": "202605187853",
+      "name": "[마이클] 팝콘 증정 상영회",
+      "type": "goods",
+      "start": "2026-05-21",
+      "end": "2026-05-21",
+      "theaters": 1,
+      "movieCd": "20259626",
+      "movieTitle": "마이클",
+      "ended": true
+    },
+    {
+      "eventId": "202604307547",
+      "name": "[군체] 개봉일 무대인사",
+      "type": "stage",
+      "start": "2026-05-21",
+      "end": "2026-05-21",
+      "seats": 4041,
+      "movieCd": "20252402",
+      "movieTitle": "군체",
+      "ended": true
+    },
+    {
+      "eventId": "202605147644",
+      "name": "[너바나 더 밴드...] 개봉일 무대인사",
+      "type": "stage",
+      "start": "2026-05-20",
+      "end": "2026-05-20",
+      "seats": 388,
+      "movieCd": "20263344",
+      "movieTitle": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
+      "ended": true
+    },
+    {
+      "eventId": "202605127937",
+      "name": "[너바나 더 밴드...] 빠더너스 크루 개봉일 GV",
+      "type": "stage",
+      "start": "2026-05-20",
+      "end": "2026-05-20",
+      "seats": 194,
+      "movieCd": "20263344",
+      "movieTitle": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
+      "ended": true
+    },
+    {
+      "eventId": "202605117839",
+      "name": "[CGV회원시사] 와일드 씽",
+      "type": "stage",
+      "start": "2026-05-11",
+      "end": "2026-05-17",
+      "seats": 1999,
+      "movieCd": "20248252",
+      "movieTitle": "와일드 씽",
+      "ended": true
+    }
   ]
 }

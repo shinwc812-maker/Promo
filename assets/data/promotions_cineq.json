@@ -379,5 +379,27 @@
       "duration": "2023.02.22~2030.12.31",
       "fetchedAt": "2026-05-24"
     }
+  ],
+  "endedEvents": [
+    {
+      "eventId": "6996",
+      "name": "<마이클> 회원시사회",
+      "type": "stage",
+      "seats": null,
+      "end": "2026.05.12",
+      "movieCd": "20259626",
+      "movieTitle": "마이클",
+      "ended": true
+    },
+    {
+      "eventId": "6922",
+      "name": "<악마는 프라다를 입는다 2> 개봉주 스페셜 포스터 증정 이벤트",
+      "type": "goods",
+      "theaters": 3,
+      "end": "2026.05.05",
+      "movieCd": "20259791",
+      "movieTitle": "악마는 프라다를 입는다 2",
+      "ended": true
+    }
   ]
 }

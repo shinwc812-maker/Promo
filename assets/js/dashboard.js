@@ -214,9 +214,11 @@ function buildEndedSection(movieCd, movieTitle) {
     { key: 'cineq', label: '씨네큐', data: DATA.cineq },
   ];
   const rows = [];
+  // 액티브 모달·매트릭스와 동일 기준 — 무대인사·쿠폰·굿즈 3종만 표시(etc 제외)
+  const SHOW_TYPES = new Set(['stage', 'coupon', 'goods']);
   chains.forEach(ch => {
     (ch.data?.endedEvents || [])
-      .filter(e => e.movieCd === movieCd)
+      .filter(e => e.movieCd === movieCd && SHOW_TYPES.has(e.type))
       .forEach(e => rows.push({ ch, e }));
   });
   if (!rows.length) return '';
