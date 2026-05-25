@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-25T07:00:10+09:00",
+  "fetchedAt": "2026-05-26T07:00:09+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -267,84 +267,6 @@
       ]
     },
     {
-      "movieCd": "20262975",
-      "title": "신극장판 은혼: 요시와라 대염상",
-      "matched": true,
-      "counts": {
-        "coupon": 0,
-        "stage": 1,
-        "goods": 2,
-        "etc": 1
-      },
-      "promoSeats": 601,
-      "events": [
-        {
-          "eventId": "201010016926413",
-          "name": "<은혼>2주차 증정이벤트",
-          "type": "goods",
-          "start": "2026.05.27",
-          "end": "2026.06.02"
-        },
-        {
-          "eventId": "201010016926404",
-          "name": "<신극장판 은혼>1주차주말",
-          "type": "etc",
-          "start": "2026.05.23",
-          "end": "2026.05.29"
-        },
-        {
-          "eventId": "201010016926398",
-          "name": "<신극장판 은혼> 시그니처 아트카드",
-          "type": "goods",
-          "start": "2026.05.20",
-          "end": "2026.06.02",
-          "theaters": 27
-        },
-        {
-          "eventId": "401070016926159",
-          "name": "<신극장판 은혼>2주차 주말상영회",
-          "type": "stage",
-          "start": "2026.05.30",
-          "end": "2026.05.31",
-          "screenings": [
-            {
-              "branch": "월드타워",
-              "hall": "13관 광음LED",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "부산본점",
-              "hall": "3관 리클라이너",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "노원",
-              "hall": "7관 리클라이너",
-              "sessions": 1,
-              "seats": 150
-            },
-            {
-              "branch": "건대입구",
-              "hall": "9관",
-              "sessions": 1,
-              "seats": 151
-            }
-          ],
-          "seats": 601,
-          "branches": [
-            "건대입구",
-            "노원",
-            "부산본점",
-            "월드타워"
-          ],
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/116e900b149f4c26ab46f9a92ef382ac.jpg",
-          "imagePath": "assets/data/lotte_images/401070016926159.jpg"
-        }
-      ]
-    },
-    {
       "movieCd": "20259626",
       "title": "마이클",
       "matched": true,
@@ -420,42 +342,6 @@
           "type": "etc",
           "start": "2026.05.22",
           "end": "2026.06.09"
-        }
-      ]
-    },
-    {
-      "movieCd": "20259791",
-      "title": "악마는 프라다를 입는다 2",
-      "matched": true,
-      "counts": {
-        "coupon": 1,
-        "stage": 0,
-        "goods": 1,
-        "etc": 1
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "201010016926402",
-          "name": "<악마는프라다를입는다2>4주차 증정이벤트",
-          "type": "goods",
-          "start": "2026.05.20",
-          "end": "2026.05.26",
-          "theaters": 15
-        },
-        {
-          "eventId": "201010014726032",
-          "name": "<악마는 프라다를 입는다2> 정부지원 할인쿠폰 프로모션",
-          "type": "coupon",
-          "start": "2026.05.13",
-          "end": "2026.05.31"
-        },
-        {
-          "eventId": "201110014726011",
-          "name": "<악마는 프라다를 입는다2> N차의 품격",
-          "type": "etc",
-          "start": "2026.04.30",
-          "end": "2026.05.31"
         }
       ]
     }
@@ -579,14 +465,6 @@
       "type": "etc",
       "start": "2026.04.27",
       "end": "2026.05.29",
-      "movieName": null
-    },
-    {
-      "eventId": "101010050326002",
-      "name": "NMIXX(엔믹스) 콤보 런칭",
-      "type": "etc",
-      "start": "2026.04.24",
-      "end": "2026.05.25",
       "movieName": null
     },
     {
@@ -718,12 +596,28 @@
       "movieName": "노트북"
     },
     {
+      "eventId": "201010016926413",
+      "name": "<은혼>2주차 증정이벤트",
+      "type": "goods",
+      "start": "2026.05.27",
+      "end": "2026.06.02",
+      "movieName": "은혼"
+    },
+    {
       "eventId": "201010016926414",
       "name": "<로메리아>1주차",
       "type": "etc",
       "start": "2026.05.27",
       "end": "2026.06.02",
       "movieName": "로메리아"
+    },
+    {
+      "eventId": "201010016926404",
+      "name": "<신극장판 은혼>1주차주말",
+      "type": "etc",
+      "start": "2026.05.23",
+      "end": "2026.05.29",
+      "movieName": "신극장판 은혼"
     },
     {
       "eventId": "201010014726036",
@@ -734,6 +628,15 @@
       "movieName": "르세라핌 브이알콘서트: 인비테이션"
     },
     {
+      "eventId": "201010016926402",
+      "name": "<악마는프라다를입는다2>4주차 증정이벤트",
+      "type": "goods",
+      "start": "2026.05.20",
+      "end": "2026.05.26",
+      "theaters": 15,
+      "movieName": "악마는프라다를입는다2"
+    },
+    {
       "eventId": "201010016926403",
       "name": "<이프 온리>2주차",
       "type": "etc",
@@ -742,12 +645,13 @@
       "movieName": "이프 온리"
     },
     {
-      "eventId": "201010016926401",
-      "name": "<돌핀보이> SNS이벤트",
-      "type": "etc",
-      "start": "2026.05.18",
-      "end": "2026.05.25",
-      "movieName": "돌핀보이"
+      "eventId": "201010016926398",
+      "name": "<신극장판 은혼> 시그니처 아트카드",
+      "type": "goods",
+      "start": "2026.05.20",
+      "end": "2026.06.02",
+      "theaters": 27,
+      "movieName": "신극장판 은혼"
     },
     {
       "eventId": "201010014726033",
@@ -756,6 +660,14 @@
       "start": "2026.05.16",
       "end": "2026.05.29",
       "movieName": "탑건"
+    },
+    {
+      "eventId": "201010014726032",
+      "name": "<악마는 프라다를 입는다2> 정부지원 할인쿠폰 프로모션",
+      "type": "coupon",
+      "start": "2026.05.13",
+      "end": "2026.05.31",
+      "movieName": "악마는 프라다를 입는다2"
     },
     {
       "eventId": "201110014726013",
@@ -814,12 +726,12 @@
       "movieName": "비발디와 나"
     },
     {
-      "eventId": "201010016926365",
-      "name": "<극장판 달님이>어린이날 이벤트",
+      "eventId": "201110014726011",
+      "name": "<악마는 프라다를 입는다2> N차의 품격",
       "type": "etc",
-      "start": "2026.05.05",
-      "end": "2026.05.25",
-      "movieName": "극장판 달님이"
+      "start": "2026.04.30",
+      "end": "2026.05.31",
+      "movieName": "악마는 프라다를 입는다2"
     },
     {
       "eventId": "201010050326009",
@@ -902,6 +814,49 @@
       "movieName": "로메리아"
     },
     {
+      "eventId": "401070016926159",
+      "name": "<신극장판 은혼>2주차 주말상영회",
+      "type": "stage",
+      "start": "2026.05.30",
+      "end": "2026.05.31",
+      "screenings": [
+        {
+          "branch": "월드타워",
+          "hall": "13관 광음LED",
+          "sessions": 1,
+          "seats": 150
+        },
+        {
+          "branch": "부산본점",
+          "hall": "3관 리클라이너",
+          "sessions": 1,
+          "seats": 150
+        },
+        {
+          "branch": "노원",
+          "hall": "7관 리클라이너",
+          "sessions": 1,
+          "seats": 150
+        },
+        {
+          "branch": "건대입구",
+          "hall": "9관",
+          "sessions": 1,
+          "seats": 151
+        }
+      ],
+      "seats": 601,
+      "branches": [
+        "건대입구",
+        "노원",
+        "부산본점",
+        "월드타워"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/116e900b149f4c26ab46f9a92ef382ac.jpg",
+      "imagePath": "assets/data/lotte_images/401070016926159.jpg",
+      "movieName": "신극장판 은혼: 요시와라 대염상"
+    },
+    {
       "eventId": "401080016926022",
       "name": "<현상수배>회원시사회",
       "type": "stage",
@@ -910,16 +865,6 @@
       "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/84fa9e3c7ee1491bace871e7ff778b40.jpg",
       "imagePath": "assets/data/lotte_images/401080016926022.jpg",
       "movieName": "현상수배"
-    },
-    {
-      "eventId": "401080016926020",
-      "name": "<상자 속의 양> 회원시사회",
-      "type": "stage",
-      "start": "2026.05.15",
-      "end": "2026.05.25",
-      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/05a90c76fc1f4191a678496d39de380b.jpg",
-      "imagePath": "assets/data/lotte_images/401080016926020.jpg",
-      "movieName": "상자 속의 양"
     },
     {
       "eventId": "401070050326003",
