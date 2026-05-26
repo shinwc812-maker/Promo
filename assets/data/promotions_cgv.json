@@ -1,7 +1,7 @@
 {
   "chain": "CGV",
   "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
-  "fetchedAt": "2026-05-26T07:14:29+09:00",
+  "fetchedAt": "2026-05-26T16:28:03+09:00",
   "movies": [
     {
       "movieCd": "20263344",
@@ -13,7 +13,7 @@
         "goods": 1,
         "etc": 4
       },
-      "promoSeats": 0,
+      "promoSeats": 200,
       "events": [
         {
           "eventId": "202605187648",
@@ -59,7 +59,18 @@
           "name": "[너바나 더 밴드...] 박정민 GV",
           "type": "stage",
           "start": "2026-06-02",
-          "end": "2026-06-02"
+          "end": "2026-06-02",
+          "screenings": [
+            {
+              "branch": "왕십리",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": null,
+          "branches": [
+            "왕십리"
+          ]
         },
         {
           "eventId": "202605228255",
@@ -78,12 +89,19 @@
             {
               "branch": "용산아이파크몰",
               "hall": null,
-              "sessions": 2
+              "sessions": 1
+            },
+            {
+              "branch": "중랑",
+              "hall": "11관",
+              "sessions": 1
             }
           ],
-          "seats": null,
+          "seats": 200,
+          "seatsEstimated": true,
           "branches": [
-            "용산아이파크몰"
+            "용산아이파크몰",
+            "중랑"
           ]
         },
         {
@@ -91,7 +109,18 @@
           "name": "[너바나 더 밴드...] 빠더너스 문상훈 추가 무대인사",
           "type": "stage",
           "start": "2026-06-02",
-          "end": "2026-06-02"
+          "end": "2026-06-02",
+          "screenings": [
+            {
+              "branch": "청량리",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": null,
+          "branches": [
+            "청량리"
+          ]
         },
         {
           "eventId": "202605198050",
@@ -108,9 +137,9 @@
       "matched": true,
       "counts": {
         "coupon": 1,
-        "stage": 1,
+        "stage": 3,
         "goods": 2,
-        "etc": 4
+        "etc": 2
       },
       "promoSeats": 0,
       "events": [
@@ -119,7 +148,18 @@
           "name": "[뒷자리에 태워줘] 천 개의 뒷자리 GV",
           "type": "stage",
           "start": "2026-05-28",
-          "end": "2026-05-28"
+          "end": "2026-05-28",
+          "screenings": [
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": null,
+          "branches": [
+            "용산아이파크몰"
+          ]
         },
         {
           "eventId": "202605228164",
@@ -138,9 +178,44 @@
         {
           "eventId": "202605208156",
           "name": "[뒷자리에 태워줘] 월간 레이 상영회",
-          "type": "etc",
+          "type": "stage",
           "start": "2026-05-29",
-          "end": "2026-05-31"
+          "end": "2026-05-31",
+          "screenings": [
+            {
+              "branch": "종로",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "인천",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "서면",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "강남",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": null,
+          "branches": [
+            "강남",
+            "서면",
+            "용산아이파크몰",
+            "인천",
+            "종로"
+          ]
         },
         {
           "eventId": "202605077834",
@@ -152,9 +227,26 @@
         {
           "eventId": "202605198151",
           "name": "[뒷자리에 태워줘] 레이 브로마이드 상영회",
-          "type": "etc",
+          "type": "stage",
           "start": "2026-05-27",
-          "end": "2026-05-27"
+          "end": "2026-05-27",
+          "screenings": [
+            {
+              "branch": "왕십리",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "용산아이파크몰",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": null,
+          "branches": [
+            "왕십리",
+            "용산아이파크몰"
+          ]
         },
         {
           "eventId": "202605198152",
@@ -380,7 +472,102 @@
           "name": "[와일드 씽] 프리미어 상영회",
           "type": "stage",
           "start": "2026-05-30",
-          "end": "2026-05-31"
+          "end": "2026-05-31",
+          "screenings": [
+            {
+              "branch": "계양",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "광주금남로",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "대구수성",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "대전",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "동수원",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "동탄",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "상봉",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "송파",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "영등포",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "용인",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "일산",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "인천",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "천안",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "청주서문",
+              "hall": null,
+              "sessions": 1
+            },
+            {
+              "branch": "홍대",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": null,
+          "branches": [
+            "계양",
+            "광주금남로",
+            "대구수성",
+            "대전",
+            "동수원",
+            "동탄",
+            "상봉",
+            "송파",
+            "영등포",
+            "용인",
+            "인천",
+            "일산",
+            "천안",
+            "청주서문",
+            "홍대"
+          ]
         }
       ]
     },

@@ -135,9 +135,57 @@ SCREENINGS = {
     "202605147645": [
         {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
     ],
-    # 너바나 문상훈 무대인사 (5/26 용산 2회, 관 미명시)
+    # ── TOP10 stage 보강 (2026-05-26 LLM 포스터 판독) ──
+    # 너바나 박정민 GV (6/2 왕십리, 관 미명시)
+    "202605208155": [
+        {"branch": "왕십리", "hall": None, "sessions": 1},
+    ],
+    # 너바나 빠더너스 문상훈 무대인사 (5/24 18:40 용산 + 5/26 20:55 중랑 11관)
     "202605187949": [
-        {"branch": "용산아이파크몰", "hall": None, "sessions": 2},
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
+        {"branch": "중랑", "hall": "11관", "sessions": 1},
+    ],
+    # 너바나 빠더너스 문상훈 추가 무대인사 (6/2 청량리, 관 미명시)
+    "202605218057": [
+        {"branch": "청량리", "hall": None, "sessions": 1},
+    ],
+    # 뒷자리에 태워줘 천 개의 뒷자리 GV (5/28 용산, 천선란 작가·이학정 GV)
+    "202605218157": [
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
+    ],
+    # 와일드 씽 프리미어 시사회 (5/30~31, 전국 ~15개 극장, 관 미명시)
+    # 포스터 '진행 극장' 목록 기준 — 일부 지점명은 약어/오기 가능, 좌석DB 매칭 안되면 placeholder
+    "202605227960": [
+        {"branch": "계양", "hall": None, "sessions": 1},
+        {"branch": "광주금남로", "hall": None, "sessions": 1},
+        {"branch": "대구수성", "hall": None, "sessions": 1},
+        {"branch": "대전", "hall": None, "sessions": 1},
+        {"branch": "동수원", "hall": None, "sessions": 1},
+        {"branch": "동탄", "hall": None, "sessions": 1},
+        {"branch": "상봉", "hall": None, "sessions": 1},
+        {"branch": "송파", "hall": None, "sessions": 1},
+        {"branch": "영등포", "hall": None, "sessions": 1},
+        {"branch": "용인", "hall": None, "sessions": 1},
+        {"branch": "일산", "hall": None, "sessions": 1},
+        {"branch": "인천", "hall": None, "sessions": 1},
+        {"branch": "천안", "hall": None, "sessions": 1},
+        {"branch": "청주서문", "hall": None, "sessions": 1},
+        {"branch": "홍대", "hall": None, "sessions": 1},
+    ],
+    # 뒷자리 월간 레이 상영회 (5/29~31, 종로·인천·용산·서면·강남)
+    # ※ 분류는 etc 였지만 명백한 상영행사라 SCREENINGS 등록 = stage 강제 승격
+    "202605208156": [
+        {"branch": "종로", "hall": None, "sessions": 1},
+        {"branch": "인천", "hall": None, "sessions": 1},
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
+        {"branch": "서면", "hall": None, "sessions": 1},
+        {"branch": "강남", "hall": None, "sessions": 1},
+    ],
+    # 뒷자리 레이 브로마이드 상영회 (5/27~ 왕십리·용산, 관람 후 증정형)
+    # ※ 분류는 etc 였지만 상영회라 SCREENINGS 등록 = stage 강제 승격
+    "202605198151": [
+        {"branch": "왕십리", "hall": None, "sessions": 1},
+        {"branch": "용산아이파크몰", "hall": None, "sessions": 1},
     ],
 }
 
