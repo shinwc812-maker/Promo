@@ -117,19 +117,26 @@ python scripts/fetch_promotions_lotte.py
 넣는다. 정부지원·1+1 등 수량 없는 쿠폰은 미공개(None).
 - 수동 오버라이드(`COUPON_COUNTS`): 자동값이 틀릴 때만 EventID→발행수 지정.
 
-### (2) 무비싸다구 — SpeedMulti API 자동 수집
+### (2) 무비싸다구 — SpeedMulti API 자동 수집 (ID 자동 탐지)
 무비싸다구는 일반 이벤트 목록(GetEventLists)엔 안 잡히고 **전용 SpeedMulti 이벤트**
 (페이지 `NLCMW/Event/EventTemplateSpeedMulti?eventId=<ID>`)로만 노출된다. 발행수는
 `fetch_movie_sadagu()` 가 `GetSpeedEventDetailMulti` 메서드로 자동 수집한다:
-- 호출 파라미터 핵심: `MainEventID=<무비싸다구 이벤트 ID>`, `EventID=""`,
-  channelType `MW` · osType `M` (쿠키+Referer=해당 SpeedMulti 페이지)
+- **ID 자동 탐지(`discover_sadagu_ids()`)**: `GetEventSummaryLists`(채널 `MW`)에
+  무비싸다구가 `EventTypeCode='121'`(`EventTypeName='스피드형_멀티'`)로 뜬다.
+  여기서 얻은 ID 를 GetSpeedEventDetailMulti 에 넣으면 그 주 **전체** 배치(전 영화
+  쿠폰)가 와서, 한 건만 찾아도 전부 수집된다 → **배치 ID 가 매주 바뀌어도 수동
+  관리 불필요.** 요약 목록 미노출 대비 폴백 시드 `SADAGU_FALLBACK_IDS`
+  (상시 허브 MainEventID, 현재 `["201210016922014"]`)도 합쳐 조회·dedup.
+- 슬롯 주의: per-영화 sub-event ID 는 `EventID` 슬롯, 허브 ID 는 `MainEventID`
+  슬롯에서 동작 → `_speedmulti_detail()` 이 양쪽을 시도. channelType `MW`·osType `M`.
 - 응답 `SpeedEventDetail[].ItemGroup[]`(영화별).`Items[]`(쿠폰종류):
   `MovieNm`(제목·KOFIC코드 아님→제목 매칭) · `DisplayCouponName`(0=0원·2000=2,000원) ·
-  **`CpnUsableMaxCnt`=총 발행수** (예: 와일드 씽 0원 3,000·2,000원 3,000)
+  **`CpnUsableMaxCnt`=총 발행수** (예: 와일드 씽 0원 3,000·2,000원 3,000) ·
+  `ProgressStartDate/EndDate`(쿠폰 사용 기한)
 - booking TOP10 매칭 영화에 coupon 이벤트로 주입(eventId=`sadagu-<movieCd>-N`).
-  TOP10 밖 영화는 미반영.
-- **수량은 매 실행 자동 갱신.** 새 무비싸다구 배치가 뜨면 `SADAGU_EVENT_IDS` 에
-  그 이벤트 ID 만 추가/교체하면 된다(현재 `["201210016922014"]`).
+  TOP10 밖 영화는 미반영. **수량은 매 실행 자동 갱신.**
+- 타이밍 주의: 무비싸다구는 일배치(07:00) 때만 갱신 → 그 이후 롯데가 올린 건은
+  다음 배치 전까지 미반영(수동 재실행으로 즉시 반영 가능).
 
 ## 판매 단품 제외 → SALE_EVENTS
 가격표(원) 붙은 단품 판매(키링·쿠지·드링크)는 `SALE_EVENTS` 에 EventID 추가 →

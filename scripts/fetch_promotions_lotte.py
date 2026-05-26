@@ -60,9 +60,11 @@ COUPON_COUNTS = {}
 
 # 무비싸다구 (SpeedMulti 이벤트) — 영화별 쿠폰 발행수를 API 로 자동 수집한다.
 # 일반 이벤트 목록(GetEventLists)엔 안 잡히고 전용 메서드 GetSpeedEventDetailMulti
-# 로만 조회된다. 새 무비싸다구 배치가 뜨면 그 이벤트 ID 를 아래에 추가/교체.
+# 로만 조회된다. 이벤트 ID 는 매 실행 GetEventSummaryLists 로 자동 탐지하므로
+# (discover_sadagu_ids), 평소엔 이 목록을 손댈 필요가 없다. 아래는 요약 목록에
+# 무비싸다구가 노출 안 될 때를 대비한 폴백 시드(상시 무비싸다구 허브 MainEventID).
 # 페이지: https://www.lottecinema.co.kr/NLCMW/Event/EventTemplateSpeedMulti?eventId=<ID>
-SADAGU_EVENT_IDS = ["201210016922014"]
+SADAGU_FALLBACK_IDS = ["201210016922014"]
 
 # 쿠폰(무비싸다구 등) 본문의 '선착순 N명/매/장' 총 발행 수량 패턴
 _COUPON_QTY_PAT = re.compile(r"선착순\s*([\d,]+)\s*(?:명|매|장)")
@@ -76,23 +78,57 @@ def extract_coupon_issued(ev):
     return int(m.group(1).replace(",", "")) if m else None
 
 
-def fetch_movie_sadagu(opener):
-    """무비싸다구 SpeedMulti 이벤트에서 영화별 쿠폰 발행수를 수집.
+def discover_sadagu_ids(opener):
+    """무비싸다구(스피드형_멀티) 이벤트 ID 를 매 실행 라이브로 자동 탐지.
 
-    GetSpeedEventDetailMulti 응답 구조:
-      SpeedEventDetail[].ItemGroup[](영화별).Items[](쿠폰종류)
-        - MovieNm: 영화명 (KOFIC movieCd 아님 → 제목으로 매칭)
-        - DisplayCouponName: 할인액(0=0원쿠폰, 2000=2,000원쿠폰)
-        - CpnUsableMaxCnt: 총 발행수(매)
-        - ProgressStartDate/ProgressEndDate: 쿠폰 사용 기한('YYYY-MM-DD')
-    반환: {영화명: [(쿠폰명, 발행수, 시작일, 종료일), ...]}  (날짜는 'YYYY.MM.DD')
+    무비싸다구는 GetEventLists 엔 안 잡히지만 GetEventSummaryLists(채널 MW)에는
+    EventTypeCode '121'(EventTypeName '스피드형_멀티')로 노출된다. 여기서 얻은
+    ID 는 GetSpeedEventDetailMulti 에 넣으면 그 주 '전체' 배치(전 영화 쿠폰)를
+    돌려주므로, 한 건만 찾아도 전부 수집된다(요약 목록은 ~20건만 줘서 무비싸다구를
+    일부만 보여줄 수 있으나 상관없음). 따라서 배치 ID 가 매주 바뀌어도 손댈 필요 없음.
+
+    반환: 발견된 EventID 집합(str). 호출 실패·미노출이면 빈 집합.
     """
-    result = {}
-    for eid in SADAGU_EVENT_IDS:
-        page = ("https://www.lottecinema.co.kr/NLCMW/Event/"
-                f"EventTemplateSpeedMulti?eventId={eid}")
+    found = set()
+    param = {"MethodName": "GetEventSummaryLists", "channelType": "MW",
+             "osType": "M", "osVersion": UA, "MemberNo": "0", "CinemaID": "",
+             "SearchText": "", "PageNo": 1, "PageSize": 100,
+             "EventClassificationCode": ""}
+    boundary = "----LotteSadaguList"
+    body = (f"--{boundary}\r\n"
+            'Content-Disposition: form-data; name="paramList"\r\n\r\n'
+            f"{json.dumps(param, ensure_ascii=False)}\r\n"
+            f"--{boundary}--\r\n").encode("utf-8")
+    req = Request(API_URL, data=body, headers={
+        "Content-Type": f"multipart/form-data; boundary={boundary}",
+        "Referer": "https://www.lottecinema.co.kr/NLCMW/Event", "User-Agent": UA})
+    try:
+        with opener.open(req, timeout=20) as r:
+            doc = json.loads(r.read().decode("utf-8"))
+    except (HTTPError, URLError, json.JSONDecodeError):
+        return found
+    for it in doc.get("Items") or []:
+        name = it.get("EventName") or ""
+        if str(it.get("EventTypeCode")) == "121" or "무비싸다구" in name:
+            eid = str(it.get("EventID") or "").strip()
+            if eid:
+                found.add(eid)
+    return found
+
+
+def _speedmulti_detail(opener, eid):
+    """단일 ID 로 GetSpeedEventDetailMulti 호출 → SpeedEventDetail 리스트 반환.
+
+    per-영화 sub-event ID 는 EventID 슬롯에서, 상시 허브 ID 는 MainEventID 슬롯에서
+    동작한다(서로 슬롯이 다름). 양쪽을 차례로 시도해 데이터가 나오는 쪽을 쓴다.
+    어느 ID 든 응답엔 그 주 '전체' 무비싸다구 배치가 담겨 온다.
+    """
+    page = ("https://www.lottecinema.co.kr/NLCMW/Event/"
+            f"EventTemplateSpeedMulti?eventId={eid}")
+    for ev_slot, main_slot in ((eid, ""), ("", eid)):
         param = {"MethodName": "GetSpeedEventDetailMulti", "channelType": "MW",
-                 "osType": "M", "osVersion": UA, "EventID": "", "MainEventID": eid}
+                 "osType": "M", "osVersion": UA,
+                 "EventID": ev_slot, "MainEventID": main_slot}
         boundary = "----LotteSadagu"
         body = (f"--{boundary}\r\n"
                 'Content-Disposition: form-data; name="paramList"\r\n\r\n'
@@ -108,7 +144,32 @@ def fetch_movie_sadagu(opener):
             continue
         if str(doc.get("IsOK")).lower() != "true":
             continue
-        for detail in doc.get("SpeedEventDetail") or []:
+        sed = doc.get("SpeedEventDetail") or []
+        if sed:
+            return sed
+    return []
+
+
+def fetch_movie_sadagu(opener):
+    """무비싸다구 SpeedMulti 이벤트에서 영화별 쿠폰 발행수를 수집.
+
+    ID 자동 탐지(discover_sadagu_ids) + 폴백 시드(SADAGU_FALLBACK_IDS)를 합쳐
+    각각 조회하고, 영화·쿠폰을 (영화명, 쿠폰명, 시작, 종료) 키로 dedup 병합한다
+    (ID 마다 전체 배치가 와서 중복되므로). 응답 구조:
+      SpeedEventDetail[].ItemGroup[](영화별).Items[](쿠폰종류)
+        - MovieNm: 영화명 (KOFIC movieCd 아님 → 제목으로 매칭)
+        - DisplayCouponName: 할인액(0=0원쿠폰, 2000=2,000원쿠폰)
+        - CpnUsableMaxCnt: 총 발행수(매)
+        - ProgressStartDate/ProgressEndDate: 쿠폰 사용 기한('YYYY-MM-DD')
+    반환: ({영화명: [(쿠폰명, 발행수, 시작일, 종료일), ...]}, 자동탐지건수)
+          (날짜는 'YYYY.MM.DD')
+    """
+    discovered = discover_sadagu_ids(opener)
+    candidates = discovered | set(SADAGU_FALLBACK_IDS)
+    result = {}
+    seen = set()       # (영화명, 쿠폰명, 시작, 종료) — ID 간 중복 제거
+    for eid in candidates:
+        for detail in _speedmulti_detail(opener, eid):
             for grp in detail.get("ItemGroup") or []:
                 for it in grp.get("Items") or []:
                     name = (it.get("MovieNm") or "").strip()
@@ -124,8 +185,12 @@ def fetch_movie_sadagu(opener):
                     # 사용 기한: API 'YYYY-MM-DD' → 롯데 점 포맷('YYYY.MM.DD')으로 통일
                     start = (it.get("ProgressStartDate") or "").replace("-", ".")
                     end = (it.get("ProgressEndDate") or "").replace("-", ".")
+                    key = (name, label, start, end)
+                    if key in seen:
+                        continue
+                    seen.add(key)
                     result.setdefault(name, []).append((label, int(issued), start, end))
-    return result
+    return result, len(discovered)
 
 # 굿즈·특전 진행관수 (상세 포스터 '진행 극장' 목록 판독). 미등록은 '미공개'.
 # (광음특전처럼 특별관 보유 지점만 표기되고 목록 미명시면 dict 에서 제외 → 미공개)
@@ -418,8 +483,8 @@ def main():
                                        else (brackets[0] if brackets else None))
             unmatched.append(event_rec)
 
-    # 무비싸다구(SpeedMulti) 주입 — API 로 영화별 발행수 자동 수집 후 TOP10 매칭 주입
-    sadagu_data = fetch_movie_sadagu(opener)
+    # 무비싸다구(SpeedMulti) 주입 — ID 자동 탐지 후 영화별 발행수 수집, TOP10 매칭 주입
+    sadagu_data, sadagu_found = fetch_movie_sadagu(opener)
     sadagu_injected = 0
     for sad_title, coupons in sadagu_data.items():
         hit = match_movie(sad_title)
@@ -494,11 +559,14 @@ def main():
           f"기타 {type_counter['etc']}")
     sgu_cpn = sum(len(v) for v in sadagu_data.values())
     if sadagu_data:
-        print(f"  무비싸다구: API {len(sadagu_data)}편/{sgu_cpn}쿠폰 · "
-              f"TOP10 주입 {sadagu_injected}건")
+        print(f"  무비싸다구: ID 자동탐지 {sadagu_found}건 · API {len(sadagu_data)}편/"
+              f"{sgu_cpn}쿠폰 · TOP10 주입 {sadagu_injected}건")
+    elif sadagu_found:
+        print(f"  ⚠ 무비싸다구 ID {sadagu_found}건 탐지됐으나 쿠폰 수집 0건 "
+              f"(API 응답 구조 변경 가능)")
     else:
-        print(f"  ⚠ 무비싸다구 수집 0건 — SADAGU_EVENT_IDS({SADAGU_EVENT_IDS}) "
-              f"점검 필요 (이벤트 종료/ID 변경 가능)")
+        print(f"  ⚠ 무비싸다구 수집 0건 — 자동탐지 0건 + 폴백 시드"
+              f"({SADAGU_FALLBACK_IDS}) 도 빈 응답 (전부 종료/API 변경 가능)")
     print("  영화별 promoSeats:")
     for m in out["movies"]:
         if m["promoSeats"] > 0:
