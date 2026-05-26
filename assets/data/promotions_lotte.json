@@ -1,14 +1,14 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-26T07:00:09+09:00",
+  "fetchedAt": "2026-05-26T09:26:21+09:00",
   "movies": [
     {
       "movieCd": "20252402",
       "title": "군체",
       "matched": true,
       "counts": {
-        "coupon": 1,
+        "coupon": 2,
         "stage": 1,
         "goods": 1,
         "etc": 2
@@ -70,6 +70,15 @@
           ],
           "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/2c804f69b8134f56b38d177fa7f2eddd.jpg",
           "imagePath": "assets/data/lotte_images/401070016926149.jpg"
+        },
+        {
+          "eventId": "sadagu-20252402-1",
+          "name": "<군체> 무비싸다구 2,000원 쿠폰",
+          "type": "coupon",
+          "issued": 4000,
+          "start": "2026.05.27",
+          "end": "2026.06.02",
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
         }
       ]
     },
@@ -344,6 +353,38 @@
           "end": "2026.06.09"
         }
       ]
+    },
+    {
+      "movieCd": "20263512",
+      "title": "이상한 과자 가게 전천당",
+      "matched": true,
+      "counts": {
+        "coupon": 2,
+        "stage": 0,
+        "goods": 0,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "sadagu-20263512-1",
+          "name": "<이상한 과자 가게 전천당> 무비싸다구 0원 쿠폰",
+          "type": "coupon",
+          "issued": 1000,
+          "start": "2026.05.27",
+          "end": "2026.06.04",
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
+        },
+        {
+          "eventId": "sadagu-20263512-2",
+          "name": "<이상한 과자 가게 전천당> 무비싸다구 2,000원 쿠폰",
+          "type": "coupon",
+          "issued": 2000,
+          "start": "2026.05.27",
+          "end": "2026.06.04",
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
+        }
+      ]
     }
   ],
   "unmatched": [
@@ -610,6 +651,14 @@
       "start": "2026.05.27",
       "end": "2026.06.02",
       "movieName": "로메리아"
+    },
+    {
+      "eventId": "201010016926416",
+      "name": "<이프 온리>3주차",
+      "type": "etc",
+      "start": "2026.05.27",
+      "end": "2026.06.02",
+      "movieName": "이프 온리"
     },
     {
       "eventId": "201010016926404",
