@@ -1,5 +1,48 @@
 {
-  "fetchedAt": "2026-05-26T20:51:32+09:00",
-  "source": "CGV booking API auto-scan",
-  "events": {}
+  "fetchedAt": "2026-05-26T21:36:02+09:00",
+  "source": "CGV booking API auto-scan (searchSchByMov)",
+  "events": {
+    "202605218157": [],
+    "202605147645": [],
+    "202605208155": [],
+    "202605227960": [
+      {
+        "branch": "홍대",
+        "hall": "4관",
+        "sessions": 1,
+        "seats": 134
+      },
+      {
+        "branch": "동수원",
+        "hall": "3관",
+        "sessions": 1,
+        "seats": 130
+      },
+      {
+        "branch": "소풍",
+        "hall": "2관",
+        "sessions": 1,
+        "seats": 110
+      },
+      {
+        "branch": "의정부",
+        "hall": "4관",
+        "sessions": 1,
+        "seats": 154
+      },
+      {
+        "branch": "의정부",
+        "hall": "6관",
+        "sessions": 1,
+        "seats": 152
+      },
+      {
+        "branch": "일산",
+        "hall": "6관",
+        "sessions": 1,
+        "seats": 97
+      }
+    ],
+    "202605218057": []
+  }
 }
