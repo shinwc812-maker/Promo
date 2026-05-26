@@ -11,8 +11,11 @@ run_daily.py
   4. fetch_promotions_megabox.py  ~1분  (HTML scrape + 이미지 다운로드)
   5. fetch_promotions_cineq.py    ~2분  (HTML scrape + 이미지 다운로드, 페이징 ~450건)
   6. fetch_cgv_images.py    ~20분 (Selenium + CDP, sub-sub-tab 순회)
-  7. build_promotions_cgv.py      ~5초  (CGV _pending.json 조립)
-  8. extract_backdata.py    ~1초  (4사+박스오피스+예매율 조인 → 마스터 CSV 누적)
+  7. fetch_cgv_booking.py   ~5~30분 (Selenium + fetch hook; 프리미어/GV/무대인사
+                                     회차 자동검출. TOP10 영화 × 신규 stage
+                                     이벤트만 스캔, region 제한으로 시간 조절)
+  8. build_promotions_cgv.py      ~5초  (CGV _pending.json + auto JSON 조립)
+  9. extract_backdata.py    ~1초  (4사+박스오피스+예매율 조인 → 마스터 CSV 누적)
 
 산출물:
   - assets/data/daily_log/{YYYY-MM-DD}.json : 실행 결과 + 신규 stage 이벤트 리스트
@@ -48,6 +51,7 @@ STEPS = [
     ("MEGABOX",   ["scripts/fetch_promotions_megabox.py"]),
     ("CINEQ",     ["scripts/fetch_promotions_cineq.py"]),
     ("CGV-IMG",   ["scripts/fetch_cgv_images.py"]),
+    ("CGV-BOOK",  ["scripts/fetch_cgv_booking.py"]),
     ("CGV-BUILD", ["scripts/build_promotions_cgv.py"]),
     ("EXTRACT",   ["scripts/extract_backdata.py"]),
 ]

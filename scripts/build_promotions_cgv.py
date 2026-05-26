@@ -29,6 +29,7 @@ DATA_DIR = ROOT / "assets" / "data"
 PENDING_FILE = DATA_DIR / "cgv_images" / "_pending.json"
 SEATS_FILE = DATA_DIR / "theater_seats_cgv.json"
 BOOKING_FILE = DATA_DIR / "booking.json"
+AUTO_SCREENINGS_FILE = DATA_DIR / "cgv_auto_screenings.json"
 OUT_FILE = DATA_DIR / "promotions_cgv.json"
 
 # 관명은 있으나 좌석 데이터에서 못 찾을 때의 폴백 좌석수 (CGV 일반관 평균).
@@ -335,6 +336,17 @@ def main():
 
     title_map = build_title_map()
     seat_map = build_seat_map()
+    # 자동검출 SCREENINGS (fetch_cgv_booking.py 결과). 수동 SCREENINGS 가 있으면
+    # 수동 우선 — auto 는 부킹 API 가 못 잡는 케이스(특수관·미공개 시사회 등)에서
+    # 수동 보강 필요해서.
+    auto_screenings = {}
+    if AUTO_SCREENINGS_FILE.exists():
+        try:
+            auto_screenings = json.loads(
+                AUTO_SCREENINGS_FILE.read_text(encoding="utf-8")
+            ).get("events") or {}
+        except (json.JSONDecodeError, OSError):
+            auto_screenings = {}
 
     def match_movie(name):
         norm = norm_title(name)
@@ -358,8 +370,8 @@ def main():
         if eid in SALE_EVENTS:        # 판매 단품 — 대시보드·집계 제외
             continue
         ptype = classify(name)
-        # SCREENINGS 에 있으면 무조건 stage 로 강제 (시사회/GV/무대인사)
-        if eid in SCREENINGS:
+        # SCREENINGS 에 있거나 auto 자동검출 결과가 있으면 무조건 stage 로 강제
+        if eid in SCREENINGS or auto_screenings.get(eid):
             ptype = "stage"
         start = ev.get("start", "")
         end = ev.get("end") or ""
@@ -378,14 +390,16 @@ def main():
             "start": start,
             "end": end,
         }
-        if eid in SCREENINGS:
-            screenings = SCREENINGS[eid]
+        # 수동 SCREENINGS 우선, 없으면 자동검출 결과 사용
+        screenings = SCREENINGS.get(eid) or auto_screenings.get(eid)
+        if screenings:
             seats, has_ph = compute_seats(screenings, seat_map)
             event_rec["screenings"] = screenings
             event_rec["seats"] = seats
             if has_ph:
                 event_rec["seatsEstimated"] = True
-            # 지점 목록(중복 제거)
+            if eid not in SCREENINGS and auto_screenings.get(eid):
+                event_rec["autoDetected"] = True
             event_rec["branches"] = sorted({s["branch"] for s in screenings})
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
