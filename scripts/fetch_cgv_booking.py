@@ -55,10 +55,11 @@ BOOK_PAGE = "https://cgv.co.kr/cnm/movieBook/movie"
 STAGE_TAGS = ("프리미어", "GV", "무대인사", "시사회", "관객과의대화")
 
 # 자동검출 대상 region 코드 — searchAllRegionAndSite 응답 regionInfo 에서
-# 01=서울 02=경기 03=인천 05=대전/충청 06=대구 07=부산/울산 09=광주/전라/제주.
-# 04=강원 08=경상 은 시사회·GV 거의 없어 일일 배치 시간 절약 위해 제외.
-# 누락 의심되면 여기에 추가.
-TARGET_REGIONS = {"01", "02", "03", "05", "06", "07", "09"}
+# 01=서울 02=경기 03=인천 04=강원 05=대전/충청 06=대구 07=부산/울산
+# 08=경상 09=광주/전라/제주. 시사회·GV·무대인사가 거의 수도권 메이저관에서
+# 열려 일일 배치 시간 절약 위해 01·02·03 만. 누락 사이트가 의심되면 region
+# 추가(전국 = ~130곳, 수도권만 = ~80곳, 사이트당 nav 약 2.5초).
+TARGET_REGIONS = {"01", "02", "03"}
 
 # 페이지 로드 후 schByMov 호출까지 대기 시간(초). 너무 짧으면 응답 누락,
 # 너무 길면 배치 시간 폭증. 헤드리스 Chrome 에서 2.5초가 안정 마지노선.
@@ -265,16 +266,19 @@ def aggregate(rows, subtag):
 
 
 def _load_manual_screening_ids():
-    """build_promotions_cgv.SCREENINGS 의 키 집합 — 자동검출에서 스킵용.
+    """좌석 매칭된 수동 SCREENINGS eid 만 skip.
 
-    수동 SCREENINGS 가 있는 이벤트는 build 가 그쪽을 우선쓰므로 auto-scan 낭비.
+    수동 SCREENINGS 인데 모든 회차가 hall=None(좌석 미공개)이면 자동검출 시도해
+    좌석을 채울 가치가 있음. 적어도 한 회차라도 hall 명시(좌석 매칭)된 eid 는
+    이미 안정된 데이터로 보고 자동검출 스킵(시간 절약).
     """
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     try:
         from build_promotions_cgv import SCREENINGS as MAN
-        return set(MAN.keys())
     except Exception:
         return set()
+    return {eid for eid, scrs in MAN.items()
+            if any(s.get("hall") for s in (scrs or []))}
 
 
 def main():

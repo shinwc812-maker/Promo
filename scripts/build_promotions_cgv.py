@@ -390,16 +390,23 @@ def main():
             "start": start,
             "end": end,
         }
-        # 수동 SCREENINGS 우선, 없으면 자동검출 결과 사용
-        screenings = SCREENINGS.get(eid) or auto_screenings.get(eid)
+        # auto 가 좌석 매칭(sum>0) 했으면 auto 우선 — 부킹 API 가 hall·좌석을 직접
+        # 알려주므로 manual hall=None(미공개) 보다 정확. auto 가 0좌석이거나 없으면
+        # manual 사용.
+        manual_scr = SCREENINGS.get(eid)
+        auto_scr = auto_screenings.get(eid)
+        auto_seat_sum = sum((s.get("seats") or 0) for s in (auto_scr or []))
+        if auto_scr and auto_seat_sum > 0:
+            screenings = auto_scr
+            event_rec["autoDetected"] = True
+        else:
+            screenings = manual_scr or auto_scr
         if screenings:
             seats, has_ph = compute_seats(screenings, seat_map)
             event_rec["screenings"] = screenings
             event_rec["seats"] = seats
             if has_ph:
                 event_rec["seatsEstimated"] = True
-            if eid not in SCREENINGS and auto_screenings.get(eid):
-                event_rec["autoDetected"] = True
             event_rec["branches"] = sorted({s["branch"] for s in screenings})
         if ptype == "goods" and eid in GOODS_THEATERS:
             event_rec["theaters"] = GOODS_THEATERS[eid]
