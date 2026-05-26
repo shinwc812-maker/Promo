@@ -46,7 +46,16 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 EVENT_PAGE = "https://www.lottecinema.co.kr/NLCHS/Event"
 API_URL = "https://www.lottecinema.co.kr/LCWS/Event/EventData.aspx"
+TICKETING_PAGE = "https://www.lottecinema.co.kr/NLCHS/Ticketing"
+TICKETING_API = "https://www.lottecinema.co.kr/LCWS/Ticketing/TicketingData.aspx"
 CLASS_CODES = ["10", "20", "40"]   # 수집 대상 EventClassificationCode
+
+# stage 회차(시사회·무대인사·GV) 마커. 부킹 API 응답 AccompanyTypeCode/NameKR 분포:
+#   10=일반 · 30=무대인사 · 40=GV시사회 · 70=4K · 230=스페셜상영회 ·
+#   330=얼터콘텐츠 · 700=유료상영회(프리미어 시사회)
+# 응모형 시사회처럼 GetStageGreetingEventDetailTOBE 의 Items 가 비어 있을 때
+# 부킹 API 회차로 보강. 일반 상영(10)·4K(70)·얼터콘텐츠(330)는 제외.
+PREMIERE_ACCOMPANY_CODES = {30, 40, 230, 700}
 
 # 관 매칭 실패 시 사용할 기본 좌석수 (롯데 일반관 평균)
 DEFAULT_HALL_SEATS = 150
@@ -295,6 +304,150 @@ def build_seat_map():
     return out
 
 
+def _ticketing_call(opener, param):
+    """부킹 API(LCWS/Ticketing/TicketingData.aspx) 호출 헬퍼."""
+    boundary = "----LottePlay"
+    body = (f"--{boundary}\r\n"
+            'Content-Disposition: form-data; name="paramList"\r\n\r\n'
+            f"{json.dumps(param, ensure_ascii=False)}\r\n"
+            f"--{boundary}--\r\n").encode("utf-8")
+    req = Request(TICKETING_API, data=body, headers={
+        "Content-Type": f"multipart/form-data; boundary={boundary}",
+        "Referer": TICKETING_PAGE, "User-Agent": UA})
+    try:
+        with opener.open(req, timeout=20) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except (HTTPError, URLError, json.JSONDecodeError):
+        return None
+
+
+_LOTTE_CINEMAS_CACHE = []  # 스크립트 실행 1회만 가져옴
+
+
+def _fetch_lotte_cinemas(opener):
+    """롯데 지점 목록 (DivisionCode=1만; =2 는 샤롯데시네마 브랜드 중복)."""
+    if _LOTTE_CINEMAS_CACHE:
+        return _LOTTE_CINEMAS_CACHE
+    r = _ticketing_call(opener, {
+        "MethodName": "GetTicketingPageTOBE", "channelType": "HO",
+        "osType": "PC", "osVersion": UA, "memberOnNo": "0"})
+    if not r or str(r.get("IsOK")).lower() != "true":
+        return []
+    items = (((r.get("Cinemas") or {}).get("Cinemas") or {}).get("Items")) or []
+    _LOTTE_CINEMAS_CACHE.extend(c for c in items if c.get("DivisionCode") == 1)
+    return _LOTTE_CINEMAS_CACHE
+
+
+def _find_rep_code(opener, cinemas, date_str, movie_title):
+    """플래그십 지점에서 영화 RepresentationMovieCode 발견.
+
+    같은 영화의 rep code 는 전 지점 공통이므로 한 곳만 맞으면 됨.
+    """
+    norm_target = norm_title(movie_title)
+    if not norm_target:
+        return None
+    # 플래그십 우선 — 월드타워(1016)·건대입구(1004)·부산본점(2004)·동성로(5005)
+    flagship_ids = {1016, 1004, 2004, 5005}
+    flagships = [c for c in cinemas if c.get("CinemaID") in flagship_ids]
+    candidates = flagships + [c for c in cinemas
+                              if c.get("CinemaID") not in flagship_ids]
+    for c in candidates:
+        cid = f'{c["DivisionCode"]}|{c["DetailDivisionCode"]}|{c["CinemaID"]}'
+        ps = _ticketing_call(opener, {
+            "MethodName": "GetPlaySequence", "channelType": "HO",
+            "osType": "PC", "osVersion": UA,
+            "playDate": date_str, "cinemaID": cid,
+            "representationMovieCode": ""})
+        if not ps or str(ps.get("IsOK")).lower() != "true":
+            continue
+        for h in (ps.get("PlaySeqsHeader") or {}).get("Items") or []:
+            ht = norm_title(h.get("MovieNameKR") or "")
+            if ht and (ht == norm_target
+                       or norm_target in ht or ht in norm_target):
+                return h.get("RepresentationMovieCode") or h.get("MovieCode")
+    return None
+
+
+def fetch_premiere_screenings(opener, movie_title, start_date, end_date, today):
+    """부킹 API 로 유료상영회(프리미어 시사회) 회차를 전 지점 × 날짜 범위 스캔.
+
+    `GetStageGreetingEventDetailTOBE` 가 Items=[] 를 내릴 때 부르는 폴백.
+    응답의 AccompanyTypeCode ∈ PREMIERE_ACCOMPANY_CODES(=30 무대인사 · 40
+    GV시사회 · 230 스페셜상영회 · 700 유료상영회) 회차만 추린다.
+
+    인자: 날짜는 'YYYY.MM.DD'(롯데 포맷). 반환: PlaySeqs 원본 행 리스트.
+    """
+    try:
+        sd = datetime.strptime(start_date, "%Y.%m.%d").date()
+        ed = datetime.strptime(end_date, "%Y.%m.%d").date()
+        td = datetime.strptime(today, "%Y.%m.%d").date()
+    except ValueError:
+        return []
+    if ed < td:
+        return []
+    sd = max(sd, td)
+    dates = [(sd + timedelta(days=i)).strftime("%Y-%m-%d")
+             for i in range((ed - sd).days + 1)]
+    cinemas = _fetch_lotte_cinemas(opener)
+    if not cinemas:
+        return []
+    # 영화가 모든 날짜에 상영되진 않으므로(특히 시사회 1~2일짜리), 날짜 범위
+    # 안 여러 후보로 rep_code 시도. 마지막 날 → 중간 → 첫 날 순서.
+    rep_code = None
+    seen_dates = []
+    for probe_date in dict.fromkeys([dates[-1],
+                                     dates[len(dates) // 2], dates[0]]):
+        seen_dates.append(probe_date)
+        rep_code = _find_rep_code(opener, cinemas, probe_date, movie_title)
+        if rep_code:
+            break
+    if not rep_code:
+        return []
+    rows = []
+    for d in dates:
+        for c in cinemas:
+            cid = f'{c["DivisionCode"]}|{c["DetailDivisionCode"]}|{c["CinemaID"]}'
+            ps = _ticketing_call(opener, {
+                "MethodName": "GetPlaySequence", "channelType": "HO",
+                "osType": "PC", "osVersion": UA,
+                "playDate": d, "cinemaID": cid,
+                "representationMovieCode": rep_code})
+            if not ps or str(ps.get("IsOK")).lower() != "true":
+                continue
+            for s in (ps.get("PlaySeqs") or {}).get("Items") or []:
+                if s.get("AccompanyTypeCode") in PREMIERE_ACCOMPANY_CODES:
+                    rows.append(s)
+    return rows
+
+
+def aggregate_premiere_screenings(rows):
+    """유료상영회 PlaySeqs 행을 screenings 형식으로 압축.
+
+    좌석수는 부킹 API 의 TotalSeatCount(=실제 관 좌석)를 그대로 사용.
+    """
+    bucket = {}
+    movie_titles = set()
+    for r in rows:
+        cinema = (r.get("CinemaNameKR") or "").strip()
+        screen = (r.get("ScreenNameKR") or r.get("BrandNm_KR") or "").strip()
+        movie = (r.get("MovieNameKR") or "").strip()
+        if movie:
+            movie_titles.add(movie)
+        if not cinema or not screen:
+            continue
+        seats_per = r.get("TotalSeatCount") or 0
+        key = (cinema, screen)
+        bucket.setdefault(key, {"sessions": 0, "seats": 0})
+        bucket[key]["sessions"] += 1
+        bucket[key]["seats"] += seats_per
+    screenings = [
+        {"branch": c, "hall": s,
+         "sessions": v["sessions"], "seats": v["seats"]}
+        for (c, s), v in bucket.items()
+    ]
+    return screenings, sum(s["seats"] for s in screenings), sorted(movie_titles)
+
+
 def fetch_stage_detail(opener, event_id):
     """단일 이벤트 상세 호출 — 회차별 일정(지점·관·시간) + 큰 포스터 ImgUrl 반환.
 
@@ -406,6 +559,7 @@ def main():
     type_counter = {"coupon": 0, "stage": 0, "goods": 0, "etc": 0}
 
     images_downloaded = 0
+    premiere_fallback_hits = 0
     for ev in events:
         event_id = ev.get("EventID")
         if str(event_id) in SALE_EVENTS:   # 판매 단품 — 대시보드·집계 제외
@@ -438,6 +592,21 @@ def main():
             if detail:
                 screenings, total_seats, stage_movie_titles = (
                     aggregate_screenings(detail["items"], seat_map))
+                # 유료상영회(프리미어 시사회) 폴백 — Items 가 빈 시사회는
+                # 부킹 API 의 AccompanyTypeCode=700 회차로 회차/좌석 보강.
+                if not screenings:
+                    brackets = [b.strip() for b in re.findall(r"<([^<>]+)>", name)]
+                    cand_title = next(
+                        (b for b in brackets if b not in ("전체", "")), None)
+                    if cand_title and event_rec["start"] and event_rec["end"]:
+                        p_rows = fetch_premiere_screenings(
+                            opener, cand_title,
+                            event_rec["start"], event_rec["end"], today)
+                        if p_rows:
+                            screenings, total_seats, stage_movie_titles = (
+                                aggregate_premiere_screenings(p_rows))
+                            event_rec["premiereDetected"] = True
+                            premiere_fallback_hits += 1
                 if screenings:
                     event_rec["screenings"] = screenings
                     event_rec["seats"] = total_seats
@@ -557,6 +726,9 @@ def main():
     print(f"  타입 분포: 쿠폰 {type_counter['coupon']} · "
           f"무대인사 {type_counter['stage']} · 굿즈 {type_counter['goods']} · "
           f"기타 {type_counter['etc']}")
+    if premiere_fallback_hits:
+        print(f"  stage 회차 폴백: {premiere_fallback_hits}건 보강 "
+              f"(부킹 API · AccompanyType 30·40·230·700)")
     sgu_cpn = sum(len(v) for v in sadagu_data.values())
     if sadagu_data:
         print(f"  무비싸다구: ID 자동탐지 {sadagu_found}건 · API {len(sadagu_data)}편/"

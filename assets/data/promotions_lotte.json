@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-26T10:13:56+09:00",
+  "fetchedAt": "2026-05-26T16:07:13+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -10,7 +10,7 @@
       "counts": {
         "coupon": 2,
         "stage": 1,
-        "goods": 1,
+        "goods": 2,
         "etc": 2
       },
       "promoSeats": 1220,
@@ -21,6 +21,13 @@
           "type": "etc",
           "start": "2026.04.24",
           "end": "2026.09.30"
+        },
+        {
+          "eventId": "201010016926417",
+          "name": "<군체>2주차 증정",
+          "type": "goods",
+          "start": "2026.05.27",
+          "end": "2026.06.02"
         },
         {
           "eventId": "201110014726017",
@@ -92,7 +99,7 @@
         "goods": 1,
         "etc": 0
       },
-      "promoSeats": 150,
+      "promoSeats": 158,
       "events": [
         {
           "eventId": "201010016926412",
@@ -114,15 +121,16 @@
           "type": "stage",
           "start": "2026.05.28",
           "end": "2026.05.28",
+          "premiereDetected": true,
           "screenings": [
             {
               "branch": "월드타워",
-              "hall": "3관 cineBiz",
+              "hall": "3관",
               "sessions": 1,
-              "seats": 150
+              "seats": 158
             }
           ],
-          "seats": 150,
+          "seats": 158,
           "branches": [
             "월드타워"
           ],
@@ -159,7 +167,7 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 5839,
+      "promoSeats": 10695,
       "events": [
         {
           "eventId": "201010014726039",
@@ -174,7 +182,130 @@
           "type": "stage",
           "start": "2026.05.20",
           "end": "2026.05.31",
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/6478e565ffbb4739a7f25da5abc86d7f.jpg",
+          "premiereDetected": true,
+          "screenings": [
+            {
+              "branch": "건대입구",
+              "hall": "1관",
+              "sessions": 2,
+              "seats": 416
+            },
+            {
+              "branch": "김포공항",
+              "hall": "5관",
+              "sessions": 2,
+              "seats": 384
+            },
+            {
+              "branch": "노원",
+              "hall": "1관",
+              "sessions": 2,
+              "seats": 204
+            },
+            {
+              "branch": "도곡",
+              "hall": "2관",
+              "sessions": 2,
+              "seats": 228
+            },
+            {
+              "branch": "신림",
+              "hall": "3관",
+              "sessions": 2,
+              "seats": 220
+            },
+            {
+              "branch": "영등포",
+              "hall": "4관",
+              "sessions": 2,
+              "seats": 262
+            },
+            {
+              "branch": "월드타워",
+              "hall": "8관",
+              "sessions": 2,
+              "seats": 612
+            },
+            {
+              "branch": "월드타워",
+              "hall": "10관",
+              "sessions": 1,
+              "seats": 218
+            },
+            {
+              "branch": "은평(롯데몰)",
+              "hall": "6관",
+              "sessions": 2,
+              "seats": 232
+            },
+            {
+              "branch": "청량리",
+              "hall": "2관",
+              "sessions": 2,
+              "seats": 416
+            },
+            {
+              "branch": "수원(수원역)",
+              "hall": "4관",
+              "sessions": 2,
+              "seats": 264
+            },
+            {
+              "branch": "수지",
+              "hall": "6관",
+              "sessions": 2,
+              "seats": 322
+            },
+            {
+              "branch": "평촌(범계역)",
+              "hall": "1관",
+              "sessions": 2,
+              "seats": 282
+            },
+            {
+              "branch": "대전센트럴",
+              "hall": "6관",
+              "sessions": 2,
+              "seats": 218
+            },
+            {
+              "branch": "동성로",
+              "hall": "2관",
+              "sessions": 2,
+              "seats": 164
+            },
+            {
+              "branch": "부산본점",
+              "hall": "9관",
+              "sessions": 2,
+              "seats": 254
+            },
+            {
+              "branch": "월드타워",
+              "hall": "18관",
+              "sessions": 1,
+              "seats": 160
+            }
+          ],
+          "seats": 4856,
+          "branches": [
+            "건대입구",
+            "김포공항",
+            "노원",
+            "대전센트럴",
+            "도곡",
+            "동성로",
+            "부산본점",
+            "수원(수원역)",
+            "수지",
+            "신림",
+            "영등포",
+            "월드타워",
+            "은평(롯데몰)",
+            "청량리",
+            "평촌(범계역)"
+          ],
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/4e2ff26c8fa246eb969d163ff57f31e2.jpg",
           "imagePath": "assets/data/lotte_images/201110016926002.jpg"
         },
         {
@@ -635,6 +766,14 @@
       "start": "2026.06.04",
       "end": "2026.06.23",
       "movieName": "노트북"
+    },
+    {
+      "eventId": "201010050326015",
+      "name": "<엔조> 경기인디시네마 스페셜 포스터 증정",
+      "type": "goods",
+      "start": "2026.06.01",
+      "end": "2026.06.15",
+      "movieName": "엔조"
     },
     {
       "eventId": "201010016926413",

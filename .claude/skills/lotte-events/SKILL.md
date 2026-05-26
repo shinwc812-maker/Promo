@@ -61,6 +61,32 @@ paramList: {
 
 무대인사(107) · 시사회(108) 모두 같은 method 사용. 응모형 시사회는 Items 가 비어있을 수 있음(회차 미정).
 
+### GetPlaySequence (부킹 회차) ← **프리미어 시사회 폴백**
+응모형/유료 시사회는 위 method 가 Items=[] 로 비어 와서 회차·좌석을 못 채운다.
+이때 부킹 API 로 회차를 보강한다:
+```
+POST https://www.lottecinema.co.kr/LCWS/Ticketing/TicketingData.aspx
+paramList: {
+  "MethodName": "GetPlaySequence",
+  "playDate": "2026-05-30",
+  "cinemaID": "1|0001|1004",                  // DivisionCode|DetailDivisionCode|CinemaID
+  "representationMovieCode": "24235", ...
+}
+```
+응답 `PlaySeqs.Items[]` 의 각 회차에 `AccompanyTypeCode` · `AccompanyTypeNameKR` 가
+있다:
+- `10` / `"일반"` — 일반 상영
+- `70` / `"4K"` — 4K 상영(일반)
+- **`30` / `"무대인사"` — 무대인사 회차 ← 폴백 수집**
+- **`40` / `"GV시사회"` — GV·시사회 ← 폴백 수집**
+- **`230` / `"스페셜상영회"` — 스페셜 상영 ← 폴백 수집**
+- **`700` / `"유료상영회"` — 프리미어 시사회 ← 폴백 수집**
+- `330` / `"얼터콘텐츠"` — 콘서트/공연 상영(폴백 미수집)
+
+`TotalSeatCount` 는 그 관 실좌석수(이미 예매된 좌석 포함). `BookingSeatCount` 는
+예매된 좌석. promoSeats 합산엔 TotalSeatCount 사용(theater_seats_lotte 룩업
+대신 API 가 곧장 알려주므로 별 보정 불필요).
+
 ## 절차 — 한 번에 끝남
 
 ```bash
@@ -72,7 +98,12 @@ python scripts/fetch_promotions_lotte.py
 2. 30일 이상 지난 이벤트 cutoff 제외
 3. 분류 (coupon/stage/goods/etc) — 이벤트명 키워드 + ECC 코드 결합
 4. **stage 이벤트마다 `GetStageGreetingEventDetailTOBE` 추가 호출** → Items 에서 회차 추출
+   - Items 가 비어 있고 이벤트명이 `<영화명>` 을 포함하면 **부킹 API 폴백**
+     (`fetch_premiere_screenings` → 이벤트 기간 × 전 지점 `GetPlaySequence`
+     스캔, `AccompanyTypeCode=700`=유료상영회 회차만 추림). 결과는 `event_rec`
+     에 `premiereDetected: true` 마킹과 함께 일반 stage 회차와 동일 형태로 저장.
 5. `theater_seats_lotte.json` (61지점, placeholder 없는 진짜 데이터) 조회 → 회차×관좌석 합산
+   (폴백 회차는 부킹 API 의 `TotalSeatCount` 를 그대로 사용 — 룩업 불필요)
 6. `ImgUrl` 큰 포스터를 `assets/data/lotte_images/{EventID}.jpg` 에 다운로드 (이미 있으면 skip)
 7. 영화 매칭: **Items[].MovieNameKR 우선**(가장 정확), 다음 이벤트명 `<영화명>` 파싱 — 모두 booking.json TOP 10 한정
 8. `promotions_lotte.json` 저장 — `events[].screenings[]`, `events[].seats`, `movies[].promoSeats`
@@ -155,7 +186,15 @@ python scripts/fetch_promotions_lotte.py
 - multipart form-data 로 `paramList` 전송 (JSON 그대로 일 때 정상)
 - `MethodName` 오타 시 `요청하신 서비스명이 존재하지 않습니다` — 정확히 `GetStageGreetingEventDetailTOBE`
 - 영화명은 **MovieNameKR** 가 정답. `<영화명>` 이벤트명 파싱은 fallback (오기·생략 가능)
-- 시사회(EventTypeCode=108) 일부는 Items 비어있음 → seats=0 으로 저장 (등록만)
+- 시사회(EventTypeCode=108) Items 가 비면 부킹 API 의 `AccompanyTypeCode=700`
+  유료상영회 회차로 자동 보강. 폴백 실패(=영화가 부킹 페이지에 미노출 등) 시엔
+  여전히 seats=0 으로 저장(등록만).
+- 부킹 API 파라미터는 **camelCase**(`playDate`/`cinemaID`/`representationMovieCode`).
+  CinemaID 포맷은 `DivisionCode|DetailDivisionCode|CinemaID` (예: `1|0001|1004` =건대입구).
+  DivisionCode=2 는 샤롯데시네마 브랜드로 1 의 중복이므로 제외.
+- `_find_rep_code` 는 RepresentationMovieCode 발견용으로 마지막 날→중간→첫 날
+  순서로 후보 날짜를 돌린다. 영화가 모든 날짜에 상영 안 되는 시사회 케이스
+  (예: 5/20~5/31 이벤트지만 5/30~31 만 회차) 대응.
 - 무대인사·시사회는 API 자동, **굿즈만 EventTemplateInfo 포스터 판독** (booking TOP 10 매칭 굿즈 한정)
 
 ## 디버깅
