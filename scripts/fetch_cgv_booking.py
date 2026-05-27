@@ -352,6 +352,19 @@ def main():
         print(f"\nCGV 영화 코드 {len(mv_codes)}편 · 후보 사이트 {len(sites)}곳 "
               f"(region {sorted(TARGET_REGIONS)})")
 
+        # 이전 결과 로드 — 시점별 부킹 매진/숨김으로 잡히던 회차가 사라지면
+        # 좌석 합이 줄어드는 회귀가 생긴다. 동일 (evntNo, branch, hall)의
+        # max(sessions, seats) 를 보존해 한 번이라도 잡힌 회차는 누적 유지.
+        # evntNo 가 종료된 이벤트는 build 가 endedEvents 로 보내며 모달에서만
+        # 표시하므로 stale 데이터로 인한 집계 오염 없음.
+        prev_events = {}
+        if OUT_FILE.exists():
+            try:
+                prev_events = (json.loads(OUT_FILE.read_text(encoding="utf-8"))
+                               .get("events") or {})
+            except (json.JSONDecodeError, OSError):
+                prev_events = {}
+
         results = {}
         nav_cache = {}      # (mov_no, site_no, ymd) → rows
         for t in targets:
@@ -377,10 +390,38 @@ def main():
             print(f"     {elapsed:.0f}초 · nav {nav_done} · 행 {len(rows)} → "
                   f"슬롯 {len(screenings)} · 좌석 {total_seats}")
 
+        # 신규 + 이전 union — 같은 (evntNo, branch, hall) 의 max 보존.
+        merged = {}
+        carried = 0
+        for src in (prev_events, results):
+            for eid, scrs in (src or {}).items():
+                target = merged.setdefault(eid, {})
+                for s in scrs or []:
+                    key = (s.get("branch"), s.get("hall"))
+                    if not key[0] or not key[1]:
+                        continue
+                    cur = target.get(key)
+                    cur_seats = (cur or {}).get("seats") or 0
+                    new_seats = s.get("seats") or 0
+                    cur_sess = (cur or {}).get("sessions") or 0
+                    new_sess = s.get("sessions") or 0
+                    if not cur or new_sess > cur_sess or new_seats > cur_seats:
+                        target[key] = s
+        events_out = {}
+        for eid, scrs_d in merged.items():
+            scrs = list(scrs_d.values())
+            events_out[eid] = scrs
+            # 이번 results 에 없던 슬롯이면 prev 에서 이월된 것
+            new_keys = {(s.get("branch"), s.get("hall"))
+                        for s in (results.get(eid) or [])}
+            carried += sum(1 for s in scrs
+                           if (s.get("branch"), s.get("hall")) not in new_keys)
+        if carried:
+            print(f"\n  이전 결과에서 이월 {carried}슬롯 (부킹에서 사라진 회차 보존)")
         out = {
             "fetchedAt": datetime.now(KST).isoformat(timespec="seconds"),
-            "source": "CGV booking API auto-scan (searchSchByMov)",
-            "events": results,
+            "source": "CGV booking API auto-scan (searchSchByMov, union with prev)",
+            "events": events_out,
         }
         OUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2),
                             encoding="utf-8")
