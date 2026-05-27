@@ -416,6 +416,22 @@ async function loadChainData(jsonPath) {
 // 예매율 TOP 10 × 4사(롯데·메가박스·CGV·씨네큐) 프로모션 수치 합계.
 // 무대인사·시사회·GV = 좌석수 합계, 쿠폰 = 발행수 합계 (둘 다 '건수' 아님).
 // 굿즈·특전은 매트릭스에서 제외(단위가 달라 합산 의미가 약함) — 상세 모달에서만 표시.
+// 쿠폰은 임원 보고용 '예상 사용분'으로 매트릭스에서만 시간감쇠 적용
+//   (개봉일 기준 누적: D-Day ×0.5, D+1 ×0.5, D+2~D+4 ×0.8, D+5+ 0).
+// 상세 모달은 원본 발행수 그대로 — DATA.*.events[].issued 를 직접 읽으므로 영향 없음.
+function couponDecay(issued, openDt) {
+  if (!issued) return 0;
+  if (!openDt) return issued;                  // 개봉일 미상 — 원본 유지(안전 fallback)
+  const open = new Date(openDt + 'T00:00:00+09:00');
+  const today = new Date();
+  const diff = Math.floor((today - open) / 86400000);
+  if (diff < 0) return issued;                 // 개봉 전 — 원본
+  if (diff >= 5) return 0;                     // D+5 이후 — 사용분 0 처리
+  const FACTORS = [0.5, 0.5, 0.8, 0.8, 0.8];   // index = D+n
+  let m = 1;
+  for (let i = 0; i <= diff; i++) m *= FACTORS[i];
+  return Math.round(issued * m);
+}
 async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
   const matrixBody = document.getElementById('matrix');
   if (!matrixBody) return;
@@ -431,10 +447,12 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
       // 무대인사·시사회·GV 좌석 합계(promoSeats) — 매트릭스 전용 컬럼
       const stageSeats = chains.reduce(
         (s, m) => s + ((m && m.promoSeats) || 0), 0);
-      // 쿠폰 발행수 합계 — 매트릭스 전용 컬럼
+      // 쿠폰 발행수 합계 — 영화별로 decay 적용 후 합산(원본 → 예상 사용분).
+      // 영화별 개봉일(bk.openDt)이 결정값이라 영화 단위로 감쇠 적용 후 합치는 게 맞음.
       const couponIssued = chains.reduce((s, m) => s + ((m && m.events || [])
         .filter(e => e.type === 'coupon')
-        .reduce((a, e) => a + (typeof e.issued === 'number' ? e.issued : 0), 0)), 0);
+        .reduce((a, e) => a + couponDecay(
+          typeof e.issued === 'number' ? e.issued : 0, bk.openDt), 0)), 0);
       return {
         movieCd: bk.movieCd, title: bk.title, rate: bk.rate,
         audience: bk.audience || 0,
