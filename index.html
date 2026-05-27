@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-<link rel="stylesheet" href="assets/css/styles.css?v=20260527b">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260527c">
 </head>
 <body>
 
@@ -45,12 +45,11 @@
           <th class="l">영화</th>
           <th>실시간 예매율</th>
           <th>예매관객수</th>
+          <th>무대인사·시사회·GV</th>
+          <th>쿠폰</th>
           <th>프로모션 좌석</th>
           <th>실예매</th>
           <th>예매관객 대비</th>
-          <th>무대인사·시사회·GV</th>
-          <th>쿠폰</th>
-          <th>굿즈·특전</th>
         </tr>
       </thead>
       <tbody id="matrix"></tbody>
@@ -66,8 +65,9 @@
 <footer class="footnote">
   <div>
     <div>DATA <strong>KOFIC OpenAPI · KOBIS 실시간 · 4사(CGV·롯데·메가박스·씨네큐) 이벤트</strong></div>
-    <div>매트릭스 = 실시간 예매율 TOP 10 × 4사 진행 이벤트 건수</div>
-    <div>프로모션 좌석 = 무대인사 상영관 좌석 합계(theater_seats 기준) · CGV 부분 집계 — 일부 지점 미수록</div>
+    <div>매트릭스 = 실시간 예매율 TOP 10 × 4사 진행 이벤트 수치 합계</div>
+    <div>무대인사·시사회·GV = 상영관 좌석 합계(theater_seats 기준) · CGV 부분 집계 — 일부 지점 미수록</div>
+    <div>프로모션 좌석 = 무대인사·시사회·GV 좌석수 + 쿠폰 발행수</div>
   </div>
   <div class="right">
     <div>© 2026 INTERNAL REPORTING</div>
@@ -76,7 +76,7 @@
 </footer>
 
 <script src="assets/js/data.js?v=20260524b"></script>
-<script src="assets/js/dashboard.js?v=20260524b"></script>
+<script src="assets/js/dashboard.js?v=20260527c"></script>
 
 <!-- 상세 분석 리포트 모달 레이어 -->
 <div id="detail-modal" class="modal-overlay">

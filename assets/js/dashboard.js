@@ -327,9 +327,9 @@ function exportCSV() {
     alert('내보낼 데이터가 없습니다. 잠시 후 다시 시도해 주세요.');
     return;
   }
-  const headers = ['영화제목', '실시간예매율(%)', '예매관객수', '프로모션좌석',
-                   '실예매', '예매관객대비(%)', '무대인사·시사회·GV(건)',
-                   '쿠폰(건)', '굿즈·특전(건)'];
+  const headers = ['영화제목', '실시간예매율(%)', '예매관객수',
+                   '무대인사·시사회·GV(좌석수)', '쿠폰(발행수)',
+                   '프로모션좌석', '실예매', '예매관객대비(%)'];
   const esc = (v) => {
     const s = String(v ?? '');
     return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
@@ -342,12 +342,11 @@ function exportCSV() {
       p.title,
       p.rate.toFixed(1),
       p.audience,
+      p.stageSeats,
+      p.couponIssued,
       p.promoSeats,
       p.audience - p.promoSeats,
       ratio,
-      p.stage,
-      p.coupons,
-      p.goods,
     ].map(esc).join(','));
   });
   const csv = '﻿' + lines.join('\r\n');   // BOM → 엑셀에서 한글 안 깨짐
@@ -414,8 +413,9 @@ async function loadChainData(jsonPath) {
 }
 
 // ============ INTEGRATED MATRIX ============
-// 예매율 TOP 10 을 기준으로 4사(롯데·메가박스·CGV·씨네큐) 프로모션 건수를 병합.
-// 쿠폰·무대인사·굿즈는 진행 이벤트 '건수' 기준. (좌석 수는 수집 불가로 미포함)
+// 예매율 TOP 10 × 4사(롯데·메가박스·CGV·씨네큐) 프로모션 수치 합계.
+// 무대인사·시사회·GV = 좌석수 합계, 쿠폰 = 발행수 합계 (둘 다 '건수' 아님).
+// 굿즈·특전은 매트릭스에서 제외(단위가 달라 합산 의미가 약함) — 상세 모달에서만 표시.
 async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
   const matrixBody = document.getElementById('matrix');
   if (!matrixBody) return;
@@ -428,19 +428,17 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
     const integrated = bookingList.map(bk => {
       const chains = [pick(rLt, bk.movieCd), pick(rMg, bk.movieCd),
                       pick(rCg, bk.movieCd), pick(rCq, bk.movieCd)];
-      const sum = (key) => chains.reduce(
-        (s, m) => s + ((m && m.counts && m.counts[key]) || 0), 0);
-      // 프로모션 좌석 = 무대인사·시사회·GV 좌석(promoSeats) + 쿠폰 발행 매수(issued).
-      // 굿즈는 단위가 달라(진행관수) 제외.
+      // 무대인사·시사회·GV 좌석 합계(promoSeats) — 매트릭스 전용 컬럼
       const stageSeats = chains.reduce(
         (s, m) => s + ((m && m.promoSeats) || 0), 0);
+      // 쿠폰 발행수 합계 — 매트릭스 전용 컬럼
       const couponIssued = chains.reduce((s, m) => s + ((m && m.events || [])
         .filter(e => e.type === 'coupon')
         .reduce((a, e) => a + (typeof e.issued === 'number' ? e.issued : 0), 0)), 0);
       return {
         movieCd: bk.movieCd, title: bk.title, rate: bk.rate,
         audience: bk.audience || 0,
-        coupons: sum('coupon'), stage: sum('stage'), goods: sum('goods'),
+        stageSeats, couponIssued,
         promoSeats: stageSeats + couponIssued,
       };
     });
@@ -467,17 +465,16 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
           </td>
           <td class="rate">${cellVal(p.rate, true)}</td>
           <td>${cellVal(p.audience)}</td>
+          <td>${cellVal(p.stageSeats)}${chainBadges(p.movieCd, 'stage')}</td>
+          <td>${cellVal(p.couponIssued)}${chainBadges(p.movieCd, 'coupon')}</td>
           <td>${cellVal(p.promoSeats)}</td>
           <td class="net-booking">${cellVal(p.audience - p.promoSeats)}</td>
           <td class="seat-ratio"><span class="val">${seatRatio.toFixed(1)}%</span></td>
-          <td>${cellVal(p.stage)}${chainBadges(p.movieCd, 'stage')}</td>
-          <td>${cellVal(p.coupons)}${chainBadges(p.movieCd, 'coupon')}</td>
-          <td>${cellVal(p.goods)}${chainBadges(p.movieCd, 'goods')}</td>
         </tr>`;
     }).join('');
   } catch (e) {
     console.error('[matrix] 통합 실패:', e);
-    matrixBody.innerHTML = `<tr><td colspan="9" class="promo-empty">데이터 구성 오류: ${e.message}</td></tr>`;
+    matrixBody.innerHTML = `<tr><td colspan="8" class="promo-empty">데이터 구성 오류: ${e.message}</td></tr>`;
   }
 }
 
