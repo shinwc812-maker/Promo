@@ -68,33 +68,6 @@ const next = new Date(now.getTime() + 60000);
 const nextRefreshEl = document.getElementById('next-refresh');
 if (nextRefreshEl) nextRefreshEl.textContent = `${pad2(next.getHours())}:${pad2(next.getMinutes())}:${pad2(next.getSeconds())}`;
 
-// ============ RANK PANELS ============
-function renderRanks(targetId, data, valueKey, deltaKey, valueFormat) {
-  const container = document.getElementById(targetId);
-  if (!container || !Array.isArray(data)) return;
-  container.innerHTML = data.map(d => {
-    const v = valueFormat(d[valueKey]);
-    const delta = d[deltaKey];
-    let dClass = 'delta';
-    let dHtml = delta;
-    if (delta === 'NEW') {
-      dClass = 'delta new';
-      dHtml = 'NEW';
-    } else if (delta && delta.startsWith('+')) {
-      dClass = 'delta up';
-    } else if (delta && delta.startsWith('-')) {
-      dClass = 'delta down';
-    }
-    return `
-      <div class="rank-row">
-        <span class="rank ${d.rank <= 3 ? 'top' : ''}">${pad2(d.rank)}</span>
-        <span class="title clickable-title" title="${d.title}" onclick="openDetail('${d.title}')">${truncate(d.title)}</span>
-        <span class="metric">${v}</span>
-        <span class="${dClass}">${dHtml}</span>
-      </div>`;
-  }).join('');
-}
-
 // ============ MODAL LOGIC ============
 // 로드된 데이터 전역 저장 — openDetail 에서 영화별 4사 프로모션 조회
 const DATA = { booking: null, boxoffice: null,
@@ -363,51 +336,15 @@ function exportCSV() {
 }
 
 // ============ DATA FETCHING ============
-
-async function loadBooking() {
-  const tagEl = document.getElementById('bk-time');
+// 단일 fetch 래퍼 — 모든 JSON(예매·박오·4사 프로모션)을 동일 패턴으로 로드.
+// 실패 시 null 반환 → buildAnalysisMatrix 가 data.js 의 mock 으로 fallback.
+async function loadJson(path) {
   try {
-    const res = await fetch('assets/data/booking.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    renderRanks('booking', data.bookingRate, 'rate', 'delta', v => v.toFixed(1) + '%');
-    if (tagEl && data.fetchedAt) tagEl.textContent = data.fetchedAt.slice(11, 16) + ' 수집';
-    return data;
-  } catch (e) {
-    renderRanks('booking', typeof bookingRate !== 'undefined' ? bookingRate : [], 'rate', 'delta', v => v.toFixed(1) + '%');
-    if (tagEl) tagEl.textContent = '실시간 · 목업';
-    return null;
-  }
-}
-
-async function loadBoxOffice() {
-  const tagEl = document.getElementById('bo-date');
-  try {
-    const res = await fetch('assets/data/boxoffice.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    renderRanks('boxoffice', data.boxOffice, 'audience', 'change', v => fmt(v));
-    if (tagEl && data.targetDt) {
-      const d = data.targetDt;
-      tagEl.textContent = `${d.slice(4, 6)}.${d.slice(6, 8)} 기준`;
-    }
-    return data;
-  } catch (e) {
-    renderRanks('boxoffice', typeof boxOffice !== 'undefined' ? boxOffice : [], 'audience', 'change', v => fmt(v));
-    if (tagEl) tagEl.textContent = '일별 · 목업';
-    return null;
-  }
-}
-
-// 체인 프로모션 JSON 로드 (매트릭스 + 영화 상세 모달이 사용).
-// 메인 화면 체인별 표는 제거됨 — 데이터만 가져온다.
-async function loadChainData(jsonPath) {
-  try {
-    const res = await fetch(jsonPath, { cache: 'no-store' });
+    const res = await fetch(path, { cache: 'no-store' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     return await res.json();
   } catch (e) {
-    console.error('[chain] 로드 실패:', jsonPath, e);
+    console.error('[load] 실패:', path, e);
     return null;
   }
 }
@@ -432,7 +369,7 @@ function couponDecay(issued, openDt) {
   for (let i = 0; i <= diff; i++) m *= FACTORS[i];
   return Math.round(issued * m);
 }
-async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
+async function buildAnalysisMatrix(rBk, rLt, rMg, rCg, rCq) {
   const matrixBody = document.getElementById('matrix');
   if (!matrixBody) return;
   try {
@@ -499,17 +436,17 @@ async function buildAnalysisMatrix(rBo, rBk, rLt, rMg, rCg, rCq) {
 // ============ INITIALIZE ============
 async function init() {
   const [resBk, resBo, resLt, resMg, resCg, resCq] = await Promise.all([
-    loadBooking(),
-    loadBoxOffice(),
-    loadChainData('assets/data/promotions_lotte.json'),
-    loadChainData('assets/data/promotions_megabox.json'),
-    loadChainData('assets/data/promotions_cgv.json'),
-    loadChainData('assets/data/promotions_cineq.json'),
+    loadJson('assets/data/booking.json'),
+    loadJson('assets/data/boxoffice.json'),
+    loadJson('assets/data/promotions_lotte.json'),
+    loadJson('assets/data/promotions_megabox.json'),
+    loadJson('assets/data/promotions_cgv.json'),
+    loadJson('assets/data/promotions_cineq.json'),
   ]);
   // openDetail 모달이 참조할 전역 데이터 저장
   DATA.booking = resBk; DATA.boxoffice = resBo;
   DATA.lotte = resLt; DATA.megabox = resMg; DATA.cgv = resCg; DATA.cineq = resCq;
-  await buildAnalysisMatrix(resBo, resBk, resLt, resMg, resCg, resCq);
+  await buildAnalysisMatrix(resBk, resLt, resMg, resCg, resCq);
 }
 
 document.addEventListener('DOMContentLoaded', init);

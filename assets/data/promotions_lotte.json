@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-27T07:01:57+09:00",
+  "fetchedAt": "2026-05-28T07:01:45+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -96,11 +96,18 @@
       "counts": {
         "coupon": 3,
         "stage": 1,
-        "goods": 1,
+        "goods": 2,
         "etc": 0
       },
       "promoSeats": 150,
       "events": [
+        {
+          "eventId": "201010016926420",
+          "name": "<백룸>1주차 주말 증정",
+          "type": "goods",
+          "start": "2026.05.30",
+          "end": "2026.06.02"
+        },
         {
           "eventId": "201010016926412",
           "name": "<백룸> 시그니처 아트카드",
@@ -166,7 +173,7 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 10695,
+      "promoSeats": 11073,
       "events": [
         {
           "eventId": "201010014726039",
@@ -228,8 +235,8 @@
             {
               "branch": "월드타워",
               "hall": "10관",
-              "sessions": 1,
-              "seats": 218
+              "sessions": 2,
+              "seats": 436
             },
             {
               "branch": "은평(롯데몰)",
@@ -282,11 +289,11 @@
             {
               "branch": "월드타워",
               "hall": "18관",
-              "sessions": 1,
-              "seats": 160
+              "sessions": 2,
+              "seats": 320
             }
           ],
-          "seats": 4856,
+          "seats": 5234,
           "branches": [
             "건대입구",
             "김포공항",
@@ -382,7 +389,7 @@
             "영등포",
             "월드타워"
           ],
-          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/9401d485ec964ec5b82048a3e677f902.jpg",
+          "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/f8b26e5be22f4329baa16fb08e59ab7f.jpg",
           "imagePath": "assets/data/lotte_images/401070016926154.jpg"
         },
         {
@@ -401,6 +408,45 @@
           "issued": 3000,
           "start": "2026.05.20",
           "end": "2026.06.09",
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
+        }
+      ]
+    },
+    {
+      "movieCd": "20263512",
+      "title": "이상한 과자 가게 전천당",
+      "matched": true,
+      "counts": {
+        "coupon": 2,
+        "stage": 0,
+        "goods": 1,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "201010016926419",
+          "name": "<이상한 과자 가게 전천당>1주차 증정이벤트",
+          "type": "goods",
+          "start": "2026.05.29",
+          "end": "2026.06.04"
+        },
+        {
+          "eventId": "sadagu-20263512-1",
+          "name": "<이상한 과자 가게 전천당> 무비싸다구 0원 쿠폰",
+          "type": "coupon",
+          "issued": 1000,
+          "start": "2026.05.27",
+          "end": "2026.06.04",
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
+        },
+        {
+          "eventId": "sadagu-20263512-2",
+          "name": "<이상한 과자 가게 전천당> 무비싸다구 2,000원 쿠폰",
+          "type": "coupon",
+          "issued": 2000,
+          "start": "2026.05.27",
+          "end": "2026.06.04",
           "source": "롯데 무비싸다구 (SpeedMulti API)"
         }
       ]
@@ -475,38 +521,6 @@
           "end": "2026.06.02"
         }
       ]
-    },
-    {
-      "movieCd": "20263512",
-      "title": "이상한 과자 가게 전천당",
-      "matched": true,
-      "counts": {
-        "coupon": 2,
-        "stage": 0,
-        "goods": 0,
-        "etc": 0
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "sadagu-20263512-1",
-          "name": "<이상한 과자 가게 전천당> 무비싸다구 0원 쿠폰",
-          "type": "coupon",
-          "issued": 1000,
-          "start": "2026.05.27",
-          "end": "2026.06.04",
-          "source": "롯데 무비싸다구 (SpeedMulti API)"
-        },
-        {
-          "eventId": "sadagu-20263512-2",
-          "name": "<이상한 과자 가게 전천당> 무비싸다구 2,000원 쿠폰",
-          "type": "coupon",
-          "issued": 2000,
-          "start": "2026.05.27",
-          "end": "2026.06.04",
-          "source": "롯데 무비싸다구 (SpeedMulti API)"
-        }
-      ]
     }
   ],
   "unmatched": [
@@ -525,6 +539,22 @@
       "start": "2026.06.13",
       "end": "2026.06.14",
       "movieName": null
+    },
+    {
+      "eventId": "101170014726006",
+      "name": "일상 프리패스 LOTTE PASS <L.PASS>",
+      "type": "etc",
+      "start": "2026.05.28",
+      "end": "2026.06.07",
+      "movieName": "L.PASS"
+    },
+    {
+      "eventId": "101010050026008",
+      "name": "<인사이드 더 플레이 : 룰렛> 이머시브 뮤지컬 오픈!!",
+      "type": "etc",
+      "start": "2026.05.27",
+      "end": "2026.10.11",
+      "movieName": "인사이드 더 플레이 : 룰렛"
     },
     {
       "eventId": "101110014726033",
@@ -767,6 +797,14 @@
       "movieName": "엔조"
     },
     {
+      "eventId": "201010014726040",
+      "name": "＜이상한　과자가게　전청당＞　관람인증　이벤트",
+      "type": "etc",
+      "start": "2026.05.29",
+      "end": "2026.06.07",
+      "movieName": null
+    },
+    {
       "eventId": "201010016926413",
       "name": "<은혼>2주차 증정이벤트",
       "type": "goods",
@@ -912,6 +950,50 @@
       "movieName": "극장의 시간들"
     },
     {
+      "eventId": "401070050326004",
+      "name": "＜훈련사＞경기인디시네마ＧＶ",
+      "type": "stage",
+      "start": "2026.05.30",
+      "end": "2026.05.30",
+      "screenings": [
+        {
+          "branch": "광교",
+          "hall": "1관",
+          "sessions": 1,
+          "seats": 150
+        }
+      ],
+      "seats": 150,
+      "branches": [
+        "광교"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/bd999da1d41d4165b96d3533dd26e6e9.jpg",
+      "imagePath": "assets/data/lotte_images/401070050326004.jpg",
+      "movieName": "훈련사"
+    },
+    {
+      "eventId": "401070014726013",
+      "name": "<악마는 프라다를 입는다2> 앵콜 MakeUp!상영회",
+      "type": "stage",
+      "start": "2026.05.30",
+      "end": "2026.05.30",
+      "screenings": [
+        {
+          "branch": "노원",
+          "hall": "7관 리클라이너",
+          "sessions": 1,
+          "seats": 150
+        }
+      ],
+      "seats": 150,
+      "branches": [
+        "노원"
+      ],
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/e137eeead57d455dabbcab63e6f60c93.jpg",
+      "imagePath": "assets/data/lotte_images/401070014726013.jpg",
+      "movieName": "악마는 프라다를 입는다 2"
+    },
+    {
       "eventId": "401080016926023",
       "name": "<울프 토템> 회원시사회",
       "type": "stage",
@@ -927,6 +1009,7 @@
       "type": "stage",
       "start": "2026.05.31",
       "end": "2026.05.31",
+      "premiereDetected": true,
       "screenings": [
         {
           "branch": "월드타워",

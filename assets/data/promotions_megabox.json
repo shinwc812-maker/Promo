@@ -1,99 +1,120 @@
 {
   "chain": "MEGABOX",
   "source": "메가박스 이벤트 API · eventMngDiv.do",
-  "fetchedAt": "2026-05-27T07:02:00+09:00",
+  "fetchedAt": "2026-05-28T07:01:49+09:00",
   "movies": [
     {
-      "movieCd": "20263030",
-      "title": "백룸",
+      "movieCd": "20252402",
+      "title": "군체",
       "matched": true,
       "counts": {
-        "coupon": 2,
-        "stage": 0,
-        "goods": 0,
+        "coupon": 0,
+        "stage": 3,
+        "goods": 1,
         "etc": 1
       },
-      "promoSeats": 0,
+      "promoSeats": 1056,
       "events": [
         {
-          "eventId": "20648",
-          "name": "메가박스 아트그라피 <백룸>",
+          "eventId": "20670",
+          "name": "<군체> 앵콜! 감염오랑 상영회",
           "type": "etc",
           "start": "2026.05.30",
           "end": "2026.05.31"
         },
         {
-          "eventId": "20645",
-          "name": "[백룸] 선착순 빵원티켓 ➕",
-          "type": "coupon",
-          "start": "2026.05.26",
-          "end": "2026.06.03",
-          "issued": 1500
+          "eventId": "20581",
+          "name": "<군체> 개봉2주차 무대인사",
+          "type": "stage",
+          "start": "2026.05.30",
+          "end": "2026.05.30",
+          "posterUrls": [
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/gIS19o7LX53zhJDMqvDJQRhQsi3mdmnZ.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/dgC4XWqMCyFMBzVRAGEbWtCraPDqtAKl.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/AD0kN3rHePb0fqaX2tgqgs5vg8bWjwZv.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/3tVFLNgL6b3GHiqTAaGlikkqiaNuwdaZ.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/T3zwF0FQOYSkHPo6xpWp2xSDyWTTZh6Y.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/Bu0VnXpTR5rtZhkbLRB9dcJD3WxUPWeY.jpg"
+          ],
+          "imagePaths": [
+            "assets/data/megabox_images/20581_1.jpg",
+            "assets/data/megabox_images/20581_2.jpg",
+            "assets/data/megabox_images/20581_3.jpg",
+            "assets/data/megabox_images/20581_4.jpg",
+            "assets/data/megabox_images/20581_5.jpg",
+            "assets/data/megabox_images/20581_6.jpg"
+          ],
+          "screenings": [
+            {
+              "branch": "목동",
+              "hall": "Dolby Vision Atmos",
+              "sessions": 2,
+              "seats": 636
+            },
+            {
+              "branch": "목동",
+              "hall": "2관",
+              "sessions": 2,
+              "seats": 420
+            }
+          ],
+          "seats": 1056,
+          "branches": [
+            "목동"
+          ]
         },
         {
-          "eventId": "20611",
-          "name": "[백룸] 선착순 빵원티켓 ➕",
-          "type": "coupon",
-          "start": "2026.05.18",
-          "end": "2026.06.02",
-          "issued": 3500
-        }
-      ]
-    },
-    {
-      "movieCd": "20263512",
-      "title": "이상한 과자 가게 전천당",
-      "matched": true,
-      "counts": {
-        "coupon": 1,
-        "stage": 0,
-        "goods": 0,
-        "etc": 1
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "20665",
-          "name": "<이상한 과자가게 전천당> 1PICK 이벤트",
-          "type": "etc",
-          "start": "2026.05.29",
-          "end": "2026.06.14"
+          "eventId": "20668",
+          "name": "<군체> 서프라이즈 GV",
+          "type": "stage",
+          "start": "2026.05.28",
+          "end": "2026.05.28",
+          "posterUrls": [
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/DYWoFoXFLEbFlyxdwzUAzpoAwx9NTr5M.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/J9bFPkaAj5ga80HV15V7MCjxTfSmRqVp.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/GKvWoqBqwFKpZxcH7nQhuSwL3Lc46zm9.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/awiYH0dgjMaCGJwioO3c8tH4NQxn6DRZ.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/S87mTjsJMIrWvf62A4OXdzTDUN4rBS7i.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/YdD8CTHOqji2xHhzMCJFc5BdAaRKeiAF.jpg"
+          ],
+          "imagePaths": [
+            "assets/data/megabox_images/20668_1.jpg",
+            "assets/data/megabox_images/20668_2.jpg",
+            "assets/data/megabox_images/20668_3.jpg",
+            "assets/data/megabox_images/20668_4.jpg",
+            "assets/data/megabox_images/20668_5.jpg",
+            "assets/data/megabox_images/20668_6.jpg"
+          ]
         },
         {
-          "eventId": "20620",
-          "name": "[이상한 과자 가게 전천당] 선착순 빵원티켓 ➕",
-          "type": "coupon",
-          "start": "2026.05.19",
-          "end": "2026.06.04",
-          "issued": 3000
-        }
-      ]
-    },
-    {
-      "movieCd": "20258236",
-      "title": "만달로리안과 그로구",
-      "matched": true,
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 1,
-        "etc": 1
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "20641",
-          "name": "무비타이틀 <만달로리안과 그로구>",
-          "type": "etc",
-          "start": "2026.05.27",
-          "end": "2026.06.09"
-        },
-        {
-          "eventId": "20637",
-          "name": "[프로모션/굿즈] <만달로리안과 그로구> 버켓 콤보 & 키체인 런칭",
+          "eventId": "20664",
+          "name": "<군체> 개봉 2주차 현장 증정 이벤트",
           "type": "goods",
-          "start": "2026.05.23",
-          "end": "2026.05.31"
+          "start": "2026.05.27",
+          "end": "2026.06.02"
+        },
+        {
+          "eventId": "20667",
+          "name": "<군체> 서프라이즈 무대인사",
+          "type": "stage",
+          "start": "2026.05.28",
+          "end": "2026.05.28",
+          "posterUrls": [
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/F0uDwGsJLb9Q4LxrKezSmpRhN5HtJpqW.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/d6K7Dk2IzaViMPcUS75Uml5yyT2NFOLz.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/B5IHIFSLb9Q1v1gTYgDUdY5PIGVoYuqB.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/FPP0jnQJzAHadnEjXrWHkLxUgRCnGUBi.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/fskRQMfjNk7DV9BZuLhiliktOVE0LEmE.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/bID8ZqjcpCkH1difDQWzGeazks6pRiqs.jpg"
+          ],
+          "imagePaths": [
+            "assets/data/megabox_images/20667_1.jpg",
+            "assets/data/megabox_images/20667_2.jpg",
+            "assets/data/megabox_images/20667_3.jpg",
+            "assets/data/megabox_images/20667_4.jpg",
+            "assets/data/megabox_images/20667_5.jpg",
+            "assets/data/megabox_images/20667_6.jpg"
+          ]
         }
       ]
     },
@@ -104,11 +125,18 @@
       "counts": {
         "coupon": 1,
         "stage": 1,
-        "goods": 0,
+        "goods": 1,
         "etc": 0
       },
       "promoSeats": 3717,
       "events": [
+        {
+          "eventId": "20666",
+          "name": "<와일드 씽> 굿즈패키지 런칭",
+          "type": "goods",
+          "start": "2026.05.29",
+          "end": "2026.06.14"
+        },
         {
           "eventId": "20591",
           "name": "<와일드 씽> 개봉주 무대인사",
@@ -118,7 +146,7 @@
           "posterUrls": [
             "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/ZWQjcYiTAFUezryMEFM6rpZV8NmptvYs.jpg",
             "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/llWTRJUlcWpI19xtMxJuDX5VR76a4W92.jpg",
-            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/jCzRJBokgblWDlIJF4vAjhOyQksiemul.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/DOrTJPujY0RRYfzJOzD4dtNMmywf8GDd.jpg",
             "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/LU0Q5knxFjxVYz9jYDR7uRBuX6kBbJAQ.jpg",
             "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/13/uYEPyqApXZPCwMD3yUhTSTLhzZhjUBoS.jpg"
           ],
@@ -191,64 +219,88 @@
       ]
     },
     {
-      "movieCd": "20252402",
-      "title": "군체",
+      "movieCd": "20263030",
+      "title": "백룸",
+      "matched": true,
+      "counts": {
+        "coupon": 1,
+        "stage": 0,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20648",
+          "name": "메가박스 아트그라피 <백룸>",
+          "type": "etc",
+          "start": "2026.05.30",
+          "end": "2026.05.31"
+        },
+        {
+          "eventId": "20645",
+          "name": "[백룸] 선착순 빵원티켓 ➕",
+          "type": "coupon",
+          "start": "2026.05.26",
+          "end": "2026.06.03",
+          "issued": 1500
+        }
+      ]
+    },
+    {
+      "movieCd": "20263512",
+      "title": "이상한 과자 가게 전천당",
+      "matched": true,
+      "counts": {
+        "coupon": 1,
+        "stage": 0,
+        "goods": 0,
+        "etc": 1
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20665",
+          "name": "<이상한 과자가게 전천당> 1PICK 이벤트",
+          "type": "etc",
+          "start": "2026.05.29",
+          "end": "2026.06.14"
+        },
+        {
+          "eventId": "20620",
+          "name": "[이상한 과자 가게 전천당] 선착순 빵원티켓 ➕",
+          "type": "coupon",
+          "start": "2026.05.19",
+          "end": "2026.06.04",
+          "issued": 3000
+        }
+      ]
+    },
+    {
+      "movieCd": "20258236",
+      "title": "만달로리안과 그로구",
       "matched": true,
       "counts": {
         "coupon": 0,
-        "stage": 1,
+        "stage": 0,
         "goods": 1,
-        "etc": 0
+        "etc": 1
       },
-      "promoSeats": 1056,
+      "promoSeats": 0,
       "events": [
         {
-          "eventId": "20581",
-          "name": "<군체> 개봉2주차 무대인사",
-          "type": "stage",
-          "start": "2026.05.30",
-          "end": "2026.05.30",
-          "posterUrls": [
-            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/gIS19o7LX53zhJDMqvDJQRhQsi3mdmnZ.jpg",
-            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/dgC4XWqMCyFMBzVRAGEbWtCraPDqtAKl.jpg",
-            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/AD0kN3rHePb0fqaX2tgqgs5vg8bWjwZv.jpg",
-            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/3tVFLNgL6b3GHiqTAaGlikkqiaNuwdaZ.jpg",
-            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/T3zwF0FQOYSkHPo6xpWp2xSDyWTTZh6Y.jpg",
-            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/12/Bu0VnXpTR5rtZhkbLRB9dcJD3WxUPWeY.jpg"
-          ],
-          "imagePaths": [
-            "assets/data/megabox_images/20581_1.jpg",
-            "assets/data/megabox_images/20581_2.jpg",
-            "assets/data/megabox_images/20581_3.jpg",
-            "assets/data/megabox_images/20581_4.jpg",
-            "assets/data/megabox_images/20581_5.jpg",
-            "assets/data/megabox_images/20581_6.jpg"
-          ],
-          "screenings": [
-            {
-              "branch": "목동",
-              "hall": "Dolby Vision Atmos",
-              "sessions": 2,
-              "seats": 636
-            },
-            {
-              "branch": "목동",
-              "hall": "2관",
-              "sessions": 2,
-              "seats": 420
-            }
-          ],
-          "seats": 1056,
-          "branches": [
-            "목동"
-          ]
+          "eventId": "20641",
+          "name": "무비타이틀 <만달로리안과 그로구>",
+          "type": "etc",
+          "start": "2026.05.27",
+          "end": "2026.06.09"
         },
         {
-          "eventId": "20615",
-          "name": "메가박스 오리지널 티켓 No.173 <군체>",
+          "eventId": "20637",
+          "name": "[프로모션/굿즈] <만달로리안과 그로구> 버켓 콤보 & 키체인 런칭",
           "type": "goods",
-          "start": "2026.05.15",
-          "end": "2026.06.03"
+          "start": "2026.05.23",
+          "end": "2026.05.31"
         }
       ]
     },
@@ -279,16 +331,68 @@
           "end": "2026.06.02"
         }
       ]
+    },
+    {
+      "movieCd": "20261766",
+      "title": "상자 속의 양",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 1,
+        "goods": 0,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20671",
+          "name": "<상자 속의 양> 내한 기념 프리미어 GV",
+          "type": "stage",
+          "start": "2026.06.05",
+          "end": "2026.06.05",
+          "posterUrls": [
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/27DbU4BIrqrRY6KDLSNR1bKML9NmBMXE.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/8vwBBElc2xbRpg8zGgxzRoAV3vOJOKVw.jpg",
+            "https://img.megabox.co.kr/SharedImg/editorImg/2026/05/27/Rk5UyEvAx3iWlJduNYDrKk2a3Ey03Cqn.jpg"
+          ],
+          "imagePaths": [
+            "assets/data/megabox_images/20671_1.jpg",
+            "assets/data/megabox_images/20671_2.jpg",
+            "assets/data/megabox_images/20671_3.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "movieCd": "20263521",
+      "title": "카드캡터 체리 극장판",
+      "matched": true,
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 1,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "20651",
+          "name": "<카드캡터 체리 극장판> 개봉주 현장 증정 이벤트",
+          "type": "goods",
+          "start": "2026.05.28",
+          "end": "2026.06.03"
+        }
+      ]
     }
   ],
   "unmatched": [
     {
-      "eventId": "20564",
-      "name": "[라이브뷰잉] 2026 SHINee WORLD VIII : [THE INVERT] IN CINEMAS",
+      "eventId": "20672",
+      "name": "「Bʼz LIVE-GYM 2026 -FYOP＋-」 LIVE VIEWING 진행 안내",
       "type": "etc",
-      "start": "2026.05.29",
-      "end": "2026.05.29",
-      "movieName": "라이브뷰잉"
+      "start": "2026.06.14",
+      "end": "2026.06.14",
+      "movieName": null
     },
     {
       "eventId": "20643",
@@ -305,22 +409,6 @@
       "start": "2026.05.31",
       "end": "2026.05.31",
       "movieName": "로메리아"
-    },
-    {
-      "eventId": "20632",
-      "name": "<로봇 드림> 해변 개장 기념 굿즈 패키지 상영회",
-      "type": "goods",
-      "start": "2026.05.31",
-      "end": "2026.05.31",
-      "movieName": "로봇 드림"
-    },
-    {
-      "eventId": "20596",
-      "name": "<쇼타씨의 마지막 출장> 메가토크",
-      "type": "etc",
-      "start": "2026.05.31",
-      "end": "2026.05.31",
-      "movieName": "쇼타씨의 마지막 출장"
     },
     {
       "eventId": "20595",
@@ -367,76 +455,44 @@
       "movieName": "파이널 피스"
     },
     {
-      "eventId": "20599",
-      "name": "코카콜라 월드컵 폴라베어 & 피크닉 콤보 런칭",
+      "eventId": "20564",
+      "name": "[라이브뷰잉] 2026 SHINee WORLD VIII : [THE INVERT] IN CINEMAS",
       "type": "etc",
-      "start": "2026.05.20",
-      "end": "2026.06.30",
+      "start": "2026.05.29",
+      "end": "2026.05.29",
+      "movieName": "라이브뷰잉"
+    },
+    {
+      "eventId": "20649",
+      "name": "<극장판 내 마음의 위험한 녀석> 개봉 2주차 현장 증정 이벤트",
+      "type": "goods",
+      "start": "2026.05.28",
+      "end": "2026.06.03",
+      "movieName": "극장판 내 마음의 위험한 녀석"
+    },
+    {
+      "eventId": "20621",
+      "name": "[프로모션/굿즈] 몬치치 PVC 랜덤키링 런칭",
+      "type": "goods",
+      "start": "2026.05.19",
+      "end": "2026.06.07",
+      "movieName": "프로모션/굿즈"
+    },
+    {
+      "eventId": "20569",
+      "name": "[2026 시네도슨트] 미술관, 그곳으로 한 걸음 더",
+      "type": "etc",
+      "start": "2026.05.18",
+      "end": "2026.06.16",
+      "movieName": "2026 시네도슨트"
+    },
+    {
+      "eventId": "20606",
+      "name": "대국민 캐치 Mㅏ인드🖌️",
+      "type": "etc",
+      "start": "2026.05.18",
+      "end": "2026.06.07",
       "movieName": null
-    },
-    {
-      "eventId": "20662",
-      "name": "<피어스> 개봉 3주차 현장 증정 이벤트",
-      "type": "goods",
-      "start": "2026.05.27",
-      "end": "2026.06.02",
-      "movieName": "피어스"
-    },
-    {
-      "eventId": "20656",
-      "name": "<파이널 피스> 개봉주 현장 증정 이벤트",
-      "type": "goods",
-      "start": "2026.05.27",
-      "end": "2026.06.02",
-      "movieName": "파이널 피스"
-    },
-    {
-      "eventId": "20655",
-      "name": "<신극장판 은혼: 요시와라 대염상> 개봉 2주차 현장 증정 이벤트",
-      "type": "goods",
-      "start": "2026.05.27",
-      "end": "2026.06.02",
-      "movieName": "신극장판 은혼: 요시와라 대염상"
-    },
-    {
-      "eventId": "20654",
-      "name": "<로메리아> 개봉주 현장 증정 이벤트",
-      "type": "goods",
-      "start": "2026.05.27",
-      "end": "2026.06.02",
-      "movieName": "로메리아"
-    },
-    {
-      "eventId": "20636",
-      "name": "<현상수배> 메가박스 회원시사",
-      "type": "etc",
-      "start": "2026.05.20",
-      "end": "2026.06.01",
-      "movieName": "현상수배"
-    },
-    {
-      "eventId": "20610",
-      "name": "메가박스 오리지널 티켓 No.172 <신극장판 은혼: 요시와라 대염상>",
-      "type": "goods",
-      "start": "2026.05.14",
-      "end": "2026.06.02",
-      "movieName": "신극장판 은혼: 요시와라 대염상"
-    },
-    {
-      "eventId": "20515",
-      "name": "메가박스ㅣ영화관람료 6천원 할인 [정부지원 국민 영화관람 할인권]",
-      "type": "coupon",
-      "start": "2026.05.13",
-      "end": "2026.09.08",
-      "movieName": "정부지원 국민 영화관람 할인권"
-    },
-    {
-      "eventId": "20583",
-      "name": "[국민 영화관람 할인] 영화 할인받고 행운의 목걸이도 받자!",
-      "type": "coupon",
-      "start": "2026.05.13",
-      "end": "2026.09.08",
-      "movieName": "국민 영화관람 할인"
     },
     {
       "eventId": "20585",
@@ -445,14 +501,6 @@
       "start": "2026.05.13",
       "end": "2026.06.14",
       "movieName": "악마는 프라다를 입는다 2"
-    },
-    {
-      "eventId": "20500",
-      "name": "[강남] 아사히 비어라운지 OPEN",
-      "type": "etc",
-      "start": "2026.04.29",
-      "end": "2026.06.30",
-      "movieName": "강남"
     },
     {
       "eventId": "20204",
@@ -471,36 +519,44 @@
       "movieName": "퀵계좌이체"
     },
     {
-      "eventId": "20468",
-      "name": "우베라떼 런칭",
+      "eventId": "20636",
+      "name": "<현상수배> 메가박스 회원시사",
       "type": "etc",
-      "start": "2026.04.24",
-      "end": "2026.05.31",
-      "movieName": null
+      "start": "2026.05.20",
+      "end": "2026.06.01",
+      "movieName": "현상수배"
     },
     {
-      "eventId": "20463",
-      "name": "[프로모션][굿즈] 몬치치 미니 사각 파우치 런칭",
+      "eventId": "20473",
+      "name": "[유니버설픽쳐스 BIG 5] 볼수록 커지는 혜택! BIG 5 포인트 EVENT",
+      "type": "etc",
+      "start": "2026.04.29",
+      "end": "2026.08.31",
+      "movieName": "유니버설픽쳐스 BIG 5"
+    },
+    {
+      "eventId": "20496",
+      "name": "<악마는 프라다를 입는다 2> N차 관람이면 That’s all.",
+      "type": "etc",
+      "start": "2026.04.29",
+      "end": "2026.05.31",
+      "movieName": "악마는 프라다를 입는다 2"
+    },
+    {
+      "eventId": "20455",
+      "name": "[프로모션][굿즈] <악마는 프라다를 입는다 2> 굿즈 런칭",
       "type": "goods",
-      "start": "2026.04.23",
+      "start": "2026.04.29",
       "end": "2026.05.31",
       "movieName": "프로모션"
     },
     {
-      "eventId": "20357",
-      "name": "유니버설 픽쳐스 빅5 패키지 런칭",
+      "eventId": "20450",
+      "name": "미트칠리 포테이토 런칭",
       "type": "etc",
-      "start": "2026.04.17",
+      "start": "2026.04.29",
       "end": "2026.05.31",
       "movieName": null
-    },
-    {
-      "eventId": "20317",
-      "name": "[굿즈/얼리버드] <악마는 프라다를 입는다 2> 키링 판매 런칭",
-      "type": "goods",
-      "start": "2026.04.08",
-      "end": "2026.05.31",
-      "movieName": "굿즈/얼리버드"
     },
     {
       "eventId": "20177",
@@ -509,6 +565,14 @@
       "start": "2026.03.19",
       "end": "2026.12.31",
       "movieName": "2026 메트오페라"
+    },
+    {
+      "eventId": "20500",
+      "name": "[강남] 아사히 비어라운지 OPEN",
+      "type": "etc",
+      "start": "2026.04.29",
+      "end": "2026.06.30",
+      "movieName": "강남"
     },
     {
       "eventId": "20446",
@@ -543,11 +607,35 @@
       "movieName": "토스 퀵계좌이체"
     },
     {
-      "eventId": "16920",
-      "name": "나도 영화 평론가! 관람평 작성하고 50P 받자!",
+      "eventId": "20072",
+      "name": "2026 메가박스 VIP 혜택 안내",
+      "type": "etc",
+      "start": "2026.03.01",
+      "end": "2027.02.28",
+      "movieName": null
+    },
+    {
+      "eventId": "20582",
+      "name": "[앱전용] 매점 할인 쿠폰받기",
+      "type": "coupon",
+      "start": "2026.05.12",
+      "end": "2030.05.31",
+      "movieName": "앱전용"
+    },
+    {
+      "eventId": "11983",
+      "name": "[예지미인X메가박스] 그날에 당황하지 말고 PINK BOX",
       "type": "etc",
       "start": "2026.01.01",
-      "end": "2999.12.31",
+      "end": "2026.12.31",
+      "movieName": "예지미인X메가박스"
+    },
+    {
+      "eventId": "19445",
+      "name": "메가박스 오리지널 포스터북 돌비에디션 재입고",
+      "type": "etc",
+      "start": "2025.12.18",
+      "end": "2026.06.30",
       "movieName": null
     },
     {
@@ -568,28 +656,20 @@
       "movieName": "구의이스트폴"
     },
     {
+      "eventId": "20676",
+      "name": "[구의이스트폴] 더블카라멜팝콘 밀크&커피쉐이크 출시",
+      "type": "etc",
+      "start": "2026.05.22",
+      "end": "2026.06.30",
+      "movieName": "구의이스트폴"
+    },
+    {
       "eventId": "20521",
       "name": "[송도] 인스타그램 팔로우 하고 굿즈 받는 법",
       "type": "goods",
       "start": "2026.05.01",
       "end": "2026.05.31",
       "movieName": "송도"
-    },
-    {
-      "eventId": "20558",
-      "name": "[양산증산] 26' 다시봐도 매력적인 볼매팡팡!",
-      "type": "etc",
-      "start": "2026.05.01",
-      "end": "2026.06.30",
-      "movieName": "양산증산"
-    },
-    {
-      "eventId": "20505",
-      "name": "[강남] 생차 녹차, 호지차와 함께하는 가정의 달",
-      "type": "etc",
-      "start": "2026.05.01",
-      "end": "2026.06.30",
-      "movieName": "강남"
     },
     {
       "eventId": "16973",
@@ -624,100 +704,100 @@
       "movieName": null
     },
     {
-      "eventId": "20556",
-      "name": "[하남스타필드] 랜덤 굿즈 제공 이벤트",
-      "type": "goods",
-      "start": "2026.04.27",
-      "end": "2026.08.31",
-      "movieName": "하남스타필드"
-    },
-    {
-      "eventId": "20445",
-      "name": "[센트럴] MEGA ONLY! 센트럴 오니?",
+      "eventId": "20675",
+      "name": "[센트럴] 복숭아 에이드 런칭",
       "type": "etc",
-      "start": "2026.04.20",
-      "end": "2026.12.31",
+      "start": "2026.05.01",
+      "end": "2026.12.27",
       "movieName": "센트럴"
     },
     {
-      "eventId": "20412",
-      "name": "[상암월드컵경기장] 러너 할인 이벤트",
-      "type": "coupon",
-      "start": "2026.04.06",
-      "end": "2026.06.30",
-      "movieName": "상암월드컵경기장"
-    },
-    {
-      "eventId": "20038",
-      "name": "[청주터미널] 배달 런칭! 오픈 기념 이벤트",
+      "eventId": "20558",
+      "name": "[양산증산] 26' 다시봐도 매력적인 볼매팡팡!",
       "type": "etc",
-      "start": "2026.04.01",
-      "end": "2027.04.01",
-      "movieName": "청주터미널"
+      "start": "2026.05.01",
+      "end": "2026.06.30",
+      "movieName": "양산증산"
     },
     {
-      "eventId": "20087",
-      "name": "[강남] 문화의날? 더블할인!",
-      "type": "coupon",
-      "start": "2026.02.01",
+      "eventId": "20505",
+      "name": "[강남] 생차 녹차, 호지차와 함께하는 가정의 달",
+      "type": "etc",
+      "start": "2026.05.01",
       "end": "2026.06.30",
       "movieName": "강남"
     },
     {
-      "eventId": "19943",
-      "name": "[강남] 영화와 함께 휴식 - 노보텔 관람권 패키지",
-      "type": "coupon",
-      "start": "2026.01.26",
+      "eventId": "20633",
+      "name": "[더 부티크 목동현대백화점] 부티크 스위트 와인 패키지",
+      "type": "etc",
+      "start": "2026.05.01",
       "end": "2026.05.31",
-      "movieName": "강남"
+      "movieName": "더 부티크 목동현대백화점"
     },
     {
-      "eventId": "19795",
-      "name": "[광명AK플라자] 관람권패키지 3+1 특가 한정 판매!",
-      "type": "coupon",
-      "start": "2026.01.09",
-      "end": "2026.12.31",
-      "movieName": "광명AK플라자"
-    },
-    {
-      "eventId": "18655",
-      "name": "[킨텍스] 돌아온 고양 PASS",
+      "eventId": "20183",
+      "name": "[안성스타필드] 아침을 놓쳐도 괜찮아!",
       "type": "etc",
-      "start": "2026.01.05",
+      "start": "2026.03.09",
+      "end": "2026.06.30",
+      "movieName": "안성스타필드"
+    },
+    {
+      "eventId": "20559",
+      "name": "[대구신세계] 짐 보관 서비스",
+      "type": "etc",
+      "start": "2026.03.01",
+      "end": "2026.12.31",
+      "movieName": "대구신세계"
+    },
+    {
+      "eventId": "20044",
+      "name": "[구의 이스트폴] 이달의 칩스 할인 이벤트",
+      "type": "coupon",
+      "start": "2026.03.01",
+      "end": "2026.06.30",
+      "movieName": "구의 이스트폴"
+    },
+    {
+      "eventId": "20043",
+      "name": "[구의 이스트폴] 싱글 콤보 이벤트",
+      "type": "etc",
+      "start": "2026.03.01",
+      "end": "2026.05.31",
+      "movieName": "구의 이스트폴"
+    },
+    {
+      "eventId": "19489",
+      "name": "[구의 이스트폴] 이완미엔 제휴이벤트",
+      "type": "etc",
+      "start": "2025.10.01",
+      "end": "2026.06.01",
+      "movieName": "구의 이스트폴"
+    },
+    {
+      "eventId": "18698",
+      "name": "[삼천포] 메가박스 X 아르떼 리조트",
+      "type": "etc",
+      "start": "2025.09.01",
+      "end": "2026.12.31",
+      "movieName": "삼천포"
+    },
+    {
+      "eventId": "18118",
+      "name": "[수원인계] 라면 먹고 갈래?",
+      "type": "etc",
+      "start": "2025.06.19",
+      "end": "2028.12.31",
+      "movieName": "수원인계"
+    },
+    {
+      "eventId": "17955",
+      "name": "[킨텍스] 여유로운 조조영화 즐기기",
+      "type": "etc",
+      "start": "2025.05.19",
       "end": "2026.12.31",
       "movieName": "킨텍스"
-    },
-    {
-      "eventId": "17256",
-      "name": "[포항] 포항 제휴 업체 할인",
-      "type": "coupon",
-      "start": "2025.02.01",
-      "end": "2026.08.31",
-      "movieName": "포항"
-    },
-    {
-      "eventId": "17206",
-      "name": "[포항] 짐보관 서비스",
-      "type": "etc",
-      "start": "2025.01.30",
-      "end": "2026.12.31",
-      "movieName": "포항"
-    },
-    {
-      "eventId": "17111",
-      "name": "[세종(조치원)] 영화 보고, 맛있는 팝콘 리필하기!",
-      "type": "etc",
-      "start": "2025.01.24",
-      "end": "2026.12.31",
-      "movieName": "세종(조치원)"
-    },
-    {
-      "eventId": "17209",
-      "name": "[정관] 카카오채널 친구추가 이벤트",
-      "type": "etc",
-      "start": "2025.01.01",
-      "end": "2026.12.31",
-      "movieName": "정관"
     }
   ],
   "endedEvents": [

@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-05-26T21:36:02+09:00",
-  "source": "CGV booking API auto-scan (searchSchByMov)",
+  "fetchedAt": "2026-05-28T07:44:50+09:00",
+  "source": "CGV booking API auto-scan (searchSchByMov, union with prev)",
   "events": {
     "202605218157": [],
     "202605147645": [],
@@ -41,8 +41,24 @@
         "hall": "6관",
         "sessions": 1,
         "seats": 97
+      },
+      {
+        "branch": "왕십리",
+        "hall": "2관",
+        "sessions": 2,
+        "seats": 216
       }
     ],
-    "202605218057": []
+    "202605218057": [],
+    "202605268451": [
+      {
+        "branch": "연남",
+        "hall": "4관",
+        "sessions": 1,
+        "seats": 188
+      }
+    ],
+    "202605278356": [],
+    "202605268354": []
   }
 }

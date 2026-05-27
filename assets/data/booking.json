@@ -1,65 +1,65 @@
 {
   "source": "KOBIS 실시간 예매율 · findRealTicketList.do",
-  "fetchedAt": "2026-05-27T07:00:08+09:00",
+  "fetchedAt": "2026-05-28T07:00:09+09:00",
   "bookingRate": [
     {
       "rank": 1,
       "movieCd": "20252402",
       "title": "군체",
       "openDt": "2026-05-21",
-      "rate": 37.6,
-      "audience": 163202,
-      "delta": "+1.2",
+      "rate": 36.8,
+      "audience": 145807,
+      "delta": "-0.8",
       "genre": "액션, 스릴러"
     },
     {
       "rank": 2,
-      "movieCd": "20263030",
-      "title": "백룸",
-      "openDt": "2026-05-27",
-      "rate": 10.9,
-      "audience": 47346,
-      "delta": "+3.0",
-      "genre": "공포(호러), 스릴러"
-    },
-    {
-      "rank": 3,
       "movieCd": "20248252",
       "title": "와일드 씽",
       "openDt": "2026-06-03",
-      "rate": 10.9,
-      "audience": 47238,
-      "delta": "-2.2",
+      "rate": 12.7,
+      "audience": 50485,
+      "delta": "+1.8",
       "genre": "코미디"
     },
     {
-      "rank": 4,
-      "movieCd": "20258236",
-      "title": "만달로리안과 그로구",
+      "rank": 3,
+      "movieCd": "20263030",
+      "title": "백룸",
       "openDt": "2026-05-27",
-      "rate": 8.4,
-      "audience": 36622,
-      "delta": "-0.1",
-      "genre": "액션, 어드벤처"
+      "rate": 9.3,
+      "audience": 36934,
+      "delta": "-1.6",
+      "genre": "공포(호러), 스릴러"
     },
     {
-      "rank": 5,
+      "rank": 4,
       "movieCd": "20263761",
       "title": "플레이브 아시아 투어 [대쉬: 퀀텀 리프] 앙코르 인 시네마",
       "openDt": "2026-06-03",
-      "rate": 6.7,
-      "audience": 29101,
-      "delta": "-2.1",
+      "rate": 7.3,
+      "audience": 28865,
+      "delta": "+0.6",
       "genre": "공연"
+    },
+    {
+      "rank": 5,
+      "movieCd": "20258236",
+      "title": "만달로리안과 그로구",
+      "openDt": "2026-05-27",
+      "rate": 6.7,
+      "audience": 26573,
+      "delta": "-1.7",
+      "genre": "액션, 어드벤처"
     },
     {
       "rank": 6,
       "movieCd": "20259626",
       "title": "마이클",
       "openDt": "2026-05-13",
-      "rate": 6.6,
-      "audience": 28500,
-      "delta": "-0.3",
+      "rate": 5.5,
+      "audience": 21781,
+      "delta": "-1.1",
       "genre": "드라마"
     },
     {
@@ -67,9 +67,9 @@
       "movieCd": "20263512",
       "title": "이상한 과자 가게 전천당",
       "openDt": "2026-05-29",
-      "rate": 2.3,
-      "audience": 9883,
-      "delta": "+0.5",
+      "rate": 4.0,
+      "audience": 15804,
+      "delta": "+1.7",
       "genre": "판타지, 드라마"
     },
     {
@@ -77,30 +77,30 @@
       "movieCd": "20263344",
       "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
       "openDt": "2026-05-20",
-      "rate": 1.6,
-      "audience": 7126,
-      "delta": "-0.2",
+      "rate": 1.5,
+      "audience": 6123,
+      "delta": "-0.1",
       "genre": "코미디, 어드벤처, SF"
     },
     {
       "rank": 9,
-      "movieCd": "20258837",
-      "title": "뒷자리에 태워줘",
-      "openDt": "2026-05-27",
-      "rate": 1.4,
-      "audience": 5991,
-      "delta": "-0.2",
-      "genre": "드라마"
+      "movieCd": "20263521",
+      "title": "카드캡터 체리 극장판",
+      "openDt": "2026-05-28",
+      "rate": 1.5,
+      "audience": 5960,
+      "delta": "NEW",
+      "genre": "애니메이션"
     },
     {
       "rank": 10,
-      "movieCd": "20263222",
-      "title": "극장판 호빵맨: 세균맨과 그림책의 루룬",
-      "openDt": "2026-05-23",
-      "rate": 1.2,
-      "audience": 5106,
+      "movieCd": "20261766",
+      "title": "상자 속의 양",
+      "openDt": "2026-06-10",
+      "rate": 1.4,
+      "audience": 5592,
       "delta": "NEW",
-      "genre": "애니메이션"
+      "genre": "드라마, SF"
     }
   ]
 }
