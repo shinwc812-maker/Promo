@@ -25,8 +25,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.55;
   padding: 32px 40px 48px;
   min-height: 100vh;
   background-image:
@@ -45,7 +45,7 @@ body {
 }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-2);
@@ -67,7 +67,7 @@ body {
 h1.title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: 54px;
+  font-size: 62px;
   line-height: 1;
   letter-spacing: -0.02em;
   font-variation-settings: "opsz" 144;
@@ -80,7 +80,7 @@ h1.title em {
 .masthead-meta {
   text-align: right;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink-2);
   letter-spacing: 0.04em;
   line-height: 1.7;
@@ -93,7 +93,7 @@ h1.title em {
   display: flex;
   justify-content: space-between;
   padding: 12px 0 32px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-3);
   letter-spacing: 0.02em;
 }
@@ -114,7 +114,7 @@ h1.title em {
   align-items: center;
   gap: 7px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-2);
@@ -139,18 +139,18 @@ h1.title em {
 }
 .section-label .num {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--accent);
   letter-spacing: 0.1em;
 }
 .section-label .name {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
 .section-label .desc {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-3);
   margin-left: auto;
   font-style: italic;
@@ -195,13 +195,13 @@ h1.title em {
 }
 .panel-head h2 {
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: 23px;
   font-weight: 500;
   letter-spacing: -0.005em;
 }
 .panel-head .tag {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-3);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -225,7 +225,7 @@ h1.title em {
 .rank-row:hover { background: rgba(142, 31, 27, 0.02); }
 .rank-row .rank {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink-3);
 }
@@ -234,7 +234,7 @@ h1.title em {
   font-weight: 600;
 }
 .rank-row .title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink);
   overflow: hidden;
@@ -245,7 +245,7 @@ h1.title em {
 }
 .rank-row .metric {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink);
   text-align: right;
@@ -253,7 +253,7 @@ h1.title em {
 }
 .rank-row .delta {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink-3);
   text-align: right;
   min-width: 60px;
@@ -275,7 +275,7 @@ h1.title em {
   gap: 12px;
   padding: 8px 0;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-3);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -320,7 +320,7 @@ table.matrix thead th {
   text-align: right;
   padding: 16px 8px 12px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-2);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -336,7 +336,7 @@ table.matrix thead th.l {
 }
 table.matrix thead th .sub {
   display: block;
-  font-size: 9px;
+  font-size: 10px;
   color: var(--ink-4);
   margin-top: 2px;
   letter-spacing: 0.08em;
@@ -363,7 +363,7 @@ td.movie {
   padding-left: 0 !important;
 }
 td.movie .name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink);
   display: block;
@@ -396,7 +396,7 @@ table.matrix td.seat-ratio .val {
 }
 .chip {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 9.5px;
   padding: 1px 4px;
   border: 1px solid var(--line);
   color: var(--ink-4);
@@ -413,7 +413,7 @@ table.matrix td.seat-ratio .val {
 /* 롯데시네마 프로모션 패널 (Phase 4 파일럿) */
 .pcount {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink);
 }
@@ -423,12 +423,12 @@ table.matrix td.seat-ratio .val {
   padding: 26px 10px;
   color: var(--ink-3);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 td .val {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink);
   display: block;
@@ -436,7 +436,7 @@ td .val {
 }
 td .share {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: var(--ink-3);
   margin-top: 4px;
   display: flex;
@@ -469,7 +469,7 @@ td.efficiency {
 }
 td.efficiency .eff {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   padding: 5px 10px;
   display: inline-block;
@@ -494,7 +494,7 @@ td.efficiency .eff {
 td.efficiency .label {
   display: block;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
   color: var(--ink-3);
   margin-top: 5px;
   letter-spacing: 0.08em;
@@ -512,7 +512,7 @@ td.efficiency .label {
   background: var(--bg-deep);
 }
 .section-label.ref .name {
-  font-size: 18px;
+  font-size: 21px;
   color: var(--ink-2);
 }
 
@@ -525,13 +525,13 @@ td.efficiency .label {
 table.ref-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12.5px;
+  font-size: 13.5px;
 }
 table.ref-table thead th {
   text-align: right;
   padding: 8px 12px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-3);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -549,7 +549,7 @@ table.ref-table tbody tr.empty td { opacity: 0.55; }
 
 td.ref-title {
   text-align: left !important;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-2);
   width: 150px;
   min-width: 150px;
@@ -564,16 +564,16 @@ td.ref-total {
 }
 td.ref-total strong {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
 }
 td.ref-total .unit {
   color: var(--ink-3);
   margin-left: 3px;
-  font-size: 10.5px;
+  font-size: 11.5px;
 }
 td.ref-cell {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink-3);
   letter-spacing: 0.02em;
 }
@@ -588,7 +588,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 
 .ref-break .empty-mark {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: var(--ink-4);
   font-style: italic;
 }
@@ -597,7 +597,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
   padding-top: 12px;
   border-top: 1px dotted var(--line-soft);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-3);
   letter-spacing: 0.02em;
   line-height: 1.6;
@@ -611,7 +611,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
   padding-top: 16px;
   border-top: 1px solid var(--line-soft);
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: var(--ink-3);
   letter-spacing: 0.04em;
 }
@@ -635,7 +635,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: var(--ink-3);
   letter-spacing: 0.04em;
 }
@@ -644,7 +644,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 
 @media (max-width: 1100px) {
   .top-grid { grid-template-columns: 1fr; }
-  h1.title { font-size: 38px; }
+  h1.title { font-size: 44px; }
   body { padding: 24px 20px; }
 }
 
@@ -652,7 +652,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 @media (max-width: 640px) {
   body { padding: 16px 12px 28px; }
   .masthead { grid-template-columns: 1fr; gap: 10px; }
-  h1.title { font-size: 28px; }
+  h1.title { font-size: 32px; }
   .masthead-meta { text-align: left; }
   .subhead { flex-direction: column; gap: 6px; }
   .footnote { flex-direction: column; gap: 12px; }
@@ -694,14 +694,14 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 }
 .modal-eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.2em;
   color: var(--accent);
   margin-bottom: 8px;
 }
 .modal-header h2 {
   font-family: var(--font-serif);
-  font-size: 42px;
+  font-size: 50px;
   font-weight: 500;
   line-height: 1;
 }
@@ -712,7 +712,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 }
 .modal-badges .badge {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   padding: 3px 8px;
   background: var(--accent);
   color: white;
@@ -736,7 +736,7 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 /* ===== 프로모션 상세 테이블 (모달) ===== */
 .detail-section-label {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
@@ -749,11 +749,11 @@ td.ref-cell.z em { color: var(--ink-4); font-weight: 400; }
 table.promo-detail {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 14px;
 }
 table.promo-detail thead th {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--ink-2);
@@ -797,7 +797,7 @@ table.promo-detail td.evt a.evt-link:hover {
 table.promo-detail td.num {
   text-align: right;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   white-space: nowrap;
   color: var(--ink-2);
 }
@@ -817,7 +817,7 @@ table.promo-detail .promo-empty {
 }
 .promo-detail-note {
   margin-top: 16px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink-3);
   font-style: italic;
   line-height: 1.5;
@@ -838,7 +838,7 @@ table.promo-detail .promo-empty {
   cursor: pointer;
   padding: 14px 2px 12px;
   font-family: var(--font-mono);
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--accent);
@@ -863,15 +863,15 @@ table.promo-detail .promo-empty {
   gap: 8px;
   padding: 9px 2px;
   border-bottom: 1px dotted var(--line);
-  font-size: 12.5px;
+  font-size: 13.5px;
   color: var(--ink-4);
 }
 .ended-row:last-of-type { border-bottom: none; }
 .ended-row .chip { flex: 0 0 auto; }
-.ended-row .badge.gray { font-size: 9px; padding: 1px 5px; }
+.ended-row .badge.gray { font-size: 10px; padding: 1px 5px; }
 .ended-row .ended-type {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-3);
   white-space: nowrap;
 }
@@ -887,7 +887,7 @@ table.promo-detail .promo-empty {
 .ended-row .ended-metric {
   flex: 0 0 auto;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink-2);
   white-space: nowrap;
   text-align: right;
@@ -896,7 +896,7 @@ table.promo-detail .promo-empty {
 .ended-row .ended-date {
   flex: 0 0 auto;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink-3);
   white-space: nowrap;
   text-align: right;
@@ -904,14 +904,14 @@ table.promo-detail .promo-empty {
 }
 .ended-note {
   margin-top: 8px;
-  font-size: 10.5px;
+  font-size: 11.5px;
   color: var(--ink-3);
   font-style: italic;
 }
 /* 체인 칩 색상 (모달용 — 기존 chip 클래스 재사용되나 없을 경우 대비) */
 table.promo-detail .chip {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   padding: 2px 6px;
   border-radius: 2px;
