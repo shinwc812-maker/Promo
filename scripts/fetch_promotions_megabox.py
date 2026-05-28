@@ -101,6 +101,16 @@ SCREENINGS = {
         {"branch": "코엑스", "hall": "3관", "sessions": 2},
         {"branch": "코엑스", "hall": "Dolby Cinema", "sessions": 2},  # 1관 378석
     ],
+    # 군체 서프라이즈 무대인사 (5/28 상암월드컵경기장 — 일정표 이미지 20667_2.jpg)
+    "20667": [
+        {"branch": "상암월드컵경기장", "hall": "3관", "sessions": 2},
+        {"branch": "상암월드컵경기장", "hall": "5관", "sessions": 2},
+        {"branch": "상암월드컵경기장", "hall": "Dolby Vision Atmos", "sessions": 2},
+    ],
+    # 군체 서프라이즈 GV (5/28 18:40 상암월드컵경기장 1관 — 본문 20668_2.jpg)
+    "20668": [
+        {"branch": "상암월드컵경기장", "hall": "1관", "sessions": 1},
+    ],
 }
 
 # 타입 분류 키워드 (우선순위 순) — 롯데 크롤러와 동일 기준 + 메가박스 굿즈명
@@ -408,7 +418,9 @@ def main():
             unmatched.append(event_rec)
 
     # --- 종료 이벤트 누적(carry-forward) — 전체 보관 ---
-    # 직전 출력에서 종료분을 이월하고, 어제 진행중이었으나 종료일이 지난 이벤트를 승격.
+    # 직전 출력에서 종료분을 이월하고, 종료일이 지난 이벤트를 승격.
+    # 종료일이 오늘인 이벤트는 메가박스 API 가 진행중 목록에서 일찍 빼버리는 경우가 있어
+    # `ee <= today` 로 승격하되, 오늘 active 목록(movies+unmatched)에 잡힌 건 제외.
     # movies[](진행중)는 그대로 두므로 counts/promoSeats/실예매 집계엔 영향 없음.
     prev = {}
     if OUT_FILE.exists():
@@ -417,15 +429,29 @@ def main():
         except (json.JSONDecodeError, OSError):
             prev = {}
     ended_by_id = {e["eventId"]: e for e in prev.get("endedEvents", [])}
+    active_ids = {e["eventId"] for mv in movies.values() for e in mv["events"]}
+    active_ids.update(u["eventId"] for u in unmatched if u.get("eventId"))
     _KEEP = ("eventId", "name", "type", "start", "end", "seats", "issued", "theaters")
     for mv in prev.get("movies", []):
         for e in mv.get("events", []):
             ee = e.get("end", "")
-            if ee and ee < today and e["eventId"] not in ended_by_id:
-                rec = {k: e[k] for k in _KEEP if k in e}
-                rec.update(ended=True, end=ee,
-                           movieCd=mv["movieCd"], movieTitle=mv["title"])
-                ended_by_id[e["eventId"]] = rec
+            eid_p = e.get("eventId", "")
+            if not (ee and eid_p) or eid_p in ended_by_id or eid_p in active_ids:
+                continue
+            if ee > today:
+                continue
+            rec = {k: e[k] for k in _KEEP if k in e}
+            # SCREENINGS dict 후행 보강 — prev seats 가 비어있고 dict 가 갱신된 경우
+            # 합산해서 채운 뒤 ended 로 승격 (그렇지 않으면 미공개로 굳음)
+            if (not rec.get("seats")) and eid_p in SCREENINGS:
+                total = 0
+                for s in SCREENINGS[eid_p]:
+                    total += lookup_seats(seat_map, s["branch"], s["hall"]) * s["sessions"]
+                if total:
+                    rec["seats"] = total
+            rec.update(ended=True, end=ee,
+                       movieCd=mv["movieCd"], movieTitle=mv["title"])
+            ended_by_id[eid_p] = rec
 
     out = {
         "chain": "MEGABOX",

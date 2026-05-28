@@ -1,7 +1,7 @@
 {
   "chain": "LOTTE",
   "source": "롯데시네마 이벤트 API · LCWS/Event/EventData.aspx",
-  "fetchedAt": "2026-05-28T07:01:45+09:00",
+  "fetchedAt": "2026-05-28T10:36:43+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -94,7 +94,7 @@
       "title": "백룸",
       "matched": true,
       "counts": {
-        "coupon": 3,
+        "coupon": 4,
         "stage": 1,
         "goods": 2,
         "etc": 0
@@ -159,6 +159,15 @@
           "issued": 3500,
           "start": "2026.05.21",
           "end": "2026.06.02",
+          "source": "롯데 무비싸다구 (SpeedMulti API)"
+        },
+        {
+          "eventId": "sadagu-20263030-3",
+          "name": "<백룸> 무비싸다구 2,000원 쿠폰",
+          "type": "coupon",
+          "issued": 2000,
+          "start": "2026.05.29",
+          "end": "2026.06.04",
           "source": "롯데 무비싸다구 (SpeedMulti API)"
         }
       ]
@@ -878,14 +887,6 @@
       "movieName": "비발디와 나"
     },
     {
-      "eventId": "201010050326014",
-      "name": "<훈련사> 경기인디시네마 엽서 증정 이벤트",
-      "type": "goods",
-      "start": "2026.05.13",
-      "end": "2026.06.09",
-      "movieName": "훈련사"
-    },
-    {
       "eventId": "201010050326010",
       "name": "<힌드의목소리> 경기인디시네마 포스터 증정",
       "type": "goods",
@@ -967,7 +968,7 @@
       "branches": [
         "광교"
       ],
-      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/bd999da1d41d4165b96d3533dd26e6e9.jpg",
+      "posterUrl": "http://cf.lottecinema.co.kr//Media/Event/a814e0d1ec3f49b8a254839d495dda7a.jpg",
       "imagePath": "assets/data/lotte_images/401070050326004.jpg",
       "movieName": "훈련사"
     },
@@ -1009,7 +1010,6 @@
       "type": "stage",
       "start": "2026.05.31",
       "end": "2026.05.31",
-      "premiereDetected": true,
       "screenings": [
         {
           "branch": "월드타워",

@@ -449,7 +449,9 @@ def main():
             unmatched.append(event_rec)
 
     # --- 종료 이벤트 누적(carry-forward) — 전체 보관 ---
-    # 직전 출력에서 종료분을 이월하고, 어제 진행중이었으나 종료일이 지난 이벤트를 승격.
+    # 직전 출력에서 종료분을 이월하고, 종료일이 지난 이벤트를 승격.
+    # 종료일이 오늘인 이벤트도 API 가 진행중 목록에서 일찍 빼버리는 경우가 있어
+    # `ee <= today` 로 승격하되, 오늘 active 목록(movies+unmatched)에 잡힌 건 제외.
     # (CGV 날짜 포맷은 %Y-%m-%d — 자기 파일 안에서만 비교하므로 일관)
     # movies[](진행중)는 그대로 두므로 counts/promoSeats/실예매 집계엔 영향 없음.
     prev = {}
@@ -459,15 +461,31 @@ def main():
         except (json.JSONDecodeError, OSError):
             prev = {}
     ended_by_id = {e["eventId"]: e for e in prev.get("endedEvents", [])}
+    active_ids = {e["eventId"] for mv in movies.values() for e in mv["events"]}
+    active_ids.update(u["eventId"] for u in unmatched if u.get("eventId"))
     _KEEP = ("eventId", "name", "type", "start", "end", "seats", "issued", "theaters")
     for mv in prev.get("movies", []):
         for e in mv.get("events", []):
             ee = e.get("end", "")
-            if ee and ee < today and e["eventId"] not in ended_by_id:
-                rec = {k: e[k] for k in _KEEP if k in e}
-                rec.update(ended=True, end=ee,
-                           movieCd=mv["movieCd"], movieTitle=mv["title"])
-                ended_by_id[e["eventId"]] = rec
+            eid_p = e.get("eventId", "")
+            if not (ee and eid_p) or eid_p in ended_by_id or eid_p in active_ids:
+                continue
+            if ee > today:
+                continue
+            rec = {k: e[k] for k in _KEEP if k in e}
+            # auto/SCREENINGS 후행 보강 — prev seats 가 비어있고 dict 갱신된 경우
+            # 합산해서 채운 뒤 ended 로 승격. auto(부킹 API 직접 검출) 우선.
+            if not rec.get("seats"):
+                auto_scr = auto_screenings.get(eid_p)
+                auto_sum = sum((s.get("seats") or 0) for s in (auto_scr or []))
+                screenings = auto_scr if (auto_scr and auto_sum > 0) else (SCREENINGS.get(eid_p) or auto_scr)
+                if screenings:
+                    seats, _ph = compute_seats(screenings, seat_map)
+                    if seats:
+                        rec["seats"] = seats
+            rec.update(ended=True, end=ee,
+                       movieCd=mv["movieCd"], movieTitle=mv["title"])
+            ended_by_id[eid_p] = rec
 
     out = {
         "chain": "CGV",

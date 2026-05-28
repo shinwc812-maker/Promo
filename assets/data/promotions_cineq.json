@@ -1,7 +1,7 @@
 {
   "chain": "CINEQ",
   "source": "씨네큐 공식 이벤트 API",
-  "fetchedAt": "2026-05-28T07:01:51+09:00",
+  "fetchedAt": "2026-05-28T10:32:06+09:00",
   "movies": [
     {
       "movieCd": "20252402",
@@ -88,6 +88,26 @@
           "name": "<만달로리안과 그로구> SNS 인증 이벤트",
           "type": "etc",
           "duration": "2026.05.15~2026.06.07",
+          "fetchedAt": "2026-05-28"
+        }
+      ]
+    },
+    {
+      "movieCd": "20263030",
+      "title": "백룸",
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 1,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "7193",
+          "name": "<백룸> 1주차 주말 현장 증정 이벤트",
+          "type": "goods",
+          "duration": "2026.05.30~2026.06.06",
           "fetchedAt": "2026-05-28"
         }
       ]
