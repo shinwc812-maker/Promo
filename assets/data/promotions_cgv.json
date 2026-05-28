@@ -1,7 +1,7 @@
 {
   "chain": "CGV",
   "source": "CGV 이벤트 상세 포스터 이미지 분석 + 좌석 합산",
-  "fetchedAt": "2026-05-28T10:36:48+09:00",
+  "fetchedAt": "2026-05-28T11:39:20+09:00",
   "movies": [
     {
       "movieCd": "20263344",
@@ -65,7 +65,18 @@
           "name": "[너바나 더 밴드...] 수입 비하인드 GV",
           "type": "stage",
           "start": "2026-05-30",
-          "end": "2026-05-30"
+          "end": "2026-05-30",
+          "screenings": [
+            {
+              "branch": "강변",
+              "hall": null,
+              "sessions": 1
+            }
+          ],
+          "seats": null,
+          "branches": [
+            "강변"
+          ]
         },
         {
           "eventId": "202605187648",
@@ -89,14 +100,14 @@
           "end": "2026-06-02",
           "screenings": [
             {
-              "branch": "청량리",
+              "branch": "왕십리",
               "hall": null,
-              "sessions": 1
+              "sessions": 2
             }
           ],
           "seats": null,
           "branches": [
-            "청량리"
+            "왕십리"
           ]
         },
         {
@@ -431,14 +442,30 @@
         "goods": 0,
         "etc": 0
       },
-      "promoSeats": 0,
+      "promoSeats": 520,
       "events": [
         {
           "eventId": "202605278356",
           "name": "[상자 속의 양] 프리미어 내한 무대인사",
           "type": "stage",
           "start": "2026-06-05",
-          "end": "2026-06-05"
+          "end": "2026-06-05",
+          "screenings": [
+            {
+              "branch": "왕십리",
+              "hall": "7관",
+              "sessions": 1
+            },
+            {
+              "branch": "왕십리",
+              "hall": "5관",
+              "sessions": 1
+            }
+          ],
+          "seats": 520,
+          "branches": [
+            "왕십리"
+          ]
         }
       ]
     },
