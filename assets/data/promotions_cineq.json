@@ -1,42 +1,8 @@
 {
   "chain": "CINEQ",
   "source": "씨네큐 공식 이벤트 API",
-  "fetchedAt": "2026-05-29T07:01:41+09:00",
+  "fetchedAt": "2026-05-30T07:01:39+09:00",
   "movies": [
-    {
-      "movieCd": "20258236",
-      "title": "만달로리안과 그로구",
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 0,
-        "etc": 3
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "7196",
-          "name": "<만달로리안과 그로구> 구로구에서 그로구 보라구 상영회",
-          "type": "etc",
-          "duration": "2026.05.30~2026.05.31",
-          "fetchedAt": "2026-05-29"
-        },
-        {
-          "eventId": "7104",
-          "name": "<만달로리안과 그로구> 단체 관람 예매 이벤트",
-          "type": "etc",
-          "duration": "2026.05.27~2026.06.02",
-          "fetchedAt": "2026-05-29"
-        },
-        {
-          "eventId": "7088",
-          "name": "<만달로리안과 그로구> SNS 인증 이벤트",
-          "type": "etc",
-          "duration": "2026.05.15~2026.06.07",
-          "fetchedAt": "2026-05-29"
-        }
-      ]
-    },
     {
       "movieCd": "20252402",
       "title": "군체",
@@ -44,32 +10,46 @@
         "coupon": 0,
         "stage": 1,
         "goods": 1,
-        "etc": 1
+        "etc": 3
       },
       "promoSeats": 602,
       "events": [
+        {
+          "eventId": "7216",
+          "name": "<군체> 흥행기념 N차 관람 이벤트",
+          "type": "etc",
+          "duration": "2026.05.21~2026.06.18",
+          "fetchedAt": "2026-05-30"
+        },
+        {
+          "eventId": "7206",
+          "name": "BILLET SPÉCIAL de CANNES <군체>",
+          "type": "etc",
+          "duration": "2026.06.03~2026.06.10",
+          "fetchedAt": "2026-05-30"
+        },
         {
           "eventId": "7189",
           "name": "무비0원딜! <군체>",
           "type": "etc",
           "duration": "2026.05.27~2026.06.14",
-          "fetchedAt": "2026-05-29"
+          "fetchedAt": "2026-05-30"
         },
         {
           "eventId": "7179",
           "name": "<군체> 2주차 현장 증정 이벤트",
           "type": "goods",
           "duration": "2026.05.27~2026.06.03",
-          "fetchedAt": "2026-05-29"
+          "fetchedAt": "2026-05-30"
         },
         {
           "eventId": "7078",
           "name": "<군체> 씨네큐 2주차 무대인사",
           "type": "stage",
           "duration": "2026.05.30~2026.05.30",
-          "fetchedAt": "2026-05-29",
+          "fetchedAt": "2026-05-30",
           "posterUrls": [
-            "https://file.cineq.co.kr/j.aspx?guid=52e8080ea1014440ba3ee2abf1fe6150",
+            "https://file.cineq.co.kr/j.aspx?guid=56ec8264b4b9401590cc4ca325eec7d3",
             "https://file.cineq.co.kr/j.aspx?guid=5c94e37dd0264234a627b5e5fb7aa6c3",
             "https://file.cineq.co.kr/j.aspx?guid=1898d605556a4e41a0e9d697caabad9b"
           ],
@@ -100,6 +80,87 @@
       ]
     },
     {
+      "movieCd": "20258236",
+      "title": "만달로리안과 그로구",
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 0,
+        "etc": 3
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "7196",
+          "name": "<만달로리안과 그로구> 구로구에서 그로구 보라구 상영회",
+          "type": "etc",
+          "duration": "2026.05.30~2026.05.31",
+          "fetchedAt": "2026-05-30"
+        },
+        {
+          "eventId": "7104",
+          "name": "<만달로리안과 그로구> 단체 관람 예매 이벤트",
+          "type": "etc",
+          "duration": "2026.05.27~2026.06.02",
+          "fetchedAt": "2026-05-30"
+        },
+        {
+          "eventId": "7088",
+          "name": "<만달로리안과 그로구> SNS 인증 이벤트",
+          "type": "etc",
+          "duration": "2026.05.15~2026.06.07",
+          "fetchedAt": "2026-05-30"
+        }
+      ]
+    },
+    {
+      "movieCd": "20263344",
+      "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 2,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "7217",
+          "name": "<너바나 더 밴드...> 3주차 현장 증정 이벤트",
+          "type": "goods",
+          "duration": "2026.06.03~2026.06.09",
+          "fetchedAt": "2026-05-30"
+        },
+        {
+          "eventId": "7152",
+          "name": "<너바나 더 밴드...> 2주차 현장 증정 이벤트",
+          "type": "goods",
+          "duration": "2026.05.27~2026.06.02",
+          "fetchedAt": "2026-05-30"
+        }
+      ]
+    },
+    {
+      "movieCd": "20248252",
+      "title": "와일드 씽",
+      "counts": {
+        "coupon": 0,
+        "stage": 0,
+        "goods": 1,
+        "etc": 0
+      },
+      "promoSeats": 0,
+      "events": [
+        {
+          "eventId": "7203",
+          "name": "<와일드 씽> 개봉 1주차 현장 증정 이벤트",
+          "type": "goods",
+          "duration": "2026.06.03~2026.06.10",
+          "fetchedAt": "2026-05-30"
+        }
+      ]
+    },
+    {
       "movieCd": "20263030",
       "title": "백룸",
       "counts": {
@@ -115,67 +176,69 @@
           "name": "<백룸> 1주차 주말 현장 증정 이벤트",
           "type": "goods",
           "duration": "2026.05.30~2026.06.06",
-          "fetchedAt": "2026-05-29"
-        }
-      ]
-    },
-    {
-      "movieCd": "20258837",
-      "title": "뒷자리에 태워줘",
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 1,
-        "etc": 0
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "7158",
-          "name": "<뒷자리에 태워줘> 1주차 현장 증정 이벤트",
-          "type": "goods",
-          "duration": "2026.05.27~2026.06.02",
-          "fetchedAt": "2026-05-29"
-        }
-      ]
-    },
-    {
-      "movieCd": "20263344",
-      "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
-      "counts": {
-        "coupon": 0,
-        "stage": 0,
-        "goods": 1,
-        "etc": 0
-      },
-      "promoSeats": 0,
-      "events": [
-        {
-          "eventId": "7152",
-          "name": "<너바나 더 밴드...> 2주차 현장 증정 이벤트",
-          "type": "goods",
-          "duration": "2026.05.27~2026.06.02",
-          "fetchedAt": "2026-05-29"
+          "fetchedAt": "2026-05-30"
         }
       ]
     }
   ],
   "unmatched": [
     {
+      "eventId": "7215",
+      "name": "SERIES TICKET 152 <파이널 피스>",
+      "type": "goods",
+      "duration": "2026.06.03~2026.06.09",
+      "fetchedAt": "2026-05-30"
+    },
+    {
+      "eventId": "7214",
+      "name": "<콜럼버스> 개봉 1주차 현장 증정 이벤트",
+      "type": "goods",
+      "duration": "2026.06.03~2026.06.09",
+      "fetchedAt": "2026-05-30"
+    },
+    {
+      "eventId": "7213",
+      "name": "<신극장판 은혼: 요시와라 대염상> 3주차 현장 증정 이벤트",
+      "type": "goods",
+      "duration": "2026.06.03~2026.06.10",
+      "fetchedAt": "2026-05-30"
+    },
+    {
+      "eventId": "7207",
+      "name": "SERIES TICKET 151 <콜럼버스>",
+      "type": "goods",
+      "duration": "2026.06.03~2026.06.09",
+      "fetchedAt": "2026-05-30"
+    },
+    {
+      "eventId": "7205",
+      "name": "SPECIAL TICKET 294",
+      "type": "goods",
+      "duration": "2026.06.03~2026.06.10",
+      "fetchedAt": "2026-05-30"
+    },
+    {
+      "eventId": "7204",
+      "name": "<카드캡터 체리 극장판> 개봉 1주차 주말 현장 증정 이벤트",
+      "type": "goods",
+      "duration": "2026.05.30~2026.06.05",
+      "fetchedAt": "2026-05-30"
+    },
+    {
       "eventId": "7202",
       "name": "[청라점] 6월 만원의 행복!",
       "type": "etc",
       "duration": "2026.06.01~2026.06.30",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7201",
       "name": "[청라점] 6월 조조 할인!",
       "type": "coupon",
       "duration": "2026.06.01~2026.06.30",
-      "fetchedAt": "2026-05-29",
+      "fetchedAt": "2026-05-30",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=a238c1e676b34dc8b2db221e5c4638ce",
+        "https://file.cineq.co.kr/j.aspx?guid=56ec8264b4b9401590cc4ca325eec7d3",
         "https://file.cineq.co.kr/j.aspx?guid=ce284a1464e04ff78510bff625230b3e",
         "https://file.cineq.co.kr/j.aspx?guid=283e35a79e4e4794b613c48049dbf3b0"
       ],
@@ -190,94 +253,86 @@
       "name": "<케이온> 응원 상영회",
       "type": "etc",
       "duration": "2026.05.30~2026.05.30",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7188",
       "name": "<교생실습> 3주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.29~2026.06.04",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7178",
       "name": "<이프 온리> 3주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.27~2026.06.02",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7160",
       "name": "<신극장판 은혼: 요시와라 대염상> 2주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.27~2026.06.03",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
+    },
+    {
+      "eventId": "7158",
+      "name": "<뒷자리에 태워줘> 1주차 현장 증정 이벤트",
+      "type": "goods",
+      "duration": "2026.05.27~2026.06.02",
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7153",
       "name": "<카드캡터 체리 극장판> 1주차 현장 증정 이벤트",
       "type": "goods",
       "duration": "2026.05.28~2026.06.03",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7151",
       "name": "SPECIAL TICKET 293",
       "type": "goods",
       "duration": "2026.05.27~2026.06.03",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7147",
       "name": "SPECIAL TICKET 292",
       "type": "goods",
       "duration": "2026.05.27~2026.06.03",
-      "fetchedAt": "2026-05-29"
-    },
-    {
-      "eventId": "7144",
-      "name": "<돌핀보이: 푸른 바다의 수호자> 5월 바다의 날 기념 현장 이벤트",
-      "type": "etc",
-      "duration": "2026.05.22~2026.05.29",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7140",
       "name": "<신극장판 은혼: 요시와라 대염상> 카무이 생일축하 상영회",
       "type": "etc",
       "duration": "2026.05.31~2026.05.31",
-      "fetchedAt": "2026-05-29"
-    },
-    {
-      "eventId": "7136",
-      "name": "<신극장판 은혼: 요시와라 대염상> 개봉주 주말 현장 증정 이벤트",
-      "type": "goods",
-      "duration": "2026.05.23~2026.05.29",
-      "fetchedAt": "2026-05-29",
-      "theaters": 5
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7135",
       "name": "<돌핀보이: 푸른 바다의 수호자> 네이밍 챌린지 이벤트",
       "type": "etc",
       "duration": "2026.05.19~2026.06.01",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7102",
       "name": "무비0원딜! <교생실습>",
       "type": "etc",
       "duration": "2026.05.15~2026.05.31",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "7086",
       "name": "<상자 속의 양> 회원 시사회",
       "type": "stage",
       "duration": "2026.06.02~2026.06.02",
-      "fetchedAt": "2026-05-29",
+      "fetchedAt": "2026-05-30",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=52e8080ea1014440ba3ee2abf1fe6150",
+        "https://file.cineq.co.kr/j.aspx?guid=56ec8264b4b9401590cc4ca325eec7d3",
         "https://file.cineq.co.kr/j.aspx?guid=a65a1148bbd0456bb0f50f2967b5dc71",
         "https://file.cineq.co.kr/j.aspx?guid=22e53c63e2af4595a4926897180259a0"
       ],
@@ -292,9 +347,9 @@
       "name": "씨네Q 정부지원 국민 영화관람 할인권",
       "type": "coupon",
       "duration": "2026.05.13~2026.07.07",
-      "fetchedAt": "2026-05-29",
+      "fetchedAt": "2026-05-30",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=52e8080ea1014440ba3ee2abf1fe6150",
+        "https://file.cineq.co.kr/j.aspx?guid=56ec8264b4b9401590cc4ca325eec7d3",
         "https://file.cineq.co.kr/j.aspx?guid=fc87cb6583bd49a79d7aa50fcfd785de",
         "https://file.cineq.co.kr/j.aspx?guid=7859303d90784e1d91205eeeb46f97c3"
       ],
@@ -309,23 +364,23 @@
       "name": "[U+멤버십전용] 5월 유플투쁠 혜택",
       "type": "etc",
       "duration": "2026.05.14~2026.05.31",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "6992",
       "name": "[청라점] 5월 만원의 행복!",
       "type": "etc",
       "duration": "2026.05.01~2026.05.31",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "6991",
       "name": "[청라점] 5월 조조 할인!",
       "type": "coupon",
       "duration": "2026.05.01~2026.05.31",
-      "fetchedAt": "2026-05-29",
+      "fetchedAt": "2026-05-30",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=52e8080ea1014440ba3ee2abf1fe6150",
+        "https://file.cineq.co.kr/j.aspx?guid=56ec8264b4b9401590cc4ca325eec7d3",
         "https://file.cineq.co.kr/j.aspx?guid=8952e0c24ef94d22b3f517ac3a9a4529",
         "https://file.cineq.co.kr/j.aspx?guid=5cf2fce1f50e41a9a5a9cd8264ca7ec7"
       ],
@@ -340,37 +395,37 @@
       "name": "2026 VIP 혜택 발표",
       "type": "etc",
       "duration": "2026.01.13~2027.01.31",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "5750",
       "name": "[T멤버십] 씨네Q 상시 제휴★",
       "type": "etc",
       "duration": "2025.11.17~2026.12.31",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "5598",
       "name": "[U+멤버십] 씨네Q 상시제휴 론칭!",
       "type": "etc",
       "duration": "2025.11.01~2026.12.31",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "2240",
       "name": "영화비, 문화비 소득공제 적용",
       "type": "etc",
       "duration": "2023.07.01~2030.06.30",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     },
     {
       "eventId": "2029",
       "name": "[씨네QX대한적십자사] 헌혈 인증 할인!",
       "type": "coupon",
       "duration": "2023.04.06~2026.06.30",
-      "fetchedAt": "2026-05-29",
+      "fetchedAt": "2026-05-30",
       "posterUrls": [
-        "https://file.cineq.co.kr/j.aspx?guid=52e8080ea1014440ba3ee2abf1fe6150",
+        "https://file.cineq.co.kr/j.aspx?guid=56ec8264b4b9401590cc4ca325eec7d3",
         "https://file.cineq.co.kr/j.aspx?guid=8efbf0c070944efe84d0dd90080f61f9",
         "https://file.cineq.co.kr/j.aspx?guid=dcd244756efc4cb896ffc70f6f4ce65c"
       ],
@@ -385,7 +440,7 @@
       "name": "카카오톡 선물하기로 씨네Q를 만나보세요!",
       "type": "etc",
       "duration": "2023.02.22~2030.12.31",
-      "fetchedAt": "2026-05-29"
+      "fetchedAt": "2026-05-30"
     }
   ],
   "endedEvents": [

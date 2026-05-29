@@ -1,118 +1,118 @@
 {
   "source": "KOFIC OpenAPI · searchDailyBoxOfficeList",
-  "targetDt": "20260528",
-  "showRange": "20260528~20260528",
-  "fetchedAt": "2026-05-29T07:00:02+09:00",
+  "targetDt": "20260529",
+  "showRange": "20260529~20260529",
+  "fetchedAt": "2026-05-30T07:00:02+09:00",
   "boxOffice": [
     {
       "rank": 1,
       "movieCd": "20252402",
       "title": "군체",
-      "audience": 125417,
-      "change": "-40.1%",
+      "audience": 182212,
+      "change": "+45.3%",
       "openDt": "2026-05-21",
-      "salesAmt": 1296955010,
-      "salesAcc": 27211531920,
-      "audiAcc": 2503900
+      "salesAmt": 1976475280,
+      "salesAcc": 29188000350,
+      "audiAcc": 2686115
     },
     {
       "rank": 2,
       "movieCd": "20263030",
       "title": "백룸",
-      "audience": 33227,
-      "change": "-38.6%",
+      "audience": 57808,
+      "change": "+73.9%",
       "openDt": "2026-05-27",
-      "salesAmt": 362852540,
-      "salesAcc": 898490430,
-      "audiAcc": 87862
+      "salesAmt": 657436110,
+      "salesAcc": 1555950140,
+      "audiAcc": 145673
     },
     {
       "rank": 3,
       "movieCd": "20259626",
       "title": "마이클",
-      "audience": 18585,
-      "change": "-46.1%",
+      "audience": 23414,
+      "change": "+26.0%",
       "openDt": "2026-05-13",
-      "salesAmt": 194019990,
-      "salesAcc": 13983884510,
-      "audiAcc": 1258257
+      "salesAmt": 261377230,
+      "salesAcc": 14245225660,
+      "audiAcc": 1281666
     },
     {
       "rank": 4,
       "movieCd": "20258236",
       "title": "만달로리안과 그로구",
-      "audience": 12039,
-      "change": "-54.1%",
+      "audience": 14998,
+      "change": "+24.6%",
       "openDt": "2026-05-27",
-      "salesAmt": 142641350,
-      "salesAcc": 456941880,
-      "audiAcc": 39673
+      "salesAmt": 191339780,
+      "salesAcc": 648264660,
+      "audiAcc": 54669
     },
     {
       "rank": 5,
-      "movieCd": "20261766",
-      "title": "상자 속의 양",
-      "audience": 5408,
-      "change": "NEW",
-      "openDt": "2026-06-10",
-      "salesAmt": 48672000,
-      "salesAcc": 48672000,
-      "audiAcc": 5408
+      "movieCd": "20263512",
+      "title": "이상한 과자 가게 전천당",
+      "audience": 6699,
+      "change": "+111550.0%",
+      "openDt": "2026-05-29",
+      "salesAmt": 58046950,
+      "salesAcc": 80110150,
+      "audiAcc": 8646
     },
     {
       "rank": 6,
-      "movieCd": "20263521",
-      "title": "카드캡터 체리 극장판",
-      "audience": 4454,
-      "change": "NEW",
-      "openDt": "2026-05-28",
-      "salesAmt": 47878810,
-      "salesAcc": 47878810,
-      "audiAcc": 4454
+      "movieCd": "20248252",
+      "title": "와일드 씽",
+      "audience": 6217,
+      "change": "+212.7%",
+      "openDt": "2026-06-03",
+      "salesAmt": 61953000,
+      "salesAcc": 107993000,
+      "audiAcc": 11294
     },
     {
       "rank": 7,
       "movieCd": "20259791",
       "title": "악마는 프라다를 입는다 2",
-      "audience": 3695,
-      "change": "-30.7%",
+      "audience": 4255,
+      "change": "+15.2%",
       "openDt": "2026-04-29",
-      "salesAmt": 38536350,
-      "salesAcc": 15932661240,
-      "audiAcc": 1573423
+      "salesAmt": 47553490,
+      "salesAcc": 15980214730,
+      "audiAcc": 1577678
     },
     {
       "rank": 8,
       "movieCd": "20263344",
       "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
-      "audience": 2275,
-      "change": "-35.6%",
+      "audience": 2538,
+      "change": "+11.6%",
       "openDt": "2026-05-20",
-      "salesAmt": 25996800,
-      "salesAcc": 402688200,
-      "audiAcc": 35204
+      "salesAmt": 31051750,
+      "salesAcc": 433739950,
+      "audiAcc": 37742
     },
     {
       "rank": 9,
-      "movieCd": "20248252",
-      "title": "와일드 씽",
-      "audience": 1988,
-      "change": "NEW",
-      "openDt": "2026-06-03",
-      "salesAmt": 17897000,
-      "salesAcc": 46040000,
-      "audiAcc": 5077
+      "movieCd": "20258837",
+      "title": "뒷자리에 태워줘",
+      "audience": 1715,
+      "change": "+5.0%",
+      "openDt": "2026-05-27",
+      "salesAmt": 18367900,
+      "salesAcc": 68859650,
+      "audiAcc": 7023
     },
     {
       "rank": 10,
-      "movieCd": "20258837",
-      "title": "뒷자리에 태워줘",
-      "audience": 1634,
-      "change": "-20.1%",
-      "openDt": "2026-05-27",
-      "salesAmt": 14032650,
-      "salesAcc": 50491750,
-      "audiAcc": 5308
+      "movieCd": "20262975",
+      "title": "신극장판 은혼: 요시와라 대염상",
+      "audience": 1626,
+      "change": "+8.2%",
+      "openDt": "2026-05-20",
+      "salesAmt": 18944200,
+      "salesAcc": 657092430,
+      "audiAcc": 58127
     }
   ]
 }

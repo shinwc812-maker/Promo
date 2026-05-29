@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-29T07:44:38+09:00",
+  "fetchedAt": "2026-05-30T07:45:25+09:00",
   "source": "CGV booking API auto-scan (searchSchByMov, union with prev)",
   "events": {
     "202605218157": [],
@@ -47,6 +47,48 @@
         "hall": "2관",
         "sessions": 2,
         "seats": 216
+      },
+      {
+        "branch": "상봉",
+        "hall": "4관",
+        "sessions": 1,
+        "seats": 131
+      },
+      {
+        "branch": "영등포타임스퀘어",
+        "hall": "9관",
+        "sessions": 2,
+        "seats": 260
+      },
+      {
+        "branch": "용산아이파크몰",
+        "hall": "2관",
+        "sessions": 1,
+        "seats": 184
+      },
+      {
+        "branch": "용산아이파크몰",
+        "hall": "16관",
+        "sessions": 2,
+        "seats": 284
+      },
+      {
+        "branch": "야탑",
+        "hall": "1관",
+        "sessions": 1,
+        "seats": 149
+      },
+      {
+        "branch": "계양",
+        "hall": "2관",
+        "sessions": 1,
+        "seats": 114
+      },
+      {
+        "branch": "인천",
+        "hall": "6관",
+        "sessions": 2,
+        "seats": 282
       }
     ],
     "202605218057": [],
@@ -59,7 +101,33 @@
       }
     ],
     "202605278356": [],
-    "202605268354": [],
-    "202605187849": []
+    "202605268354": [
+      {
+        "branch": "강변",
+        "hall": "6관",
+        "sessions": 1,
+        "seats": 151
+      }
+    ],
+    "202605187849": [
+      {
+        "branch": "고덕강일",
+        "hall": "5관",
+        "sessions": 2,
+        "seats": 154
+      },
+      {
+        "branch": "동탄",
+        "hall": "1관",
+        "sessions": 2,
+        "seats": 260
+      },
+      {
+        "branch": "스타필드시티위례",
+        "hall": "2관",
+        "sessions": 2,
+        "seats": 176
+      }
+    ]
   }
 }
