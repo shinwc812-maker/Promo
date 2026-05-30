@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-30T07:45:25+09:00",
+  "fetchedAt": "2026-05-31T07:30:43+09:00",
   "source": "CGV booking API auto-scan (searchSchByMov, union with prev)",
   "events": {
     "202605218157": [],
@@ -89,6 +89,12 @@
         "hall": "6관",
         "sessions": 2,
         "seats": 282
+      },
+      {
+        "branch": "용산아이파크몰",
+        "hall": "11관",
+        "sessions": 1,
+        "seats": 194
       }
     ],
     "202605218057": [],

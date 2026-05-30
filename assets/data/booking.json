@@ -1,66 +1,66 @@
 {
   "source": "KOBIS 실시간 예매율 · findRealTicketList.do",
-  "fetchedAt": "2026-05-30T07:00:06+09:00",
+  "fetchedAt": "2026-05-31T07:00:08+09:00",
   "bookingRate": [
     {
       "rank": 1,
       "movieCd": "20252402",
       "title": "군체",
       "openDt": "2026-05-21",
-      "rate": 41.5,
-      "audience": 224044,
-      "delta": "+1.7",
+      "rate": 38.3,
+      "audience": 161586,
+      "delta": "-3.2",
       "genre": "액션, 스릴러"
     },
     {
       "rank": 2,
-      "movieCd": "20263030",
-      "title": "백룸",
-      "openDt": "2026-05-27",
-      "rate": 12.6,
-      "audience": 67755,
-      "delta": "+1.8",
-      "genre": "공포(호러), 스릴러"
-    },
-    {
-      "rank": 3,
       "movieCd": "20248252",
       "title": "와일드 씽",
       "openDt": "2026-06-03",
-      "rate": 10.2,
-      "audience": 54976,
-      "delta": "-1.7",
+      "rate": 13.7,
+      "audience": 57871,
+      "delta": "+3.5",
       "genre": "코미디"
+    },
+    {
+      "rank": 3,
+      "movieCd": "20263030",
+      "title": "백룸",
+      "openDt": "2026-05-27",
+      "rate": 11.5,
+      "audience": 48420,
+      "delta": "-1.1",
+      "genre": "공포(호러), 스릴러"
     },
     {
       "rank": 4,
       "movieCd": "20259626",
       "title": "마이클",
       "openDt": "2026-05-13",
-      "rate": 6.6,
-      "audience": 35377,
-      "delta": "+0.7",
+      "rate": 6.8,
+      "audience": 28861,
+      "delta": "+0.2",
       "genre": "드라마"
     },
     {
       "rank": 5,
-      "movieCd": "20258236",
-      "title": "만달로리안과 그로구",
-      "openDt": "2026-05-27",
-      "rate": 6.2,
-      "audience": 33409,
-      "delta": "-0.5",
-      "genre": "액션, 어드벤처"
-    },
-    {
-      "rank": 6,
       "movieCd": "20263761",
       "title": "플레이브 아시아 투어 [대쉬: 퀀텀 리프] 앙코르 인 시네마",
       "openDt": "2026-06-03",
-      "rate": 5.3,
-      "audience": 28437,
-      "delta": "-0.9",
+      "rate": 6.7,
+      "audience": 28244,
+      "delta": "+1.4",
       "genre": "공연"
+    },
+    {
+      "rank": 6,
+      "movieCd": "20258236",
+      "title": "만달로리안과 그로구",
+      "openDt": "2026-05-27",
+      "rate": 5.4,
+      "audience": 22827,
+      "delta": "-0.8",
+      "genre": "액션, 어드벤처"
     },
     {
       "rank": 7,
@@ -68,8 +68,8 @@
       "title": "이상한 과자 가게 전천당",
       "openDt": "2026-05-29",
       "rate": 4.5,
-      "audience": 24237,
-      "delta": "+0.1",
+      "audience": 19132,
+      "delta": "+0.0",
       "genre": "판타지, 드라마"
     },
     {
@@ -77,9 +77,9 @@
       "movieCd": "20259773",
       "title": "슈퍼 마리오 갤럭시",
       "openDt": "2026-04-29",
-      "rate": 1.3,
-      "audience": 6773,
-      "delta": "NEW",
+      "rate": 1.4,
+      "audience": 5907,
+      "delta": "+0.1",
       "genre": "애니메이션"
     },
     {
@@ -87,9 +87,9 @@
       "movieCd": "20263344",
       "title": "너바나 더 밴드 : 전설적 밴드 ‘너바나’와는 별 관련 없는 ‘너바나 더 밴드’의 콤비 맷과 제이. 어느 날 공연을 위해 타임머신을 만드는 황당한 작전을 세우고 처음 만났던 17년 전으로 돌",
       "openDt": "2026-05-20",
-      "rate": 1.2,
-      "audience": 6552,
-      "delta": "-0.2",
+      "rate": 1.1,
+      "audience": 4820,
+      "delta": "-0.1",
       "genre": "코미디, 어드벤처, SF"
     },
     {
@@ -97,8 +97,8 @@
       "movieCd": "20263222",
       "title": "극장판 호빵맨: 세균맨과 그림책의 루룬",
       "openDt": "2026-05-23",
-      "rate": 1.1,
-      "audience": 5714,
+      "rate": 0.9,
+      "audience": 3805,
       "delta": "-0.2",
       "genre": "애니메이션"
     }
